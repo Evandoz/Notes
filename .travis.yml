@@ -21,7 +21,7 @@ after_script:
 
 branches:
   only:
-    - hexo
+    - source
 env:
  global:
    - GH_REF: github.com/Levance/Levance.github.io.git

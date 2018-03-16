@@ -6,7 +6,7 @@
 title: 行而思
 subtitle: 行思而后喻
 description: 日常学习与兴趣挖掘
-author: Lauray
+author: Levance
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -107,5 +107,5 @@ feed:
 deploy:
   type: git
   repo:
-    github: git@github.com:Laueray/Laueray.github.io.git
+    github: git@github.com:Levance/Levance.github.io.git
   branch: master
