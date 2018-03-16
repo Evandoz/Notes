@@ -1,0 +1,145 @@
+.archives-wrap
+  position: relative
+  margin: 100px 0 60px
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    top: 20px
+    width: 3px
+    height: 100%
+    margin-left: -2px
+    background: #cdcdcd
+    z-index: -1
+  &.archives-tagcloud
+    margin-left: 0
+    &:after
+      content: none
+  &.archives-category
+    &:after
+      content: none
+
+  .archive-title
+  .category-title
+  .tag-title
+    position: relative
+    margin-bottom: 50px
+    padding-left: 30px
+    letter-spacing: 2px
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: -11px
+      margin-left: -11px
+      width: 22px
+      height: 22px
+      border: 5px solid color-white
+      border-radius: 50%
+      background: color-border
+
+  .archive-title
+    font-size: 1.1em
+
+  .category-title
+  .tag-title
+    font-size: 1.4em
+
+  .archive-year
+    position: relative
+    margin: 30px 0
+    padding-left: 30px
+    font-size: 1.3em
+    color: color-font
+    font-weight: bold
+    letter-spacing: 1px
+    text-transform: uppercase
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: -10px
+      margin-left: -10px
+      width: 20px
+      height: 20px
+      border: 5px solid color-white
+      border-radius: 50%
+      background: color-border
+
+  .archive-article
+    position: relative
+    padding: 10px 0
+    padding-left: 30px
+    font-size: 1.1em
+    line-height: 1.8
+    border-bottom: 1px dashed color-border
+    &:last-child
+      margin-bottom: 0
+    &:hover
+      &:before
+        background: color-black
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: -9px
+      margin-left: -9px
+      width: 18px
+      height: 18px
+      border: 5px solid color-white
+      border-radius: 50%
+      background: color-border
+      transition: border-color .3s
+
+    .archive-article-date
+      display: inline-block
+      padding-right: 15px
+      color: color-font
+
+    .archive-article-title
+      display: inline-block
+      color: color-font
+      letter-spacing: 2px
+      &:hover
+        color: color-black
+
+  .tagcloud
+    padding: 20px
+    background: color-white
+    text-align: center
+    a
+      display: inline-block
+      margin: 5px
+      color: color-font
+      &:hover
+        color: color-black
+  .category
+    padding-left: 15px
+    font-size: 1.1em
+    font-weight: 400
+    a
+      color: color-font
+
+.paginator
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-bottom: 100px
+  font-size: 1.2em
+  text-align: center
+  overflow: hidden
+  a, span
+    margin: 0 20px
+    text-align: center
+  .page-number
+    color: color-font
+    &:hover, &.current
+      color: color-black
+      font-weight: 600
+    &.current
+      border-bottom: 1px solid color-black
+  .prev, .next
+    color: color-black

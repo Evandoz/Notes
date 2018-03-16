@@ -1,0 +1,7 @@
+<div class="archives-wrap archives-category">
+  <% site.categories.sort('name').map(function(category){  %>
+  	<div class="archive-year category">
+    	<a href="<%- url_for('categories/'+category.name) %>"><%= category.name %></a>
+    </div>
+	<% }) %>
+</div>

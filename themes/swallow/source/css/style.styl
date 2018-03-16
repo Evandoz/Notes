@@ -1,0 +1,94 @@
+@import "nib"
+@import "_variables"
+
+global-reset()
+
+input, button
+  margin: 0
+  padding: 0
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+*
+  transition: all 0.2s
+  &:before, &:after
+    box-sizing: border-box
+
+a, &:hover, &:focus
+  text-decoration: none!important
+
+@font-face
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  src: url(font-icon-path + ".eot?v=#" + font-icon-version)
+  src: url(font-icon-path + ".eot?#iefix&v=#" + font-icon-version) format("embedded-opentype"),
+       url(font-icon-path + ".woff?v=#" + font-icon-version) format("woff"),
+       url(font-icon-path + ".ttf?v=#" + font-icon-version) format("truetype"),
+       url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
+
+@font-face
+  font-family: Roboto
+  font-style: normal
+  font-weight: normal
+  src: url("fonts/Roboto-Regular.ttf") format("truetype")
+
+@font-face
+  font-family: SourceCodePro
+  font-style: normal
+  font-weight: normal
+  src: url("fonts/SourceCodePro-Regular.ttf") format("truetype")
+
+html, body
+  height: 100%
+
+body
+  font: font-size font-sans
+  -webkit-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+#scrollup
+  position: fixed
+  z-index: 1
+  right: 50px
+  bottom: 45px
+
+  overflow: hidden
+
+  width: 30px
+  height: 30px
+
+  color: color-white
+  background: color-black
+  border-radius: 2px
+
+  cursor: pointer
+  text-align: center
+  text-decoration: none
+
+  opacity: 0
+  transition:all .4s ease-in-out 0s
+
+  @media mq-mobile
+    display: none
+
+  &:before
+    content: "\f106"
+    font-family: font-icon
+    font-size: 28px
+    line-height: 1
+
+  &.on
+    opacity: 1
+    &:hover
+    &:focus
+      opacity: .6
+
+@import "_extend"
+@import "_partial/header"
+@import "_partial/article"
+@import "_partial/archive"
+@import "_partial/footer"
+@import "_partial/highlight"

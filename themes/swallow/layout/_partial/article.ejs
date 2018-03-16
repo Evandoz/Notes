@@ -1,0 +1,20 @@
+<article id="<%= post.slug %>" class="article article-post" itemscope itemprop="blogPost">
+  <div class="post-content">
+    <%- partial('post/title', {class_name: 'post-title'}) %>
+    <div class="post-meta">
+      <%- partial('post/date', {class_name: 'meta-date', date_format: 'MMMMDD, YYYY'}) %>
+      <%- partial('post/category', {class_name: 'meta-category'}) %>
+    </div>
+    <div class="article-content" itemprop="articleBody"><%- post.content %></div>
+
+    <footer class="article-footer">
+      <%- partial('post/copyright') %>
+      <%- partial('post/tag') %>
+    </footer>
+  </div>
+</article>
+
+<%- partial('post/paginator') %>
+<% if (post.comments) { %>
+  <%- partial('comment') %>
+<% } %>

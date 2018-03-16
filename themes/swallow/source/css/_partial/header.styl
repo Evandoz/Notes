@@ -1,0 +1,228 @@
+.header
+  position:relative
+  background: color-background
+
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    max-width: 1000px
+    margin: 0 auto
+    padding: 30px 15px
+    @media mq-mobile
+      padding: 15px
+
+.header-title
+  a
+    height: 40px
+    font-size: 2em
+    color: color-black
+    line-height: @height
+
+.header-nav
+  display: flex
+  justify-content: space-between
+  height: 40px
+
+.nav-menu
+  display: none
+  transform: translate(0)
+  &.on
+    display: block
+  @media mq-mobile
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    z-index: 9
+    background: color-background
+  .menu
+    list-style: none
+  .menu-item
+    position: relative
+    padding: 10px 15px
+    @media mq-tablet
+      display: inline-block
+      &:after
+        content: ''
+        position: absolute
+        left: 50%
+        bottom: 0
+        width: 3px
+        height: 3px
+        border-radius: 50%
+        background: transparent
+        transition: background .3s
+      &:hover
+        color: color-black
+        &:after
+          background: color-black
+    @media mq-mobile
+      padding: 10px 20px
+      &:hover
+        background: color-white
+    a
+      color: color-black
+      text-align: center
+      letter-spacing: 2px
+.nav-toggle
+  padding: 5px 0
+  cursor: pointer
+  @media mq-mobile
+    float: left
+  ul
+    position: relative
+    width: 30px
+    height: 30px
+    list-style: none
+    li
+      position: absolute
+      left: 0
+      top: 14px
+      width: 100%
+      height: 2px
+      background: color-black
+      &:first-child
+        top: 4px
+        width: 80%
+      &:last-child
+        top: 24px
+        width: 65%
+
+.nav-toggle.on
+  li
+    transform-origin: center center
+    transform: rotate(-45deg)
+    top: 15px
+    &:first-child
+      opacity: 1
+      filter: opacity(100)
+      transform-origin: center center
+      transform: rotate(45deg)
+      top: 15px
+      width: 100%
+    &:last-child
+      opacity:0
+      filter: opacity(0)
+      transition: all 0s ease 0s
+
+.header-nav-search
+  display: none
+  padding: 5px 0
+  cursor: pointer
+  @media mq-mobile
+    display: block
+    float: left
+  ul
+    position: relative
+    width: 30px
+    height: 30px
+    list-style: none
+    li
+      position: absolute
+      &:first-child
+        left: 4px
+        top: 6px
+        width: 16px
+        height: 16px
+        border: 2px solid color-black
+        border-radius: 50%
+        box-sizing: border-box
+      &:last-child
+        right: 6px
+        bottom: 6px
+        width: 8px
+        height: 2px
+        background: color-black
+        transform-origin: 100% 100%
+        transform: rotate(36deg)
+
+.banner-image
+  position: fixed
+  top: 0
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  max-height: 500px
+  z-index: -1
+  img
+    width: 100%
+    height: auto
+    min-height: 320px
+    overflow: hidden
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: rgba(0, 0, 0, .3)
+
+.banner-info
+  padding: 8% 0
+  color: color-background
+  text-align: center
+  p
+    font-size: 2.4em
+    font-weight: bold
+
+#search-form-wrap
+  display: none
+  &.on
+    display: block
+
+  .overlayer
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: color-white
+    opacity: .9
+    z-index: 999
+
+  .search-form
+    position: fixed
+    top: 45%
+    left: 50%
+    width: 100%
+    text-align: center
+    transform: translate(-50%,-50%)
+    z-index: 9999
+
+  .search-form-label
+    display: inline-block
+    max-width: 100%
+    margin-bottom: 10px
+    font-size: font-size
+    color: color-font
+    text-transform: uppercase
+
+  .search-form-input
+    border: 0
+    color: default
+    width: 100%
+    height: 100%
+    font-size: 2.4em
+    text-align: center
+    outline: none
+    transition: all .5s ease .5s
+    &::-webkit-search-results-decoration
+    &::-webkit-search-cancel-button
+      -webkit-appearance: none
+
+  .search-form-submit
+    display: block
+    position: absolute
+    top: 50%
+    right: 10px
+    margin-top: -7px
+    font: 14px font-icon
+    border: none
+    color: color-white
+    cursor: pointer
+    &:hover, &:focus
+      color: color-grey

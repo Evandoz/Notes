@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<%- partial('_partial/head') %>
+<body>
+  <%- partial('_partial/header') %>
+  <div class="content">
+    <div class="container"><%- body %></div>
+  </div>
+  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+  <a id="scrollup"></a>
+  <%- partial('_partial/after-footer') %>
+</body>
+</html>

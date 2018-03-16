@@ -1,0 +1,29 @@
+<div class="archives-wrap">
+  <% if (is_archive()) { %>
+    <div class="archive-title"><%= __('post_total_count', site.posts.length) %></div>
+  <% } else if (is_category()) { %>
+    <div class="category-title"><%= page.category %></div>
+  <% } else if (is_tag()) { %>
+      <div class="tag-title"><%= page.tag %></div>
+  <% } %>
+  <% var last; %>
+  <% page.posts.each(function(post, i){ %>
+    <% var year = post.date.year(); %>
+    <% if (last != year){ %>
+      <% if (last != null){ %>
+        </div>
+      <% } %>
+      <% last = year; %>
+        <div class="archive-year"><%= year %></div>
+        <div class="archives">
+    <% } %>
+    <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+  <% }) %>
+  <% if (page.posts.length){ %>
+    </div>
+  <% } %>
+</div>
+
+<% if (page.total > 1){ %>
+  <%- partial('_partial/paginator') %>
+<% } %>

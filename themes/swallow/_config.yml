@@ -1,0 +1,49 @@
+# Header
+menu:
+  Home: /
+  Archives: archives
+  About: about
+
+# Search
+search: false
+
+# Specify the date when the site was setup
+since: 2016
+
+# Set default keywords (Use a comma to separate)
+keywords: ""
+
+# Put your favicon.ico into `/themes/swallow/source/` directory.
+# Of course you can use a target link instead.
+# (E.g. `http://abc.com/favicon.ico` or `css/images/favicon.ico`)
+favicon: css/images/favicon.png
+
+# links
+links:
+
+# widget behavior
+archive_type: 'monthly'
+show_count: true
+date_format: ''
+
+# Auto excerpt
+auto_excerpt: true
+
+# Code Highlight theme
+# Available value:
+#    normal | night | night eighties | night blue | night bright
+highlight_theme: night
+
+# Statistics article reading volume based on leancloud
+leancloud_visitors:
+  enable: true # whether use leancloud to count (true or false)
+  app_id: U5FpXuX1zWy7ayr7b6jLzl3i-gzGzoHsz # app_id
+  app_key: ytlMsrNkODCpaFIFUqbIESQ9 # app_key
+
+# Webmaster tools verification setting
+google_site_verification: W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4
+baidu_site_verification: BM2Q3xLpPJ
+qihu_site_verification: 573211edf2de02c99d7b255b2c56513c
+
+# Miscellaneous
+google_analytics:
