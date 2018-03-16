@@ -13,7 +13,7 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git config user.name "Laueray"
+  - git config user.name "Levance"
   - git config user.email "rayshining12@163.com"
   - git add .
   - git commit -m "site update"
@@ -24,4 +24,4 @@ branches:
     - hexo
 env:
  global:
-   - GH_REF: github.com/Laueray/Laueray.github.io.git
+   - GH_REF: github.com/Levance/Levance.github.io.git
