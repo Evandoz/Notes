@@ -1,27 +1,23 @@
-<header id="header" class="header">
+<header class="header" style="background-image: url(<%= url_for(theme.banner) %>);">
   <div class="container">
-    <div class="header-title">
-      <a href="<%- url_for() %>"><%= config.title %></a>
-    </div>
-    <div class="header-nav">
-      <div id="nav-menu" class="nav-menu">
-        <ul class="menu">
-          <% for (var i in theme.menu){ %>
-            <li class="menu-item"><a href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a></li>
-          <% } %>
-        </ul>
+    <div class="header-navbar">
+      <div id="nav-search" class="nav-search">
+        <ul><li></li><li></li></ul>
       </div>
-      <div class="nav-btn">
-        <% if (theme.search){ %>
-          <div id="navi-search" class="nav-search">
-            <ul><li></li><li></li></ul>
-          </div>
-        <% } %>
+      <div class="header-nav">
+        <div id="nav-menu" class="nav-menu">
+          <% for (var i in theme.menu){ %>
+            <a class="menu-item" href="<%- url_for(theme.menu[i]) %>"><%= __(i) %></a>
+          <% } %>
+        </div>
         <div id="nav-toggle" class="nav-toggle">
           <ul><li></li><li></li><li></li></ul>
         </div>
       </div>
     </div>
+
+    <div class="header-title">
+      <a href="<%- url_for() %>"><%= config.title %></a>
+    </div>
   </div>
 </header>
-<%- partial('_partial/search') %>

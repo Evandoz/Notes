@@ -4,9 +4,9 @@
 
 # Site
 title: 行而思
-subtitle: 行思而后喻
-description: 日常学习与兴趣挖掘
-author: Levance
+subtitle:
+description:
+author: Levan
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -61,7 +61,7 @@ time_format: HH:mm:ss
 # Pagination
 ## Set per_page to 0 to disable pagination
 index_generator:
-  per_page: 5
+  per_page: 6
   order_by: -date
 
 archive_generator:

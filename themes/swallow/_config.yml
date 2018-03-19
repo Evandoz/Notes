@@ -7,9 +7,6 @@ menu:
 # Search
 search: false
 
-# Specify the date when the site was setup
-since: 2016
-
 # Set default keywords (Use a comma to separate)
 keywords: ""
 
@@ -17,6 +14,10 @@ keywords: ""
 # Of course you can use a target link instead.
 # (E.g. `http://abc.com/favicon.ico` or `css/images/favicon.ico`)
 favicon: css/images/favicon.png
+
+banner: css/images/banner.jpg
+
+logo: css/images/logo.png
 
 # links
 links:

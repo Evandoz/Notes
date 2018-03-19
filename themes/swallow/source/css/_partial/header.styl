@@ -1,48 +1,63 @@
 .header
-  position:relative
-  background: color-background
+  height: 45%
+  position: relative
+  background-position: center
+  background-attachment: fixed
+  background-repeat: no-repeat
+  @media mq-mobile
+    height: 40%
 
   .container
-    display: flex
-    justify-content: space-between
-    align-items: center
     max-width: 1000px
     margin: 0 auto
-    padding: 30px 15px
-    @media mq-mobile
-      padding: 15px
+    padding: 20px
 
 .header-title
+  position: absolute
+  top: 42%
+  left: 50%
+  margin-left: -45px
+  text-align: center
   a
-    height: 40px
     font-size: 2em
-    color: color-black
-    line-height: @height
+    color: color-white
+    text-shadow: 2px
+    text-shadow: 2px 2px 4px color-dark
+
+.header-navbar
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 40px
 
 .header-nav
   display: flex
   justify-content: space-between
-  height: 40px
+  align-items: center
 
 .nav-menu
   display: none
-  transform: translate(0)
+  text-align: center
   &.on
     display: block
-  @media mq-mobile
-    position: absolute
-    top: 100%
-    left: 0
-    right: 0
-    z-index: 9
-    background: color-background
-  .menu
-    list-style: none
+    @media mq-mobile
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: 4
+      padding: 50px 0
+      background: color-background
   .menu-item
     position: relative
     padding: 10px 15px
+    text-align: center
+    letter-spacing: 2px
     @media mq-tablet
       display: inline-block
+      color: color-white
+      font-size: 1.1em
       &:after
         content: ''
         position: absolute
@@ -54,25 +69,23 @@
         background: transparent
         transition: background .3s
       &:hover
-        color: color-black
         &:after
-          background: color-black
+          background: color-white
     @media mq-mobile
+      display: block
       padding: 10px 20px
+      color: color-dark
+      font-size: 1.4em
       &:hover
         background: color-white
-    a
-      color: color-black
-      text-align: center
-      letter-spacing: 2px
+
 .nav-toggle
   padding: 5px 0
   cursor: pointer
-  @media mq-mobile
-    float: left
+  z-index: 9
   ul
     position: relative
-    width: 30px
+    width: 36px
     height: 30px
     list-style: none
     li
@@ -80,13 +93,13 @@
       left: 0
       top: 14px
       width: 100%
-      height: 2px
-      background: color-black
+      height: 1px
+      background: color-white
       &:first-child
-        top: 4px
+        top: 3px
         width: 80%
       &:last-child
-        top: 24px
+        top: 25px
         width: 65%
 
 .nav-toggle.on
@@ -94,6 +107,8 @@
     transform-origin: center center
     transform: rotate(-45deg)
     top: 15px
+    @media mq-mobile
+      background: color-black
     &:first-child
       opacity: 1
       filter: opacity(100)
@@ -106,13 +121,9 @@
       filter: opacity(0)
       transition: all 0s ease 0s
 
-.header-nav-search
-  display: none
+.nav-search
   padding: 5px 0
   cursor: pointer
-  @media mq-mobile
-    display: block
-    float: left
   ul
     position: relative
     width: 30px
@@ -121,53 +132,21 @@
     li
       position: absolute
       &:first-child
-        left: 4px
-        top: 6px
-        width: 16px
-        height: 16px
-        border: 2px solid color-black
+        left: 3px
+        top: 4px
+        width: 20px
+        height: 20px
+        border: 1px solid color-white
         border-radius: 50%
         box-sizing: border-box
       &:last-child
-        right: 6px
-        bottom: 6px
-        width: 8px
-        height: 2px
-        background: color-black
+        right: 2px
+        bottom: 4px
+        width: 10px
+        height: 1px
+        background: color-white
         transform-origin: 100% 100%
-        transform: rotate(36deg)
-
-.banner-image
-  position: fixed
-  top: 0
-  left: 0
-  display: flex
-  justify-content: center
-  align-items: center
-  overflow: hidden
-  max-height: 500px
-  z-index: -1
-  img
-    width: 100%
-    height: auto
-    min-height: 320px
-    overflow: hidden
-  &:before
-    content: ''
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    background: rgba(0, 0, 0, .3)
-
-.banner-info
-  padding: 8% 0
-  color: color-background
-  text-align: center
-  p
-    font-size: 2.4em
-    font-weight: bold
+        transform: rotate(38deg)
 
 #search-form-wrap
   display: none

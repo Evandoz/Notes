@@ -1,6 +1,6 @@
 .archives-wrap
   position: relative
-  margin: 100px 0 60px
+  margin: 80px 0 80px 15px
   &:after
     content: ''
     position: absolute
@@ -24,7 +24,7 @@
   .tag-title
     position: relative
     margin-bottom: 50px
-    padding-left: 30px
+    padding-left: 25px
     letter-spacing: 2px
     &:before
       content: ''
@@ -41,20 +41,26 @@
 
   .archive-title
     font-size: 1.1em
+    @media mq-mobile
+      font-size: 1em
 
   .category-title
   .tag-title
     font-size: 1.4em
+    @media mq-mobile
+      font-size: 1.2em
 
   .archive-year
     position: relative
     margin: 30px 0
-    padding-left: 30px
+    padding-left: 25px
     font-size: 1.3em
     color: color-font
     font-weight: bold
     letter-spacing: 1px
     text-transform: uppercase
+    @media mq-mobile
+      font-size: 1.1em
     &:before
       content: ''
       position: absolute
@@ -71,10 +77,12 @@
   .archive-article
     position: relative
     padding: 10px 0
-    padding-left: 30px
+    padding-left: 25px
     font-size: 1.1em
     line-height: 1.8
     border-bottom: 1px dashed color-border
+    @media mq-mobile
+      font-size: 1em
     &:last-child
       margin-bottom: 0
     &:hover
