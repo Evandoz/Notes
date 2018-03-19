@@ -13,7 +13,7 @@ photos:
 -
 ---
 
-使用 Sublime 已有好几年了，在此分享使用 Sublime 的相关设置及常用插件。
+Sublime Text 由程序员 Jon Skinner 于2008年1月份开发出来的一款文本编辑器，功能强大，本文将分享使用 Sublime 的相关设置及常用插件。
 
 <!--more-->
 

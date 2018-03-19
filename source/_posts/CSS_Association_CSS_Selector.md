@@ -11,7 +11,7 @@ photos:
 -
 ---
 
-结合[W3School](http://www.w3school.com.cn)及[网易云课堂](http://study.163.com)相关课程梳理一下``CSS``样式表引入方式及选择器相关的知识点。
+CSS 作为前端三件套中的装饰部件有着重要地位，本文在结合[W3School](http://www.w3school.com.cn)及[网易云课堂](http://study.163.com)相关课程基础上梳理一下``CSS``样式表引入方式及选择器相关的知识点。
 
 <!--more-->
 

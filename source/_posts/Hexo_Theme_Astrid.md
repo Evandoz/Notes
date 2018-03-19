@@ -13,7 +13,7 @@ photos:
 -
 ---
 
-从``WordPress``上移植的一款主题，托管于 [GitHub](https://github.com/Laueray/hexo-theme-astrid) ，访问 [Astrid](http://blog.floretten.com/hexo-theme-astrid/) 可进行预览。
+从``WordPress``上移植的一款主题，托管于 [GitHub](https://github.com/Levance/hexo-theme-astrid) ，访问 [Astrid](http://blog.floretten.com/hexo-theme-astrid/) 可进行预览。
 
 <!--more-->
 

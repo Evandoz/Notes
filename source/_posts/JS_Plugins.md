@@ -11,7 +11,7 @@ photos:
 -
 ---
 
-汇集一波平时用过的 Javascript 插件，日后持续更新。
+汇集平时用过的 Javascript 插件，日后持续更新。
 
 <!--more-->
 
