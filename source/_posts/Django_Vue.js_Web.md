@@ -2,7 +2,7 @@
 title: 使用Vue.js+Django前后端分离快速构建Web应用
 date: 2018-03-02 10:08:53
 categories:
-- Web开发
+- Vue
 keywords:
 - Vue.js
 - Django
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'Article',
 ]
 ```
-4. 修改数据库配置，将默认sqlite3数据库更改为MySQL
+4.  修改数据库配置，将默认sqlite3数据库更改为MySQL
 
 ```
 DATABASES = {

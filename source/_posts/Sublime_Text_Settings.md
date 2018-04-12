@@ -22,7 +22,7 @@ Sublime Text 只是一个代码编辑器，而不是集成开发环境（IDE）�
 
 >Sublime Text 是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。
 
-## Sublime 设置中文释义
+## Sublime Text设置中文释义
 
 Sublime Text 跟很多优秀的代码编辑器一样，并不是通过图形界面来进行设置的，而是根据一行行代码实现的。
 
