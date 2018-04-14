@@ -19,31 +19,37 @@ Vue.js是一套用于构建用户界面的渐进式框架，最大特点就是�
 
 ## 环境搭建
 
-- Django环境
+1. Django环境
 Python 2.7 + Django 1.9 + MySQL 5.7 + Python-MySQL连接件
 **说明**：关于Python与MySQL的连接件可以直接使用pip包管理器安装(Linux上推荐)，也可以直接[下载安装包](https://pypi.python.org/pypi/MySQL-python/1.2.5)(Windows上推荐)
 
-- Vue.js环境
+2. Vue.js环境
 Node.js 6.1 + Vue.js 2.0
 **说明**：关于Node.js的版本去官方中文网站下载安装包即可，推荐使用稳定版本，Vue.js的安装可以访问[官网](https://cn.vuejs.org/v2/guide/installation.html)查看安装说明。
 
 ## 构建Django工程
 
 1. 构建一个工程，使用命令行和PyCarm集成开发环境均可。
+
 ```
 django-admin startproject Blog
 ```
+
 2. 进入目录创建一个应用。
+
 ```
 python manage.py startapp Article
 ```
+
 3.  将该应用加入到settings的INSTALLED_APPS列表。
+
 ```
 INSTALLED_APPS = [
     '...',
     'Article',
 ]
 ```
+
 4.  修改数据库配置，将默认sqlite3数据库更改为MySQL
 
 ```
