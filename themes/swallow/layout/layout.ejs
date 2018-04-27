@@ -2,12 +2,12 @@
 <html>
 <%- partial('_partial/head') %>
 <body>
-  <%- partial('_partial/header') %>
-  <div class="content">
-    <div class="container"><%- body %></div>
+  <div class="container">
+    <%- partial('_partial/header') %>
+    <div class="content"><div class="inner"><%- body %></div></div>
+    <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    <%- partial('_partial/after-footer') %>
   </div>
-  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-  <a id="scrollup"></a>
-  <%- partial('_partial/after-footer') %>
+  <div id="scrollup" class="scrollup"><ul><li></li><li></li></ul></div>
 </body>
 </html>
