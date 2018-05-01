@@ -59,7 +59,7 @@
   $("body").fitVids();
 
   // Caption-justified
-  $('.article-entry').each(function(i) {
+  $('.post-content').each(function(i) {
     $(this).find('img').each(function() {
       if ($(this).parent().prop("tagName") !== 'a') {
         $(this).wrap('<a href="' + this.src + '" title="' + this.alt + '" class="gallery-item"></a>');
@@ -70,7 +70,7 @@
     var options = {
       selector: '.gallery-item',
     };
-    $('.article-entry').each(function(i, entry) {
+    $('.post-content').each(function(i, entry) {
       lightGallery(entry, options);
     });
     lightGallery($('.article-gallery')[0], options);

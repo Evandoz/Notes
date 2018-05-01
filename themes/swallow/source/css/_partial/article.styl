@@ -12,8 +12,14 @@
   border-radius: 2px
   background: color-white
   box-shadow: 0 1px 35px rgba(0, 0, 0 , .05)
+  .post-meta
+    text-align: center
+  @media mq-mobile
+    padding: 30px 20px
   &.list
     height: 320px
+    .post-meta
+      text-align: left
     @media mq-mobile
       height: auto
       padding: 0
@@ -128,6 +134,7 @@
   font-size: 1.4em
   color: #333
   font-weight: 500
+  text-align: center
 
 .post-meta
   color: #567987
@@ -140,6 +147,7 @@
   .meta-date
   .meta-category
     display: inline-block
+    padding: 0 5px
     color: #567987
     letter-spacing: 2px
     text-transform: uppercase

@@ -50,16 +50,34 @@
           flex-direction: column
           justify-content: center
           position: fixed
-          top: 0
+          padding: 20px 0
           left: 0
           right: 0
-          height: 300px
+          bottom: 0
           z-index: 9
-          background: rgba(7, 17, 17, .7)
+          background: color-white
+          transform: translate3d(0, 100%, 0)
+          .nav-item
+            display: block
+            padding: 15px 0
+            color: color-dark!important
+            font-size: 1.2em
+            text-align: center
         &.on
           opacity: 1
           @media mq-tablet
             transform: translateX(0)
+          @media mq-mobile
+            transform: translate3d(0, 0, 0)
+            & + .overlayer
+              position: fixed
+              top: 0
+              left: 0
+              right: 0
+              bottom: 0
+              z-index: 4
+              filter: blur(10px)
+              background: rgba(7, 17, 17, .7)
         .nav-item
           position: relative
           height: 40px
@@ -67,25 +85,21 @@
           text-align: center
           color: color-white
           letter-spacing: 2px
-          @media mq-tablet
-            display: inline-block
+          display: inline-block
+          &:after
+            content: ''
+            position: absolute
+            left: 50%
+            bottom: 0
+            width: 3px
+            height: 3px
+            border-radius: 50%
+            background: transparent
+            transition: background .3s
+          &:hover
             &:after
-              content: ''
-              position: absolute
-              left: 50%
-              bottom: 0
-              width: 3px
-              height: 3px
-              border-radius: 50%
-              background: transparent
-              transition: background .3s
-            &:hover
-              &:after
-                background: color-white
-          @media mq-mobile
-            display: block
-            padding: 15px 0
-            font-size: 1.2em
+              background: color-white
+
       .toggle
         padding: 5px 0
         cursor: pointer
