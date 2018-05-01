@@ -9,7 +9,7 @@ keywords:
 tags:
 - 汇编
 photos:
--
+layout: sticky
 ---
 
 Intel 8086 是因特尔早期研制的一款16位经典微处理器芯片，是x86架构的鼻祖。

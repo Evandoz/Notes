@@ -1,64 +1,159 @@
 .content
+  background: color-background
   .inner
     margin: 0 auto
-    padding: 0 10px
-    max-width: 800px
-
-.articles-wrap
-  padding-top: 20px
-  .article
-    position: relative
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .05)
-    .post-content
-      padding: 30px 20px
-  .article-header
-    position: relative
-    height: 160px
-    padding: 20px
+    padding: 0 15px
+    max-width: 960px
 
 .article
-  margin: 60px 0
+  position: relative
+  margin: -60px auto 90px
+  padding: 60px
+  border-radius: 2px
   background: color-white
+  box-shadow: 0 1px 35px rgba(0, 0, 0 , .05)
+  &.list
+    height: 320px
+    @media mq-mobile
+      height: auto
+      padding: 0
+
+.article-gallery
+  display: flex
+  height: 100%
+  width: 45%
+  flex-direction: column
+  justify-content: center
+  overflow: hidden
+  @media mq-mobile
+    width: 100%
+    border-radius: 2px 2px 0 0
+  @media mq-tablet
+    &.left
+      margin-left: 0
+      margin-right: 10%
+      float: left
+      text-align: left
+      &.skip, &.sticky
+        left: 0
+        &:before
+          content: ''
+          position: absolute
+          top: -10%
+          right: 0
+          width: 36%
+          height: 150%
+          transform-origin: 0 0
+          transform: skewX(32deg)
+          background: color-white
+          box-shadow: -30px 0 120px 10px rgba(255, 255, 255, 1)
+          z-index: 2
+        &:after
+          content: ''
+          position: absolute
+          top: -10%
+          right: 30%
+          width: 20%
+          height: 120%
+          transform-origin: 0 0
+          transform: skewX(32deg)
+          filter: blur(5px)
+          background: linear-gradient(right, #fff, rgba(255, 255, 255, .6))
+          box-shadow: -50px 0 100px 10px rgba(255, 255, 255, .6)
+          z-index: 4
+      & + .article-content
+        margin-left: 55%
+    &.right
+      margin-left: 10%
+      margin-right: 0
+      float: right
+      text-align: right
+      &.skip, &.sticky
+        right: 0
+        &:before
+          content: ''
+          position: absolute
+          top: -10%
+          left: 0
+          width: 36%
+          height: 150%
+          transform-origin: 0 0
+          transform: skewX(-32deg)
+          background: color-white
+          box-shadow: 30px 0 120px 10px rgba(255, 255, 255, 1)
+          z-index: 2
+        &:after
+          content: ''
+          position: absolute
+          top: -10%
+          left: 30%
+          width: 20%
+          height: 120%
+          transform-origin: 0 0
+          transform: skewX(-32deg)
+          filter: blur(5px)
+          background: linear-gradient(left, #fff, rgba(255, 255, 255, .6))
+          box-shadow: 50px 0 100px 10px rgba(255, 255, 255, .6)
+          z-index: 4
+    &.skip, &.sticky
+      position: absolute
+      top: 0
+      bottom: 60px
+      margin: 0
+      width: auto
+  img
+    max-height: 100%
+    max-width: 100%
+
+.article-content
+  position: relative
+  display: flex
+  height: 100%
+  width: 45%
+  flex-direction: column
+  justify-content: center
+  z-index: 4
+  @media mq-mobile
+    width: 100%
+    margin: 0!important
+    padding: 20px
 
 .post-link
-  font-size: 1.6em
+  font-size: 1.4em
   color: #333
-
-.post-link
-.article-title
-  letter-spacing: 4px
+  font-weight: 500
 
 .post-title
   margin-bottom: 15px
-  font-size: 1.6em
-  color: color-black
+  font-size: 1.4em
+  color: #333
+  font-weight: 500
 
 .post-meta
-  color: #ccc
-  font-size: .96em
+  color: #567987
+  font-size: 14px
+  font-weight: 600
   a
-    color: #ccc
+    color: #567987
     text-decoration: none
-    &:hover
-      color: color-black
 
   .meta-date
   .meta-category
     display: inline-block
-    color: #ccc
+    color: #567987
     letter-spacing: 2px
     text-transform: uppercase
 
 .post-summary
   margin: 15px 0
-  color: color-font
+  color: #636869
   line-height: 1.8
   letter-spacing: 2px
   a
     color: color-black
 
-.article-content
-  color: color-dark
+.post-content
+  color: #636869
   letter-spacing: 2px
   @extend $base-style
   p, table
@@ -160,7 +255,7 @@
       background: color-black
       text-decoration: none
 
-.article-footer
+.post-footer
   margin-top: 60px
   .article-tag
     margin-top: 30px

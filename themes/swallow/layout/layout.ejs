@@ -4,6 +4,7 @@
 <body>
   <div class="container">
     <%- partial('_partial/header') %>
+    <%- partial('_partial/banner') %>
     <div class="content"><div class="inner"><%- body %></div></div>
     <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
     <%- partial('_partial/after-footer') %>

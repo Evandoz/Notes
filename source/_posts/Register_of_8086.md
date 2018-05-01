@@ -9,7 +9,7 @@ keywords:
 tags:
 - 汇编
 photos:
--
+layout: sticky
 ---
 
 根据汇编学习经历和编程经验总结一下8086系统通用寄存器的专用功能。

@@ -8,7 +8,7 @@ keywords:
 tags:
 - Javascript
 photos:
--
+layout: sticky
 ---
 
 汇集平时用过的 Javascript 插件，日后持续更新。

@@ -8,7 +8,7 @@ keywords:
 tags:
 - 贝塞尔曲线
 photos:
--
+layout: sticky
 ---
 
 使用 CSS 的 transition 时接触到贝塞尔曲线，初步总结一些学习心得。

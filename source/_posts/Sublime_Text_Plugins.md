@@ -9,7 +9,7 @@ keywords:
 tags:
 - Sublime
 photos:
--
+layout: sticky
 ---
 
 Sublime Text 是诞生于2008年的一款文本编辑器，本文会推荐并介绍部分Sublime Text常用插件，所用Sublime Txet 3版本为Build 3143。

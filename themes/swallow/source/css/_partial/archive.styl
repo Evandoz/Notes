@@ -1,16 +1,23 @@
 .archives-wrap
   position: relative
-  margin: 80px 0 80px 15px
-  &:after
-    content: ''
-    position: absolute
-    left: 0
-    top: 20px
-    width: 3px
-    height: 100%
-    margin-left: -2px
-    background: #cdcdcd
-    z-index: -1
+  margin: -60px 0 90px
+  padding: 60px
+  background: color-white
+  border-radius: 2px
+  box-shadow: 0 1px 35px rgba(0, 0, 0 , .05)
+  @media mq-mobile
+    padding: 40px 20px
+  .archives
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 1px
+      width: 3px
+      height: 100%
+      margin-left: -2px
+      background: #cdcdcd
   &.archives-tagcloud
     margin-left: 0
     &:after
@@ -38,6 +45,7 @@
       border: 5px solid color-white
       border-radius: 50%
       background: color-border
+      z-index: 4
 
   .archive-title
     font-size: 1.1em
@@ -73,6 +81,7 @@
       border: 5px solid color-white
       border-radius: 50%
       background: color-border
+      z-index: 4
 
   .archive-article
     position: relative
@@ -101,6 +110,7 @@
       border-radius: 50%
       background: color-border
       transition: border-color .3s
+      z-index: 4
 
     .archive-article-date
       display: inline-block
@@ -135,7 +145,7 @@
   display: flex
   justify-content: center
   align-items: center
-  margin-bottom: 80px
+  margin: -30px 0 60px
   font-size: 1.2em
   text-align: center
   overflow: hidden
@@ -147,7 +157,5 @@
     &:hover, &.current
       color: color-black
       font-weight: 600
-    &.current
-      border-bottom: 1px solid color-black
   .prev, .next
     color: color-black

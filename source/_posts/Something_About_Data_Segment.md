@@ -9,7 +9,7 @@ keywords:
 tags:
 - 汇编
 photos:
--
+layout: sticky
 ---
 
 之前使用``Dosbox``环境编写汇编程序遇到的一个问题，经过摸索已基本搞清楚原因。

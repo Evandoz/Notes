@@ -1,5 +1,6 @@
 <footer class="footer">
-  <div class="inner">
-    <div class="copyright">&copy; <%- date(new Date(), 'YYYY') %> <%= config.title %></div>
+  <div class="copyright" style="background-image: url(<%= url_for(theme.banner) %>);">
+    <p>Powered by Hexo | Designed by <%= config.author %></p>
+    <p>Copyright &copy; <%- date(new Date(), 'YYYY') %> <%= config.title %></p>
   </div>
 </footer>

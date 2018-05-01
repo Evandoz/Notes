@@ -10,7 +10,7 @@ tags:
 - Python
 - MySQL
 photos:
--
+layout: sticky
 ---
 
 问题出现在使用Django(Python 2.7 64 Bit)构建Web应用的过程中，由于使用MySQL作为数据库，所以需要安装Python与MySQL连接的中间件MySQL-Python。

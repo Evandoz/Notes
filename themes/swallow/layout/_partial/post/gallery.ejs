@@ -1,0 +1,15 @@
+<% if (post.photos != ''){ %>
+  <div class="article-gallery <% if (count % 2 == 0) { %>right<% } else { %>left<% } %> <% if (post.layout == 'sticky') { %>sticky<% } %>">
+    <% post.photos.forEach(function(photo, i){ %>
+      <img src="<%- url_for(photo) %>">
+    <% }) %>
+  </div>
+<% } else { %>
+  <div class="article-gallery <% if (count % 2 == 0) { %>right<% } else { %>left<% } %> skip">
+    <% if (count % 2 == 0) { %>
+      <img src="/css/images/skip-right.jpg">
+    <% } else { %>
+      <img src="/css/images/skip-left.jpg">
+    <% } %>
+  </div>
+<% } %>

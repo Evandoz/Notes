@@ -1,22 +1,17 @@
-<header class="header" style="background-image: url(<%= url_for(theme.banner) %>);">
+<header class="header">
   <div class="inner">
-    <div class="nav-wrapper">
-      <div id="nav-search" class="searchbar">
-        <ul><li></li><li></li></ul>
-      </div>
-      <div class="navbar">
-        <div id="nav-menu" class="nav">
-          <% for (var i in theme.nav){ %>
-            <a class="nav-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
-          <% } %>
-        </div>
-        <div id="nav-toggle" class="toggle">
-          <ul><li></li><li></li><li></li></ul>
-        </div>
-      </div>
+    <div id="nav-search" class="searchbar">
+      <ul><li></li><li></li></ul>
     </div>
-    <div class="title-wrapper">
-      <a href="<%- url_for() %>"><%= config.title %></a>
+    <div class="navbar">
+      <div id="nav-menu" class="nav">
+        <% for (var i in theme.nav){ %>
+          <a class="nav-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
+        <% } %>
+      </div>
+      <div id="nav-toggle" class="toggle">
+        <ul><li></li><li></li><li></li></ul>
+      </div>
     </div>
   </div>
 </header>

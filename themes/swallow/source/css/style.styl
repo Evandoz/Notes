@@ -12,11 +12,15 @@ input, button
 
 *
   transition: all 0.2s
+  box-sizing: border-box
   &:before, &:after
     box-sizing: border-box
 
 a, &:hover, &:focus
   text-decoration: none!important
+
+a
+  color: inherit
 
 @font-face
   font-family: FontAwesome
@@ -52,18 +56,19 @@ body
 
 .scrollup
   position: fixed
-  right: 50px
-  bottom: 100px
+  right: 60px
+  bottom: 90px
   width: 50px
   height: 50px
-  padding: 20px 16px
+  padding: 20px 17px
   color: color-dark
   box-sizing: border-box
-  border: 1px solid color-background
+  background: color-white
   border-radius: 2px
   cursor: pointer
   z-index: 1
   opacity: 0
+  box-shadow: 0 1px 35px rgba(0, 0, 0 , .05)
   transition:all .4s ease-in-out 0s
   @media mq-mobile
     display: none
@@ -96,6 +101,7 @@ body
 
 @import "_extend"
 @import "_partial/header"
+@import "_partial/banner"
 @import "_partial/article"
 @import "_partial/archive"
 @import "_partial/footer"

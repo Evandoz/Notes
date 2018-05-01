@@ -9,6 +9,7 @@ keywords:
 tags:
 - Hexo
 photos: http://floretten-1252347631.costj.myqcloud.com/cyan/cyan.png
+layout: sticky
 ---
 
 第三方评论系统一度曾是各方争抢的流量热点，但随着一些不得已原因，越来越多的第三方评论系统纷纷停止服务。2017年很火的多少评论宣布将停止服务，这无疑给使用多说的用户带来了麻烦，迁徙评论成了一种选择，本文将以实际操作简单介绍搜狐畅言系统的配置。
