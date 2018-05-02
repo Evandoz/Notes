@@ -1,5 +1,5 @@
 ---
-title: 配置 gitment 出现 Validation Failed 问题
+title: 配置gitment出现Validation Failed问题
 date: 2018-01-25 17:32:23
 categories:
 - Hexo

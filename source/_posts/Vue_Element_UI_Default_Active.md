@@ -1,5 +1,5 @@
 ---
-title: 使用Vue Router + Element UI实现导航实例
+title: Vue Router+Element UI实现导航实例
 date: 2018-03-02 19:27:56
 categories:
 - Vue

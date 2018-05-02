@@ -1,5 +1,5 @@
 ---
-title: 使用Vue.js+Django前后端分离快速构建Web应用
+title: Vue.js+Django前后分离快速构建Web应用
 date: 2018-03-02 10:08:53
 categories:
 - Vue
