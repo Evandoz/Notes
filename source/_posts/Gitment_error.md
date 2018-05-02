@@ -1,6 +1,6 @@
 ---
 title: 配置 gitment 初始化失败
-date: 2017-02-10 17:32:23
+date: 2017-01-25 17:32:23
 categories:
 - Hexo
 keywords:
