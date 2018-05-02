@@ -2,7 +2,7 @@
 title: 使用 flow.ci 自动部署 Hexo
 date: 2016-11-19 15:53:14
 categories:
-- HEXO博客
+- Hexo
 keywords:
 - flow.ci自动部署工具
 - Hexo

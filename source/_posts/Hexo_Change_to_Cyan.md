@@ -2,7 +2,7 @@
 title: 更换畅言评论系统
 date: 2017-07-31 17:43:09
 categories:
-- HEXO博客
+- Hexo
 keywords:
 - 畅言
 - 友言

@@ -2,7 +2,7 @@
 title: 使用 Travis CI 自动部署 Hexo
 date: 2016-08-27 10:30:14
 categories:
-- HEXO博客
+- Hexo
 keywords:
 - Travis CI自动部署工具
 - Hexo

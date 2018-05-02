@@ -2,12 +2,13 @@
 title: 分享一款 Hexo 主题
 date: 2017-03-06 15:30:14
 categories:
-- HEXO博客
+- Hexo
 keywords:
 - Hexo
 - hexo-theme-astrid
 - Hexo主题
 tags:
+- Hexo
 - Astrid
 photos:
 layout: sticky
