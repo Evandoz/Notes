@@ -42,10 +42,11 @@
       text-align: left
       &.skip, &.sticky
         left: 0
+        border-radius: 2px 0 0 2px
         &:before
           content: ''
           position: absolute
-          top: -10%
+          top: -25%
           right: 0
           width: 36%
           height: 150%
@@ -57,10 +58,10 @@
         &:after
           content: ''
           position: absolute
-          top: -10%
+          top: -25%
           right: 30%
           width: 20%
-          height: 120%
+          height: 150%
           transform-origin: 0 0
           transform: skewX(32deg)
           filter: blur(5px)
@@ -68,7 +69,7 @@
           box-shadow: -50px 0 100px 10px rgba(255, 255, 255, .6)
           z-index: 4
       & + .article-content
-        margin-left: 55%
+        margin-left: 52%
     &.right
       margin-left: 10%
       margin-right: 0
@@ -76,10 +77,11 @@
       text-align: right
       &.skip, &.sticky
         right: 0
+        border-radius: 0 2px 2px 0
         &:before
           content: ''
           position: absolute
-          top: -10%
+          top: -25%
           left: 0
           width: 36%
           height: 150%
@@ -91,10 +93,10 @@
         &:after
           content: ''
           position: absolute
-          top: -10%
+          top: -25%
           left: 30%
           width: 20%
-          height: 120%
+          height: 150%
           transform-origin: 0 0
           transform: skewX(-32deg)
           filter: blur(5px)
@@ -115,7 +117,7 @@
   position: relative
   display: flex
   height: 100%
-  width: 45%
+  width: 48%
   flex-direction: column
   justify-content: center
   z-index: 4
@@ -246,23 +248,6 @@
       height: 100%
       margin-top: 0
 
-.article-more
-  margin-top: 60px
-  text-align: center
-  a
-    display: inline-block
-    margin: 0 auto
-    padding: 4px 20px
-    text-align: center
-    color: color-black!important
-    letter-spacing: 1px
-    text-decoration: none
-    border: 2px solid color-black
-    &:hover
-      color: color-white!important
-      background: color-black
-      text-decoration: none
-
 .post-footer
   margin-top: 60px
   .article-tag
@@ -292,6 +277,7 @@
   display: flex
   justify-content: space-between
   position: relative
+  margin: -30px 0 60px
   border-top: 1px dashed color-border
   border-bottom: 1px dashed color-border
 
@@ -343,3 +329,13 @@
 
 .article-comment
   margin: 60px 0
+  padding: 60px
+  @media mq-mobile
+    padding: 30px 20px
+  .load-comments
+    margin: 0 auto
+    padding: 5px 15px
+    color: color-white
+    background: color-theme
+    border-radius: 2px
+    cursor: pointer

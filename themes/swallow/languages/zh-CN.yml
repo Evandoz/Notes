@@ -24,4 +24,6 @@ read_more: 阅读全文
 newer: 上一篇
 older: 下一篇
 
+load_comments: 加载评论
+
 post_total_count: 哈哈哈，目前共计 %d 篇日志！

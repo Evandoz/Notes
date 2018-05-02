@@ -1,3 +1,39 @@
+<% if (theme.gitment.enable) { %>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+    const myTheme = {
+      render(state, instance) {
+        const container = document.createElement('div')
+        container.lang = "en-US"
+        container.className = 'gitment-container gitment-root-container'
+        container.appendChild(instance.renderHeader(state, instance))
+        container.appendChild(instance.renderEditor(state, instance))
+        container.appendChild(instance.renderComments(state, instance))
+        container.appendChild(instance.renderFooter(state, instance))
+        return container
+      },
+    }
+    var gitment = new Gitment({
+      owner: '<%- theme.owner %>',
+      repo: '<%- theme.repo %>',
+      oauth: {
+        client_id: '<%- theme.client_id %>',
+        client_secret: '<%- theme.client_secret %>',
+      },
+    })
+    <% if (theme.gitment.lazy) { %>
+      function showGitment () {
+        $('#load-comments').attr('style', 'display: none');
+        $('#comment-container').attr('style', '');
+        gitment.render('comment-container')
+      }
+    <% } else { %>
+      gitment.render('comment-container')
+    <% } %>
+  </script>
+<% } %>
+
 <%- js('js/html5shiv') %>
 <%- js('js/bootstrap.min') %>
 <%- js('js/main') %>

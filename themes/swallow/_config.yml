@@ -35,11 +35,15 @@ auto_excerpt: true
 #    normal | night | night eighties | night blue | night bright
 highlight_theme: night
 
-# Statistics article reading volume based on leancloud
-leancloud_visitors:
-  enable: true # whether use leancloud to count (true or false)
-  app_id: U5FpXuX1zWy7ayr7b6jLzl3i-gzGzoHsz # app_id
-  app_key: ytlMsrNkODCpaFIFUqbIESQ9 # app_key
+# Gitment
+# Introduction: https://imsun.net/posts/gitment-introduction/
+gitment:
+  enable: true
+  owner: Levance
+  repo: comments
+  client_id: 0affe0a468dcd4552df8
+  client_secret: 58eea8c98437b98e82d46f98af99506e358a315f
+  lazy: true
 
 # Webmaster tools verification setting
 google_site_verification: W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4
