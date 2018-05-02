@@ -22,9 +22,8 @@ photos:
 
 - GitHub：[Levan](https://github.com/Levance)
 - 网易云音乐：[Levan](http://music.163.com/#/user/home?id=80105178)
-- 知乎：完全的知乎小透明，只浏览，少评论，不发言。
-- 简书：早期写写文章，现在也不常用了。
-- 掘金：学习交流社区。
+- 简书：写作平台
+- 掘金：程序员交流社区。
 
 ---
 
