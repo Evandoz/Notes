@@ -15,11 +15,12 @@
       },
     }
     var gitment = new Gitment({
-      owner: '<%- theme.gitment.owner %>',
-      repo: '<%- theme.gitment.repo %>',
+      id: '<%= page.title|addslashes  %>'
+      owner: '<%= theme.gitment.owner %>',
+      repo: '<%= theme.gitment.repo %>',
       oauth: {
-        client_id: '<%- theme.gitment.client_id %>',
-        client_secret: '<%- theme.gitment.client_secret %>',
+        client_id: '<%= theme.gitment.client_id %>',
+        client_secret: '<%= theme.gitment.client_secret %>',
       },
     })
     <% if (theme.gitment.lazy) { %>
