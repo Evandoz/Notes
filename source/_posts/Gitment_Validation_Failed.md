@@ -52,7 +52,7 @@ Error: Validation Failed
 
 最后决定使用 page.path 作为 id，因为我的 permalink 的配置有所更改，所以 page.path 的长度相对较短，重新设置后初始化成功，Initialize Comments 按钮变成了文字 No Comment Yet 。
 
-关于我的 permalink 设置(在博客根目录的 ```_config.yml``` 中)，只保留了 year 和 title：
+关于我的 permalink 设置(在博客根目录的 config.yml 中)，只保留了 year 和 title：
 
 ```
 xxx

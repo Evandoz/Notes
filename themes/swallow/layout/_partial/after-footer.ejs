@@ -16,6 +16,7 @@
     }
     var gitment = new Gitment({
       id: '<%- url_for(page.path) %>',
+      theme: myTheme,
       owner: '<%= theme.gitment.owner %>',
       repo: '<%= theme.gitment.repo %>',
       oauth: {
