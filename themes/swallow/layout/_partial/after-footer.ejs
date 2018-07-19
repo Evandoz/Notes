@@ -1,6 +1,6 @@
 <% if (theme.gitment.enable) { %>
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <%- css('lib/gitment/style') %>
+  <%- js('lib/gitment/gitment') %>
   <script>
     const myTheme = {
       render(state, instance) {
@@ -36,20 +36,20 @@
   </script>
 <% } %>
 
-<%- js('js/html5shiv') %>
-<%- js('js/bootstrap.min') %>
-<%- js('js/main') %>
+<%- js('lib/html5shiv') %>
+<%- js('lib/bootstrap.min') %>
+<%- js('lib/main') %>
 
-<%- css('light/css/lightgallery.min') %>
-<%- js('light/js/lightgallery.min') %>
-<%- js('light/js/lg-thumbnail.min') %>
-<%- js('light/js/lg-pager.min') %>
-<%- js('light/js/lg-autoplay.min') %>
-<%- js('light/js/lg-fullscreen.min') %>
-<%- js('light/js/lg-zoom.min') %>
-<%- js('light/js/lg-hash.min') %>
-<%- js('light/js/lg-share.min') %>
-<%- js('light/js/lg-video.min') %>
+<%- css('lib/light/css/lightgallery.min') %>
+<%- js('lib/light/js/lightgallery.min') %>
+<%- js('lib/light/js/lg-thumbnail.min') %>
+<%- js('lib/light/js/lg-pager.min') %>
+<%- js('lib/light/js/lg-autoplay.min') %>
+<%- js('lib/light/js/lg-fullscreen.min') %>
+<%- js('lib/light/js/lg-zoom.min') %>
+<%- js('lib/light/js/lg-hash.min') %>
+<%- js('lib/light/js/lg-share.min') %>
+<%- js('lib/light/js/lg-video.min') %>
 
 <%- js('js/script') %>
 
