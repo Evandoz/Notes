@@ -15,45 +15,6 @@
     });
   });
 
-  // Search
-  var $searchWrap = $('#search-form-wrap'),
-    isSearchAnim = false,
-    searchAnimDuration = 200;
-
-  var startSearchAnim = function(){
-    isSearchAnim = true;
-  };
-
-  var stopSearchAnim = function(callback){
-    setTimeout(function(){
-      isSearchAnim = false;
-      callback && callback();
-    }, searchAnimDuration);
-  };
-
-  $('#header-nav-search').on('click', function(){
-    if (isSearchAnim) return;
-
-    startSearchAnim();
-    $searchWrap.fadeIn(1).addClass('on');
-    stopSearchAnim(function(){
-      $('.search-form-input').focus();
-    });
-  });
-
-  function wrapOut(){
-    startSearchAnim();
-    $searchWrap.fadeOut(1).removeClass('on');
-    stopSearchAnim();
-  }
-
-  $('.overlayer').on('click', function(){
-    wrapOut();
-  });
-
-  $(window).on('resize', function(){
-    wrapOut();
-  });
 
   //Fit Vids
   $("body").fitVids();
@@ -77,8 +38,8 @@
   }
 
   // Mobile nav
-  var $toggle = $('#nav-toggle'),
-    $nav = $('#nav-menu'),
+  var $toggle = $('#icon-toggle'),
+    $nav = $('#menu-list'),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
 
@@ -113,6 +74,50 @@
 
   $(window).on('resize', function(){
     toggleOff();
+  });
+
+
+  // Search
+  var $searchWrap = $('#search-wrap'),
+    $downLayer = $('#down-layer'),
+    $input = $('#search-input'),
+    isSearchAnim = false,
+    searchAnimDuration = 200;
+
+  var startSearchAnim = function(){
+    isSearchAnim = true;
+  };
+
+  var stopSearchAnim = function(){
+    setTimeout(function(){
+      isSearchAnim = false;
+    }, searchAnimDuration);
+  };
+
+  $('#icon-search').on('click', function(){
+    if (isSearchAnim) return;
+
+    startSearchAnim();
+    $searchWrap.addClass('on');
+    $downLayer.addClass('on');
+    setTimeout(function() {
+      $input.focus();
+    }, searchAnimDuration);
+    stopSearchAnim();
+  });
+
+  function wrapOut(){
+    if (isSearchAnim || !$searchWrap.hasClass('on') || !$downLayer.hasClass('on')) return;
+    $searchWrap.removeClass('on');
+    $downLayer.removeClass('on');
+  }
+
+  $downLayer.on('click', function(){
+    wrapOut();
+  });
+
+  $(window).on('resize', function(){
+    wrapOut();
   });
 
 })(jQuery);

@@ -1,15 +1,13 @@
-<% if (post.photos != ''){ %>
-  <div class="article-gallery <% if (count % 2 == 0) { %>right<% } else { %>left<% } %> <% if (post.layout == 'sticky') { %>sticky<% } %>">
+<div class="article-gallery <% if (count % 2 == 0) { %>right<% } else { %>left<% } %> <% if (post.layout == 'sticky') { %>sticky<% } %>">
+  <% if (post.photos != ''){ %>
     <% post.photos.forEach(function(photo, i){ %>
-      <img src="<%- url_for(photo) %>">
+      <div class="image" style="background-image: url(<%- url_for(photo) %>);"></div>
     <% }) %>
-  </div>
-<% } else { %>
-  <div class="article-gallery <% if (count % 2 == 0) { %>right<% } else { %>left<% } %> skip">
+  <% } else { %>
     <% if (count % 2 == 0) { %>
-      <img src="/css/images/skip-right.jpg">
+      <div class="image" style="background-image: url(/css/images/skip-right.jpg);"></div>
     <% } else { %>
-      <img src="/css/images/skip-left.jpg">
+      <div class="image" style="background-image: url(/css/images/skip-left.jpg);"></div>
     <% } %>
-  </div>
-<% } %>
+  <% } %>
+</div>

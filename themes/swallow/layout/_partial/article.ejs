@@ -24,13 +24,10 @@
     <footer class="post-footer">
       <%- partial('post/copyright') %>
       <%- partial('post/tag') %>
+      <%- partial('post/paginator') %>
+      <% if (post.comments) { %>
+        <%- partial('comment') %>
+      <% } %>
     </footer>
   <% } %>
 </article>
-
-<% if (!index) { %>
-  <%- partial('post/paginator') %>
-  <% if (post.comments) { %>
-    <%- partial('comment') %>
-  <% } %>
-<% } %>

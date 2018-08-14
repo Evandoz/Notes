@@ -1,18 +1,24 @@
 <header class="header">
   <div class="inner">
-    <div id="nav-search" class="searchbar">
-      <ul><li></li><li></li></ul>
-    </div>
     <div class="navbar">
-      <div id="nav-menu" class="nav">
+      <div id="icon-toggle" class="icon-toggle">
+        <ul><li></li><li></li><li></li></ul>
+      </div>
+      <div id="menu-list" class="menu-list">
         <% for (var i in theme.nav){ %>
-          <a class="nav-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
+          <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
         <% } %>
       </div>
       <div class="overlayer"></div>
-      <div id="nav-toggle" class="toggle">
-        <ul><li></li><li></li><li></li></ul>
+    </div>
+    <div class="searchbar">
+      <div id="icon-search" class="icon-search">
+        <ul><li></li><li></li></ul>
       </div>
+      <div id="search-wrap" class="search-wrap">
+        <input type="text" id="search-input">
+      </div>
+      <div id="down-layer" class="down-layer"></div>
     </div>
   </div>
 </header>

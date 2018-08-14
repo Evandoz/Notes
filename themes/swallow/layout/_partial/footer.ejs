@@ -1,6 +1,9 @@
 <footer class="footer">
-  <div class="copyright" style="background-image: url(<%= url_for(theme.banner) %>);">
+  <div class="copyright">
     <p>Powered by Hexo | Designed by <%= config.author %></p>
-    <p>Copyright &copy; <%- date(new Date(), 'YYYY') %> <%= config.title %></p>
+    <p>Copyright &copy; <%= theme.since %> - <%- date(new Date(), 'YYYY') %> <%= config.title %></p>
+  </div>
+  <div class="canvas">
+    <canvas id="wave-canvas"></canvas>
   </div>
 </footer>

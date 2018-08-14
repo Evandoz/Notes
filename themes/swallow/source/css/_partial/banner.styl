@@ -1,12 +1,12 @@
 .banner
   position: relative
   display: flex
-  height: 50vh
+  height: 56vh
   margin-top: -70px
   flex-direction: column
   justify-content: center
   @media mq-mobile
-    height: 40vh
+    height: 42vh
     margin-top: -80px
   .back
     position: absolute
@@ -19,23 +19,12 @@
     background-repeat: no-repeat
   .content
     position: relative
-    max-width: 960px
+    max-width: max-width
     margin: 0 auto
     text-align: center
     background: transparent
     text-shadow: 0 0 25px rgba(0, 0, 0, .05)
     z-index: 1
-    &:before
-      position: absolute
-      top: -40px
-      right: 40px
-      bottom: -40px
-      left: 40px
-      background: rgba(31, 96, 121, .5)
-      content: ''
-      filter: blur(50px)
-      opacity: 1
-      z-index: -1
     h2
       margin-bottom: 50px
       font-size: 2.2em

@@ -20,7 +20,7 @@ photos:
 
 ## 社交应用
 
-- GitHub：[Levan](https://github.com/Levance)
+- GitHub：[Levan](https://github.com/Evandoz)
 - 网易云音乐：[Levan](http://music.163.com/#/user/home?id=80105178)
 - 简书：写作平台
 - 掘金：程序员交流社区。
