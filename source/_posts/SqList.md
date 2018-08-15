@@ -197,6 +197,6 @@ Status Traverse(SqList *L)
 	return OK;
 }
 ```
-完整代码可参见：[GitHub](https://github.com/Laueray/Data-Structure/blob/master/1.List/Sqlist.c)
+完整代码可参见：[GitHub](https://github.com/Evandoz/Data-Structure/blob/master/1.List/Sqlist.c)
 **DONE！**
 所示代码如有错误请多加指正，谢谢

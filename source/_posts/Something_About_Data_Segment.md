@@ -51,11 +51,11 @@ END 	START
 ***
 **出错结果：**
 
-![errorview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox001.png)
+![errorview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox001.png)
 
 程序运行结束时 ``CX=0002``，也就是说循环 ``LOOP`` 提前退出，这很奇怪！！！
 
-![errorview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox002.png)
+![errorview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox002.png)
 
 而且我们查看当前内存单元的内容发现，我们的数据并没有正确写入，最后两个数据是不正确的。
 
@@ -63,11 +63,11 @@ END 	START
 ***
 为了搞清楚问题出在哪，接下来进行单步调试，来一步一步看程序是如何执行的，尤其看一下 ``CX=0002`` 时，程序究竟在干嘛！！！
 
-![trackview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox003.png)
+![trackview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox003.png)
 
 单步执行开始，此时 ``CX=000F``，继续向下，中间部分都符合程序正常逻辑。
 
-![trackview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox004.png)
+![trackview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox004.png)
 
 现在来到 ``CX=0002``，往下应该是继续执行循环体，**但是**，问题出现了！！！
 1. 首先，冒出了一句程序中没有的代码 ``OR AX, 05FE``，并且发现``05FE`` 就是之前查看内存时，被错误写入的那两个数据；
@@ -81,7 +81,7 @@ END 	START
 ***
 在程序开始时我们看一下数据段与代码段在内存中的位置
 
-![errorview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox005.png)
+![errorview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox005.png)
 
 程序开始前，数据段 ``DS=075A``，代码段 ``CS=076A``，两者相差 ``100H``，即 256 个内存单元；然而当执行完装段操作(MOV DS, AX)后，数据段与代码段却变成一样的了(076A)，难怪会出现重叠。那么就是说我们定义的数据段和代码段是同一个位置开始的，那如果把数据段去掉结果会如何呢？
 
@@ -100,7 +100,7 @@ START:
 ```
 **结果展示：**
 
-![rightview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox006.png)
+![rightview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox006.png)
 
 去掉数据段之后，结果是正确的，只是这时数据是写在 ``075A:0000`` 开始的位置了。难道我们定义了数据段就会出现这样的问题，那么当年 Intel 的工程师们也太弱了吧，居然会出现这么严重的 Bug，但接下来的探究证明 Intel 毕竟是 Intel，不然 8086 也不会成为一代经典之作。
 
@@ -126,11 +126,11 @@ START:
 ```
 **结果展示：**
 
-![rightview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox007.png)
+![rightview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox007.png)
 
 加上 ``DATA 	SEGMENT`` 的定义，并且在其中定义变量之后，结果正确，那么看一下此时代码段与数据段的位置。
 
-![rightview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox008.png)
+![rightview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox008.png)
 
 此时，数据段 ``DS=076A``，代码段 ``CS=076B``，并且装段前后皆如此，他们之间相差 ``10H``，即 16 个内存单元。这里我们只定义了一个字节型数据，系统默认为我们空出 16 个字节的，那么若是定义两个，三个会如何呢？
 通过测试发现它是根据我们定义数据所占用内存单元的大小来为我们留出相应空间的，并且是以 16 个字节为一个单位，例如，当我们定义了 17 个字节型数据，它默认留出的空间是 32 个内存单元，当我们定义了 17 个字型数据，它默认留出的空间是 48 个内存单元，以此类推。
@@ -156,7 +156,7 @@ START:
 ```
 **结果展示：**
 
-![rightview](http://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox009.png)
+![rightview](https://floretten-1252347631.costj.myqcloud.com/Assembly/DosBox009.png)
 
 ## 总结
 ***

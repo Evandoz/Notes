@@ -1,4 +1,4 @@
-<header class="header">
+<header id="header" class="header">
   <div class="inner">
     <div class="navbar">
       <div id="icon-toggle" class="icon-toggle">
@@ -9,16 +9,28 @@
           <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
         <% } %>
       </div>
-      <div class="overlayer"></div>
+      <div id="up-layer" class="up-layer"></div>
     </div>
+    <%
+    var title = page.title;
+
+    if (is_archive()){
+      title = __('archive');
+    } else if (is_category()){
+      title = __('category') + ': ' + page.category;
+    } else if (is_tag()){
+      title = __('tag') + ': ' + page.tag;
+    }
+    %>
+    <div class="page-title"><% if (title){ %><%= __(title) %><% } else { %><%= config.title %><% } %></div>
     <div class="searchbar">
-      <div id="icon-search" class="icon-search">
-        <ul><li></li><li></li></ul>
-      </div>
       <div id="search-wrap" class="search-wrap">
         <input type="text" id="search-input">
       </div>
       <div id="down-layer" class="down-layer"></div>
+      <div id="icon-search" class="icon-search">
+        <ul><li></li><li></li></ul>
+      </div>
     </div>
   </div>
 </header>

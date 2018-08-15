@@ -8,7 +8,7 @@ keywords:
 - 友言
 tags:
 - Hexo
-photos: http://floretten-1252347631.costj.myqcloud.com/cyan/cyan.png
+photos: https://floretten-1252347631.costj.myqcloud.com/cyan/cyan.png
 layout: sticky
 ---
 

@@ -25,7 +25,7 @@ layout: sticky
 (1) 无向图。在一个图中，如果任意两个顶点构成的偶对（vi, vj）∈E 是无序的，即顶点之间的连线是没有方向的，则称该图为无向图。如下图就是一个无向图。
 (2) 有向图。在一个图中，如果任意两个顶点构成的偶对（vi, vj）∈E 是有序的，即顶点之间的连线是有方向的，则称该图为有向图。
 
-![无向图](http://floretten-1252347631.costj.myqcloud.com/Graph/Graph.jpg)
+![无向图](https://floretten-1252347631.costj.myqcloud.com/Graph/Graph.jpg)
 
 ## 图的抽象数据类型定义
 
@@ -42,7 +42,7 @@ layout: sticky
 邻接表是图的一种最主要存储结构，它由表头结点和表结点两部分组成，其中每个顶点均对应一个存储在数组中的表头结点。简言之，对图的每个顶点建立一个容器（n个顶点建立n个容器），第i个容器中的结点包含顶点Vi的所有邻接顶点。
 在有向图中，描述每个点向别的节点连的边（点a->点b这种情况）；在无向图中，描述每个点所有的边(点a-点b这种情况)。
 
-![邻接表](http://floretten-1252347631.costj.myqcloud.com/Graph/AdjacencyList.png)
+![邻接表](https://floretten-1252347631.costj.myqcloud.com/Graph/AdjacencyList.png)
 
 ### 图的顶点及弧的定义
 

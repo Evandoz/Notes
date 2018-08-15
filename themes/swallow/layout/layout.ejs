@@ -5,7 +5,7 @@
   <div class="container">
     <%- partial('_partial/header') %>
     <%- partial('_partial/banner') %>
-    <div class="content"><div class="inner"><%- body %></div></div>
+    <div id="content" class="content"><div class="inner"><%- body %></div></div>
     <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
   </div>
   <div id="scrollup" class="scrollup"><ul><li></li><li></li></ul></div>

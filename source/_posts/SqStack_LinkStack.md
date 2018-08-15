@@ -144,7 +144,7 @@ Status Traverse(SqStack *S)
 }
 ```
 
-完整代码可参见：[GitHub](https://github.com/Laueray/Data-Structure/blob/master/2.Stack/SqStack.c)
+完整代码可参见：[GitHub](https://github.com/Evandoz/Data-Structure/blob/master/2.Stack/SqStack.c)
 
 
 ### 链栈(LinkStack)
@@ -224,7 +224,7 @@ Status Traverse(LinkStack S)
 
 ```
 
-完整代码可参见：[GitHub](https://github.com/Laueray/Data-Structure/blob/master/2.Stack/LinkStack.c)
+完整代码可参见：[GitHub](https://github.com/Evandoz/Data-Structure/blob/master/2.Stack/LinkStack.c)
 
 **DONE！**
 所示代码如有错误请多加指正，谢谢

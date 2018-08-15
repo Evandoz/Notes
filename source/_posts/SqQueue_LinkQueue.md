@@ -116,9 +116,9 @@ Status Traverse(SqQueue *Q)
 }
 ```
 
-完整代码可参见：[GitHub](https://github.com/Laueray/Data-Structure/blob/master/3.Queue/SqQueue.c)
+完整代码可参见：[GitHub](https://github.com/Evandoz/Data-Structure/blob/master/3.Queue/SqQueue.c)
 
-![queue](http://floretten-1252347631.costj.myqcloud.com/Queue/SqQueue.jpg)
+![queue](https://floretten-1252347631.costj.myqcloud.com/Queue/SqQueue.jpg)
 
 
 ### 链队列(LinkQueue)
@@ -220,9 +220,9 @@ Status Traverse(LinkQueue *Q)
 }
 ```
 
-![LinkQueue](http://floretten-1252347631.costj.myqcloud.com/Queue/LinkQueue.png)
+![LinkQueue](https://floretten-1252347631.costj.myqcloud.com/Queue/LinkQueue.png)
 
-完整代码可参见：[GitHub](https://github.com/Laueray/Data-Structure/blob/master/3.Queue/LinkQueue.c)
+完整代码可参见：[GitHub](https://github.com/Evandoz/Data-Structure/blob/master/3.Queue/LinkQueue.c)
 
  **DONE！**
 

@@ -1,4 +1,6 @@
 .content
+  position: relative
+  background: color-background
   z-index: 4
   .inner
     margin: 0 auto
@@ -11,7 +13,7 @@
   padding: 60px
   border-radius: 1px
   background: color-white
-  box-shadow: 0 5px 30px rgba(0, 0, 0 , .15)
+  box-shadow: 0 5px 10px rgba(0, 0, 0 , .15)
   &:last-child
     margin-bottom: 60px
   .post-meta
@@ -58,7 +60,7 @@
           transform: skewX(15deg)
           background: color-white
           box-shadow: -40px 0 120px 10px rgba(255, 255, 255, 1)
-          z-index: 2
+          z-index: 1
         &:after
           content: ''
           position: absolute
@@ -93,7 +95,7 @@
           transform: skewX(-15deg)
           background: color-white
           box-shadow: 40px 0 100px 10px rgba(255, 255, 255, 1)
-          z-index: 2
+          z-index: 1
         &:after
           content: ''
           position: absolute

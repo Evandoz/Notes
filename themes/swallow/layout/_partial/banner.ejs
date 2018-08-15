@@ -1,8 +1,10 @@
-<div class="banner">
-  <div class="back" style="background-image: url(<%= url_for(theme.banner) %>);">
-    <canvas id="particle-canvas" class="canvas"></canvas>
-  </div>
-  <div class="content">
-    <h2><a href="<%- url_for() %>"><%= config.title %></a></h2>
+<div id="banner" class="banner">
+  <div class="inner">
+    <div class="back" style="background: url(<%- url_for(theme.banner) %>)">
+      <!--<canvas id="particle-canvas" class="canvas"></canvas>-->
+    </div>
+    <div class="content">
+      <h2><a href="<%- url_for() %>"><%= config.title %></a></h2>
+    </div>
   </div>
 </div>

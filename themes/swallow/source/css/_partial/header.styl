@@ -1,19 +1,23 @@
 .header
-  padding: 30px 20px 0
+  position: fixed
+  top: 0
+  width: 100%
   background: transparent
   z-index: 9
-  @media mq-mobile
-    padding: 20px
+
   .inner
     max-width: max-width
     display: flex
     justify-content: space-between
     align-items: center
     margin: 0 auto
+    padding: 20px 15px
     .navbar
       display: flex
       justify-content: space-between
       align-items: center
+      @media mq-tablet
+        flex: 0 236px
       .menu-list
         text-align: center
         opacity: 0
@@ -31,14 +35,13 @@
           top: 50%
           margin-top: -80px
           /* bottom: 0 */
-          z-index: 9
+          z-index: 99
           background: color-white
           transform: translate3d(0, -5%, 0)
           .menu-item
             display: block
             padding: 15px 0
             color: color-dark!important
-            font-size: 1.2em
             text-align: center
         &.on
           opacity: 1
@@ -46,13 +49,13 @@
             transform: translateX(0)
           @media mq-mobile
             transform: translate3d(0, 0, 0)
-            & + .overlayer
+            & + .up-layer
               position: fixed
               top: 0
               left: 0
               right: 0
               bottom: 0
-              z-index: 4
+              z-index: 49
               filter: blur(2px)
               background: rgba(7, 17, 17, .7)
         .menu-item
@@ -104,6 +107,8 @@
             transform-origin: center center
             transform: rotate(-45deg)
             top: 15px
+            @media mq-mobile
+              background: color-white!important
             &:first-child
               opacity: 1
               filter: opacity(100)
@@ -116,12 +121,21 @@
               filter: opacity(0)
               transition: all 0s ease 0s
 
+    .page-title
+      display: none
+      flex: 1
+      text-align: center
+
     .searchbar
-      z-index: 999
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      @media mq-tablet
+        flex: 0 236px
       .icon-search
         padding: 5px 0
         cursor: pointer
-        z-index: 9999
+        z-index: 499
         ul
           position: relative
           width: 30px
@@ -130,66 +144,83 @@
           li
             position: absolute
             &:first-child
-              left: 3px
-              top: 4px
-              width: 20px
-              height: 20px
+              left: 0
+              top: 5px
+              width: 18px
+              height: 18px
               border: 1px solid color-white
               border-radius: 50%
               box-sizing: border-box
             &:last-child
-              right: 2px
-              bottom: 4px
-              width: 10px
+              right: 9px
+              bottom: 5px
+              width: 7px
               height: 1px
               background: color-white
               transform-origin: 100% 100%
-              transform: rotate(38deg)
+              transform: rotate(40deg)
       .search-wrap
         display: flex
-        flex-direction: column
-        justift-content: center
-        align-items: center
+        justify-content: center
         position: fixed
         top: 0
+        right: 0
         left: 0
-        width: 100vw
-        height: 40vh
-        background: rgba(0, 1, 2, .9)
-        z-index: 999
-        visibility: hidden
+        padding: 20px 15px
+        opacity: 0
+        z-index: 99
+        box-sizing: border-box
+        background: color-white
         transform: translate3d(0,-100%,0)
         &.on
-          visibility: visible
+          opacity: 1
           transform: translate3d(0,0,0)
-          transition: transform .5s cubic-bezier(0.2,1,0.3,1)
-          height: 50vh
-          padding: 21vh 0
-          input
-            height: 8vh
-            width: 80vw
-            max-width: 980px
-            padding: 1vh 2vw
-            font-size: 4vh
-            color: color-white
-            text-align: center
-            border: 0
-            border-radius: 30px
-            box-sizing: border-box
-            background: rgba(255, 255, 255, .6)
+          transition: transform .4s 0s
+        input
+          height: 40px
+          width: 90vw
+          max-width: 970px
+          padding: 5px 15px
+          font-size: 1.2em
+          font-weight: lighter
+          border-radius: 30px
+          border-width: 0
+          box-sizing: border-box
+          background: color-background
       .down-layer
         position: fixed
         bottom: 0
         left: 0
         width: 100vw
-        height: 60vh
-        background: rgba(0, 1, 2, .9)
-        z-index: 999
+        height: 100vh
+        background: rgba(255, 255, 255, .6)
+        z-index: 49
         visibility: hidden
         transform: translate3d(0,100%,0)
         &.on
           visibility: visible
           transform: translate3d(0,0,0)
-          transition: transform .5s cubic-bezier(0.2,1,0.3,1)
+          transition: transform .5s cubic-bezier(.55,0,.1,1) 0s
 
+  &.sticky
+    background: color-white
+    will-change: scroll-position
+    box-shadow: 0 5px 10px rgba(0, 0, 0 , .05)
+    z-index: 49
+    .inner
+      padding: 10px 15px
+      .page-title
+        display: block
+      .menu-item
+        color: color-dark!important
+      .icon-toggle
+        li
+          background: color-dark!important
+      .icon-search
+        li
+          border-color: color-dark!important
+          &:last-child
+            background: color-dark!important
+      .search-wrap
+        padding: 10px 15px
 
