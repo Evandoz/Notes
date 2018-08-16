@@ -3,16 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 行而思
+title: 志也
 subtitle:
-description:
+description: 且行且思的日常
 author: Levan
 language: zh-CN
 timezone: Asia/Shanghai
+homepage: 行而思
+homesite: https://www.floretten.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.floretten.com
+url: http://notes.floretten.com
 root: /
 permalink: :year/:title/
 permalink_defaults:

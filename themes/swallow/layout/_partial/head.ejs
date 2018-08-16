@@ -17,8 +17,14 @@
     title = __('tag') + ': ' + page.tag;
   }
   %>
-  <title><% if (title){ %><%= __(title) %> | <% } %><%= config.title %></title>
+  <title><% if (title){ %><%= __(title) %> | <% } %><%= config.title %><% if (is_home()){ %> - <%= config.description %><% } %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <% if (config.author) { %>
+    <meta name="author" content="<%= config.author %>"/>
+  <% } %>
+  <% if (config.description) { %>
+    <meta name="description" content="<%= config.description %>"/>
+  <% } %>
   <% if (page.keywords){ %>
     <meta name="keywords" content="<%= page.keywords %>">
   <% } else if (theme.keywords){ %>

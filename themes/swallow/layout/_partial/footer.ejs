@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="copyright">
-    <p>Powered by Hexo | Designed by <%= config.author %></p>
-    <p>Copyright &copy; <%= theme.since %> - <%- date(new Date(), 'YYYY') %> <%= config.title %></p>
+    <p>Powered by Hexo | Designed by <a href="<%- url_for(config.homesite) %>"><%= config.author %></a></p>
+    <p>Copyright &copy; <%= theme.since %> - <%- date(new Date(), 'YYYY') %> <a href="<%- url_for(config.homesite) %>"><%= config.homepage %></a></p>
   </div>
   <div class="canvas">
     <canvas id="wave-canvas"></canvas>
