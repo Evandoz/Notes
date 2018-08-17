@@ -44,8 +44,8 @@ highlight_theme: night
 # Introduction: https://imsun.net/posts/gitment-introduction/
 gitment:
   enable: true
-  owner: Levance
-  repo: Levance.github.io
+  owner: Evandoz
+  repo: Evandoz.github.io
   client_id: 0affe0a468dcd4552df8
   client_secret: 58eea8c98437b98e82d46f98af99506e358a315f
   lazy: true
