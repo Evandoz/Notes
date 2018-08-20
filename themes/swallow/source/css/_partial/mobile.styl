@@ -1,0 +1,26 @@
+.mobile-nav
+  display: none
+  @media mq-mobile
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 4
+    background: rgba(7, 17, 17, .7)
+    &.on
+      display: flex
+      flex-direction: column
+      justify-content: center
+    .menu-list
+      width: 75vw
+      margin: 0 auto
+      padding: 10px 20px
+      background: color-white
+      .menu-item
+        display: block
+        padding: 10px 0
+        color: color-dark
+
+
+

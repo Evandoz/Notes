@@ -3,36 +3,14 @@
 
 global-reset()
 
-input, button
-  margin: 0
-  padding: 0
-  &::-moz-focus-inner
-    border: 0
-    padding: 0
-
 *
-  transition: all 0.2s
   box-sizing: border-box
-  &:before, &:after
-    box-sizing: border-box
-  &:focus
-    outline: none
 
-a, &:hover, &:focus
-  text-decoration: none!important
+input, textarea
+  outline: none
 
-a
-  color: inherit
-
-@font-face
-  font-family: FontAwesome
-  font-style: normal
-  font-weight: normal
-  src: url(font-icon-path + ".eot?v=#" + font-icon-version)
-  src: url(font-icon-path + ".eot?#iefix&v=#" + font-icon-version) format("embedded-opentype"),
-       url(font-icon-path + ".woff?v=#" + font-icon-version) format("woff"),
-       url(font-icon-path + ".ttf?v=#" + font-icon-version) format("truetype"),
-       url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
+a, a:hover, a:focus
+  text-decoration: none
 
 @font-face
   font-family: Roboto
@@ -52,60 +30,18 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   .container
+    min-height: 100vh
     display: flex
     flex-direction: column
     justify-content: space-between
     background: color-background
 
-.scrollup
-  position: fixed
-  right: 60px
-  bottom: 90px
-  width: 42px
-  height: 42px
-  padding: 16px 13px
-  color: color-dark
-  box-sizing: border-box
-  background: color-white
-  border-radius: 1px
-  cursor: pointer
-  z-index: 1
-  opacity: 0
-  box-shadow: 0 5px 30px rgba(0, 0, 0 , .1)
-  transition:all .4s ease-in-out 0s
-  @media mq-mobile
-    display: none
-  &.on
-    opacity: 1
-    &:hover
-    &:focus
-      opacity: .6
-  ul
-    position: relative
-    list-style: none
-    width: 100%
-    height: 100%
-    li
-      position: absolute
-      width: 12px
-      height: 1px
-      background: color-dark
-      &:first-child
-        left: 0
-        bottom: 0
-        transform-origin: 0 100%
-        transform: rotate(-45deg)
-      &:last-child
-        right: 0
-        bottom: 0
-        transform-origin: 100% 100%
-        transform: rotate(45deg)
-
 
 @import "_extend"
 @import "_partial/header"
-@import "_partial/banner"
+@import "_partial/mobile"
 @import "_partial/article"
 @import "_partial/archive"
 @import "_partial/footer"
 @import "_partial/highlight"
+@import "_partial/anchor"

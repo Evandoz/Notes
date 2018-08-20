@@ -1,4 +1,4 @@
-<article class="archive-article archive-type-<%= post.layout %>">
-  <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'MM-DD'}) %>
-  <%- partial('post/title', {class_name: 'archive-article-title'}) %>
-</article>
+<li class="archive-item">
+  <%- partial('post/date', {date_format: 'YYYY/MM/DD'}) %>
+  <%- partial('post/title') %>
+</li>

@@ -1,6 +1,10 @@
-<article id="<%= page.layout %>-<%= page.slug %>" class="article article-type-<%= page.layout %>" itemscope itemprop="blogPost">
-  <div class="post-content" itemprop="articleBody"><%- page.content %></div>
-  <% if (page.comments) { %>
-    <%- partial('_partial/comment', {post: page}) %>
-  <% } %>
+<article id="<%= page.slug %>" class="article">
+  <div class="article-content">
+    <div class="post-content"><%- page.content %></div>
+    <% if (page.comments) { %>
+      <div class="post-footer">
+        <%- partial('_partial/post/comment') %>
+      </div>
+    <% } %>
+  </div>
 </article>

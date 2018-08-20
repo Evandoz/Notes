@@ -8,8 +8,7 @@ window.requestAnimFrame = (function(){
     };
 })();
 
-var waveHight = canvas.height / 5; // 浪最大高度
-var waveStart = canvas.height / 3; // 浪起始高度
+var waveHight = canvas.height / 5; // 浪高
 var waves = ["rgba(157, 187, 210, 0.2)",
     "rgba(171, 216, 201, 0.2)",
     "rgba(157,192,249, 0.2)",
@@ -26,9 +25,9 @@ function loop() {
     var deltaHeight = Math.sin(angle) * waveHight;
     var deltaHeightRight = Math.cos(angle) * waveHight;
     ctx.beginPath();
-    ctx.moveTo(0, waveStart + deltaHeight); // 路径起点--左上角
+    ctx.moveTo(0, waveHight + deltaHeight); // 路径起点--左上角
     // ctx.lineTo(canvas.width, canvas.height/2 + deltaHeightRight);
-    ctx.bezierCurveTo(canvas.width /3 , waveStart+deltaHeight, canvas.width * 2 / 3, waveStart+deltaHeightRight, canvas.width, waveStart+deltaHeightRight); // 上方路经由贝塞尔曲线绘制，即波浪，最终到达右上角
+    ctx.bezierCurveTo(canvas.width /3 , waveHight+deltaHeight, canvas.width * 2 / 3, waveHight+deltaHeightRight, canvas.width, waveHight+deltaHeightRight); // 上方路经由贝塞尔曲线绘制，即波浪，最终到达右上角
     ctx.lineTo(canvas.width, canvas.height); // 路径右下角
     ctx.lineTo(0, canvas.height); // 路径左下角
     // ctx.lineTo(0, canvas.height / 2 + deltaHeight);

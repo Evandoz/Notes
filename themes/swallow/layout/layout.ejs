@@ -4,11 +4,13 @@
 <body>
   <div class="container">
     <%- partial('_partial/header') %>
-    <%- partial('_partial/banner') %>
-    <div id="content" class="content"><div class="inner"><%- body %></div></div>
+
+    <div id="content" class="content"><%- body %></div>
+
     <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
   </div>
-  <div id="scrollup" class="scrollup"><ul><li></li><li></li></ul></div>
-  <%- partial('_partial/after-footer') %>
+  <%- partial('_partial/anchor') %>
+  <%- partial('_partial/mobile') %>
+  <%- partial('_partial/script') %>
 </body>
 </html>

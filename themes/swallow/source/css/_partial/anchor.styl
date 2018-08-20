@@ -1,0 +1,47 @@
+.top-anchor
+  display: none
+  @media mq-normal
+    display: block
+    position: fixed
+    right: 5%
+    bottom: 90px
+    width: 40px
+    height: 40px
+    padding: 16px 12px
+    color: color-dark
+    background: color-white
+    border-radius: 1px
+    cursor: pointer
+    z-index: 1
+    opacity: 0
+    box-shadow: 0 5px 30px rgba(0, 0, 0 , .1)
+    transition:all .4s ease-in-out 0s
+
+    &.on
+      opacity: 1
+      &:hover
+      &:focus
+        opacity: .6
+    ul
+      position: relative
+      height: 8px
+      width: 16px
+      margin: 0
+      padding: 0
+      list-style: none
+      li
+        position: absolute
+        width: 12px
+        height: 1px
+        list-style: none
+        background: color-dark
+        &:first-child
+          left: 0
+          bottom: 0
+          transform-origin: 0 100%
+          transform: rotate(-45deg)
+        &:last-child
+          right: 0
+          bottom: 0
+          transform-origin: 100% 100%
+          transform: rotate(45deg)

@@ -1,114 +1,64 @@
 .header
-  position: fixed
-  top: 0
-  width: 100%
-  background: transparent
-  z-index: 9
+  padding: 10px 2%
+  background: #fff
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, .05) */
 
   .inner
-    max-width: max-width
     display: flex
     justify-content: space-between
     align-items: center
     margin: 0 auto
-    padding: 20px 15px
-    .navbar
-      display: flex
-      justify-content: space-between
-      align-items: center
-      @media mq-tablet
-        flex: 0 236px
-      .menu-list
-        text-align: center
-        opacity: 0
-        transition: all .4s
-        @media mq-tablet
-          transform: translateX(15px)
-        @media mq-mobile
-          display: flex
-          flex-direction: column
-          justify-content: center
-          position: fixed
-          padding: 20px 0
-          left: 15px
-          right: 15px
-          top: 50%
-          margin-top: -80px
-          /* bottom: 0 */
-          z-index: 99
-          background: color-white
-          transform: translate3d(0, -5%, 0)
-          .menu-item
-            display: block
-            padding: 15px 0
-            color: color-dark!important
-            text-align: center
-        &.on
-          opacity: 1
-          @media mq-tablet
-            transform: translateX(0)
-          @media mq-mobile
-            transform: translate3d(0, 0, 0)
-            & + .up-layer
-              position: fixed
-              top: 0
-              left: 0
-              right: 0
-              bottom: 0
-              z-index: 49
-              filter: blur(2px)
-              background: rgba(7, 17, 17, .7)
-        .menu-item
-          position: relative
-          height: 40px
-          padding: 10px 15px
-          text-align: center
-          color: color-white
-          letter-spacing: 2px
-          display: inline-block
-          &:after
-            content: ''
-            position: absolute
-            left: 50%
-            bottom: 0
-            width: 3px
-            height: 3px
-            border-radius: 50%
-            background: transparent
-            transition: background .3s
-          &:hover
-            &:after
-              background: color-white
+    @media mq-normal
+      width: 78%
+      min-width: 982px
 
-      .icon-toggle
-        padding: 5px 0
+  .header-nav
+    ul.menu-list
+      font-size: 0
+      li.menu-item
+        display: inline-block
+        height: 40px
+        margin-right: 15px
+        line-height: @height
+        color: color-dark
+        font-size: font-size
+        text-align: center
+        &:last-child
+          margin: 0
+      @media mq-mobile
+        display: none
+
+    ul.menu-icon
+      display: none
+      @media mq-mobile
+        display: block
+        position: relative
+        width: 30px
+        height: 30px
+        margin: 0
+        padding: 0
         cursor: pointer
-        z-index: 99
-        ul
-          position: relative
-          width: 30px
-          height: 30px
-          list-style: none
-          li
-            position: absolute
-            left: 0
-            top: 14px
-            width: 100%
-            height: 1px
-            background: color-white
-            &:first-child
-              top: 5px
-              width: 80%
-            &:last-child
-              top: 23px
-              width: 70%
+        list-style: none
+        li
+          position: absolute
+          left: 0
+          top: 14px
+          width: 100%
+          height: 1px
+          background: color-dark
+          &:first-child
+            top: 5px
+            width: 80%
+          &:last-child
+            top: 23px
+            width: 70%
         &.on
           li
             transform-origin: center center
             transform: rotate(-45deg)
             top: 15px
             @media mq-mobile
-              background: color-white!important
+              background: color-dark!important
             &:first-child
               opacity: 1
               filter: opacity(100)
@@ -120,107 +70,3 @@
               opacity:0
               filter: opacity(0)
               transition: all 0s ease 0s
-
-    .page-title
-      display: none
-      flex: 1
-      text-align: center
-
-    .searchbar
-      display: flex
-      justify-content: flex-end
-      align-items: center
-      @media mq-tablet
-        flex: 0 236px
-      .icon-search
-        padding: 5px 0
-        cursor: pointer
-        z-index: 4999
-        ul
-          position: relative
-          width: 30px
-          height: 30px
-          list-style: none
-          li
-            position: absolute
-            &:first-child
-              left: 0
-              top: 5px
-              width: 18px
-              height: 18px
-              border: 1px solid color-white
-              border-radius: 50%
-              box-sizing: border-box
-            &:last-child
-              right: 9px
-              bottom: 5px
-              width: 7px
-              height: 1px
-              background: color-white
-              transform-origin: 100% 100%
-              transform: rotate(40deg)
-      .search-wrap
-        display: flex
-        justify-content: center
-        position: fixed
-        top: 0
-        right: 0
-        left: 0
-        padding: 20px 15px
-        opacity: 0
-        z-index: 999
-        box-sizing: border-box
-        background: color-white
-        transform: translate3d(0,-100%,0)
-        &.on
-          opacity: 1
-          transform: translate3d(0,0,0)
-          transition: transform .4s 0s
-        input
-          height: 40px
-          width: 90vw
-          max-width: max-width - 30
-          padding: 5px 15px
-          font-size: 1.2em
-          font-weight: lighter
-          border-radius: 30px
-          border-width: 0
-          box-sizing: border-box
-          background: color-background
-      .down-layer
-        position: fixed
-        bottom: 0
-        left: 0
-        width: 100vw
-        height: 100vh
-        background: rgba(255, 255, 255, .6)
-        z-index: 499
-        visibility: hidden
-        transform: translate3d(0,100%,0)
-        &.on
-          visibility: visible
-          transform: translate3d(0,0,0)
-          transition: transform .5s cubic-bezier(.55,0,.1,1) 0s
-
-  &.sticky
-    background: color-white
-    will-change: scroll-position
-    box-shadow: 0 5px 10px rgba(0, 0, 0 , .05)
-    z-index: 49
-    .inner
-      padding: 10px 15px
-      .page-title
-        display: block
-      .menu-item
-        color: color-dark!important
-      .icon-toggle
-        li
-          background: color-dark!important
-      .icon-search
-        li
-          border-color: color-dark!important
-          &:last-child
-            background: color-dark!important
-      .search-wrap
-        padding: 10px 15px
-

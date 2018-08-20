@@ -1,19 +1,16 @@
-Home: 首页
 Archives: 归档
 Categories: 分类
 Tags: 标签
 About: 关于
-Feed: 订阅
 
 archive: 归档
 category: 分类
 tag: 标签
 
-visitor: 次阅读
-comment:  条评论
+visitors: 次阅读
+comments:  条评论
 
 search: 搜索
-recent_posts: 近期
 categories: 分类
 archives: 归档
 tagcloud: 标签
@@ -21,10 +18,8 @@ links: 友链
 
 read_more: 阅读全文
 
-newer: 上一篇
-older: 下一篇
+newer: 上篇：
+older: 下篇：
 none: 无
 
 load_comments: 加载评论
-
-post_total_count: 哈哈哈，目前共计 %d 篇日志！

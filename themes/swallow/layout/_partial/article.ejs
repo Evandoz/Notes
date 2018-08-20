@@ -1,33 +1,32 @@
-<article id="<%= post.slug %>" class="article <% if (index) { %>list<% } %>" itemscope itemprop="blogPost">
+<article id="<%= post.slug %>" class="article">
   <% if (index) { %>
     <%- partial('post/gallery') %>
-    <div class="article-content">
-      <%- partial('post/title', {class_name: 'post-link'}) %>
-      <div class="post-summary" itemprop="articleBody">
+  <% } %>
+  <div class="article-content">
+    <%- partial('post/title') %>
+    <div class="post-content">
+      <% if (index) { %>
         <% if (post.excerpt) { %>
           <%- post.excerpt %>
-        <% } else if (theme.auto_excerpt) { %>
-          <%- truncate(strip_html(post.content), {length: 100, omission: '...'}) %>
+        <% } else { %>
+          <p><%- truncate(strip_html(post.content), {length: 100, omission: '...'}) %></p>
         <% }%>
-      </div>
-  <% } else { %>
-    <%- partial('post/title', {class_name: 'post-title'}) %>
-  <% } %>
-  <div class="post-meta">
-    <%- partial('post/date', {class_name: 'meta-date', date_format: 'MMMMDD, YYYY'}) %>
-    <%- partial('post/category', {class_name: 'meta-category'}) %>
-  </div>
-  <% if (index) { %>
-    </div>
-  <% } else { %>
-    <div class="post-content" itemprop="articleBody"><%- post.content %></div>
-    <footer class="post-footer">
-      <%- partial('post/copyright') %>
-      <%- partial('post/tag') %>
-      <%- partial('post/paginator') %>
-      <% if (post.comments) { %>
-        <%- partial('comment') %>
+      <% } else { %>
+        <%- post.content %>
       <% } %>
-    </footer>
-  <% } %>
+    </div>
+    <div class="post-meta">
+      <%- partial('post/date', {date_format: 'MMMMDD, YYYY'}) %>
+      <%- partial('post/category') %>
+    </div>
+    <% if (!index) { %>
+      <div class="post-footer">
+        <%- partial('post/copyright') %>
+        <%- partial('post/nav') %>
+        <% if (post.comments) { %>
+          <%- partial('post/comment') %>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
 </article>

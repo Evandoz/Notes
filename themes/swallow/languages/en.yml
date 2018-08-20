@@ -1,33 +1,25 @@
-Home: Home
 Archives: Archives
 Categories: Categories
 Tags: Tags
 About: About
-Feed: RSS
 
 archive: Archive
 category: Category
 tag: Tag
 
-visitor: times
-comment:  comments
+visitors: times
+comments:  comments
 
-note: Note
 search: Search
-recent_posts: Recent Posts
 categories: Categories
 archives: Archives
 tagcloud: Tag Cloud
-recent_comments: Recent Comments
 links: Links
 
 read_more: Read More
 
-contents: Contents
-none: None
-
 newer: Newer
 older: Older
+none: None
 
-prev: Prev
-next: Next
+load_comments: Loading Comments

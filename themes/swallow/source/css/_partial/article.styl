@@ -1,332 +1,228 @@
 .content
   position: relative
-  background: color-background
-  z-index: 4
-  .inner
-    margin: 0 auto
-    padding: 0 15px
-    max-width: max-width
+  padding: 0 2%
 
-.article
-  position: relative
-  margin: -90px auto 120px
-  padding: 60px
-  border-radius: 1px
-  background: color-white
-  box-shadow: 0 5px 10px rgba(0, 0, 0 , .15)
-  &:last-child
-    margin-bottom: 60px
-  .post-meta
-    text-align: center
-  @media mq-mobile
-    padding: 30px 20px
-  &.list
+.article-list
+  .article
     height: 350px
-    &:nth-last-child(2)
-      margin-bottom: 60px
-    .post-meta
-      text-align: left
-      @media mq-mobile
-        text-align: center
     @media mq-mobile
       height: auto
       padding: 0
 
-.article-gallery
-  height: 100%
-  width: 54%
-  overflow: hidden
-  @media mq-mobile
-    width: 100%
-    height: 160px
-    border-radius: 1px 1px 0 0
-  @media mq-tablet
-    &.left
-      float: left
-      text-align: left
-      &.sticky
-        left: 0
-        border-radius: 1px 0 0 1px
-        &:before
-          content: ''
-          position: absolute
-          top: -25%
-          right: 0
-          width: 28%
-          height: 150%
-          transform-origin: 0 0
-          transform: skewX(15deg)
-          background: color-white
-          box-shadow: -40px 0 120px 10px rgba(255, 255, 255, 1)
-          z-index: 1
-        &:after
-          content: ''
-          position: absolute
-          top: -25%
-          right: 24%
-          width: 18%
-          height: 150%
-          transform-origin: 0 0
-          transform: skewX(15deg)
-          filter: blur(5px)
-          background: linear-gradient(right, #fff, rgba(255, 255, 255, .8))
-          box-shadow: -30px 0 100px 10px rgba(255, 255, 255, .8)
-          z-index: 4
-      & + .article-content
-        margin-left: 54%
-    &.right
-      float: right
-      text-align: right
-      &.sticky
-        right: 0
-        border-radius: 0 1px 1px 0
-        &:before
-          content: ''
-          position: absolute
-          top: -25%
-          left: 0
-          width: 28%
-          height: 150%
-          transform-origin: 0 0
-          transform: skewX(-15deg)
-          background: color-white
-          box-shadow: 40px 0 100px 10px rgba(255, 255, 255, 1)
-          z-index: 1
-        &:after
-          content: ''
-          position: absolute
-          top: -25%
-          left: 24%
-          width: 18%
-          height: 150%
-          transform-origin: 0 0
-          transform: skewX(-15deg)
-          filter: blur(5px)
-          background: linear-gradient(left, #fff, rgba(255, 255, 255, .6))
-          box-shadow: 30px 0 80px 10px rgba(255, 255, 255, .6)
-          z-index: 4
-    &.sticky
-      position: absolute
-      top: 0
-      bottom: 0
-      margin: 0
-  .image
-    height: 100%
-    width: 100%
-    overflow: hidden
-    background-position: center center
-    background-repeat: no-repeat
-    background-size: cover
-
-.article-content
-  position: relative
-  display: flex
-  height: 100%
-  width: 46%
-  flex-direction: column
-  justify-content: center
-  z-index: 4
-  @media mq-mobile
-    width: 100%
-    margin: 0!important
-    padding: 20px
-
-.post-link
-  font-size: 1.4em
-  color: #333
-  font-weight: 500
-  @media mq-mobile
-    text-align: center
-
-.post-title
-  margin-bottom: 15px
-  font-size: 1.4em
-  color: #333
-  font-weight: 500
-  text-align: center
-
-.post-meta
-  color: #567987
-  font-size: 14px
-  a
-    color: #567987
-    text-decoration: none
-  .meta-item
-    display: inline-block
-    margin-right: 10px
-    color: #567987
-    letter-spacing: 2px
-    text-transform: uppercase
-    &:last-child
-      margin: 0
-
-.post-summary
-  margin: 15px 0
-  color: #636869
-  line-height: 1.8
-  letter-spacing: 2px
-  a
-    color: color-black
-
-.post-content
-  color: color-font
-  letter-spacing: 2px
-  @extend $base-style
-  p, table
-    line-height: 2
-    margin: 20px 0
-  h1, h2, h3, h4, h5, h6
-    margin: 30px 0
-    color: color-black
-  a
-    color: color-black
-  ul, ol, dl
-    margin-top: 10px
-    margin-bottom: 10px
-  img, video
-    max-width: 100%
-    height: auto
-    display: block
-    margin: 20px auto
-  iframe
-    border: none
-  table
-    width: 100%
-    border-collapse: collapse
-  tr
-    &:hover
-      background: color-background
-  th
-    font-weight: bold
-    border: 1px solid color-border
-    border-bottom-width: 2px
-    padding: 0.5em
-    background: color-background
-  td
-    border: 1px solid color-border
-    padding: 10px 0
-  blockquote
-    margin: 30px 0
-    padding: 15px 20px
-    font-family: font-serif
-    font-size: 1.25em
-    color: color-black
-    border-left: 4px solid color-theme
-    background: color-background
-    p
-      margin: 0
-      line-height: 1.8
-    footer
-      margin: 20px 0
-      font-size: font-size
-      font-family: font-sans
-      cite
-        &:before
-          content: "—"
-          padding: 0 0.5em
-  .pullquote
-    text-align: left
-    width: 45%
-    margin: 0
-    &.left
-      margin-left: 0.5em
-      margin-right: 1em
-    &.right
-      margin-right: 0.5em
-      margin-left: 1em
-  .caption
-    color: color-grey
-    display: block
-    font-size: 0.9em
-    margin-top: 0.5em
-    position: relative
-    text-align: center
-  .video-container
-    position: relative
-    padding-top: (9 / 16 * 100)% // 16:9 ratio
-    height: 0
-    overflow: hidden
-    iframe, object, embed
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
+    .article-gallery
       height: 100%
-      margin-top: 0
+      width: 50%
+      overflow: hidden
+      @media mq-mobile
+        width: 100%
+        height: 160px
+        border-radius: 1px 1px 0 0
+      @media mq-tablet
+        &.left
+          float: left
+          text-align: left
+          &.sticky
+            left: 0
+            border-radius: 1px 0 0 1px
 
-.post-footer
-  margin-top: 60px
-  .article-copyright
-    text-align: center
-    p
-      display: inline-block
-      font-size: .9em
-      color: color-font
-      word-wrap: break-word
-      letter-spacing: 1px
-  .article-tag
-    margin: 30px 0
-    text-align: center
-    a
-      display: inline-block
-      margin-right: 15px
-      padding: 4px 10px
-      color: color-font
-      text-decoration: none
-      background: color-border
-      &:before
-        content: "#"
-        margin-right: 3px
+          & + .article-content
+            margin-left: 50%
+        &.right
+          float: right
+          text-align: right
+          &.sticky
+            right: 0
+            border-radius: 0 1px 1px 0
 
-.article-paginator
-  display: flex
-  justify-content: space-between
-  align-items: center
-  flex-flow: wrap
+        &.sticky
+          position: absolute
+          top: 0
+          bottom: 0
+          margin: 0
+      .image
+        height: 100%
+        width: 100%
+        overflow: hidden
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+
+    .article-content
+      position: relative
+      display: flex
+      height: 100%
+      width: 50%
+      flex-direction: column
+      justify-content: center
+      z-index: 4
+      @media mq-mobile
+        width: 100%
+      .post-title
+        margin: 0
+        text-align: left
+        @media mq-mobile
+          text-align: center
+      .post-meta
+        margin: 0
+        text-align: left
+        @media mq-mobile
+          text-align: center
+
+.article
   position: relative
-  margin: 40px 0
-  padding: 10px 0
-  border-top: 1px solid color-border
-  border-bottom: 1px solid color-border
+  margin: 50px auto
+  border-radius: 1px
+  background: color-white
+  @media mq-normal
+    width: 78%
+    min-width: 982px
 
-  .paginator-link
-    display: block
-    margin: 10px 0
-    color: color-font
-    text-align: center
-
-    &.newer
-      &:before
-        content: '\f104'
-        line-height: 1.25
-        font-family: font-icon
-        float: left
-      .paginator-title
-        padding-left: 6px
-
-    &.older
-      &:after
-        content: '\f105'
-        line-height: 1.25
-        font-family: font-icon
-        float: right
-      .paginator-title
-        padding-right: 6px
-
-    .paginator-caption
-      display: none
-    .paginator-title
-      display: inline-block
-      font-size: .92em
+  .article-content
+    padding: 50px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    @media mq-mobile
+      padding: 30px 20px
+    .post-title
+      margin-bottom: 10px
+      font-size: 1.4em
+      color: #333
+      font-weight: 500
       text-align: center
 
-.article-comment
-  .load-button
-    width: 100px
-    margin: 0 auto
-    padding: 5px 15px
-    color: color-white
-    text-align: center
-    background: color-theme
-    border-radius: 1px
-    cursor: pointer
+    .post-content
+      color: color-font
+      letter-spacing: 2px
+      @extend $base-style
+      p, table
+        line-height: 2
+        margin: 20px 0
+      h1, h2, h3, h4, h5, h6
+        margin: 25px 0
+        color: color-black
+      a
+        color: color-black
+      ul, ol, dl
+        margin-top: 10px
+        margin-bottom: 10px
+      img, video
+        max-width: 100%
+        height: auto
+        display: block
+        margin: 20px auto
+      iframe
+        border: none
+      table
+        width: 100%
+        border-collapse: collapse
+      tr
+        &:hover
+          background: color-background
+      th
+        font-weight: bold
+        border: 1px solid color-border
+        border-bottom-width: 2px
+        padding: 0.5em
+        background: color-background
+      td
+        border: 1px solid color-border
+        padding: 10px 0
+      blockquote
+        margin: 30px 0
+        padding: 15px 20px
+        font-family: font-serif
+        font-size: 1.25em
+        color: color-black
+        border-left: 4px solid color-theme
+        background: color-background
+        p
+          margin: 0
+          line-height: 1.8
+        footer
+          margin: 20px 0
+          font-size: font-size
+          font-family: font-sans
+          cite
+            &:before
+              content: "—"
+              padding: 0 0.5em
+      .pullquote
+        text-align: left
+        width: 45%
+        margin: 0
+        &.left
+          margin-left: 0.5em
+          margin-right: 1em
+        &.right
+          margin-right: 0.5em
+          margin-left: 1em
+      .caption
+        color: color-grey
+        display: block
+        font-size: 0.9em
+        margin-top: 0.5em
+        position: relative
+        text-align: center
+      .video-container
+        position: relative
+        padding-top: (9 / 16 * 100)% // 16:9 ratio
+        height: 0
+        overflow: hidden
+        iframe, object, embed
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          margin-top: 0
+
+    .post-meta
+      margin-top: 15px
+      font-size: 0
+      text-align: center
+      span, a
+        display: inline-block
+        margin-right: 15px
+        font-size: 14px
+        color: #567987
+        text-decoration: none
+        text-transform: uppercase
+        &:last-child
+          margin: 0
+
+    .post-footer
+      .post-copyright
+        margin: 20px 0
+        line-height: 2
+        font-size: 14px
+        color: color-font
+        text-align: center
+
+      .post-paginator
+        display: flex
+        justify-content: space-between
+        align-items: center
+        flex-flow: wrap
+        margin: 25px 0
+        padding: 10px 0
+        font-size: 15px
+        border-top: 1px solid color-border
+        border-bottom: 1px solid color-border
+
+        .paginator-link
+          display: block
+          margin: 5px 0
+          color: color-font
+          text-align: center
+
+      .post-comment
+        .load-button
+          width: 100px
+          margin: 0 auto
+          padding: 5px 15px
+          color: color-white
+          text-align: center
+          background: color-theme
+          border-radius: 1px
+          cursor: pointer

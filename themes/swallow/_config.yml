@@ -1,16 +1,11 @@
 # Header
 nav:
-  Home: /
-  Archives: archives
   About: about
-
-# Search
-search: false
-
+  Archives: archives
+  Categories: categories
 
 # Since
 since: 2015
-
 
 # Set default keywords (Use a comma to separate)
 keywords: ""
@@ -19,26 +14,18 @@ keywords: ""
 # Of course you can use a target link instead.
 # (E.g. `http://abc.com/favicon.ico` or `css/images/favicon.ico`)
 favicon: css/images/favicon.png
-
-banner: css/images/banner.jpg
-
 logo: css/images/logo.png
 
-# links
+# Links
 links:
 
-# widget behavior
-archive_type: 'monthly'
-show_count: true
+# Date format
 date_format: ''
 
-# Auto excerpt
-auto_excerpt: true
-
-# Code Highlight theme
+# Code highlight theme
 # Available value:
 #    normal | night | night eighties | night blue | night bright
-highlight_theme: night
+highlight_theme: normal
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/

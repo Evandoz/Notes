@@ -1,37 +1,43 @@
 <% if (pagination == 2){ %>
-  <% page.posts.forEach(function(post, i){ %>
-    <%- partial('article', {post: post, count: i, index: true}) %>
-  <% }) %>
-<% } else { %>
-  <div class="archives-wrap">
-    <div class="archives">
-    <% if (is_archive()) { %>
-      <div class="archive-title"><%= __('post_total_count', site.posts.length) %></div>
-    <% } else if (is_category()) { %>
-      <div class="category-title"><%= page.category %></div>
-    <% } else if (is_tag()) { %>
-        <div class="tag-title"><%= page.tag %></div>
-    <% } %>
-    <% var last; %>
-    <% page.posts.each(function(post, i){ %>
-      <% var year = post.date.year(); %>
-      <% if (last != year){ %>
-        <% if (last != null){ %>
-          </div>
-        <% } %>
-        <% last = year; %>
-          <div class="archive-year"><%= year %></div>
-          <div class="archive-content">
-      <% } %>
-      <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+  <div class="article-list">
+    <% page.posts.forEach(function(post, i){ %>
+      <%- partial('_partial/article', {post: post, count: i, index: true}) %>
     <% }) %>
-    <% if (page.posts.length){ %>
-      </div>
+  </div>
+<% } else { %>
+  <div class="archive">
+    <% if (is_archive()) { %>
+      <% var last, year; %>
+      <% page.posts.each(function(post, i){ %>
+        <% year = post.date.year(); %>
+        <% if (last != year){ %>
+          <% if (last != null){ %>
+            </ul>
+          <% } %>
+          <% last = year; %>
+          <% if (is_year()) { %>
+            <h1 class="archive-year"><%= year %></h1>
+          <% } else { %>
+            <a class="archive-year" href="<%- url_for(config.archive_dir + '/' + year) %>"><%= year %></a>
+          <% } %>
+          <ul class="archive-list">
+        <% } %>
+        <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+      <% }) %>
+      <% if (page.posts.length){ %>
+        </ul>
+      <% } %>
+    <% } else { %>
+      <h1 class="archive-year"><%= title %></h1>
+      <ul class="archive-list">
+        <% page.posts.each(function(post, i){ %>
+          <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+        <% }) %>
+      </ul>
     <% } %>
-    </div>
   </div>
 <% } %>
 
-<% if (page.total > 1){ %>
+<% if (page.total > 1) { %>
   <%- partial('_partial/paginator') %>
 <% } %>
