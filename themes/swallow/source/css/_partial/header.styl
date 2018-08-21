@@ -1,30 +1,48 @@
 .header
-  padding: 10px 2%
-  background: #fff
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, .05) */
+  position: fixed
+  top: 0
+  width: 100%
+  padding: 0 2%
+  background: color-white
+  overflow: hidden
+  z-index: 4
 
   .inner
-    display: flex
-    justify-content: space-between
-    align-items: center
+    position: relative
     margin: 0 auto
     @media mq-normal
       width: 78%
       min-width: 982px
-
+  .wrap
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    transition: transform .3s
+  .header-brand
+    padding: 10px 0
+    .brand-title
+      display: block
+      height: 40px
+      padding: 0 5px
+      line-height: @height
+      font-size: 1.2em
+      color: color-font
   .header-nav
+    padding: 10px 0
+    bakcground: color-white
     ul.menu-list
       font-size: 0
       li.menu-item
         display: inline-block
+      li.menu-item a
+        display: block
         height: 40px
-        margin-right: 15px
+        padding: 0 10px
         line-height: @height
         color: color-dark
-        font-size: font-size
+        font-size: 15px
         text-align: center
-        &:last-child
-          margin: 0
       @media mq-mobile
         display: none
 
@@ -46,6 +64,7 @@
           width: 100%
           height: 1px
           background: color-dark
+          transition: all .3s ease 0s
           &:first-child
             top: 5px
             width: 80%
@@ -57,8 +76,6 @@
             transform-origin: center center
             transform: rotate(-45deg)
             top: 15px
-            @media mq-mobile
-              background: color-dark!important
             &:first-child
               opacity: 1
               filter: opacity(100)
@@ -70,3 +87,27 @@
               opacity:0
               filter: opacity(0)
               transition: all 0s ease 0s
+
+  .page-title
+    position: absolute
+    top: 0
+    width: 100%
+    height: 60px
+    line-height: @height
+    text-align: center
+    letter-spacing: 2px
+    background: color-white
+    transition: transform .3s
+
+.header
+  &.sticky
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .05)
+    transition: box-shadow .3s
+    .wrap
+      transform: translate3d(0, -100%, 0)
+  &:not(.sticky)
+    .page-title
+      transform: translate3d(0, 100%, 0)
+
+.copy
+  height: 60px

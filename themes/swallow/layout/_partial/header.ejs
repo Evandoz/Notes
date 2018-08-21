@@ -1,17 +1,38 @@
 <header id="header" class="header">
   <div class="inner">
-    <div class="header-brand">
-      <h2><a href="<%- url_for() %>"><%= config.title %></a></h2>
+    <div class="wrap">
+      <div class="header-brand">
+        <!-- <%= config.title %> -->
+        <a class="brand-title" href="<%- url_for() %>"><img src="<%- url_for(theme.logo) %>" alt=""></a>
+      </div>
+      <div class="header-nav">
+        <ul id="menu-icon" class="menu-icon">
+          <li></li><li></li><li></li>
+        </ul>
+        <ul id="menu-list" class="menu-list">
+          <% for (var i in theme.nav){ %>
+            <li class="menu-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
+          <% } %>
+        </ul>
+      </div>
     </div>
-    <div class="header-nav">
-      <ul id="menu-icon" class="menu-icon">
-        <li></li><li></li><li></li>
-      </ul>
-      <ul id="menu-list" class="menu-list">
-        <% for (var i in theme.nav){ %>
-          <li class="menu-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
-        <% } %>
-      </ul>
+    <%
+      var title = page.title;
+      if (is_archive()){
+        title = __('archive');
+        if (is_year()){
+          title += '-' + page.year;
+        }
+      } else if (is_category()){
+        title = __('category') + '-' + page.category;
+      } else if (is_tag()){
+        title = __('tag') + '-' + page.tag;
+      }
+    %>
+    <div id="page-title" class="page-title">
+      <h1><% if (title){ %><%= __(title) %><% } else { %><%= config.title %><% } %></h1>
     </div>
   </div>
 </header>
+
+<div class="copy"></div>

@@ -1,6 +1,6 @@
 Archives: 归档
 Categories: 分类
-Tags: 标签
+Links: 友链
 About: 关于
 
 archive: 归档
@@ -8,18 +8,9 @@ category: 分类
 tag: 标签
 
 visitors: 次阅读
-comments:  条评论
-
-search: 搜索
-categories: 分类
-archives: 归档
-tagcloud: 标签
-links: 友链
-
-read_more: 阅读全文
+comments: 条评论
 
 newer: 上篇：
 older: 下篇：
-none: 无
 
 load_comments: 加载评论

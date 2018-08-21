@@ -69,12 +69,9 @@ index_generator:
 archive_generator:
   per_page: 20
   yearly: true
-  monthly: true
+  monthly: false
 
 category_generator:
-  per_page: 20
-
-tag_generator:
   per_page: 20
 
 # Extensions

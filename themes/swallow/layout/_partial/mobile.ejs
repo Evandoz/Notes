@@ -1,7 +1,7 @@
 <div id="mobile-nav" class="mobile-nav">
-  <div id="menu-list" class="menu-list">
-    <% for (var i in theme.nav){ %>
-      <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
-    <% } %>
-  </div>
+  <% for (var i in theme.nav){ %>
+    <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
+  <% } %>
 </div>
+
+<div id="over-layer" class="over-layer"></div>

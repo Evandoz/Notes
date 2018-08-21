@@ -1,6 +1,6 @@
 Archives: Archives
 Categories: Categories
-Tags: Tags
+Links: Links
 About: About
 
 archive: Archive
@@ -10,16 +10,7 @@ tag: Tag
 visitors: times
 comments:  comments
 
-search: Search
-categories: Categories
-archives: Archives
-tagcloud: Tag Cloud
-links: Links
-
-read_more: Read More
-
-newer: Newer
-older: Older
-none: None
+newer: Newer-
+older: Older-
 
 load_comments: Loading Comments
