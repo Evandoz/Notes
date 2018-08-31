@@ -10,12 +10,12 @@ author: Levan
 language: zh-CN
 timezone: Asia/Shanghai
 homepage: 行而思
-homesite: https://www.floretten.com
+homesite: https://evandoz.github.io
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://notes.floretten.com
-root: /
+url: http://evandoz.github.io/evandoz
+root: /evandoz/
 permalink: :year/:title/
 permalink_defaults:
 
@@ -109,5 +109,5 @@ feed:
 deploy:
   type: git
   repo:
-    github: git@github.com:Evandoz/Evandoz.github.io.git
+    github: git@github.com:Evandoz/Evandoz.git
   branch: master
