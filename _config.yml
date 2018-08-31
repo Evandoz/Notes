@@ -14,8 +14,8 @@ homesite: https://evandoz.github.io
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://evandoz.github.io/evandoz
-root: /evandoz/
+url: https://evandoz.github.io/Evandoz
+root: /Evandoz/
 permalink: :year/:title/
 permalink_defaults:
 

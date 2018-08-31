@@ -32,7 +32,7 @@ highlight_theme: normal
 gitment:
   enable: true
   owner: Evandoz
-  repo: Evandoz.github.io
+  repo: Evandoz
   client_id: 0affe0a468dcd4552df8
   client_secret: 58eea8c98437b98e82d46f98af99506e358a315f
   lazy: true
