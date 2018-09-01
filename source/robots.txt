@@ -10,5 +10,5 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 
-Sitemap: https://evandoz.github.io/sitemap.xml
-Sitemap: https://evandoz.github.io/baidusitemap.xml
+Sitemap: https://evandoz.github.io/Evandoz/sitemap.xml
+Sitemap: https://evandoz.github.io/Evandoz/baidusitemap.xml
