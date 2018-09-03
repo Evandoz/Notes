@@ -68,7 +68,7 @@ Travis CI 官方文档：https://docs.travis-ci.com/
 
 ![Personal access tokens](https://floretten-1252347631.costj.myqcloud.com/Travis/Travis006.png)
 
-拷贝 token 并在 Travis CI 页面中配置``Environment Variables``。
+为了保护 token 的私密性，将其配置到 Travis CI 的``Environment Variables``。
 
 ![Environment Variables](https://floretten-1252347631.costj.myqcloud.com/Travis/Travis008.png)
 
@@ -105,17 +105,19 @@ Travis CI 已获得仓库权限，现在可以给它相关操作指令了。
 	 global:
 	   - GH_REF: github.com/yourname/yourname.github.io.git  #设置GH_REF，注意更改yourname
 
-*.travis.yml* 配置完成后，还需要注意一个问题，即 Travis 在创建虚拟机后，如何利用``npm install``安装 Hexo 及其依赖文件。进行过本地部署的话就不难发现，我们所需要的依赖文件会自动添加到 *package.json* 列表中，因此 package.json 文件不可少。
+当然，为了个人隐私方面的考虑，*.travis.yml* 文件中的用户名、邮箱之类的变量也可以像 GH_TOKEN 一样定义在 Environment Variables 中。
+
+需要注意一个问题是，创建虚拟机后，Travis 会使用``npm install``命令读取 package.json 文件来安装 Hexo 及其依赖文件，因此需要保证 package.json 文件不可少且相关的依赖文件都在其中有记录。
 
 ![package.json](https://floretten-1252347631.costj.myqcloud.com/Travis/Travis009.png)
 
-配置Hexo时还会生成``node_modules``文件夹，这是 Hexo 及其依赖包的位置，它和 *package.json* 文件列表是对应的。因此 node_modules 文件夹不需要 push 远程仓库，CI平台的虚拟机会自己创建的。
+配置Hexo时会生成``node_modules``文件夹，这是 Hexo 及其依赖包的位置，它和 *package.json* 文件列表是对应的。因此 node_modules 文件夹不需要 push 远程仓库，CI平台的虚拟机会自己创建的。
 
 另外注意这些文件的**格式**，尤其是``.yml``的格式，稍有偏差就有可能出问题。
 
 ### Push 到 GitHub
 
-在_posts目录下新建文章并 push 分支，登陆 Travis CI 即可发现已经检测到分支变化并开始构建，其中``job log``记录了构建的过程。
+在本地_posts目录下新建文章并 push 分支，登陆 Travis CI 即可看到已经检测到分支变化并开始构建，其中``job log``记录了构建的过程。
 
 ![hexo deployer](https://floretten-1252347631.costj.myqcloud.com/Travis/Travis013.png)
 

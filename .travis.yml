@@ -13,15 +13,14 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git config user.name "Evandoz"
-  - git config user.email "evandoz@outlook.com"
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
   - git add .
-  - git commit -m "site update"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+  - git commit -m "Automatically update from travis-ci"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" ${L_BRANCH}:${O_BRANCH}
 
 branches:
   only:
     - master
 env:
- global:
-   - GH_REF: github.com/Evandoz/Evandoz.git
+  global:
