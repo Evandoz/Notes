@@ -59,4 +59,6 @@ layout: sticky
 
 ## 其他
 
-一个网站：[jQuery插件库](http://www.jq22.com/)
+1. 一个网站：[jQuery插件库](http://www.jq22.com/)
+
+2. 文件下载：[download.js](http://danml.com/download.html)
