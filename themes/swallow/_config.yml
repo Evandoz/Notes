@@ -33,8 +33,8 @@ gitalk:
   enable: true
   owner: Evandoz
   repo: Evandoz
-  clientId: 0affe0a468dcd4552df8
-  clientSecret: 58eea8c98437b98e82d46f98af99506e358a315f
+  clientId: e47488c7e41ba7f61cc1
+  clientSecret: 6884935473b21a6f694f88d5b380eda1fde0517e
 
 # Webmaster tools verification setting
 google_site_verification: W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4
