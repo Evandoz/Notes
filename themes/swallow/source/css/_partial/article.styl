@@ -68,7 +68,7 @@
   background: color-white
 
   @media mq-normal
-    width: 75%
+    width: 72%
     min-width: 952px
 
   .article-content
@@ -211,11 +211,24 @@
           text-align: center
 
       .post-comment
-        .load-button
-          width: 100px
-          margin: 0 auto
-          padding: 5px 15px
-          text-align: center
-          border: 1px solid color-border
-          border-radius: 1px
-          cursor: pointer
+        .gt-container
+          .gt-meta
+            z-index: 1
+            .gt-popup
+              margin-top: 10px
+              box-shadow: 0 0 10px rgba(0, 0, 0, .1)
+          .gt-header-textarea, .gt-header-preview, .gt-btn
+            border-radius: 1px
+          .gt-header-textarea
+            border-color: color-border
+            background-color: #f8f8f8
+            &:hover
+              background-color: #f6f6f6
+          .gt-header-controls
+            margin-top: 1.2em
+          .gt-link
+            border-bottom: none
+          .gt-comments-null
+            display: none
+          &:after
+            display: none

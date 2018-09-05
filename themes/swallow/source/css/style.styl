@@ -14,15 +14,53 @@ a, a:hover, a:focus
 
 @font-face
   font-family: Roboto
+  src: url("fonts/Roboto-Regular.ttf") format("truetype")
   font-style: normal
   font-weight: normal
-  src: url("fonts/Roboto-Regular.ttf") format("truetype")
 
 @font-face
   font-family: SourceCodePro
+  src: url("fonts/SourceCodePro-Regular.ttf") format("truetype")
   font-style: normal
   font-weight: normal
-  src: url("fonts/SourceCodePro-Regular.ttf") format("truetype")
+
+@font-face
+  font-family: icomoon
+  src:  url('fonts/icomoon.eot?xd9y5o')
+  src:  url('fonts/icomoon.eot?xd9y5o#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?xd9y5o') format('truetype'),
+    url('fonts/icomoon.woff?xd9y5o') format('woff'),
+    url('fonts/icomoon.svg?xd9y5o#icomoon') format('svg')
+  font-weight: normal
+  font-style: normal
+
+[class^="icon-"], [class*=" icon-"]
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+.icon-home:before
+  content: "\e900";
+
+.icon-qrcode:before
+  content: "\e938";
+
+.icon-arrow-right:before
+  content: "\ea3c"
+
+.icon-arrow-left:before
+  content: "\ea40"
+
+
 
 body
   font: font-size font-sans

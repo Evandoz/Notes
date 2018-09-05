@@ -20,29 +20,34 @@
   <title><% if (title){ %><%= __(title) %> | <% } %><%= config.title %><% if (is_home()){ %> - <%= config.description %><% } %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <% if (config.author) { %>
-    <meta name="author" content="<%= config.author %>"/>
-  <% } %>
+    <meta name="author" content="<%= config.author %>">
+  <% }%>
   <% if (config.description) { %>
-    <meta name="description" content="<%= config.description %>"/>
+    <meta name="description" content="<%= config.description %>">
   <% } %>
   <% if (page.keywords){ %>
     <meta name="keywords" content="<%= page.keywords %>">
   <% } else if (theme.keywords){ %>
     <meta name="keywords" content="<%= theme.keywords %>">
   <% } else if (page.tags && page.tags.length){ %>
-  <meta name="keywords" content="<% page.tags.forEach(function(tag, i){ %><%= tag.name %><% }) %>">
-  <% }%>
+    <meta name="keywords" content="<% page.tags.forEach(function(tag, i){ %><%= tag.name %><% }) %>">
+  <% } else { %>
+    <meta name="keywords" content="<%- truncate(strip_html(page.content), {length: 100, omission: ','}) %>">
+    <% }%>
   <% if (theme.google_site_verification){ %>
-    <meta name="google-site-verification" content="<%= theme.google_site_verification %>" />
+    <meta name="google-site-verification" content="<%= theme.google_site_verification %>">
   <% } %>
   <% if (theme.baidu_site_verification){ %>
-    <meta name="baidu-site-verification" content="<%= theme.baidu_site_verification %>" />
+    <meta name="baidu-site-verification" content="<%= theme.baidu_site_verification %>">
   <% } %>
   <% if (theme.qihu_site_verification){ %>
-    <meta name="360-site-verification" content="<%= theme.qihu_site_verification %>" />
+    <meta name="360-site-verification" content="<%= theme.qihu_site_verification %>">
   <% } %>
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- url_for(theme.favicon) %>">
+  <% } %>
+  <% if (is_post() && theme.gitalk.enable) { %>
+    <%- css('https://unpkg.com/gitalk/dist/gitalk.css') %>
   <% } %>
   <%- css('css/style') %>
   <%- js('lib/jquery.min') %>

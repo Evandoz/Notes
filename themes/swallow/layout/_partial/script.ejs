@@ -1,5 +1,4 @@
 <% if (is_post() && theme.gitalk.enable) { %>
-  <%- css('https://unpkg.com/gitalk/dist/gitalk.css') %>
   <%- js('https://unpkg.com/gitalk/dist/gitalk.min.js') %>
   <script>
     const gitalk = new Gitalk({
@@ -11,10 +10,11 @@
       id: '<%= page.path %>',
       distractionFreeMode: true
     })
-    gitalk.render('comment-container')
+    gitalk.render('post-comment')
   </script>
 <% } %>
 
+<%- js('lib/jquery.qrcode.min') %>
 <%- js('lib/html5shiv') %>
 <%- js('lib/bootstrap.min') %>
 <%- js('lib/main') %>

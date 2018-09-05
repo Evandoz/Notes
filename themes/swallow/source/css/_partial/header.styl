@@ -12,7 +12,7 @@
     margin: 0 auto
     transition: padding .3s
     @media mq-normal
-      width: 75%
+      width: 72%
       min-width: 952px
   .wrap
     width: 100%
@@ -97,8 +97,24 @@
     height: 60px
     line-height: @height
     text-align: center
-    letter-spacing: 2px
+    letter-spacing: 1px
     transition: transform .3s
+    .home-link, .qr-code
+      display: block
+      position: absolute
+      top: 18px
+      height: 20px
+      width: 20px
+      line-height: @height
+      color: color-font
+      font-size: 1.25em
+    .home-link
+      left: 5px
+    .qr-code
+      right: 5px
+      @media mq-mobile
+        display: none
+
 
 .header
   &.sticky
@@ -112,3 +128,13 @@
 
 .copy
   height: 60px
+
+.qr
+  display: none
+  position: fixed
+  top: 110px
+  right: 20px
+  padding: 15px
+  background: color-white
+  z-index: 9
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1)

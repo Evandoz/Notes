@@ -30,9 +30,15 @@
       }
     %>
     <div id="page-title" class="page-title">
-      <h1><% if (title){ %><%= __(title) %><% } else { %><%= config.title %><% } %></h1>
+      <% if (!is_home()) { %>
+        <a class="home-link icon-home" href="<%- url_for() %>"></a>
+      <% } %>
+      <h1 class="top-title"><% if (title){ %><%= __(title) %><% } else { %><%= config.title %><% } %> <% if (is_home()){ %> - <%= config.description %><% } %></h1>
+      <a id="qr-code" class="qr-code icon-qrcode" href="javascript: void(0)"></a>
     </div>
   </div>
 </header>
 
 <div class="copy"></div>
+
+<div id="qr" class="qr"></div>

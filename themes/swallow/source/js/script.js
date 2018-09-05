@@ -4,13 +4,26 @@
   var $header = $('#header'),
     $pageTitle = $('#page-title');
 
-  var headerHeight = $header.outerHeight();
+  var headerHeight = $header.outerHeight() + 100;
+
+  var $qrcode = $('#qr-code');
+  if ($qrcode) {
+    $qrcode.on('click', function(){
+      if ($qrcode.hasClass('on')) {
+        $('#qr').fadeToggle(300);
+      } else {
+        $qrcode.addClass('on')
+        $('#qr').qrcode({ width: 128, height: 128, text: location.href}).fadeToggle(300);
+      }
+    });
+  }
 
   //Scroll
   var $viewport = $('html, body'),
     $topAnchor = $('#top-anchor');
   $(function() {
     $(window).scroll(function() {
+      if ($(this).scrollTop() <= 0) { $('#qr').fadeOut(100); }
       $(this).scrollTop() > headerHeight ? $header.addClass('sticky') : $header.removeClass('sticky');
       $(this).scrollTop() > $(this).height() ? $topAnchor.addClass('on') : $topAnchor.removeClass('on');
     });
@@ -23,7 +36,6 @@
       }
     });
   });
-
 
   //Fit Vids
   $("body").fitVids();
