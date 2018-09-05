@@ -27,15 +27,14 @@ date_format: ''
 #    normal | night | night eighties | night blue | night bright
 highlight_theme: normal
 
-# Gitment
-# Introduction: https://imsun.net/posts/gitment-introduction/
-gitment:
+# Gitalk
+# Repo: https://github.com/gitalk/gitalk
+gitalk:
   enable: true
   owner: Evandoz
   repo: Evandoz
-  client_id: 0affe0a468dcd4552df8
-  client_secret: 58eea8c98437b98e82d46f98af99506e358a315f
-  lazy: true
+  clienId: 0affe0a468dcd4552df8
+  clientSecret: 58eea8c98437b98e82d46f98af99506e358a315f
 
 # Webmaster tools verification setting
 google_site_verification: W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4

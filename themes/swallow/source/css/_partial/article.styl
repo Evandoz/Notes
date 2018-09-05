@@ -5,6 +5,9 @@
 .article-list
   .article
     height: 350px
+    transition: box-shadow .3s
+    &:hover, &:focus
+      box-shadow: 0 0 16px rgba(0, 0, 0, .24)
     @media mq-mobile
       height: auto
       padding: 0
@@ -63,9 +66,10 @@
   margin: 50px auto
   border-radius: 1px
   background: color-white
+
   @media mq-normal
-    width: 78%
-    min-width: 982px
+    width: 75%
+    min-width: 952px
 
   .article-content
     padding: 50px
@@ -177,7 +181,6 @@
         font-size: 14px
         color: #567987
         text-decoration: none
-        text-transform: uppercase
         &:last-child
           margin: 0
 

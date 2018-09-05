@@ -10,9 +10,10 @@
   .inner
     position: relative
     margin: 0 auto
+    transition: padding .3s
     @media mq-normal
-      width: 78%
-      min-width: 982px
+      width: 75%
+      min-width: 952px
   .wrap
     width: 100%
     display: flex
@@ -97,12 +98,11 @@
     line-height: @height
     text-align: center
     letter-spacing: 2px
-    background: color-white
     transition: transform .3s
 
 .header
   &.sticky
-    box-shadow: 0 3px 5px rgba(0, 0, 0, .05)
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2)
     transition: box-shadow .3s
     .wrap
       transform: translate3d(0, -100%, 0)

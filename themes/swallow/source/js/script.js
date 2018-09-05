@@ -99,16 +99,4 @@
     toggleOff();
   });
 
-
-  var $category = $('#category');
-  if ($category) {
-    var sumWidth = $category.outerWidth()
-    var $item = $category.find('a:first-child');
-    var eachWidth = $item.outerWidth()
-    var number = Math.floor(sumWidth / eachWidth);
-    var width = (sumWidth - eachWidth * number) / (number);
-    $category.children('a').css('margin-bottom', width + 'px');
-  }
-
-
 })(jQuery);
