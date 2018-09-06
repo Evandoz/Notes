@@ -2,18 +2,21 @@
   position: fixed
   top: 0
   width: 100%
-  padding: 0 2%
-  background: color-white
+  padding: 0 4%
+  background: #fcfcfc
   overflow: hidden
   z-index: 4
+  &.sticky
+    box-shadow: 0 0 2px rgba(0, 0, 0, .1)
+    transition: box-shadow .3s
 
   .inner
     position: relative
     margin: 0 auto
     transition: padding .3s
     @media mq-normal
-      width: 72%
-      min-width: 952px
+      width: 68%
+      min-width: 794px
   .wrap
     width: 100%
     display: flex
@@ -21,17 +24,17 @@
     align-items: center
     transition: transform .3s
   .header-brand
-    padding: 10px 0
+    padding: 12px 0
     .brand-title
       display: block
       height: 40px
-      margin: 0 -12px
+      margin: 0 -15px
       line-height: @height
       font-size: 1.6em
       color: color-font
       letter-spacing: 5px
   .header-nav
-    padding: 10px 0
+    padding: 12px 0
     bakcground: color-white
     ul.menu-list
       font-size: 0
@@ -90,51 +93,5 @@
               filter: opacity(0)
               transition: all 0s ease 0s
 
-  .page-title
-    position: absolute
-    top: 0
-    width: 100%
-    height: 60px
-    line-height: @height
-    text-align: center
-    letter-spacing: 1px
-    transition: transform .3s
-    .home-link, .qr-code
-      display: block
-      position: absolute
-      top: 18px
-      height: 20px
-      width: 20px
-      line-height: @height
-      color: color-font
-      font-size: 1.25em
-    .home-link
-      left: 5px
-    .qr-code
-      right: 5px
-      @media mq-mobile
-        display: none
-
-
-.header
-  &.sticky
-    box-shadow: 0 0 8px rgba(0, 0, 0, .2)
-    transition: box-shadow .3s
-    .wrap
-      transform: translate3d(0, -100%, 0)
-  &:not(.sticky)
-    .page-title
-      transform: translate3d(0, 100%, 0)
-
 .copy
-  height: 60px
-
-.qr
-  display: none
-  position: fixed
-  top: 110px
-  right: 20px
-  padding: 15px
-  background: color-white
-  z-index: 9
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1)
+  height: 64px

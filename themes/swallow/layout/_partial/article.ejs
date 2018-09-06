@@ -4,12 +4,12 @@
   <% } %>
   <div class="article-content">
     <%- partial('post/title') %>
-    <div class="post-content">
+    <div id="post-content" class="post-content">
       <% if (index) { %>
         <% if (post.excerpt) { %>
           <%- post.excerpt %>
         <% } else { %>
-          <p><%- truncate(strip_html(post.content), {length: 100, omission: '...'}) %></p>
+          <p><%- truncate(strip_html(post.content), {length: 80, omission: '...'}) %></p>
         <% }%>
       <% } else { %>
         <%- post.content %>

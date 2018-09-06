@@ -3,85 +3,82 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>404 Not Found</title>
-  <link rel="icon" type="image/x-icon" href="/css/images/favicon.png">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="icon" href="/css/images/favicon.png">
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 	<style>
-		.content {
-			margin-top: 80px;
-			padding: 120px 0;
-		}
+    .header {
+      position: relative;
+    }
+    @media screen and (max-width: 736px) {
+      .header .wrap {
+        justify-content: center;
+      }
+    }
+    .text-center {
+      text-align: center;
+    }
 		.not-found-title {
 	    display: block;
-	    color: #000;
-	    font-size: 60px;
-	    font-weight: 700;
-	    line-height: 100px;
-	    letter-spacing: 4px;
+	    color: #333;
+	    font-size: 24px;
+	    font-weight: 500;
 		}
-		.highlight-button-dark {
+		.back-button {
 	    display: inline-block;
 	    margin: 30px 0;
-	    padding: 10px 50px;
+	    padding: 10px 40px;
 	    color: #fff;
 	    font-size: 14px;
     	letter-spacing: 2px;
 	    text-decoration: none;
 	    text-transform: uppercase;
-	    background: #000;
-	    border: 2px solid #000;
+	    background: #333;
+	    border: 2px solid #333;
 		}
-		.highlight-button-dark:hover {
-			color:#000;
-			border: 2px solid #000;
+		.back-button:hover {
+			color: #333;
+			border: 2px solid #333;
 			background: transparent;
 			transition: background .3s;
 		}
 	</style>
-	<header id="header" class="global-header">
-	  <div class="container">
-	    <div class="row">
-	      <div class="header-inner">
-	        <div id="header-title" class="header-title">
-	          <a href="/"><img src="/css/images/logo.png"></a>
-	        </div>
-	        <div id="header-btn" class="header-btn">
-	          <div id="header-nav-search" class="header-nav-search">
-	            <ul><li></li><li></li></ul>
-	          </div>
-	          <div id="header-nav-toggle" class="header-nav-toggle">
-	            <ul><li></li><li></li><li></li></ul>
-	          </div>
-	        </div>
-	        <div id="header-nav" class="header-nav">
-	          <a class="header-nav-link" href="/">首页</a>
-	          <a class="header-nav-link" href="/archive">归档</a>
-	          <a class="header-nav-link" href="/about">关于</a>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</header>
-	<section class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-          <p class="not-found-title">404!</p>
-          <p class="text-med text-uppercase letter-spacing-2">The page you were looking<br> for could not be found.</p>
-          <a class="highlight-button-dark" href="index.html">返回首页</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <img src="images/404.jpg" alt="">
-        </div>
+  <div class="container">
+  	<header id="header" class="header">
+  	  <div class="inner">
+  	    <div class="wrap">
+          <div class="header-brand">
+            <a class="brand-title" href="/">「志·也」</a>
+          </div>
+          <div id="header-nav" class="header-nav">
+            <ul id="menu-list" class="menu-list">
+              <li class="menu-item"><a href="/archives">归档</a></li>
+              <li class="menu-item"><a href="/categories">分类</a></li>
+              <li class="menu-item"><a href="/comments">留言</a></li>
+            </ul>
+          </div>
+  	    </div>
+  	  </div>
+  	</header>
+  	<div class="content">
+      <div class="text-center">
+        <!-- <img height="120" height="120" src="./css/images/logo-dark.svg"> -->
+        <img height="120" height="120" src="/css/images/404.svg">
+        <h2 class="not-found-title">Oops! You are lost!</h2>
+        <a class="back-button" href="/">Back Home</a>
       </div>
     </div>
-  </section>
+    <footer class="footer">
+      <div class="copyright">
+        <p>Powered by Hexo | Designed by <a href="https://evandoz.github.io">Levan</a></p>
+        <p>Copyright &copy; 2015 - 2018 <a href="https://evandoz.github.io">行而思</a></p>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>

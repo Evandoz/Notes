@@ -1,7 +1,6 @@
 Archives: Archives
 Categories: Categories
-Links: Links
-About: About
+Comments: Comments
 
 archive: Archive
 category: Category
@@ -12,5 +11,3 @@ comments:  comments
 
 newer: Newer-
 older: Older-
-
-load_comments: Loading Comments

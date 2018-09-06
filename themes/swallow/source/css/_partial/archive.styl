@@ -1,13 +1,9 @@
 .archive
   margin: 50px auto
-  padding: 50px
   border-radius: 1px
-  background: color-white
   @media mq-normal
-    width: 72%
-    min-width: 952px
-  @media mq-mobile
-    padding: 30px 20px
+    width: 68%
+    min-width: 794px
 
   .archive-year
     display: block
@@ -49,7 +45,6 @@
     justify-content: center
     align-items: center
     flex-flow: wrap
-    background: transparent
 
     .category-link
       display: block
@@ -60,16 +55,17 @@
       line-height: @height
       color: color-font
       text-align: center
-      background: color-white
-      transition: box-shadow .3s
+      border-radius: 1px
+      border: 1px solid #f0f0f0
+      transition: background .3s linear
       &:hover, &:focus
-        box-shadow: 0 0 12px rgba(0, 0, 0, .12)
+        background: #fafafa
 
 .paginator
   display: flex
   justify-content: center
   align-items: center
-  margin: 50px 0
+  margin-bottom: 50px
   text-align: center
   a, span
     height: 40px

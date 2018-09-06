@@ -1,36 +1,7 @@
-<% if (is_post() && theme.gitalk.enable) { %>
-  <%- js('https://unpkg.com/gitalk/dist/gitalk.min.js') %>
-  <script>
-    const gitalk = new Gitalk({
-      clientID: '<%= theme.gitalk.clientID %>',
-      clientSecret: '<%= theme.gitalk.clientSecret %>',
-      repo: '<%= theme.gitalk.repo %>',
-      owner: '<%= theme.gitalk.owner %>',
-      admin: ['<%= theme.gitalk.owner %>'],
-      id: '<%= page.path %>',
-      distractionFreeMode: true
-    })
-    gitalk.render('post-comment')
-  </script>
-<% } %>
-
-<%- js('lib/jquery.qrcode.min') %>
-<%- js('lib/html5shiv') %>
-<%- js('lib/bootstrap.min') %>
-<%- js('lib/main') %>
-
-<%- css('lib/light/css/lightgallery.min') %>
-<%- js('lib/light/js/lightgallery.min') %>
-<%- js('lib/light/js/lg-thumbnail.min') %>
-<%- js('lib/light/js/lg-pager.min') %>
-<%- js('lib/light/js/lg-autoplay.min') %>
-<%- js('lib/light/js/lg-fullscreen.min') %>
-<%- js('lib/light/js/lg-zoom.min') %>
-<%- js('lib/light/js/lg-hash.min') %>
-<%- js('lib/light/js/lg-share.min') %>
-<%- js('lib/light/js/lg-video.min') %>
-
+<%- js('js/jquery.min') %>
+<%- js('js/plugins') %>
 <%- js('js/script') %>
 
-<%- partial('_scripts/google-analytics') %>
+<%- partial('_scripts/gitalk') %>
 <%- partial('_scripts/baidu-push') %>
+<%- partial('_scripts/google-analytics') %>

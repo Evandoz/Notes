@@ -1,0 +1,48 @@
+@import "_variables"
+
+.header
+  .page-title
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 64px
+    line-height: @height
+    text-align: center
+    letter-spacing: 1px
+    transition: transform .3s
+    .home-link, .qr-code
+      display: block
+      position: absolute
+      top: 22px
+      height: 20px
+      width: 20px
+      line-height: @height
+      background-position: center
+      background-repeat: no-repeat
+    .home-link
+      left: 0
+      background: url('images/home.svg')
+    .qr-code
+      right: 0
+      background: url('images/qrcode.svg')
+      @media mq-mobile
+        display: none
+  &.sticky
+    .wrap
+      transform: translate3d(0, -100%, 0)
+  &:not(.sticky)
+    .page-title
+      transform: translate3d(0, 100%, 0)
+
+.qr
+  display: none
+  position: fixed
+  top: 114px
+  right: 50px
+  height: 150px
+  width: 150px
+  padding: 15px
+  background: color-white
+  z-index: 9
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1)

@@ -46,9 +46,11 @@
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- url_for(theme.favicon) %>">
   <% } %>
-  <% if (is_post() && theme.gitalk.enable) { %>
+  <% if (theme.gitalk.enable) { %>
     <%- css('https://unpkg.com/gitalk/dist/gitalk.css') %>
   <% } %>
+  <% if (is_post()) { %>
+    <%- css('css/special') %>
+  <% } %>
   <%- css('css/style') %>
-  <%- js('lib/jquery.min') %>
 </head>

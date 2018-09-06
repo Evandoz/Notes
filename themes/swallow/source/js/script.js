@@ -13,7 +13,7 @@
         $('#qr').fadeToggle(300);
       } else {
         $qrcode.addClass('on')
-        $('#qr').qrcode({ width: 128, height: 128, text: location.href}).fadeToggle(300);
+        $('#qr').qrcode({ size: 120, text: location.href}).fadeToggle(300);
       }
     });
   }
@@ -24,7 +24,7 @@
   $(function() {
     $(window).scroll(function() {
       if ($(this).scrollTop() <= 0) { $('#qr').fadeOut(100); }
-      $(this).scrollTop() > headerHeight ? $header.addClass('sticky') : $header.removeClass('sticky');
+      if ($pageTitle) { $(this).scrollTop() > headerHeight ? $header.addClass('sticky') : $header.removeClass('sticky'); }
       $(this).scrollTop() > $(this).height() ? $topAnchor.addClass('on') : $topAnchor.removeClass('on');
     });
     $topAnchor.click(function() {
@@ -41,22 +41,45 @@
   $("body").fitVids();
 
   // Caption-justified
-  $('.post-content').each(function(i) {
+  $('#post-content').each(function(i) {
     $(this).find('img').each(function() {
       if ($(this).parent().prop("tagName") !== 'a') {
         $(this).wrap('<a href="' + this.src + '" title="' + this.alt + '" class="gallery-item"></a>');
       }
     });
   });
-  if (lightGallery) {
-    var option = {
-      selector: '.gallery-item',
-    };
-    $('.post-content').each(function(i, entry) {
-      lightGallery(entry, option);
-    });
-    lightGallery($('.article-gallery')[0], option);
-  }
+
+  breakpoints({
+    xlarge:  [ '1200px',  '1920px' ],
+    large:   [ '992px',   '1199px' ],
+    medium:  [ '768px',   '991px'  ],
+    small:   [ '436px',   '767px'  ],
+    xsmall:  [ null,      '480px'  ]
+  });
+
+  var option = {
+    selector: 'a.gallery-item',
+    popupWidth: 150,
+    popupHeight: 150,
+    popupCloserText: '',
+    popupLoaderText: '',
+    usePopupNav: true,
+    usePopupDefaultStyling: false,
+    windowMargin: 50
+  };
+
+  breakpoints.on('<=small', function() {
+    option.windowMargin = 0;
+  });
+
+  breakpoints.on('>small', function() {
+    option.windowMargin = 50;
+  });
+
+  $('#post-content').poptrox(option);
+  // lightGallery($('.post-content')[0], option);
+  // lightGallery($('.article-gallery')[0], option);
+
 
 
   var $content = $('#content');

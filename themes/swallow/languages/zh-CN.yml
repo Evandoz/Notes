@@ -1,7 +1,6 @@
 Archives: 归档
 Categories: 分类
-Links: 友链
-About: 关于
+Comments: 留言
 
 archive: 归档
 category: 分类
@@ -12,5 +11,3 @@ comments: 条评论
 
 newer: 上篇：
 older: 下篇：
-
-load_comments: 加载评论

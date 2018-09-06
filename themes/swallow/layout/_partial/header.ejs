@@ -16,29 +16,18 @@
         </ul>
       </div>
     </div>
-    <%
-      var title = page.title;
-      if (is_archive()){
-        title = __('archive');
-        if (is_year()){
-          title += '-' + page.year;
-        }
-      } else if (is_category()){
-        title = __('category') + '-' + page.category;
-      } else if (is_tag()){
-        title = __('tag') + '-' + page.tag;
-      }
-    %>
-    <div id="page-title" class="page-title">
-      <% if (!is_home()) { %>
-        <a class="home-link icon-home" href="<%- url_for() %>"></a>
-      <% } %>
-      <h1 class="top-title"><% if (title){ %><%= __(title) %><% } else { %><%= config.title %><% } %> <% if (is_home()){ %> - <%= config.description %><% } %></h1>
-      <a id="qr-code" class="qr-code icon-qrcode" href="javascript: void(0)"></a>
-    </div>
+    <% if (is_post()) { %>
+      <div id="page-title" class="page-title">
+        <a class="home-link" href="<%- url_for() %>"></a>
+        <h1 class="top-title"><% if (page.title){ %><%= page.title %><% } else { %><%= config.title %><% } %></h1>
+        <a id="qr-code" class="qr-code" href="javascript: void(0)"></a>
+      </div>
+    <% } %>
   </div>
 </header>
 
 <div class="copy"></div>
 
-<div id="qr" class="qr"></div>
+<% if (is_post()) { %>
+  <div id="qr" class="qr"></div>
+<% } %>
