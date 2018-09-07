@@ -1,6 +1,6 @@
 <% if (post.photos != ''){ %>
-  <div class="article-gallery <% if (count % 2 == 0) { %>right<% } else { %>left<% } %>">
-    <% post.photos.forEach(function(photo, i){ %>
+  <div class="article-gallery">
+    <% post.photos.forEach(function(photo){ %>
       <div class="image" style="background-image: url(<%- url_for(photo) %>);"></div>
     <% }) %>
   </div>

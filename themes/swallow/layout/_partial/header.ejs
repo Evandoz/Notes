@@ -1,11 +1,12 @@
+<header class="copy"></header>
 <header id="header" class="header">
   <div class="inner">
-    <div class="wrap">
-      <div class="header-brand">
+    <div class="header-wrap">
+      <div id="header-brand" class="header-brand">
         <!-- <img src="<%- url_for(theme.logo) %>" alt=""> -->
         <a class="brand-title" href="<%- url_for() %>">「<%= config.subtitle %>」</a>
       </div>
-      <div class="header-nav">
+      <div id="header-nav" class="header-nav">
         <ul id="menu-icon" class="menu-icon">
           <li></li><li></li><li></li>
         </ul>
@@ -25,9 +26,3 @@
     <% } %>
   </div>
 </header>
-
-<div class="copy"></div>
-
-<% if (is_post()) { %>
-  <div id="qr" class="qr"></div>
-<% } %>

@@ -4,13 +4,16 @@
   .page-title
     position: absolute
     top: 0
-    left: 0
-    right: 0
+    left: 4vw
+    right: 4vw
     height: 64px
+    box-sizing: border-box
     line-height: @height
     text-align: center
     letter-spacing: 1px
     transition: transform .3s
+    @media mq-mobile
+      height: 56px
     .home-link, .qr-code
       display: block
       position: absolute
@@ -20,16 +23,16 @@
       line-height: @height
       background-position: center
       background-repeat: no-repeat
+      @media mq-mobile
+        display: none
     .home-link
       left: 0
       background: url('images/home.svg')
     .qr-code
       right: 0
       background: url('images/qrcode.svg')
-      @media mq-mobile
-        display: none
   &.sticky
-    .wrap
+    .header-wrap
       transform: translate3d(0, -100%, 0)
   &:not(.sticky)
     .page-title
@@ -40,8 +43,8 @@
   position: fixed
   top: 114px
   right: 50px
-  height: 150px
-  width: 150px
+  height: 120px
+  width: 120px
   padding: 15px
   background: color-white
   z-index: 9

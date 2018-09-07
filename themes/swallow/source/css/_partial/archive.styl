@@ -1,9 +1,9 @@
 .archive
-  margin: 50px auto
-  border-radius: 1px
+  margin: 0 auto
+  padding: 50px 4%
   @media mq-normal
-    width: 68%
-    min-width: 794px
+    width: 56%
+    min-width: 720px
 
   .archive-year
     display: block
@@ -27,7 +27,7 @@
       .post-date,
       .post-title
         display: inline-block
-        margin-bottom: 10px
+        margin-bottom: 15px
         line-height: 1.6
         font-size: 16px
 
@@ -48,25 +48,25 @@
 
     .category-link
       display: block
-      width: 120px
+      width: 150px
       height: 50px
       margin: 10px
-      padding: 0 20px
       line-height: @height
       color: color-font
       text-align: center
       border-radius: 1px
-      border: 1px solid #f0f0f0
+      border: 1px solid color-border
       transition: background .3s linear
       &:hover, &:focus
-        background: #fafafa
+        background: color-light
 
 .paginator
   display: flex
   justify-content: center
   align-items: center
-  margin-bottom: 50px
-  text-align: center
+  margin: 0 auto
+  padding-top: 50px
+  background: color-light
   a, span
     height: 40px
     width: 40px
