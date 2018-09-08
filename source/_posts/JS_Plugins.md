@@ -34,10 +34,13 @@ layout: sticky
 
 ## 动画效果
 
-1. wow.js
+1. Velocity.js
+  项目主页：[Velocity.js](http://velocityjs.org/)
+  中文文档：[Velocity.js中文文档](http://www.mrfront.com/docs/velocity.js/index.html)
+2. wow.js
 	项目主页：[WOW](http://mynameismatthieu.com/WOW/)
 
-2. scrollreveal
+3. scrollreveal
 	项目主页：[scrollreveal](https://scrollrevealjs.org/)
 
 ## 图片相关
@@ -47,6 +50,9 @@ layout: sticky
 
 2. Justified Gallery
 	项目主页：[Justified Gallery](http://miromannino.github.io/Justified-Gallery/)
+
+3. PhotoSwipe
+  项目主页：[PhotoSwipe](http://photoswipe.com/)
 
 ## 绘图
 
