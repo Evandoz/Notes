@@ -27,7 +27,9 @@ layout: sticky
 	项目主页：[select](http://silviomoreto.github.io/bootstrap-select/)
 
 ## 访问效率
+
 1. FastClick
+  项目主页：[FastClick](https://github.com/ftlabs/fastclick)
 
 2. lazyload
 	项目主页：[lazyload](http://www.appelsiini.net/projects/lazyload)
@@ -37,6 +39,7 @@ layout: sticky
 1. Velocity.js
   项目主页：[Velocity.js](http://velocityjs.org/)
   中文文档：[Velocity.js中文文档](http://www.mrfront.com/docs/velocity.js/index.html)
+
 2. wow.js
 	项目主页：[WOW](http://mynameismatthieu.com/WOW/)
 
@@ -56,9 +59,11 @@ layout: sticky
 
 ## 绘图
 
-1. highchart
+1. highcharts
+  项目主页：[highchart](https://www.hcharts.cn/)
 
-2. echart
+2. echarts
+  项目主页：[echarts](http://echarts.baidu.com/)
 
 3. ichart.js
   项目主页：[ichartjs](http://www.ichartjs.com/)
