@@ -11,7 +11,6 @@ tags:
 - Hexo
 - Astrid
 photos:
-layout: sticky
 ---
 
 从``WordPress``上移植的一款主题，托管于 [GitHub](https://github.com/Evandoz/hexo-theme-astrid) ，访问 [Astrid](https://blog.floretten.com/hexo-theme-astrid/) 可进行预览。

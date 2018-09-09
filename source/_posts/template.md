@@ -11,5 +11,4 @@ tags:
 -
 -
 photos:
-layout: sticky
 ---

@@ -11,7 +11,6 @@ tags:
 - Hexo
 - flow.ci
 photos:
-layout: sticky
 ---
 
 国内持续集成工具``flow.ci``上线，尝试将其用于``Coding.net``仓库代码的构建与测试。

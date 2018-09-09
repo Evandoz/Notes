@@ -11,7 +11,6 @@ tags:
 - CSS
 -
 photos:
-layout: sticky
 ---
 
 对图片使用max-width和max-height，图片会按照父容器宽高自动缩放，并保持图片原本的长宽比，图片相对不变形。

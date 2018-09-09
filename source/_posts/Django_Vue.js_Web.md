@@ -11,7 +11,6 @@ tags:
 - Vue.js
 - Django
 photos:
-layout: sticky
 ---
 
 Vue.js是一套用于构建用户界面的渐进式框架，特点是数据驱动，区别传统DOM操作，核心库只关注视图层，易与第三方库或既有项目整合，。而Django由Python的一种经典Web应用框架，采用了MTV模式。两者结合或许能使Web的开发更加高效快捷。

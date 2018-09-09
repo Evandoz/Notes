@@ -9,8 +9,7 @@ keywords:
 tags:
 - npm
 - node
-photos: https://floretten-1252347631.cos.ap-beijing-1.myqcloud.com/npm/node.jpg
-layout: sticky
+photos: 'https://floretten-1252347631.cos.ap-beijing-1.myqcloud.com/npm/node.jpg'
 ---
 
 现实需求：使用vue-cli等脚手架工具创建工程后，当工程中的模块有更新时，如何将工程中的模块都更新到最新？

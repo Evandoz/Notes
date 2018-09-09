@@ -9,7 +9,6 @@ keywords:
 tags:
 - 谷歌字体
 photos: https://floretten-1252347631.costj.myqcloud.com/Google/Google.jpg
-layout: sticky
 ---
 
 本文记录了如何使用谷歌的独门字体库神器！

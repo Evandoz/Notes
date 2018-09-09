@@ -43,6 +43,7 @@
   <% if (theme.qihu_site_verification){ %>
     <meta name="360-site-verification" content="<%= theme.qihu_site_verification %>">
   <% } %>
+  <%- autoCanonical(config, page) %>
   <% if (theme.favicon){ %>
     <link rel="icon" href="<%- url_for(theme.favicon) %>">
   <% } %>

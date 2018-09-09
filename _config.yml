@@ -70,12 +70,18 @@ archive_generator:
   per_page: 20
   yearly: true
   monthly: false
+  daily: false
+  order_by: -date
 
 category_generator:
   per_page: 20
 
 tag_generator:
   per_page: 20
+
+auto_category:
+  enable: true
+  depth: 1
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -87,16 +93,22 @@ search:
   path: search.xml
   field: post
 
-# sitemap
+# Sitemap
 sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
 
-#RSS
+# Nofollow
+nofollow:
+  enable: true
+  exclude:
+    - floretten.com
+    - evandoz.github.io
+
+# Feed
 plugin:
   - hexo-generator-feed
-#Feed Atom
 feed:
   type: atom
   path: /atom.xml
