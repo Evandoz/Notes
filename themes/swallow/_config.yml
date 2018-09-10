@@ -13,7 +13,7 @@ keywords: ""
 # Put your favicon.ico into `/themes/swallow/source/` directory.
 # Of course you can use a target link instead.
 # (E.g. `http://abc.com/favicon.ico` or `css/images/favicon.ico`)
-favicon: css/images/favicon.png
+favicon: css/images/favicon.ico
 logo: css/images/logo.png
 
 # Links
