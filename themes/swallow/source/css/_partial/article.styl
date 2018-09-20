@@ -1,8 +1,23 @@
 .article-item
-  &:nth-child(2n)
-    background: color-white
+  &:first-child
+    margin-top: 30px
+    .article
+      &:before
+        width: 0
+  &:last-child
+    margin-bottom: 30px
+
   .article
+    position: relative
     height: 32vh
+    &:before
+      content: ''
+      height: 1px
+      position: absolute
+      top: 0
+      left: 4vw
+      right: 4vw
+      background: color-border
     @media mq-mobile
       height: auto
     .article-gallery

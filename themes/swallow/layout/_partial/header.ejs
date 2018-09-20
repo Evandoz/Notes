@@ -4,7 +4,7 @@
     <div class="header-wrap">
       <div id="header-brand" class="header-brand">
         <!-- <img src="<%- url_for(theme.logo) %>" alt=""> -->
-        <a class="brand-title" href="<%- url_for() %>">「<%= config.subtitle %>」</a>
+        <a class="brand-title" href="<%- url_for() %>">「<%= config.headertitle %>」</a>
       </div>
       <div id="header-nav" class="header-nav">
         <ul id="menu-icon" class="menu-icon">
@@ -19,9 +19,9 @@
     </div>
     <% if (is_post()) { %>
       <div id="page-title" class="page-title">
-        <a class="home-link" href="<%- url_for() %>"></a>
-        <h1 class="top-title"><% if (page.title){ %><%= page.title %><% } else { %><%= config.title %><% } %></h1>
-        <a id="qr-code" class="qr-code" href="javascript: void(0)"></a>
+        <a class="link" href="<%- url_for() %>"></a>
+        <h1 class="title"><% if (page.title){ %><%= page.title %><% } else { %><%= config.title %><% } %></h1>
+        <a id="qrcode" class="qrcode" href="javascript: void(0)"></a>
       </div>
     <% } %>
   </div>

@@ -2,7 +2,7 @@
 <html>
 <%- partial('_partial/head') %>
 <body>
-  <div class="container">
+  <div id="wrapper" class="wrapper">
     <%- partial('_partial/header') %>
     <div id="content" class="content"><%- body %></div>
     <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
