@@ -47,7 +47,7 @@
   // Caption-justified
   $('#post-content').each(function(i) {
     $(this).find('img').each(function() {
-      if ($(this).parent().prop("tagName") !== 'a') {
+      if ($(this).parent().prop('tagName') !== 'a') {
         $(this).wrap('<a href="' + this.src + '" title="' + this.alt + '" class="gallery-item"></a>');
       }
     });
@@ -81,10 +81,6 @@
   });
 
   $('#post-content').poptrox(option);
-  // lightGallery($('.post-content')[0], option);
-  // lightGallery($('.article-gallery')[0], option);
-
-
 
   var $content = $('#content');
 
