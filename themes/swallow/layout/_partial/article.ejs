@@ -1,7 +1,5 @@
 <article id="<%= post.slug %>" class="article">
-  <% if (index) { %>
-    <%- partial('post/gallery') %>
-  <% } %>
+  <%- partial('post/gallery') %>
   <div class="article-content">
     <%- partial('post/title') %>
     <div id="post-content" class="post-content">
@@ -30,4 +28,3 @@
     <% } %>
   </div>
 </article>
-

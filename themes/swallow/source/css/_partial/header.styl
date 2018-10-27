@@ -1,98 +1,141 @@
 .header
-  width: 100%
-  position: fixed
-  top: 0
-  background: color-light
-  overflow: hidden
+  position: relative
+  margin-bottom: 32px
   z-index: 4
-
-  .inner
-    position: relative
-    margin: 0 auto
-    padding: 0 4%
-    @media mq-normal
-      width: 56%
-      min-width: 720px
-  .header-wrap
+  .page-nav
+    position: fixed
+    top: 0
     width: 100%
-    display: flex
-    justify-content: space-between
-    align-items: center
-    transition: transform .3s
-    .header-brand
-      padding: 12px 0
-      @media mq-mobile
-        padding: 8px 0
-      .brand-title
-        display: block
-        height: 40px
-        margin: 0 -15px
-        line-height: @height
-        font-size: 1.6em
-        color: color-font
-        letter-spacing: 5px
-    .header-nav
-      padding: 12px 0
-      @media mq-mobile
-        padding: 8px 0
-      ul.menu-list
-        font-size: 0
-        li.menu-item
-          display: inline-block
-        li.menu-item a
-          display: block
-          height: 40px
-          padding: 0 10px
-          line-height: @height
-          color: color-dark
-          font-size: 15px
-          text-align: center
-        @media mq-mobile
-          display: none
-
-      ul.menu-icon
-        display: none
-        @media mq-mobile
-          display: block
-          position: relative
-          width: 30px
-          height: 30px
-          margin: 0
-          padding: 0
-          cursor: pointer
-          list-style: none
-          li
-            position: absolute
-            left: 0
-            top: 14px
-            width: 100%
-            height: 1px
-            background: color-dark
-            transition: all .3s ease 0s
-            &:first-child
-              top: 5px
-              width: 80%
-            &:last-child
-              top: 23px
-              width: 70%
-          &.on
-            li
-              transform-origin: center center
-              transform: rotate(-45deg)
-              top: 15px
-              &:first-child
-                opacity: 1
-                filter: opacity(100)
-                transform-origin: center center
-                transform: rotate(45deg)
-                top: 15px
-                width: 100%
-              &:last-child
-                opacity:0
-                filter: opacity(0)
-                transition: all 0s ease 0s
-
-.copy
-  height: 64px
-  @media mq-mobile
     height: 56px
+    box-sizing: border-box
+    line-height: @height
+    text-align: center
+    letter-spacing: 1px
+    background: color-white
+    transition: all .3s
+    overflow: hidden
+    .title
+      margin: 0 56px
+      transform: translate3d(0, 100%, 0)
+    .link, .qrcode
+      position: absolute
+      top: 18px
+      display: block
+      height: 20px
+      width: 20px
+      line-height: @height
+    .link
+      left: 18px
+      background: url('images/home.svg')
+    .qrcode
+      right: 18px
+      background: url('images/qrcode.svg')
+      @media mq-mobile
+        display: none
+    &.sticky
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+      .title
+        transform: translate3d(0, 0, 0)
+        transition: all .3s
+  .site-banner
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-position: center top
+    background-attachment: fixed
+  .site-brand
+    position: relative
+    padding: 80px 4% 100px
+    color: color-white
+    text-align: center
+    background: rgba(0, 0, 0, .4)
+    .brand-title a
+      font-size: 1.8em
+      color: color-white
+    .brand-desc
+      margin-top: 15px
+      letter-spacing: 2px
+  .site-nav
+    position: absolute
+    left: 0
+    right: 0
+    .inner
+      margin: 0 auto
+      padding: 0 4%
+      @media mq-normal
+        width: 56%
+        min-width: 720px
+      .nav
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 12px
+        box-sizing: border-box
+        background: color-white
+        border-radius: 2px
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+        ul.nav-list
+          font-size: 0
+          li.nav-item
+            display: inline-block
+          li.nav-item a
+            display: block
+            height: 40px
+            padding: 0 10px
+            line-height: @height
+            color: color-dark
+            font-size: 15px
+            text-align: center
+        ul.nav-icon
+          display: none
+          @media mq-mobile
+            display: none /* 备用 */
+            position: relative
+            width: 30px
+            height: 30px
+            margin: 0 5px
+            padding: 0
+            cursor: pointer
+            list-style: none
+            li
+              position: absolute
+              left: 0
+              top: 14px
+              width: 100%
+              height: 1px
+              background: color-dark
+              transition: all .3s ease 0s
+              &:first-child
+                top: 5px
+                width: 80%
+              &:last-child
+                top: 23px
+                width: 70%
+            &.on
+              li
+                transform-origin: center center
+                transform: rotate(-45deg)
+                top: 15px
+                &:first-child
+                  opacity: 1
+                  filter: opacity(100)
+                  transform-origin: center center
+                  transform: rotate(45deg)
+                  top: 15px
+                  width: 100%
+                &:last-child
+                  opacity:0
+                  filter: opacity(0)
+                  transition: all 0s ease 0s
+    &:not(.sticky)
+      bottom: -32px
+    &.sticky
+      position: fixed
+      top: 0
+      .inner
+        width: 100%
+        padding: 0
+        .nav
+          padding: 8px 12px

@@ -1,28 +1,32 @@
-<header class="copy"></header>
 <header id="header" class="header">
-  <div class="inner">
-    <div class="header-wrap">
-      <div id="header-brand" class="header-brand">
-        <!-- <img src="<%- url_for(theme.logo) %>" alt=""> -->
-        <a class="brand-title" href="<%- url_for() %>">「<%= config.headertitle %>」</a>
-      </div>
-      <div id="header-nav" class="header-nav">
-        <ul id="menu-icon" class="menu-icon">
-          <li></li><li></li><li></li>
-        </ul>
-        <ul id="menu-list" class="menu-list">
-          <% for (var i in theme.nav){ %>
-            <li class="menu-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
+  <% if (is_post()) { %>
+    <div id="page-nav" class="page-nav">
+      <a class="link" href="<%- url_for() %>"></a>
+      <h1 class="title"><%= page.title %></h1>
+      <a id="qrcode" class="qrcode" href="javascript: void(0)"></a>
+    </div>
+  <% } else { %>
+    <div id="site-banner" class="site-banner" style="background-image: url('<%- url_for(theme.banner) %>');"></div>
+    <div id="site-brand" class="site-brand">
+      <h1 class="brand-title"><a class="title" href="<%- url_for() %>"><%= config.title %></a></h1>
+      <p class="brand-desc"><%= config.description %></p>
+    </div>
+    <div id="site-nav" class="site-nav">
+      <div class="inner">
+        <div class="nav">
+          <ul id="nav-icon" class="nav-icon">
+            <li></li><li></li><li></li>
+          </ul>
+          <ul id="nav-list" class="nav-list">
+            <% for (var i in theme.nav){ %>
+              <li class="nav-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
+            <% } %>
+          </ul>
+          <% if (page.total > 1) { %>
+            <%- partial('_partial/paginator') %>
           <% } %>
-        </ul>
+        </div>
       </div>
     </div>
-    <% if (is_post()) { %>
-      <div id="page-title" class="page-title">
-        <a class="link" href="<%- url_for() %>"></a>
-        <h1 class="title"><% if (page.title){ %><%= page.title %><% } else { %><%= config.title %><% } %></h1>
-        <a id="qrcode" class="qrcode" href="javascript: void(0)"></a>
-      </div>
-    <% } %>
-  </div>
+  <% } %>
 </header>

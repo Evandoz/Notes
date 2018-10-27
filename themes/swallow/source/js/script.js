@@ -5,10 +5,9 @@
   $content.velocity("transition.slideDownIn", { duration: 1000, tagger: 300 });
 
   // Header
-  var $header = $('#header'),
-    $pageTitle = $('#page-title');
-
-  var headerHeight = $header.outerHeight() + 50;
+  var $siteBanner = $('#site-banner'),
+    $siteNav = $('#site-nav'),
+    $pageNav = $('#page-nav');
 
   var $qrcode = $('#qrcode');
   if ($qrcode) {
@@ -28,7 +27,8 @@
   $(function() {
     $(window).scroll(function() {
       if ($(this).scrollTop() <= 0) { $('#qr').fadeOut(100); }
-      if ($pageTitle) { $(this).scrollTop() > headerHeight ? $header.addClass('sticky') : $header.removeClass('sticky'); }
+      if ($siteNav) { $(this).scrollTop() > $siteBanner.height() * 2 ? $siteNav.addClass('sticky') : $siteNav.removeClass('sticky'); }
+      if ($pageNav) { $(this).scrollTop() > $pageNav.height() ? $pageNav.addClass('sticky') : $pageNav.removeClass('sticky'); }
       $(this).scrollTop() > $(this).height() ? $topAnchor.addClass('on') : $topAnchor.removeClass('on');
     });
     $topAnchor.click(function() {
@@ -85,7 +85,7 @@
   var $content = $('#content');
 
   // Mobile nav
-  var $menuIcon = $('#menu-icon'),
+  var $navIcon = $('#nav-icon'),
     $mobileNav = $('#mobile-nav'),
     $overLayer = $('#over-layer'),
     isMobileNavAnim = false,
@@ -108,12 +108,12 @@
     $mobileNav.css('margin-top', margin + 'px');
   }
 
-  $menuIcon.on('click', function(){
+  $navIcon.on('click', function(){
     if (isMobileNavAnim) return;
 
     startMobileNavAnim();
     locateCenter();
-    $menuIcon.toggleClass('on');
+    $navIcon.toggleClass('on');
     $mobileNav.fadeToggle(200);
     $overLayer.fadeToggle(400);
     stopMobileNavAnim();
@@ -121,7 +121,7 @@
 
   function toggleOff(){
     if (isMobileNavAnim) return;
-    $menuIcon.removeClass('on');
+    $navIcon.removeClass('on');
     $mobileNav.fadeOut(200);
     $overLayer.fadeOut(200);
   }
