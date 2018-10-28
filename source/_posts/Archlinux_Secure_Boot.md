@@ -1,5 +1,5 @@
 ---
-title:
+title: 在 Archlinux 中使用 Secure Boot
 date: 2018-08-30 14:34:10
 categories:
 - Linux
