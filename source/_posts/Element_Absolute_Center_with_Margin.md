@@ -13,7 +13,7 @@ tags:
 photos:
 ---
 
-今天偶然在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性，但并不是通常使用的 ```负 margin```，而是 ```auto margin``` ，需要说明的是**此处的元素是固定宽高的元素**。经过实际测试，该方法确实有效。
+今天偶然在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性。**但它并非是将 margin 置为负，而是直接置为 auto，需要说明的是元素需要声明宽/高**。经过实际测试，该方法确实有效。
 
 原文链接是 [Absolute Centering in CSS](https://s.codepen.io/shshaw/fullpage/gEiDt##)
 
@@ -50,9 +50,9 @@ photos:
 
 以上两者意思差不对，思路基本一致。
 
-而如果只是水平居中，基本上使用 ```margin: 0 auto;``` 就够了，而且我们也知道 ```margin: auto;``` 在垂直方向是不起作用的，作者原文也是这么说的：
+而如果只是水平居中，基本上使用 ``margin: 0 auto;`` 就够了，而且我们也知道 ``margin: auto;`` 在垂直方向是不起作用的，作者原文也是这么说的：
 
->We've all seen ```margin: 0 auto;``` for horizontal centering, but ```margin: auto;``` has refused to work for vertical centering... until now! But actually (spoiler alert!) absolute centering only requires a declared height* and these styles.
+>We've all seen ``margin: 0 auto;`` for horizontal centering, but ``margin: auto;`` has refused to work for vertical centering... until now! But actually (spoiler alert!) absolute centering only requires a declared height* and these styles.
 
 **！！！以上这一段是废话，可你还是看了！！！**
 
@@ -70,7 +70,7 @@ photos:
 }
 ```
 
-这种方法被原文作者并命为 Absolute Centering（这种方法可能不是他最早发现，但目前由他这样命名，作者如是说），在这段代码中，每一项都必不可少。当然，若只是需要水平居中，就无需设置高度；若只是垂直居中，就无需设置宽度，但至少有一项，否则不会起作用，这一点是原作者着重强调的。
+这种方法被原文作者并命为 ``Absolute Centering``（这种方法可能不是他最早发现，但目前由他这样命名，作者如是说），在这段代码中，每一项都必不可少。当然，若只是需要水平居中，就无需设置高度；若只是垂直居中，就无需设置宽度，但至少有一项，否则不会起作用，这一点是原作者着重强调的。
 
 效果如图：
 
@@ -81,7 +81,7 @@ photos:
 **！！以下这段，基本上是翻译转述作者原话！！**
 
 优点：
-1. 跨浏览器支持，在 Chrome，Firefox，Safari，Mobile Safari，Windows Phone 甚至 IE8-10 的最新版本中都能完美运行（没测试，毕竟没那么多设备，穷）。
+1. 跨浏览器支持，在 Chrome，Firefox，Safari，Mobile Safari，Windows Phone 甚至 IE8-10 的最新版本中都能完美运行（没测试，毕竟没那么多设备）。
 2. 没有特殊的标记，风格简约。
 3. 对百分比大小以及 max-/min- 都适用（已测试，确实如此）。
 4. 只使用一个 class 即可居中元素。
