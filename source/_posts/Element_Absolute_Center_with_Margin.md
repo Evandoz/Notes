@@ -13,7 +13,7 @@ tags:
 photos:
 ---
 
-今天偶然在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性，但并不是使用的```负 margin```，而是 ```auto margin```，需要说明的是**此处的元素是固定宽高的元素**。经过实际测试，该方法确实有效。
+今天偶然在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性，但并不是通常使用的 ```负 margin```，而是 ```auto margin``` ，需要说明的是**此处的元素是固定宽高的元素**。经过实际测试，该方法确实有效。
 
 原文链接是 [Absolute Centering in CSS](https://s.codepen.io/shshaw/fullpage/gEiDt##)
 
@@ -69,6 +69,7 @@ photos:
   margin: auto;
 }
 ```
+
 这种方法被原文作者并命为 Absolute Centering（这种方法可能不是他最早发现，但目前由他这样命名，作者如是说），在这段代码中，每一项都必不可少。当然，若只是需要水平居中，就无需设置高度；若只是垂直居中，就无需设置宽度，但至少有一项，否则不会起作用，这一点是原作者着重强调的。
 
 效果如图：
