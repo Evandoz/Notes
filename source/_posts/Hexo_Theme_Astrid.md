@@ -13,7 +13,7 @@ tags:
 photos:
 ---
 
-从``WordPress``上移植的一款主题，托管于 [GitHub](https://github.com/Evandoz/hexo-theme-astrid) ，访问 [Astrid](https://blog.floretten.com/hexo-theme-astrid/) 可进行预览。
+从``WordPress``上移植的一款主题，托管于 [GitHub](https://github.com/Evandoz/hexo-theme-astrid) ，访问 [Astrid](https://evandoz.github.io/hexo-theme-astrid/) 可进行预览。
 
 <!--more-->
 
@@ -33,11 +33,11 @@ photos:
 
 ### 侧边栏
 
-Astrid 主题在非文章详情页提供 6 种挂件，这些挂件默认都展示，可在配置文件中通过注释来决定是否展示。
+Astrid 主题在非文章详情页提供 ~~6~~ 2 种挂件，这些挂件默认都展示，可在配置文件中通过注释来决定是否展示。
 
 
 ```yml
-- recent_posts	#最近文章
+- recent	#最近文章
 - social	#社交链接，可自行修改
 - archive	#文章归档
 - tagcloud	#标签云
@@ -52,22 +52,29 @@ Astrid 主题在非文章详情页提供 6 种挂件，这些挂件默认都展�
 
 ### 动态云标签
 
-Astrid 主题使用动态云标签，这样可解决标签数量过多占据大量页面的问题，当然可以选择不显示标签挂件。
+~~Astrid 主题使用动态云标签，这样可解决标签数量过多占据大量页面的问题，当然可以选择不显示标签挂件。~~
 
 ![tagcloud](https://floretten-1252347631.costj.myqcloud.com/astrid/tagcloud.gif)
 
 ### 文章图片
 
-**Astrid** 主题使用 [lightgallery.js](https://sachinchoolur.github.io/lightgallery.js/) 展示图片，效果如图。
+~~**Astrid** 主题使用 [lightgallery.js](https://sachinchoolur.github.io/lightgallery.js/) 展示图片，效果如图。~~
 
 ![lightgallery](https://floretten-1252347631.costj.myqcloud.com/astrid/lightgallery.png)
 
 ### 文章版权声明
 
-Astrid 在文章末尾添加有关文章版权信息的声明，声明内容可在``layout/_partial/post/copyright.ejs``文件中自行定制,效果如图。
+Astrid 在文章末尾添加有关文章版权信息的声明，声明内容可在``layout/_partial/post/copyright.ejs``文件中自行定制,~~效果如图~~，已更新。
 
 ![copyright](https://floretten-1252347631.costj.myqcloud.com/astrid/copyright.png)
 
 ## 后续
 
 Astrid 主题完成不久，尚有很多不足之处，望多多指正。另外该主题移植于 Astrid ，此处向原作者致谢。
+
+
+## 更新说明
+
+2018年10月30日完成第三次更新，主要对功能模块精简，代码重构等，本文中大部分模块已被精简，更多内容请直接访问 Github，链接如下：
+
+[https://github.com/Evandoz/hexo-theme-astrid](https://github.com/Evandoz/hexo-theme-astrid)
