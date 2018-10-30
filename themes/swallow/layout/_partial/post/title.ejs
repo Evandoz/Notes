@@ -1,8 +1,8 @@
 <% if (post.link){ %>
-  <a class="post-title"> href="<%- url_for(post.link) %>"><%= post.title %></a>
+  <a class="post-title" href="<%- url_for(post.link) %>"><%= post.title %></a>
 <% } else if (post.title){ %>
   <% if (index){ %>
-  <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+    <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
   <% } else { %>
   	<h1 class="post-title"><%= post.title %></h1>
   <% } %>
