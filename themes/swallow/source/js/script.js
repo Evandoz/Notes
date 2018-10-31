@@ -130,8 +130,23 @@
     toggleOff();
   });
 
-  $(window).on('resize', function(){
+  var gallerySize = function () {
+    var winWidth = $(window).width();
+    var $articleGallery = $('.article-item .article-gallery');
+    if (winWidth >= 642 && $articleGallery) {
+      $articleGallery.each(function (index, elem) {
+        console.log(elem);
+        var height = $(elem).parent().height();
+        $(elem).height(height);
+      })
+    }
+  }
+
+  gallerySize();
+
+  $(window).on('resize', function () {
     toggleOff();
+    gallerySize();
   });
 
 })(jQuery);

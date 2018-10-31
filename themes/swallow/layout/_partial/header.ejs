@@ -22,9 +22,7 @@
               <li class="nav-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
             <% } %>
           </ul>
-          <% if (page.total > 1) { %>
-            <%- partial('_partial/paginator') %>
-          <% } %>
+          <%- partial('_partial/paginator') %>
         </div>
       </div>
     </div>

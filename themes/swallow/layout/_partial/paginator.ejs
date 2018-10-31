@@ -1,9 +1,11 @@
-<div class="paginator">
-  <%- paginator({
-    prev_text: '←',
-    next_text: '→',
-    space: '',
-    end_size: 0,
-    mid_size: 0
-  }) %>
-</div>
+<% if (page.total > 1) { %>
+  <div class="paginator">
+    <%- paginator({
+      prev_text: '<ul class="icon prev-icon"><li></li><li></li><li></li></ul>',
+      next_text: '<ul class="icon next-icon"><li></li><li></li><li></li></ul>',
+      space: '',
+      end_size: 0,
+      mid_size: 0
+    }) %>
+  </div>
+<% } %>

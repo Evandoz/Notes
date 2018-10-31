@@ -1,6 +1,5 @@
 .header
   position: relative
-  margin-bottom: 32px
   z-index: 4
   .page-nav
     position: fixed
@@ -65,15 +64,11 @@
     right: 0
     .inner
       margin: 0 auto
-      padding: 0 4%
-      @media mq-normal
-        width: 56%
-        min-width: 720px
       .nav
         display: flex
         justify-content: space-between
         align-items: center
-        padding: 12px
+        padding: 10px 12px
         box-sizing: border-box
         background: color-white
         border-radius: 2px
@@ -133,11 +128,11 @@
                   transition: all 0s ease 0s
     &:not(.sticky)
       bottom: -32px
+      .inner
+        max-width: 720px
+        padding: 0 4%
     &.sticky
       position: fixed
       top: 0
-      .inner
-        width: 100%
-        padding: 0
-        .nav
-          padding: 8px 12px
+      .nav
+        padding: 8px 12px
