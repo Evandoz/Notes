@@ -4,8 +4,9 @@
 
 # Site
 title: 思行志
-subtitle: 胡思乱造
-description: 胡思乱想·胡编乱造
+subtitle: 写点东西
+description: 记性不好，写点东西
+keywords: 
 author: Levan
 language: zh-CN
 timezone: Asia/Shanghai
@@ -34,7 +35,6 @@ skip_render:
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
-auto_spacing: true
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
@@ -45,9 +45,18 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
-  tab_replace: '    '
-
+  auto_detect: false
+  tab_replace: '  '
+  
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+  
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -62,59 +71,49 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-index_generator:
-  per_page: 10
-  order_by: -date
+per_page: 10
+pagination_dir: page
 
+## Archive Pagination
 archive_generator:
+  enabled: true
   per_page: 20
   yearly: true
   monthly: false
   daily: false
   order_by: -date
 
+## Category Pagination
 category_generator:
   per_page: 20
 
+## Tag Pagination
 tag_generator:
   per_page: 20
 
-auto_category:
-  enable: true
-  depth: 1
-
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: swallow
 
-# Local Search
-search:
-  path: search.xml
-  field: post
-
-# Sitemap
-sitemap:
-  path: sitemap.xml
-baidusitemap:
-  path: baidusitemap.xml
-
-# Nofollow
+## Nofollow
 nofollow:
   enable: true
   exclude:
     - floretten.com
     - evandoz.github.io
+    
+## Local Search
+search:
+  path: search.json
+  zipPath: search.zip
+  versionPath: searchVersion.txt
+  field: post
 
-# Feed
-plugin:
-  - hexo-generator-feed
-feed:
-  type: atom
-  path: /atom.xml
-  limit: 20
-  hub:
-  content: true
+## Sitemap
+sitemap:
+  path: sitemap.xml
+
+## Themes: https://hexo.io/themes/
+theme: swallow
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

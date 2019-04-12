@@ -1,67 +1,18 @@
 .header
   position: relative
+  display: flex
   z-index: 4
-  .page-nav
-    position: fixed
-    top: 0
-    width: 100%
-    height: 56px
-    box-sizing: border-box
-    line-height: @height
-    text-align: center
-    letter-spacing: 1px
-    background: color-white
-    transition: all .3s
-    overflow: hidden
-    .title
-      margin: 0 56px
-      transform: translate3d(0, 100%, 0)
-    .link, .qrcode
-      position: absolute
-      top: 18px
-      display: block
-      height: 20px
-      width: 20px
-      line-height: @height
-    .link
-      left: 18px
-      background: url('images/home.svg')
-    .qrcode
-      right: 18px
-      background: url('images/qrcode.svg')
-      @media mq-mobile
-        display: none
-    &.sticky
-      box-shadow: 0 0 10px rgba(0, 0, 0, .2)
-      .title
-        transform: translate3d(0, 0, 0)
-        transition: all .3s
-    @media mq-mobile
-      display: none
-  .site-banner
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background-position: center top
-    background-attachment: fixed
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1)
   .site-brand
     position: relative
-    padding: 80px 4% 100px
-    color: color-white
     text-align: center
-    background: rgba(0, 0, 0, .4)
     .brand-title a
       font-size: 1.8em
-      color: color-white
+      color: color-dark
     .brand-desc
       margin-top: 15px
       letter-spacing: 2px
   .site-nav
-    position: absolute
-    left: 0
-    right: 0
     .inner
       margin: 0 auto
       .nav
@@ -72,7 +23,6 @@
         box-sizing: border-box
         background: color-white
         border-radius: 2px
-        box-shadow: 0 0 10px rgba(0, 0, 0, .2)
         ul.nav-list
           font-size: 0
           li.nav-item
@@ -126,13 +76,3 @@
                   opacity:0
                   filter: opacity(0)
                   transition: all 0s ease 0s
-    &:not(.sticky)
-      bottom: -32px
-      .inner
-        max-width: 720px
-        padding: 0 4%
-    &.sticky
-      position: fixed
-      top: 0
-      .nav
-        padding: 8px 12px
