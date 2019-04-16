@@ -2,6 +2,10 @@
   <%- partial('post/gallery') %>
   <div class="article-content">
     <%- partial('post/title') %>
+    <div class="post-meta">
+      <%- partial('post/date', {date_format: 'MMMMDD, YYYY'}) %>
+      <%- partial('post/category') %>
+    </div>
     <div id="post-content" class="post-content">
       <% if (index) { %>
         <% if (post.excerpt) { %>
@@ -12,10 +16,6 @@
       <% } else { %>
         <%- post.content %>
       <% } %>
-    </div>
-    <div class="post-meta">
-      <%- partial('post/date', {date_format: 'MMMMDD, YYYY'}) %>
-      <%- partial('post/category') %>
     </div>
     <% if (!index) { %>
       <div class="post-footer">

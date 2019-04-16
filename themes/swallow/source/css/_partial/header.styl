@@ -1,78 +1,78 @@
 .header
   position: relative
-  display: flex
   z-index: 4
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1)
+  .inner
+    display: flex
+    justify-content: space-between
   .site-brand
-    position: relative
-    text-align: center
+    margin: 0 -10px
+    .brand-title
+      padding: 0 10px
     .brand-title a
+      line-height: 60px
       font-size: 1.8em
       color: color-dark
-    .brand-desc
-      margin-top: 15px
-      letter-spacing: 2px
+      text-align: center
   .site-nav
-    .inner
-      margin: 0 auto
-      .nav
-        display: flex
-        justify-content: space-between
-        align-items: center
-        padding: 10px 12px
-        box-sizing: border-box
-        background: color-white
-        border-radius: 2px
-        ul.nav-list
-          font-size: 0
-          li.nav-item
-            display: inline-block
-          li.nav-item a
-            display: block
-            height: 40px
-            padding: 0 10px
-            line-height: @height
-            color: color-dark
-            font-size: 15px
-            text-align: center
-        ul.nav-icon
-          display: none
-          @media mq-mobile
-            display: none /* 备用 */
-            position: relative
-            width: 30px
-            height: 30px
-            margin: 0 5px
-            padding: 0
-            cursor: pointer
-            list-style: none
+    margin: 0 -10px
+    .nav
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 10px 0
+      box-sizing: border-box
+      background: color-white
+      border-radius: 2px
+      ul.nav-list
+        font-size: 0
+        li.nav-item
+          display: inline-block
+        li.nav-item a
+          display: block
+          height: 40px
+          padding: 0 10px
+          line-height: @height
+          color: color-dark
+          font-size: 15px
+          text-align: center
+      ul.nav-icon
+        display: none
+        @media mq-mobile
+          display: none /* 备用 */
+          position: relative
+          width: 30px
+          height: 30px
+          margin: 0 5px
+          padding: 0
+          cursor: pointer
+          list-style: none
+          li
+            position: absolute
+            left: 0
+            top: 14px
+            width: 100%
+            height: 1px
+            background: color-dark
+            transition: all .3s ease 0s
+            &:first-child
+              top: 5px
+              width: 80%
+            &:last-child
+              top: 23px
+              width: 70%
+          &.on
             li
-              position: absolute
-              left: 0
-              top: 14px
-              width: 100%
-              height: 1px
-              background: color-dark
-              transition: all .3s ease 0s
+              transform-origin: center center
+              transform: rotate(-45deg)
+              top: 15px
               &:first-child
-                top: 5px
-                width: 80%
-              &:last-child
-                top: 23px
-                width: 70%
-            &.on
-              li
+                opacity: 1
+                filter: opacity(100)
                 transform-origin: center center
-                transform: rotate(-45deg)
+                transform: rotate(45deg)
                 top: 15px
-                &:first-child
-                  opacity: 1
-                  filter: opacity(100)
-                  transform-origin: center center
-                  transform: rotate(45deg)
-                  top: 15px
-                  width: 100%
-                &:last-child
-                  opacity:0
-                  filter: opacity(0)
-                  transition: all 0s ease 0s
+                width: 100%
+              &:last-child
+                opacity:0
+                filter: opacity(0)
+                transition: all 0s ease 0s

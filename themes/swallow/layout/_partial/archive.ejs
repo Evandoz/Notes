@@ -1,11 +1,9 @@
-<% if (pagination == 2){ %>
-  <% page.posts.forEach(function(post){ %>
-    <div id="article-item" class="article-item">
+<div class="archive"> 
+  <% if (pagination == 2){ %>
+    <% page.posts.forEach(function(post){ %>
       <%- partial('_partial/article', {post: post, index: true}) %>
-    </div>
-  <% }) %>
-<% } else { %>
-  <div id="archive" class="archive">
+    <% }) %>
+  <% } else { %>
     <% if (is_archive()) { %>
       <% var last, year; %>
       <% page.posts.each(function(post, i){ %>
@@ -35,7 +33,6 @@
         <% }) %>
       </ul>
     <% } %>
-  </div>
-<% } %>
-
+  <% } %>
+</div>
 <%- partial('_partial/paginator') %>
