@@ -8,7 +8,7 @@ keywords:
 - 前端开发
 tags:
 - 谷歌字体
-photos: https://floretten-1252347631.costj.myqcloud.com/Google/Google.jpg
+photos: https://raw.githubusercontent.com/Evandoz/blob/master/Google/Google.jpg
 ---
 
 本文记录了如何使用谷歌的独门字体库神器！
@@ -19,7 +19,7 @@ photos: https://floretten-1252347631.costj.myqcloud.com/Google/Google.jpg
 
 网站大概长这个样
 
-![Google Fonts](https://floretten-1252347631.costj.myqcloud.com/Google/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2820%29.png)
+![Google Fonts](https://raw.githubusercontent.com/Evandoz/blob/master/Google/001.png)
 
 网址在这
 
@@ -35,7 +35,7 @@ photos: https://floretten-1252347631.costj.myqcloud.com/Google/Google.jpg
 <link href="https://fonts.googleapis.com/css?family=XXX" rel="stylesheet">
 ```
 
-![link](https://floretten-1252347631.costj.myqcloud.com/Google/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2821%29.png)
+![link](https://raw.githubusercontent.com/Evandoz/blob/master/Google/002.png)
 
 另一种是使用CSS的引入方式``@import``，然后同样是在css中使用``font-family``属性
 
@@ -43,13 +43,13 @@ photos: https://floretten-1252347631.costj.myqcloud.com/Google/Google.jpg
 @import url('https://fonts.googleapis.com/css?family=XXX');
 ```
 
-![@import](https://floretten-1252347631.costj.myqcloud.com/Google/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2822%29.png)
+![@import](https://raw.githubusercontent.com/Evandoz/blob/master/Google/003.png)
 
 ## 离线使用
 
 前面两种方式均是引入谷歌字体库的链接，我们也可以下载谷歌字体文件离线使用，谷歌字体提供了下载接口。
 
-![下载字体](https://floretten-1252347631.costj.myqcloud.com/Google/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2823%29.png)
+![下载字体](https://raw.githubusercontent.com/Evandoz/blob/master/Google/004.png)
 
 下载之后用本地方式引入 css 中，即下面这种方式，其中***xxx.eot/woff/ttf***等即为下载的字体文件，根据下载的字体格式，选择性使用下面的代码。
 
@@ -70,4 +70,4 @@ photos: https://floretten-1252347631.costj.myqcloud.com/Google/Google.jpg
 
 本文只介绍怎么用，至于能不能用就要看众多老司机们了，虽然大流氓曾经做过谷歌字体的代理，不过现在已经正式停止服务了。
 
-![](https://floretten-1252347631.costj.myqcloud.com/Google/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2825%29.png)
+![](https://raw.githubusercontent.com/Evandoz/blob/master/Google/005.png)

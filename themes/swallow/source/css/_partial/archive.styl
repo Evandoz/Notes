@@ -1,5 +1,5 @@
 .archive
-  padding: 50px 0
+  margin: 50px 0
 
   .archive-year
     display: block
@@ -10,63 +10,56 @@
     &:first-child
       margin-top: 0
 
-  ul.archive-list
-    margin-left: 10px
+  .archive-list
     padding: 5px 0
-    li.archive-item
-      position: relative
-      margin-bottom: 15px
-      font-size: 0
-      &:last-child
-        margin-bottom: 0
-      .post-date,
-      .post-link
-        display: block
-        line-height: 1.6
-        font-size: 16px
-
-      .post-date
-        position: absolute
-        left: 0
-        color: color-grey
-
-      .post-link
-        margin-left: 105px
-        color: color-font
-  &.category
-    padding: 40px 2%
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-flow: wrap
-
-    .category-link
+  .archive-item
+    display: inline-block
+    width: 180px
+    height: 200px
+    margin: 20px
+    padding: 20px
+    box-sizing: border-box
+    border-radius: 6px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+    &:last-child
+      margin-bottom: 0
+    .post-date,
+    .post-link
       display: block
-      width: 150px
-      height: 50px
-      margin: 10px
-      line-height: @height
+      line-height: 1.6
+      font-size: 16px
+    .post-link a
       color: color-font
-      text-align: center
-      border-radius: 1px
-      border: 1px solid color-border
-      box-sizing: border-box
-      transition: background .3s linear
-      &:hover, &:focus
-        background: color-light
+
+    .post-date
+      color: color-grey
+    &.category,
+    &.tag
+      width: 120px
+      height: 90px
+  .archive-item a
+    display: block
+    color: color-font
+    text-align: center
+    .category-title
+      margin-bottom: 10px
+
 
 .paginator
   display: flex
   justify-content: center
   align-items: center
+  margin: 50px 0
   a, span
     height: 40px
     width: 40px
+    margin: 0 10px
     padding: 10px
     box-sizing: border-box
     line-height: @height
     text-align: center
-    border-radius: 1px
+    border-radius: 6px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
   .page-number
     display: none
   .prev, .next

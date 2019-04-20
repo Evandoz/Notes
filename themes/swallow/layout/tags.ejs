@@ -1,0 +1,10 @@
+<div class="archive">
+  <% site.tags.each(function(tag) { %>
+    <div id="tag_<%= tag._id %>" class="archive-item tag" data-slug="<%= tag.slug %>">
+      <a href="<%- url_for(tag.path) %>">
+        <h1 class="tag-title"><%= tag.name %></h1>
+        <span class="tag-count"><%= tag.length %></span>
+      </a>
+    </div>
+  <% }) %>
+</div>

@@ -87,6 +87,6 @@ CODE	ENDS
 
 ## 运行结果
 
-![result](https://floretten-1252347631.costj.myqcloud.com/Assembly/exchange.png)
+![result](https://raw.githubusercontent.com/Evandoz/blob/master/Assembly/exchange.png)
 
 **说明**：代码中本来想用逗号分割的，结果输出的不知道是什么鬼，不过不影响功能的实现。

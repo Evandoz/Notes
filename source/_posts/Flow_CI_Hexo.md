@@ -35,7 +35,7 @@ photos:
 
 必要步骤，有兴趣可以去 flow.ci 官网申请内测以获取邀请码。
 
-![flow.ci](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci001.png)
+![flow.ci](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci001.png)
 
 ### 创建项目
 
@@ -44,19 +44,19 @@ photos:
 具体的按照下面的顺序操作即可：
 创建项目 -> 选择代码源 -> 选择用户 -> 选择仓库 -> 创建工作流 -> 选择脚本模板。
 
-![选择模板](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci003.png)
+![选择模板](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci003.png)
 
 ### 设置触发器
 
 设置自动部署触发器，因为我是把源代码放在放在分支 hexo 中，博客静态文件放在分支 master 中，所以我选设置为 push hexo 时触发。
 
-![触发器](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci004.png)
+![触发器](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci004.png)
 
 ### 配置工作流
 
 配置工作流，这里我们把 ``测试`` 部分删掉，然后加上 ``自定义脚本``。
 
-![自定义脚本](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci005.png)
+![自定义脚本](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci005.png)
 
 脚本参考代码如下
 
@@ -82,17 +82,17 @@ flow_cmd "git push --force --quiet "git@git.coding.net:your name/reponame.git" m
 
 我们创建项目后，flow.ci 会自动在 Coding.net 中添加部署公钥，但是这个公钥只有只读权限，用于拉取（git clone）仓库代码，并没有推送权限。
 
-![flow.ci](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci006.png)
+![flow.ci](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci006.png)
 
 所以现在我们把它删除，重新添加这个公钥，并勾选``推送功能``，这样这个公钥就拥有了推送回 Coding.net 的权限了，提高了安全性。
 
-![coding.net](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci007.png)
+![coding.net](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci007.png)
 
 ### 测试
 
 配置完后可以手动创建来测试一下是否成功，如不成功可以查看构建日志来查找不成功的原因。
 
-![手动创建](https://floretten-1252347631.costj.myqcloud.com/flow.ci/flow.ci008.png)
+![手动创建](https://raw.githubusercontent.com/Evandoz/blob/master/flow.ci/flow.ci008.png)
 
 ## 总结
 

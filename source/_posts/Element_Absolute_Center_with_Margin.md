@@ -74,7 +74,7 @@ photos:
 
 效果如图：
 
-![Absolute Centering](https://floretten-1252347631.cos.ap-beijing-1.myqcloud.com/Web/centering.png)
+![Absolute Centering](https://raw.githubusercontent.com/Evandoz/blob/master/Web/centering.png)
 
 ## 优点及注意点
 

@@ -8,7 +8,7 @@ keywords:
 - 友言
 tags:
 - Hexo
-photos: https://floretten-1252347631.costj.myqcloud.com/cyan/cyan.png
+photos: https://raw.githubusercontent.com/Evandoz/blob/master/cyan/cyan.png
 ---
 
 因为一些未知原因，越来越多第三方评论系统纷纷停止服务。2017年多说评论宣布将停止服务，这无疑给用户带来了麻烦，迁徙成了一种选择，本文以实际操作简单介绍搜狐畅言系统的配置。

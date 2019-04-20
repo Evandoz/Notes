@@ -34,7 +34,7 @@ Intel 8086 是因特尔早期研制的一款16位经典微处理器芯片，是x
 
 图形示意：
 
-![立即寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive002.png)
+![立即寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive002.png)
 
 代码示意：
 
@@ -48,7 +48,7 @@ mov al, 5	;执行结果：(al) = 5      ["()"表示取内容，以下皆如此]
 
 图形示意：
 
-![寄存器寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive003.png)
+![寄存器寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive003.png)
 
 代码示意：
 
@@ -91,7 +91,7 @@ mov ax, bx	;假设(bx) = 30H，则执行结果为：(ax) = 30H
 
 图形示意：
 
-![直接寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive004.png)
+![直接寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive004.png)
 
 代码示意：
 
@@ -109,7 +109,7 @@ mov ax, [2000H]		;假设 (ds) = 3000H ，则执行结果为：(ax) = (32000) ，
 
 图形示意：
 
-![寄存器间接寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive005.png)
+![寄存器间接寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive005.png)
 
 代码示意：
 
@@ -125,7 +125,7 @@ mov ax，[bx]	;假设 (ds) = 2000H，(bx) = 1000H ，则执行结果为：(ax) =
 
 图形示意：
 
-![寄存器相对寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive006.png)
+![寄存器相对寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive006.png)
 
 代码示意：
 
@@ -141,7 +141,7 @@ mov ax, count[si]/[count+si]	;假设 (ds) = 3000H ，(si) = 2000H ，count = 300
 
 图形示意：
 
-![基址变址寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive007.png)
+![基址变址寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive007.png)
 
 代码示意：
 
@@ -160,7 +160,7 @@ mov ax, [bx][di]/[bx+di]	;假设 (ds) = 2100H ，(bx) = 0158H ，(di) = 10A5H �
 
 图形示意：
 
-![相对基址变址寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive008.png)
+![相对基址变址寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive008.png)
 
 代码示意：
 
@@ -186,7 +186,7 @@ mov ax, count[bx][si]/[count+bx+si]		;假设 (ds) = 3000H ，(bx) = 2000H ，(si
 
 图形示意：
 
-![段内直接寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive009.png)
+![段内直接寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive009.png)
 
 代码示意：
 
@@ -205,7 +205,7 @@ jmp short quest
 
 图形示意：
 
-![段内间接寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive010.png)
+![段内间接寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive010.png)
 
 代码示意：
 
@@ -221,7 +221,7 @@ jmp word ptr[bp+table]
 
 图形示意：
 
-![段间直接寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive011.png)
+![段间直接寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive011.png)
 
 代码示意：
 
@@ -235,7 +235,7 @@ jmp far ptr next	;next 为转向的符号地址，far ptr 则是表示段间转�
 
 图形示意：
 
-![段间间接寻址](https://floretten-1252347631.costj.myqcloud.com/Directive/directive012.png)
+![段间间接寻址](https://raw.githubusercontent.com/Evandoz/blob/master/Directive/directive012.png)
 
 代码示意：
 

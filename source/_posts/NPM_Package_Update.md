@@ -9,7 +9,7 @@ keywords:
 tags:
 - npm
 - node
-photos: 'https://floretten-1252347631.cos.ap-beijing-1.myqcloud.com/npm/node.jpg'
+photos: https://raw.githubusercontent.com/Evandoz/blob/master/NPM/node.jpg
 ---
 
 现实需求：使用vue-cli等脚手架工具创建工程后，当工程中的模块有更新时，如何将工程中的模块都更新到最新？
@@ -36,7 +36,7 @@ vue                                  2.5.16   2.5.17  2.5.17  navigation
 
 图片效果如下所示：
 
-![](https://floretten-1252347631.cos.ap-beijing-1.myqcloud.com/npm/npm-outdated.png)
+![](https://raw.githubusercontent.com/Evandoz/blob/master/NPM/npm-outdated.png)
 
 输出结果展示了包的类别或名称（Package）、当前包版本（Current）、满足 package.json 中指定 semver 范围的包的最大版本（Wanted）、最新包版本（Latest）以及包所在依赖关系树中的位置（Location），关于该命令的详细解释参见 [npm-outdated](https://www.npmjs.com.cn/cli/outdated/)。
 
@@ -60,7 +60,7 @@ npm update [-g] [<pkg>...]
 
 只能根据 package.json 中的版本指定进行更新，即它会将 Current 版本更新到 Wanted 版本。如果不指定包名，他将更新所有包（全局/本地取决于参数 -g）并且从npm@2.6.1开始，该命令只会检查顶级软件包。具体效果如下图，与之前相比，Current 与 Wanted 已经保持一致（红色部分没有了）。关于该命令更多详情参见 [npm-update](https://www.npmjs.com.cn/cli/update/)。
 
-![npm-update](https://floretten-1252347631.cos.ap-beijing-1.myqcloud.com/npm/npm-update.png)
+![npm-update](https://raw.githubusercontent.com/Evandoz/blob/master/npm/npm-update.png)
 
 因此，要想使用这种方法更新所有包，需要手动更改 package.json 文件（或使用程序自动化），比较麻烦。
 

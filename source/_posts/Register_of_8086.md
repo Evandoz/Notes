@@ -121,6 +121,6 @@ ii. 串操作时时用作**目的**变址寄存器，用来存放相对于 ES �
 ***
 除上述的专用功能外，在中断系统中相应功能的实现也会指定专用的寄存器，由于中断类型太多不一一列举，详情可以在网上搜索**BIOS、DOS中断大全**便可找到所有的功能实现。
 
-![INT21H](https://floretten-1252347631.costj.myqcloud.com/Assembly/int21h.png)
+![INT21H](https://raw.githubusercontent.com/Evandoz/blob/master/Assembly/int21h.png)
 
 完整 INT21H 功能可参考 [百度文库](http://wenku.baidu.com/link?url=SIa3cwuKcvxXclwPsgohSyBEKJQn3nRL3msqEo8_vu3ZxubIhBXeqYFqASuGcHmcf_Ca_Ami4_4Lm6eR0Ie0blJHuo0U644a7y-GldyHn9C) 或者自行搜索

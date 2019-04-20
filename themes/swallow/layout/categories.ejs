@@ -1,3 +1,10 @@
-<div id="category" class="archive category">
-  <%- list_categories({show_count: false, style: '', separator: ''}) %>
+<div class="archive">
+  <% site.categories.each(function(category) { %>
+    <div id="category_<%= category._id %>" class="archive-item category" data-slug="<%= category.slug %>">
+      <a href="<%- url_for(category.path) %>">
+        <h1 class="category-title"><%= category.name %></h1>
+        <span class="category-count"><%= category.length %></span>
+      </a>
+    </div>
+  <% }) %>
 </div>

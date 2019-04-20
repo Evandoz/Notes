@@ -10,28 +10,28 @@
         <% year = post.date.year(); %>
         <% if (last != year){ %>
           <% if (last != null){ %>
-            </ul>
+          </div>
           <% } %>
           <% last = year; %>
           <% if (is_year()) { %>
             <h1 class="archive-year"><%= year %></h1>
           <% } else { %>
-            <a class="archive-year" href="<%- url_for(config.archive_dir + '/' + year) %>"><%= year %></a>
+            <h1><a class="archive-year" href="<%- url_for(config.archive_dir + '/' + year) %>"><%= year %></a></h1>
           <% } %>
-          <ul class="archive-list">
+          <div class="archive-list">
         <% } %>
         <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
       <% }) %>
       <% if (page.posts.length){ %>
-        </ul>
+      </div>
       <% } %>
     <% } else { %>
       <h1 class="archive-year"><%= title %></h1>
-      <ul class="archive-list">
+      <div class="archive-list">
         <% page.posts.each(function(post, i){ %>
           <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
         <% }) %>
-      </ul>
+        </div>
     <% } %>
   <% } %>
 </div>
