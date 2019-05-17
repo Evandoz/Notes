@@ -50,6 +50,8 @@ if (vsSetup) {
 2. VS 2019 的安装路径与之前有所不同，由原来的内部版本号（如：14.0) 变更为 Current
 3. 做好文件备份
 
+![VS 2019](https://raw.githubusercontent.com/Evandoz/blob/master/NPM/node-gyp.png)
+
 该文件在计算机上的具体位置为：
 
 ```
