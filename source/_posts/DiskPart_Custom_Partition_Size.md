@@ -56,26 +56,40 @@ list disk
 select disk X （X为硬盘编号）
 ```
 
+清空磁盘
+
+```
+clean
+```
+
+转化为 GPT 分区表
+
+```
+convert gpt
+```
+
 **创建恢复分区**
 
 ```
 cre part primary size=512
 format quick fs=ntfs label="Recovery" （fs=filesystem，格式化为 NTFS）
-set id="de94bba4-06d1-4d40-a16a-bfd50179d6ac"
-gpt attributes=0x000000000000001
+set id="de94bba4-06d1-4d40-a16a-bfd50179d6ac"  （设置GUID，表示 GPT 分区类型）
+gpt attributes=0x8000000000000001  （设置Attribute，表示 GPT 分区属性，此处为其设置特殊保护）
 ```
 
 **创建系统分区**
 
 ```
 cre part efi size=256
-format quick fs=fat32 （fs=filesystem，格式化为 NTFS）
+format quick fs=fat32 （fs=filesystem，格式化为 FAT32）
+set id="c12a7328-f81f-11d2-ba4b-00a0c93ec93b"  （设置GUID，表示 GPT 分区类型）
 ```
 
 **创建保留分区**
 
 ```
 cre part msr size=16 （使用 Windows 10 默认大小）
+set id="e3c9e316-0b5c-4db8-817d-f92df00215ae"  （设置GUID，表示 GPT 分区类型）
 ```
 
 以上命令中使用了简写：
@@ -98,3 +112,5 @@ list part
   分区      3    保留                  16 MB   769 MB
   分区      4    主要                  50 GB   785 MB
 ```
+
+最后，关于 GPT 分区表的内容参见
