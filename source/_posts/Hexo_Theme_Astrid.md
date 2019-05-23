@@ -1,5 +1,5 @@
 ---
-title: 分享一款 Hexo 主题
+title: 一款 Hexo 主题
 date: 2017-03-06 15:30:14
 categories:
 - Hexo

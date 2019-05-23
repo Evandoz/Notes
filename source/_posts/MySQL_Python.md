@@ -1,5 +1,5 @@
 ---
-title: 配置Python 2.7连接MySQL中的问题
+title: Python 2.7 解决 MySQL 连接问题
 date: 2017-04-03 15:32:12
 categories:
 - Python

@@ -1,5 +1,5 @@
 ---
-title: Vue开发中本地请求数据配置从dev-server.js到webpack-dev-conf.js的迁移
+title: Vue 本地数据请求配置向 webpack-dev-conf.js 迁移
 date: 2018-03-29 17:34:25
 categories:
 - Vue

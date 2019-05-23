@@ -1,14 +1,14 @@
 ---
-title: 在 Archlinux 中使用 Secure Boot
+title: 在 ArchLinux 中使用 Secure Boot
 date: 2018-06-30 14:34:10
 categories:
-- Linux
+- ArchLinux
 keywords:
-- Archlinux
+- ArchLinux
 - Secure Boot
 - 双系统
 tags:
-- Archlinux
+- ArchLinux
 - Secure Boot
 photos:
 ---
