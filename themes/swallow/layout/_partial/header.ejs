@@ -1,21 +1,43 @@
 <header id="header" class="header">
   <div class="inner">
-    <div id="site-brand" class="site-brand">
-      <h1 class="brand-title">
-        <a href="<%- url_for() %>"><%= config.title %></a>
-      </h1>
-    </div>
+
+    <% if (!is_post()) { %>
+      <div class="background" style="background-image: url('<%- url_for(theme.background) %>')"></div>
+    <% } %>
+
+    <% if (is_home()) { %>
+      <div id="site-brand" class="site-brand">
+        <h1 class="brand-title">
+          <a href="<%- url_for() %>"><%= config.title %></a>
+        </h1>
+        <h2 class="brand-description">
+          <%= config.description %>
+        </h2>
+      </div>
+    <% } %>
+
     <div id="site-nav" class="site-nav">
       <div class="nav">
         <ul id="nav-icon" class="nav-icon">
-          <li></li><li></li><li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
         <ul id="nav-list" class="nav-list">
           <% for (var i in theme.nav){ %>
-            <li class="nav-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
+          <li class="nav-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
           <% } %>
         </ul>
       </div>
     </div>
+
+    <% if (!is_post() && !is_home()) { %>
+      <div id="site-brand" class="site-brand">
+        <h1 class="brand-title">
+          <a href="<%- url_for() %>"><%= config.title %></a>
+        </h1>
+      </div>
+    <% } %>
+
   </div>
 </header>

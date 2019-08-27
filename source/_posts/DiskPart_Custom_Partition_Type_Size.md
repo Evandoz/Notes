@@ -1,12 +1,12 @@
 ---
-title: 使用 DiskPart 自定义 Windows 分区大小
+title: 使用 DiskPart 自定义 Windows 分区类型及大小
 date: 2019-01-10 14:12:20
 categories:
 - Windows
 keywords:
 - DiskPart
 - Windows
-- 自定义分区大小
+- 自定义分区类型及大小
 tags:
 - Windows
 - DiskPart
