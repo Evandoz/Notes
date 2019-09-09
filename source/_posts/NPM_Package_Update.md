@@ -1,5 +1,5 @@
 ---
-title: Node 项目使用 npm 更新 package
+title: 使用 npm 更新 package
 date: 2018-04-16 21:32:21
 categories:
 - Node
@@ -101,21 +101,21 @@ Using E:\Repos\navigation\package.json
  eslint-config-standard              ^10.2.1  →  ^12.0.0
 ```
 
-上述命令后添加参数选项：
+上述命令使用参数选项``-a``（全拼：``--upgradeAll``）：
 
 ```
--a, --upgradeAll
+ncu -a, --upgradeAll
 ```
 
-即可完成所有报的更新。
+可更新所有 package；
 
-使用参数选项：
+使用参数选项``-u``（全拼：``--upgrade``）：：
 
 ```
--u, --upgrade
+ncu -u, --upgrade
 ```
 
-将更新 package.json 文件。
+可更新 package.json 文件。
 
 ## 写在最后
 
