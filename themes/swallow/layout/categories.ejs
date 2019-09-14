@@ -1,10 +1,11 @@
-<div class="archive">
+<div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
+  <h1 class="title"><%= __('category') %></h1>
+</div>
+<div class="archive category card">
   <% site.categories.each(function(category) { %>
-    <div id="category_<%= category._id %>" class="archive-item category" data-slug="<%= category.slug %>">
-      <a href="<%- url_for(category.path) %>">
-        <h1 class="category-title"><%= category.name %></h1>
-        <span class="category-count"><%= category.length %></span>
-      </a>
-    </div>
+    <a class="category-item" data-slug="<%= category.slug %>" href="<%- url_for(category.path) %>">
+      <h3 class="category-title"><%= category.name %></h3>
+      <span class="category-count">(<%= category.length %>)</span>
+    </a>
   <% }) %>
 </div>

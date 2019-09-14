@@ -2,7 +2,7 @@
 title: Sublime Text 3 插件推荐与介绍
 date: 2016-10-06 10:24:14
 categories:
-- 工具利器
+- 常用工具
 keywords:
 - Sublime Text
 - Sublime插件

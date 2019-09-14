@@ -1,4 +1,4 @@
-<article id="<%= post.slug %>" class="article">
+<article id="<%= post.slug %>" class="article card">
   <%- partial('post/gallery') %>
   <div class="article-content">
     <%- partial('post/title') %>
@@ -20,11 +20,22 @@
     <% if (!index) { %>
       <div class="post-footer">
         <%- partial('post/copyright') %>
-        <%- partial('post/nav') %>
-        <% if (post.comments) { %>
-          <%- partial('post/comment') %>
-        <% } %>
       </div>
     <% } %>
   </div>
 </article>
+<% if (!index) { %>
+  <% if (post.prev || post.next){ %>
+    <div class="nagination card">
+      <% if (post.prev){ %>
+      <a href="<%- url_for(post.prev.path) %>" class="nagination-link"><%= __('newer') %><%= post.prev.title %></a>
+      <% } %>
+      <% if (post.next){ %>
+      <a href="<%- url_for(post.next.path) %>" class="nagination-link"><%= __('older') %><%= post.next.title %></a>
+      <% } %>
+    </div>
+  <% } %>
+  <% if (post.comments) { %>
+    <%- partial('comment') %>
+  <% } %>
+<% } %>

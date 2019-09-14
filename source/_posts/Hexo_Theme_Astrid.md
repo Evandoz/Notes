@@ -75,6 +75,6 @@ Astrid 主题完成不久，尚有很多不足之处，望多多指正。另外�
 
 ## 更新说明
 
-2018年10月30日完成第三次更新，主要对功能模块精简，代码重构等，本文中大部分模块已被精简，更多内容请直接访问 Github，链接如下：
+2018年10月30日第三次更新，主要对功能模块精简，代码重构等，本文中大部分模块已被精简，更多内容请直接访问 Github，链接如下：
 
 [https://github.com/Evandoz/hexo-theme-astrid](https://github.com/Evandoz/hexo-theme-astrid)

@@ -2,7 +2,7 @@
 title: 使用 npm 更新 package
 date: 2018-04-16 21:32:21
 categories:
-- Node
+- 编程开发
 keywords:
 - npm
 - 更新node模块

@@ -2,12 +2,12 @@
 title: Vue Router+Element UI 实现导航实例
 date: 2018-03-02 19:27:56
 categories:
-- Vue
+- 前端开发
 keywords:
 - vue-router
 - Element UI
 tags:
-- Vue.js
+- Vue
 photos:
 ---
 

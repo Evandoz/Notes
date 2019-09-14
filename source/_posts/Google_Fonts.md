@@ -7,11 +7,12 @@ keywords:
 - 谷歌字体
 - 前端开发
 tags:
+- 字体
 - 谷歌字体
 photos: https://raw.githubusercontent.com/Evandoz/blob/master/Google/Google.jpg
 ---
 
-本文记录了如何使用谷歌的独门字体库神器！
+本文记录了如何使用谷歌的字体库！
 
 <!--more-->
 

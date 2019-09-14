@@ -1,0 +1,17 @@
+<% if (page.photos != ''){ %>
+  <% page.photos.forEach(function(photo){ %>
+    <div class="cover" style="background-image: url('<%- url_for(photo) %>')">
+  <% }) %>
+<% } else { %>
+  <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
+<% } %>
+  <h1 class="title"><%= __('about') %></h1>
+</div>
+<article id="<%= page.slug %>" class="article card">
+  <div class="article-content">
+    <div class="post-content"><%- page.content %></div>
+  </div>
+</article>
+<% if (page.comments) { %>
+  <%- partial('_partial/comment') %>
+<% } %>

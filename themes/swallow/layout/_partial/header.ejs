@@ -1,43 +1,30 @@
-<header id="header" class="header">
-  <div class="inner">
-
-    <% if (!is_post()) { %>
-      <div class="background" style="background-image: url('<%- url_for(theme.background) %>')"></div>
-    <% } %>
-
-    <% if (is_home()) { %>
-      <div id="site-brand" class="site-brand">
-        <h1 class="brand-title">
-          <a href="<%- url_for() %>"><%= config.title %></a>
-        </h1>
-        <h2 class="brand-description">
-          <%= config.description %>
-        </h2>
+<% if (is_home()) { %>
+  <header id="header" class="header is-home" style="background-image: url('<%- url_for(theme.background) %>')">
+    <div class="container">
+      <div class="cover">
+        <h1 class="title"><%= config.title %></h1>
+        <p class="desc"><%= config.description %></p>
       </div>
-    <% } %>
-
-    <div id="site-nav" class="site-nav">
-      <div class="nav">
-        <ul id="nav-icon" class="nav-icon">
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <ul id="nav-list" class="nav-list">
-          <% for (var i in theme.nav){ %>
-          <li class="nav-item"><a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a></li>
-          <% } %>
-        </ul>
+<% } else { %>
+  <header id="header" class="header is-page">
+    <div class="container">
+      <div class="logo">
+        <a class="title" href="<%- url_for() %>"><%= config.title %></a>
       </div>
+<% } %>
+
+    <div class="nav">
+      <ul class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        <% for (var i in theme.nav){ %>
+          <li class="nav-item">
+            <a href="<%- url_for(theme.nav[i]) %>"><%= __(i) %></a>
+          </li>
+        <% } %>
+      </ul>
     </div>
-
-    <% if (!is_post() && !is_home()) { %>
-      <div id="site-brand" class="site-brand">
-        <h1 class="brand-title">
-          <a href="<%- url_for() %>"><%= config.title %></a>
-        </h1>
-      </div>
-    <% } %>
 
   </div>
 </header>

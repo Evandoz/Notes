@@ -2,7 +2,7 @@
 title: 在 ArchLinux 中使用 Secure Boot
 date: 2018-06-30 14:34:10
 categories:
-- ArchLinux
+- Linux
 keywords:
 - ArchLinux
 - Secure Boot
@@ -13,7 +13,7 @@ tags:
 photos:
 ---
 
-在预装了 Winodws 10 的笔记本上装上了 Archlinux (GPT + UEFI)，然后由于其不支持 Secure Boot，不得已关掉了该选项，但这并不是我想要的，经过一番摸索，终于解决问题。
+在预装了 Winodws 10 的笔记本上装上了 Archlinux (GPT + UEFI)，由于数字签名信任的问题，无法使用 Secure Boot，不过可以使用可信任的数字签名来解决问题。
 
 <!-- more -->
 

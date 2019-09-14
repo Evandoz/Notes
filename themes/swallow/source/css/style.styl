@@ -9,24 +9,13 @@ input, textarea
 a, a:hover, a:focus
   text-decoration: none
 
-body
-  font: font-size font-sans
-  -webkit-text-size-adjust: 100%
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-
-.wrapper
-  min-height: 100vh
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  background: color-white
-
 .inner
   max-width: 920px
   margin: 0 auto
   padding: 0 2%
 
+@import "reset"
+@import "base"
 @import "_partial/header"
 @import "_partial/mobile"
 @import "_partial/article"

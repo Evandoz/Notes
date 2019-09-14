@@ -2,14 +2,14 @@
 title: 使用 yarn 更新 package
 date: 2019-04-16 09:32:21
 categories:
-- Node
+- 编程开发
 keywords:
 - yarn
 - 更新依赖包
 - node
 tags:
-- yarn
-- node
+- Node
+- Yarn
 photos:
 ---
 

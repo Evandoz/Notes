@@ -2,13 +2,13 @@
 title: Vue+Django 前后分离构建 WebApp
 date: 2018-03-02 10:08:53
 categories:
-- Vue
+- 前端开发
 keywords:
 - Vue.js
 - Django
 - Web
 tags:
-- Vue.js
+- Vue
 - Django
 photos:
 ---

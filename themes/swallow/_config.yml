@@ -3,7 +3,7 @@ nav:
   Archives: archives
   Categories: categories
   Tags: tags
-  Comments: comments
+  About: about
 
 # Since
 since: 2015
@@ -16,6 +16,7 @@ keywords: ""
 # (E.g. `http://abc.com/favicon.ico` or `css/images/favicon.ico`)
 favicon: css/images/favicon.ico
 logo: css/images/logo.png
+background: css/images/background.jpg
 
 # Links
 links:

@@ -13,15 +13,13 @@ tags:
 photos:
 ---
 
-今天偶然在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性。**但它并非是将 margin 置为负，而是直接置为 auto，需要说明的是元素需要声明宽/高**。经过实际测试，该方法确实有效。
+在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性。**但它并非是将 margin 置为负，而是直接置为 auto，需要说明的是元素需要声明宽/高**。经测试，该方法确实有效。
 
 原文链接是 [Absolute Centering in CSS](https://s.codepen.io/shshaw/fullpage/gEiDt##)
 
 <!-- more -->
 
 ## 介绍
-
-**！！！以下这一段是废话，可跳过！！！**
 
 一般地，对于已知宽高的元素的居中定位，最先想到的方法是：
 
@@ -54,7 +52,6 @@ photos:
 
 >We've all seen ``margin: 0 auto;`` for horizontal centering, but ``margin: auto;`` has refused to work for vertical centering... until now! But actually (spoiler alert!) absolute centering only requires a declared height* and these styles.
 
-**！！！以上这一段是废话，可你还是看了！！！**
 
 ## 代码
 
@@ -78,7 +75,7 @@ photos:
 
 ## 优点及注意点
 
-**！！以下这段，基本上是翻译转述作者原话！！**
+**！！以下为作者原话转述！！**
 
 优点：
 1. 跨浏览器支持，在 Chrome，Firefox，Safari，Mobile Safari，Windows Phone 甚至 IE8-10 的最新版本中都能完美运行（没测试，毕竟没那么多设备）。
@@ -92,5 +89,3 @@ photos:
 注意点：
 1. 必须声明高度（前面已经强调过）。
 2. 建议设置 ```overflow: auto``` 来防止内容溢出（毕竟固定宽/高）。
-
-**！！以上这段，希望没转述错误，可参见作者原文！！**

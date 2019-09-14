@@ -2,7 +2,7 @@
 title: ArchLinux 安装后续之中文输入法
 date: 2019-03-07 20:12:19
 categories:
-- ArchLinux
+- Linux
 keywords:
 - ArchLinux
 - 中文输入法

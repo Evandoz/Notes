@@ -2,7 +2,7 @@
 title: Sublime Text 3 配置文件的中文释义
 date: 2016-10-05 16:30:14
 categories:
-- 工具利器
+- 常用工具
 keywords:
 - Sublime Text
 - Sublime设置

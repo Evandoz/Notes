@@ -2,7 +2,7 @@
 title: ArchLinux 安装后续之桌面环境
 date: 2019-03-05 08:31:22
 categories:
-- ArchLinux
+- Linux
 keywords:
 - ArchLinux
 - 桌面环境

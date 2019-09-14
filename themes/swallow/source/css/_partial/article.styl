@@ -1,327 +1,330 @@
 .archive .article
-  margin-bottom: 40px
-  padding: 25px 40px
-  border-radius: 6px
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+  &:first-child
+    margin-top 0
+  padding 25px 40px
   .article-gallery
-    width: 48%
-    height: 200px
-    box-sizing: border-box
+    width 48%
+    height 200px
+    box-sizing border-box
     & + .article-content
-      width: 50%
+      width 50%
     @media mq-mobile
-      width: 100%
-      height: 200px
-      padding: 0 0 20px!important
-      float: none!important
+      width 100%
+      height 200px
+      padding 0 0 20px!important
+      float none!important
 
   .article-content
-    position: relative
-    display: flex
-    flex-direction: column
-    justify-content: center
-    z-index: 1
+    position relative
+    display flex
+    flex-direction column
+    justify-content center
+    z-index 1
     @media mq-mobile
-      width: 100%!important
-      margin: 0!important
+      width 100%!important
+      margin 0!important
     .post-content
-      margin: 0
+      margin 0
   &:nth-child(2n+1)
     .article-gallery
-      float: left
-      padding-right: 2%
+      float left
+      padding-right 2%
       & + .article-content
-        margin-left: 50%
+        margin-left 50%
   &:nth-child(2n)
     .article-gallery
-      float: right
-      padding-left: 2%
+      float right
+      padding-left 2%
 
 .article
-  position: relative
-  padding: 15px 30px
+  position relative
+  max-width 960px
+  margin 30px auto
 
   .article-gallery
     .image
-      height: 100%
-      width: 100%
-      overflow: hidden
-      background-position: center center
-      background-repeat: no-repeat
-      background-size: cover
+      height 100%
+      width 100%
+      overflow hidden
+      background-position center center
+      background-repeat no-repeat
+      background-size cover
 
   .article-content
-    display: flex
-    flex-direction: column
-    justify-content: space-between
+    display flex
+    flex-direction column
+    justify-content space-between
 
     .post-link,
     .post-title
-      margin: 15px 0
-      font-size: 22px
-      color: color-dark
-      font-weight: 500
+      margin 15px 0
+      font-size 22px
+      color color-dark
+      font-weight 500
       @media mq-mobile
-        text-align: center
+        text-align center
     .post-link a
-      line-height: 1.5
-      color: color-dark
+      line-height 1.5
+      color color-dark
     .post-meta
-      font-size: 0
+      font-size 0
       @media mq-mobile
-        text-align: center
+        text-align center
       span, a
-        display: inline-block
-        margin-right: 15px
-        font-size: 14px
-        color: color-grey
-        text-decoration: none
+        display inline-block
+        margin-right 15px
+        font-size 14px
+        color color-grey
+        text-decoration none
         &:last-child
-          margin: 0
+          margin 0
 
-    .post-content
-      margin: 20px 0
-      color: color-font
-      h1, h2, h3, h4, h5, h6
-        margin: 20px 0
-        padding-left: 15px
-        color: color-black
-        border-left: 5px solid color-grey
-      h1
-        font-size: 24px
-      h2
-        font-size: 20px
-      h3
-        font-size: 18px
-      h4
-        font-size: 16px
-      h5
-        font-size: 14px
-      h6
-        font-size: 12px
-      p, table
-        line-height: 2
-        margin: 15px 0
-      a
-        color: color-black
+  .post-content
+    margin 20px 0
+    color color-font
+    h1, h2, h3, h4, h5, h6
+      margin 20px 0
+      padding-left 15px
+      color color-black
+      border-left 5px solid color-grey
+    h1
+      font-size 24px
+    h2
+      font-size 20px
+    h3
+      font-size 18px
+    h4
+      font-size 16px
+    h5
+      font-size 14px
+    h6
+      font-size 12px
+    p, table
+      line-height 2
+      margin 15px 0
+    a
+      color color-black
+    ul, ol, dl
+      margin 10px 20px
+      line-height 2
       ul, ol, dl
-        margin: 10px 20px
-        line-height: 2
-        ul, ol, dl
-          margin: 0
-      ul
-        list-style: disc
-      ol
-        list-style: decimal
-      img, video
-        max-width: 100%
-        height: auto
-        display: block
-        margin: 15px auto
-      iframe
-        border: none
-      table
-        width: 100%
-        border-collapse: collapse
-      tr
-        &:hover
-          background: color-light
-      th
-        font-weight: bold
-        border: 1px solid color-border
-        border-bottom-width: 2px
-        padding: 0.5em
-        background: color-light
-      td
-        border: 1px solid color-border
-        padding: 10px 0
-      hr
-        width: 100%
-        height: 1px
-        border: none
-        margin: 20px 0
-        background: color-border
-        background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px)
-      strong
-        font-weight: bold
-      em, cite
-        font-style: italic
-      sup, sub
-        font-size: 0.75em
-        line-height: 0
-        position: relative
-        vertical-align: baseline
-      sup
-        top: -0.5em
-      sub
-        bottom: -0.2em
-      small
-        font-size: 0.85em
-      acronym, abbr
-        border-bottom: 1px dotted
-      blockquote
-        margin: 20px 0
-        padding: 15px 20px
-        font-family: font-serif
-        font-size: 1.25em
-        color: color-black
-        border: 1px solid color-border
-        border-radius: 1px
-        background: color-light
-        p
-          margin: 0
-          line-height: 1.8
-        footer
-          margin: 20px 0
-          font-size: font-size
-          font-family: font-sans
-          cite
-            &:before
-              content: "—"
-              padding: 0 0.5em
-      .pullquote
-        text-align: left
-        width: 45%
-        margin: 0
-        &.left
-          margin-left: 0.5em
-          margin-right: 1em
-        &.right
-          margin-right: 0.5em
-          margin-left: 1em
-      .caption
-        color: color-grey
-        display: block
-        font-size: 0.9em
-        margin-top: 0.5em
-        position: relative
-        text-align: center
-      .video-container
-        position: relative
-        padding-top: (9 / 16 * 100)% // 16:9 ratio
-        height: 0
-        overflow: hidden
-        iframe, object, embed
-          position: absolute
-          top: 0
-          left: 0
-          width: 100%
-          height: 100%
-          margin-top: 0
+        margin 0
+    ul
+      list-style disc
+    ol
+      list-style decimal
+    img, video
+      max-width 100%
+      height auto
+      display block
+      margin 15px auto
+    iframe
+      border none
+    table
+      width 100%
+      border-collapse collapse
+    tr
+      &:hover
+        background color-light
+    th
+      font-weight bold
+      border 1px solid color-border
+      border-bottom-width 2px
+      padding 0.5em
+      background color-light
+    td
+      border 1px solid color-border
+      padding 10px 0
+    hr
+      width 100%
+      height 1px
+      border none
+      margin 20px 0
+      background color-border
+      background-image repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px)
+    strong
+      font-weight bold
+    em, cite
+      font-style italic
+    sup, sub
+      font-size 0.75em
+      line-height 0
+      position relative
+      vertical-align baseline
+    sup
+      top -0.5em
+    sub
+      bottom -0.2em
+    small
+      font-size 0.85em
+    acronym, abbr
+      border-bottom 1px dotted
+    blockquote
+      margin 20px 0
+      padding 15px 20px
+      font-family font-serif
+      font-size 1.25em
+      color color-black
+      border 1px solid color-border
+      border-radius 1px
+      background color-light
+      p
+        margin 0
+        line-height 1.8
+      footer
+        margin 20px 0
+        font-size font-size
+        font-family font-sans
+        cite
+          &:before
+            content "—"
+            padding 0 0.5em
+    .pullquote
+      text-align left
+      width 45%
+      margin 0
+      &.left
+        margin-left 0.5em
+        margin-right 1em
+      &.right
+        margin-right 0.5em
+        margin-left 1em
+    .caption
+      color color-grey
+      display block
+      font-size 0.9em
+      margin-top 0.5em
+      position relative
+      text-align center
+    .video-container
+      position relative
+      padding-top (9 / 16 * 100)% // 16:9 ratio
+      height 0
+      overflow hidden
+      iframe, object, embed
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        margin-top 0
 
     .post-footer
       .post-copyright
-        margin: 15px 0
-        line-height: 2
-        font-size: 14px
-        color: color-font
+        margin 15px 0
+        line-height 2
+        font-size 14px
+        color color-font
         @media mq-mobile
-          text-align: center
+          text-align center
 
-      .post-paginator
-        display: flex
-        justify-content: space-between
-        align-items: center
-        flex-flow: wrap
-        margin: 30px 0
-        padding: 10px 0
-        font-size: 15px
-        border-top: 1px solid color-border
-        border-bottom: 1px solid color-border
+.nagination
+  display flex
+  justify-content space-between
+  align-items center
+  flex-flow wrap
+  max-width 960px
+  margin 30px auto
+  padding 10px 40px
+  font-size 15px
+  border-top 1px solid color-border
+  border-bottom 1px solid color-border
 
-        .paginator-link
-          display: block
-          margin: 5px 0
-          color: color-font
-          overflow: hidden
-          white-space: nowrap
-          text-overflow: ellipsis
+  .nagination-link
+    display block
+    margin 5px 0
+    color color-font
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
 
-      .post-comment
-        .gt-container
-          .gt-meta
-            z-index: 1
-            .gt-popup
-              margin-top: 10px
-              box-shadow: 0 0 10px rgba(0, 0, 0, .1)
-          .gt-avatar-github
-            @media mq-mobile
-              display: none!important
-          .gt-header-comment
-            @media mq-mobile
-              margin-left: 0!important
-          .gt-header-textarea, .gt-header-preview, .gt-btn
-            border-radius: 1px
-          .gt-header-textarea
-            border-color: color-border
-            background-color: color-lighter
-            &:hover
-              background-color: color-light
-          .gt-header-controls
-            margin-top: 1.2em
-          .gt-link
-            border-bottom: none
-          .gt-comments-null
-            display: none
-          &:after
-            display: none
+.article-comment
+  max-width 960px
+  margin 30px auto
+  .gt-container
+    .gt-meta
+      z-index 1
+      .gt-popup
+        margin-top 10px
+        box-shadow 0 0 10px rgba(0, 0, 0, .1)
+    .gt-avatar-github
+      @media mq-mobile
+        display none!important
+    .gt-header-comment
+      @media mq-mobile
+        margin-left 0!important
+    .gt-header-textarea, .gt-header-preview, .gt-btn
+      border-radius 1px
+    .gt-header-textarea
+      border-color color-border
+      background-color color-lighter
+      &:hover
+        background-color color-light
+    .gt-header-controls
+      margin-top 1.2em
+    .gt-link
+      border-bottom none
+    .gt-comments-null
+      display none
+    &:after
+      display none
 
 .poptrox-popup
-  background: rgba(31, 34, 36, 0.925)
-  box-shadow: 0 1em 3em 0.5em rgba(0, 0, 0, 0.25)
+  background rgba(31, 34, 36, 0.925)
+  box-shadow 0 1em 3em 0.5em rgba(0, 0, 0, 0.25)
   .loader
-    position: absolute
-    top: 50%
-    left: 50%
-    width: 60px
-    height: 60px
-    margin: -30px 0 0 -30px
-    text-align: center
-    opacity: 0.5
-    animation: spinner 1.25s infinite linear
-    background-image: url('images/loader.svg')
-    background-position: center
-    background-repeat: no-repeat
-    background-size: contain
+    position absolute
+    top 50%
+    left 50%
+    width 60px
+    height 60px
+    margin -30px 0 0 -30px
+    text-align center
+    opacity 0.5
+    animation spinner 1.25s infinite linear
+    background-image url('images/loader.svg')
+    background-position center
+    background-repeat no-repeat
+    background-size contain
   .closer
-    position: absolute
-    top: 0
-    right: 0
-    height: 60px
-    width: 60px
-    transition: opacity 0.2s ease-in-out
-    background-image: url('images/closer.svg')
-    background-position: center
-    background-repeat: no-repeat
-    background-size: 60px
-    opacity: 0
-    z-index: 4
+    position absolute
+    top 0
+    right 0
+    height 60px
+    width 60px
+    transition opacity 0.2s ease-in-out
+    background-image url('images/closer.svg')
+    background-position center
+    background-repeat no-repeat
+    background-size 60px
+    opacity 0
+    z-index 4
   .nav-previous, .nav-next
-    position: absolute
-    top: 50%
-    height: 80px
-    width: 60px
-    margin-top: -40px
-    transition: opacity 0.2s ease-in-out
-    background-image: url('images/arrow.svg')
-    background-position: center
-    background-repeat: no-repeat
-    background-size: 60px
-    opacity: 0
-    z-index: 4
+    position absolute
+    top 50%
+    height 80px
+    width 60px
+    margin-top -40px
+    transition opacity 0.2s ease-in-out
+    background-image url('images/arrow.svg')
+    background-position center
+    background-repeat no-repeat
+    background-size 60px
+    opacity 0
+    z-index 4
   .nav-previous
-    left: 0
-    transform: scaleX(-1)
+    left 0
+    transform scaleX(-1)
   .nav-next
-    right: 0
+    right 0
   &:hover
     .closer, .nav-previous, .nav-next
-      opacity: 0.75;
+      opacity 0.75;
 
     .closer:hover, .nav-previous:hover, .nav-next:hover
-      opacity: 1.0;
+      opacity 1.0;
   .closer, .nav-previous, .nav-next
     @media mq-mobile
-      display: none!important
+      display none!important
   &.loading:before
-    opacity: 0;
+    opacity 0;

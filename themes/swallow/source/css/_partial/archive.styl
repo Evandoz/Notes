@@ -1,104 +1,212 @@
+.content .cover
+  background 50%/cover no-repeat rgba(0, 0, 0, 0.96)
+
 .archive
-  margin: 50px 0
+  position relative
+  max-width 960px
+  margin: -70px auto 50px
+  z-index 9
 
-  .archive-year
+  &.card:not(.category):not(.tag)
+    padding-left 50px
+    .archive-article
+      margin-left -1px
+      border-left 2px solid #333
+
+    .article-item
+      position relative
+      padding 10px 20px
+      .post-date,
+      .post-link
+        display: inline-block
+        height: 24px
+        line-height: @height
+        padding 5px 10px
+        font-size: 1.1rem
+      .post-link
+        color: color-font
+        text-shadow 4px 4px 2px rgba(0, 0, 0, .02)
+        transition all .2s ease-in-out
+      .post-date
+        color: color-grey
+
+      &:before
+        content ""
+        position absolute
+        top 20px
+        left -8px
+        display: block
+        height 14px
+        width 14px
+        box-sizing: border-box
+        background color-white-background
+        border 3px solid #333
+        border-radius 50%
+        transition all .2s ease-in-out
+
+      &:hover
+        .post-link
+          transform translate3d(10px, 0, 0) scale(1.08)
+        &:before
+          border-color #fff
+
+  &.page
+    .archive-article
+      display flex
+      flex-wrap wrap
+      width calc(100% + 20px)
+
+    .article-item
+      display: inline-block
+      width: 300px
+      height: 400px
+      margin: 0 20px 20px 0
+      padding: 20px
+      box-sizing: border-box
+      &:last-child
+        margin-bottom: 0
+      .post-date,
+      .post-link
+        display: block
+        line-height: 1.6
+        font-size: 1rem
+      .post-link
+        color: color-font
+      .post-date
+        color: color-grey
+
+  &.tag
+    display flex
+    flex-wrap wrap
+    justify-content center
+    font-size 0
+
+.archive-year
+  position relative
+  display: block
+  height: 30px
+  padding: 15px 20px
+  line-height @height
+  font-size: 1.8rem
+  font-weight bold
+  color: color-grey
+  letter-spacing: 1px
+
+  &:before
+    content ""
+    position absolute
+    top 20px
+    left -10px
     display: block
-    margin: 15px 0
-    font-size: 1.1em
-    color: color-grey
-    letter-spacing: 1px
-    &:first-child
-      margin-top: 0
-
-  .archive-list
-    padding: 5px 0
-  .archive-item
-    display: inline-block
-    width: 180px
-    height: 200px
-    margin: 20px
-    padding: 20px
+    height 20px
+    width 20px
     box-sizing: border-box
-    border-radius: 6px
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-    &:last-child
-      margin-bottom: 0
-    .post-date,
-    .post-link
-      display: block
-      line-height: 1.6
-      font-size: 16px
-    .post-link a
-      color: color-font
+    background color-white-background
+    border 5px solid #333
+    border-radius 50%
 
-    .post-date
-      color: color-grey
-    &.category,
-    &.tag
-      width: 120px
-      height: 90px
-  .archive-item a
+  &:after
+    content ""
+    position absolute
+    top 0
+    left -1px
+    bottom 0
     display: block
-    color: color-font
-    text-align: center
-    .category-title
-      margin-bottom: 10px
+    width 2px
+    background #333
+    z-index -1
 
+/* ======== tag/category ======== */
+
+.tag-item
+  display inline-block
+  margin 10px
+  font-size 1rem
+
+.category-item
+  display block
+  margin-bottom 20px
+  font-size 1.1rem
+
+.tag-item,
+.category-item
+  padding 10px 15px
+  line-height 1.6
+  border-radius: 4px
+  background color-grey-background
+  transition all .2s ease-in-out
+  &:hover
+    transform scale(1.08)
+
+.tag-title,
+.category-title
+  display inline
+
+/* ======== paginator ======== */
 
 .paginator
+  position relative
   display: flex
   justify-content: center
   align-items: center
-  margin: 50px 0
-  a, span
-    height: 40px
-    width: 40px
-    margin: 0 10px
-    padding: 10px
-    box-sizing: border-box
+  max-width 960px
+  margin: 50px auto
+  padding 0
+  .page-number, .extend, .space
+    height: 20px
+    width: 20px
+    padding: 15px
     line-height: @height
     text-align: center
-    border-radius: 6px
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-  .page-number
-    display: none
-  .prev, .next
+    transition all .2s ease-in-out
+    &:hover
+      color: #fff
+      background #000
+      li
+        background #fff
+  .current
+    color: #fff
+    background #000
+  .extend
+    position absolute
     color: color-black
-  ul.prev-icon
-    position: relative
-    width: 20px
-    height: 20px
-    li
-      position: absolute
-      left: 0
-      top: 9px
-      width: 100%
-      height: 1px
-      background: color-dark
-      &:first-child
-        width: 45%
-        transform-origin: 0 50%
-        transform: rotate(-45deg)
-      &:last-child
-        width: 45%
-        transform-origin: 0 50%
-        transform: rotate(45deg)
+  .prev
+    left 0
+    border-radius 4px 0 0 4px
+  .next
+    right 0
+    border-radius 0 4px 4px 0
+
+  ul.prev-icon,
   ul.next-icon
     position: relative
     width: 20px
     height: 20px
     li
       position: absolute
-      right: 0
       top: 9px
       width: 100%
       height: 1px
       background: color-dark
-      &:first-child
-        width: 45%
-        transform-origin: 100% 50%
-        transform: rotate(45deg)
+      transition all .2s ease-in-out
+      &:first-child,
       &:last-child
         width: 45%
-        transform-origin: 100% 50%
-        transform: rotate(-45deg)
+
+  ul.prev-icon li
+    left: 0
+    &:first-child
+      transform-origin: 0 50%
+      transform: rotate(-45deg)
+    &:last-child
+      transform-origin: 0 50%
+      transform: rotate(45deg)
+
+  ul.next-icon li
+    right: 0
+    &:first-child
+      transform-origin: 100% 50%
+      transform: rotate(45deg)
+    &:last-child
+      transform-origin: 100% 50%
+      transform: rotate(-45deg)

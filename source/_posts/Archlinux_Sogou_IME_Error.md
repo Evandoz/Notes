@@ -2,7 +2,7 @@
 title: ArchLinux 安装后续之 Sogou 输入法异常
 date: 2019-05-23 09:40:38
 categories:
-- ArchLinux
+- Linux
 keywords:
 - ArchLinux
 - 搜狗输入法

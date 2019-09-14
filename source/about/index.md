@@ -1,6 +1,6 @@
 ---
-title: Comments
-layout: "comments"
+title: About
+layout: "about"
 comments: true
 photos:
 -
