@@ -1,2 +1,15 @@
-<%- partial('_partial/archive', {pagination: 2, index: true}) %>
-
+<div class="outer">
+  <main class="main">
+    <div class="archive">
+      <% page.posts.forEach(function(post){ %>
+        <%- partial('_partial/article', {post: post, index: true}) %>
+      <% }) %>
+    </div>
+    <%- partial('_partial/paginator') %>
+  </main>
+  <aside class="aside">
+    <% theme.widgets.forEach(function(widget){ %>
+      <%- partial('_widget/' + widget) %>
+    <% }) %>
+  </aside>
+</div>

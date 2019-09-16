@@ -7,11 +7,11 @@
 <% } %>
   <h1 class="title"><%= __('about') %></h1>
 </div>
-<article id="<%= page.slug %>" class="article card">
-  <div class="article-content">
+<div class="inner">
+  <article id="<%= page.slug %>" class="article about card">
     <div class="post-content"><%- page.content %></div>
-  </div>
-</article>
-<% if (page.comments) { %>
-  <%- partial('_partial/comment') %>
-<% } %>
+  </article>
+  <% if (page.comments) { %>
+    <%- partial('_partial/comment') %>
+  <% } %>
+</div>

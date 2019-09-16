@@ -1,6 +1,10 @@
-<footer class="footer">
-  <div class="copyright">
-    <p>Powered by Hexo | Designed by <a href="<%- url_for(config.homesite) %>"><%= config.author %></a></p>
-    <p>Copyright &copy; <%= theme.since %> - <%- date(new Date(), 'YYYY') %> <a href="<%- url_for(config.homesite) %>"><%= config.homepage %></a></p>
+<footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <a href="<%- url_for() %>"><%= config.title %> &copy; <%= theme.since %> - <%- date(new Date(), 'YYYY') %></p>
+    </div>
+    <div class="navigation">
+      <a href="<%- url_for(config.homepage) %>">Hexo · <%= config.author %></a>
+    </div>
   </div>
 </footer>

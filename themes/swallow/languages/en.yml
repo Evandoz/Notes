@@ -8,8 +8,16 @@ category: Category
 tag: Tag
 about: About
 
+postcount: Total Posts
+categories: Categories
+
+contents: Contents
+
+readmin: Minutes
+totalcount: Total Count
+
 visitors: times
 comments:  comments
 
-newer: Newer-
-older: Older-
+newer: Newer
+older: Older

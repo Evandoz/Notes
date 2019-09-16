@@ -5,6 +5,11 @@ nav:
   Tags: tags
   About: about
 
+# Widget
+widgets:
+  - meta
+  - category
+
 # Since
 since: 2015
 

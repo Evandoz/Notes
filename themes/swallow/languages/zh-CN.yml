@@ -8,8 +8,16 @@ category: 分类
 tag: 标签
 about: 关于
 
+postcount: 文章数
+categories: 分类
+
+contents: 目录
+
+readmin: 分钟
+totalcount: 总字数
+
 visitors: 次阅读
 comments: 条评论
 
-newer: 上篇：
-older: 下篇：
+newer: 上篇
+older: 下篇

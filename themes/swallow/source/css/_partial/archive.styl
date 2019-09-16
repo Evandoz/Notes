@@ -1,54 +1,100 @@
 .content .cover
-  background 50%/cover no-repeat rgba(0, 0, 0, 0.96)
+  padding 18vh 0
 
 .archive
   position relative
   max-width 960px
-  margin: -70px auto 50px
+  margin: -60px auto 50px
   z-index 9
 
-  &.card:not(.category):not(.tag)
-    padding-left 50px
-    .archive-article
-      margin-left -1px
-      border-left 2px solid #333
+.archive-year
+  position relative
+  display: block
+  height: 30px
+  padding: 15px 30px
+  line-height @height
+  font-size: 1.8rem
+  font-weight bold
+  color: color-grey
+  letter-spacing: 1px
 
-    .article-item
-      position relative
-      padding 10px 20px
-      .post-date,
-      .post-link
-        display: inline-block
-        height: 24px
-        line-height: @height
-        padding 5px 10px
-        font-size: 1.1rem
-      .post-link
-        color: color-font
-        text-shadow 4px 4px 2px rgba(0, 0, 0, .02)
-        transition all .2s ease-in-out
-      .post-date
-        color: color-grey
+  &:before
+    content ""
+    position absolute
+    top 20px
+    left 0
+    display: block
+    height 20px
+    width 20px
+    box-sizing: border-box
+    background color-white-background
+    border 5px solid #333
+    border-radius 50%
 
-      &:before
-        content ""
-        position absolute
-        top 20px
-        left -8px
-        display: block
-        height 14px
-        width 14px
-        box-sizing: border-box
-        background color-white-background
-        border 3px solid #333
-        border-radius 50%
-        transition all .2s ease-in-out
+  &:after
+    content ""
+    position absolute
+    top 0
+    left 9px
+    bottom 0
+    display: block
+    width 2px
+    background #333
+    z-index -1
 
-      &:hover
-        .post-link
-          transform translate3d(10px, 0, 0) scale(1.08)
-        &:before
-          border-color #fff
+.archive-content
+  position relative
+  &:after
+    content ""
+    position absolute
+    top 0
+    left 9px
+    bottom 0
+    bottom 0
+    display: block
+    width 2px
+    background #333
+    z-index -1
+
+.archive-item
+  position relative
+  padding 10px 30px
+  .post-date,
+  .post-link
+    display: inline-block
+    height: 24px
+    line-height: @height
+    margin 0
+    padding 5px 10px
+    font-size: 1.1rem
+    font-weight 500
+  .post-link
+    color: color-font
+    text-shadow 4px 4px 2px rgba(0, 0, 0, .02)
+    transition all .2s ease-in-out
+  .post-date
+    color: color-grey
+
+  &:before
+    content ""
+    position absolute
+    top 20px
+    left 3px
+    display: block
+    height 14px
+    width 14px
+    box-sizing: border-box
+    background color-white-background
+    border 3px solid #333
+    border-radius 50%
+    transition all .2s ease-in-out
+
+  &:hover
+    .post-link
+      font-size: 1.12rem
+      transform translate3d(5px, 0, 0)
+    &:before
+      border-color #fff
 
   &.page
     .archive-article
@@ -75,48 +121,13 @@
       .post-date
         color: color-grey
 
-  &.tag
-    display flex
-    flex-wrap wrap
-    justify-content center
-    font-size 0
-
-.archive-year
-  position relative
-  display: block
-  height: 30px
-  padding: 15px 20px
-  line-height @height
-  font-size: 1.8rem
-  font-weight bold
-  color: color-grey
-  letter-spacing: 1px
-
-  &:before
-    content ""
-    position absolute
-    top 20px
-    left -10px
-    display: block
-    height 20px
-    width 20px
-    box-sizing: border-box
-    background color-white-background
-    border 5px solid #333
-    border-radius 50%
-
-  &:after
-    content ""
-    position absolute
-    top 0
-    left -1px
-    bottom 0
-    display: block
-    width 2px
-    background #333
-    z-index -1
-
 /* ======== tag/category ======== */
+
+.tag
+  display flex
+  flex-wrap wrap
+  justify-content center
+  font-size 0
 
 .tag-item
   display inline-block

@@ -1,7 +1,0 @@
-<% if (post.photos != ''){ %>
-  <div class="article-gallery">
-    <% post.photos.forEach(function(photo){ %>
-      <div class="image" style="background-image: url('<%- url_for(photo) %>');"></div>
-    <% }) %>
-  </div>
-<% } %>

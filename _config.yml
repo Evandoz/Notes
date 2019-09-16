@@ -10,8 +10,7 @@ keywords:
 author: Levan
 language: zh-CN
 timezone: Asia/Shanghai
-homepage: Levan
-homesite: https://evandoz.github.io
+homepage: https://evandoz.github.io
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -94,12 +93,30 @@ tag_generator:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 
+## Dir Category
+auto_dir_categorize:
+	enable: true
+	force: false  # overwrite article front-matter categories
+
+## Image Lazyload
+lazyload:
+  enable: true
+  onlypost: false
+  loadingImg: # eg ./images/loading.gif
+
 ## Nofollow
 nofollow:
   enable: true
   exclude:
-    - floretten.com
     - evandoz.github.io
+
+## Excerpt
+excerpt_length: 100
+
+# Image Caption
+image_caption:
+  enable: true
+  class_name: image-caption  # default image-caption
 
 ## Local Search
 search:
@@ -114,6 +131,8 @@ sitemap:
 
 ## Themes: https://hexo.io/themes/
 theme: swallow
+
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

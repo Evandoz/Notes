@@ -1,8 +1,8 @@
 (function($){
 
   // Animation
-  var $content = $('.content');
-  $content.velocity("transition.slideDownIn", { duration: 1000, tagger: 300 });
+  // var $content = $('.content');
+  // $content.velocity("transition.slideDownIn", { duration: 1000, tagger: 300 });
 
   // Header
   var $siteBanner = $('#site-banner'),
@@ -40,6 +40,47 @@
       }
     });
   });
+
+  // Toc
+  // Fixed
+  var $toc = $("#toc"),
+    $headerlinks = $(".headerlink");
+  if ($toc) {
+    var tocPosTop = $toc.offset().top;
+    $(window).scroll(function (event) {
+      event.preventDefault();
+      var scrollTop = $(window).scrollTop();
+      if (scrollTop > tocPosTop) {
+        $toc.addClass("sticky");
+      } else {
+        $toc.removeClass("sticky");
+      }
+
+      $headerlinks.each(function () {
+        var $m = $(this),
+          $mParent = $m.parent(),
+          curId = $m.attr("href"),
+          mHeight = $mParent.height(),
+          mPosTop = $mParent.offset().top;
+
+        if (scrollTop + $(window).height() >= $(document).height() * 0.999) {
+          var curLink = $toc.find(".active");
+          curLink.removeClass("active");
+          curId = $($headerlinks[$headerlinks.length - 1]).attr("href");
+          $toc.find("[href='" + curId + "']").addClass("active");
+        }
+        else if (scrollTop >= mPosTop - mHeight / 2) {
+          var curLink = $toc.find(".active");
+          if (curId && curLink.attr("href") != curId) {
+            curLink.removeClass("active");
+            $toc.find("[href='" + curId + "']").addClass("active");
+          }
+        } else {
+          return false;
+        }
+      });
+    })
+  }
 
   //Fit Vids
   $("body").fitVids();

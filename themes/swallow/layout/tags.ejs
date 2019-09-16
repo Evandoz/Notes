@@ -1,11 +1,13 @@
 <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
   <h1 class="title"><%= __('tag') %></h1>
 </div>
-<div class="archive tag card">
-  <% site.tags.each(function(tag) { %>
-    <a class="tag-item" data-slug="<%= tag.slug %>" href="<%- url_for(tag.path) %>">
-      <h3 class="tag-title"><%= tag.name %></h3>
-      <span class="tag-count">(<%= tag.length %>)</span>
-    </a>
-  <% }) %>
+<div class="inner">
+  <div class="archive tag card">
+    <% site.tags.each(function(tag) { %>
+      <a class="tag-item" data-slug="<%= tag.slug %>" href="<%- url_for(tag.path) %>">
+        <h3 class="tag-title"><%= tag.name %></h3>
+        <span class="tag-count">(<%= tag.length %>)</span>
+      </a>
+    <% }) %>
+  </div>
 </div>
