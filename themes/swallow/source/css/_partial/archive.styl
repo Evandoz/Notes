@@ -121,7 +121,27 @@
       .post-date
         color: color-grey
 
-/* ======== tag/category ======== */
+/* ========= category ======== */
+.category
+  .category-list-item
+    flex-wrap wrap
+    border none
+
+    + .category-list-item
+      margin-top 15px
+
+  .category-list > .category-list-item
+    padding 15px
+    font-size 1.1rem
+    border-radius 2px
+    background color-grey-background
+
+  .category-list-child
+    width 100%
+    margin-top 15px
+    padding-left 36px
+
+/* =========== tag =========== */
 
 .tag
   display flex
@@ -132,25 +152,16 @@
 .tag-item
   display inline-block
   margin 10px
-  font-size 1rem
-
-.category-item
-  display block
-  margin-bottom 20px
-  font-size 1.1rem
-
-.tag-item,
-.category-item
   padding 10px 15px
   line-height 1.6
+  font-size 1rem
   border-radius: 4px
   background color-grey-background
   transition all .2s ease-in-out
   &:hover
     transform scale(1.08)
 
-.tag-title,
-.category-title
+.tag-title
   display inline
 
 /* ======== paginator ======== */
@@ -203,6 +214,7 @@
       &:first-child,
       &:last-child
         width: 45%
+        height: 2px
 
   ul.prev-icon li
     left: 0

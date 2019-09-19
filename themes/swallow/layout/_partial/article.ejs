@@ -11,7 +11,7 @@
         <% }%>
       </div>
       <div class="post-meta">
-        <%- partial('post/date', {date_format: 'MMMMDD, YYYY'}) %>
+        <%- partial('post/date', {timeago: true}) %>
         <%- partial('post/time') %>
       </div>
     </div>
@@ -22,17 +22,15 @@
       <article id="<%= post.slug %>" class="article card">
         <%- partial('post/title') %>
         <div class="post-meta">
-          <%- partial('post/date', {date_format: 'MMMMDD, YYYY'}) %>
+          <%- partial('post/date', {timeago: false, date_format: 'YYYY-MM-DD'}) %>
           <%- partial('post/category') %>
         </div>
         <div id="post-content" class="post-content">
           <%- post.content %>
         </div>
-        <% if (!index) { %>
         <div class="post-footer">
-          <%- partial('post/copyright') %>
+          <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
         </div>
-        <% } %>
       </article>
       <!-- Pagination -->
       <% if (post.prev || post.next){ %>

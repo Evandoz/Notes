@@ -16,7 +16,7 @@ homepage: https://evandoz.github.io
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://evandoz.github.io/Evandoz
 root: /Evandoz/
-permalink: :year/:title/
+permalink: posts/:abbrlink.htm
 permalink_defaults:
 
 # Directory
@@ -29,7 +29,6 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - 'README.md'
-  - '_posts/template.md'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -113,10 +112,17 @@ nofollow:
 ## Excerpt
 excerpt_length: 100
 
+## BrowserSync
+browsersync:
+  logLevel: "warn"
+  ghostMode:
+    scroll: true
+  instanceName: "uniqueString"
+
 # Image Caption
 image_caption:
   enable: true
-  class_name: image-caption  # default image-caption
+  class_name: caption
 
 ## Local Search
 search:

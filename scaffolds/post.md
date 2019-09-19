@@ -1,7 +1,8 @@
 ---
 title: {{ title }}
 date: {{ date }}
-keywords:
-categories:
 tags:
+keywords:
+featured_image:
+thumbnail:
 ---

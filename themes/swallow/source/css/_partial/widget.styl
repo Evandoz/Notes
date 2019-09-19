@@ -1,5 +1,6 @@
 .widget
   margin -60px auto 0
+  padding 30px
   z-index 9
 
   + .widget
@@ -102,6 +103,12 @@
     background #efefef
 
 .toc-content-item
+  .toc-content-child
+    height 0
+    overflow hidden
+    transition all .2s ease-in-out
+    &.active
+      height 100%
   > .toc-content-child
       .toc-content-link
         padding-left 40px

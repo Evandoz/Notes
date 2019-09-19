@@ -3,11 +3,6 @@
 </div>
 <div class="inner">
   <div class="archive category card">
-    <% site.categories.each(function(category) { %>
-      <a class="category-item" data-slug="<%= category.slug %>" href="<%- url_for(category.path) %>">
-        <h3 class="category-title"><%= category.name %></h3>
-        <span class="category-count">(<%= category.length %>)</span>
-      </a>
-    <% }) %>
+    <%- list_categories(site.categories) %>
   </div>
 </div>

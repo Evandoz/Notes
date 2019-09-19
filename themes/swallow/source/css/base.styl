@@ -4,6 +4,7 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   background color-grey-background
+  overflow hidden
 
 *
   color: inherit
@@ -19,11 +20,12 @@ a, a:hover, a:focus
   max-width 1080px
   margin 0 auto
 
-  .main
-    width calc(100% - 310px)
+  @media mq-normal
+    .main
+      width calc(100% - 310px)
 
-  .aside
-    width 280px
+    .aside
+      width 280px
 
 .inner
   max-width 960px
@@ -42,3 +44,21 @@ a, a:hover, a:focus
 .content
   min-height calc(100vh - 60px)
   padding-bottom 60px
+
+.overflow
+  height 100vh
+  width calc(100vw + 20px)
+  box-sizing border-box
+  overflow auto
+
+.wrapper
+  width 100vw
+
+.scrollbar
+  position fixed
+  top calc(50vh - 100px)
+  right 5px
+  width 10px
+  height 200px
+  background #aaa
+  border-radius 5px

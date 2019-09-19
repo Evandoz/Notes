@@ -32,7 +32,7 @@
       <%- partial('_partial/article', {post: post, index: true}) %>
     <% } else { %>
       <div class="archive-item">
-        <%- partial('post/date', {post, post, date_format: 'YYYY-MM-DD'}) %>
+        <%- partial('post/date', {post, post, timeago: false, date_format: 'YYYY-MM-DD'}) %>
         <%- partial('post/title', {post, post}) %>
       </div>
     <% } %>

@@ -34,15 +34,6 @@ date_format: ''
 #    normal | night | night eighties | night blue | night bright
 highlight_theme: night
 
-# Gitalk
-# Repo: https://github.com/gitalk/gitalk
-gitalk:
-  enable: true
-  owner: Evandoz
-  repo: Evandoz
-  clientID: e47488c7e41ba7f61cc1
-  clientSecret: 6884935473b21a6f694f88d5b380eda1fde0517e
-
 # Webmaster tools verification setting
 google_site_verification: W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4
 baidu_site_verification: BM2Q3xLpPJ

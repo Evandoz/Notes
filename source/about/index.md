@@ -2,10 +2,12 @@
 title: About
 layout: "about"
 comments: true
-photos:
--
+featured_image:
+thumbnail:
 ---
 
 ## 关于本站
 
-基于Hexo框架搭建的个人笔记小站
+Hexo Notes
+
+记录与分享

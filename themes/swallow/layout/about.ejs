@@ -1,7 +1,5 @@
-<% if (page.photos != ''){ %>
-  <% page.photos.forEach(function(photo){ %>
-    <div class="cover" style="background-image: url('<%- url_for(photo) %>')">
-  <% }) %>
+<% if (page.featured_image){ %>
+  <div class="cover" style="background-image: url('<%- url_for(page.featured_image) %>')">
 <% } else { %>
   <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
 <% } %>

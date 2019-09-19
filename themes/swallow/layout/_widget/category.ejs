@@ -2,7 +2,12 @@
   <div class="widget card">
     <h3 class="widget-title"><%= __('categories') %></h3>
     <div class="widget-content">
-      <%- list_categories() %>
+      <%- list_categories(site.categories, {
+        depth: 1,
+        transform(str) {
+          return str.toUpperCase();
+        }
+      }) %>
     </div>
   </div>
 <% } %>
