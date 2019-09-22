@@ -1,13 +1,6 @@
 $highlight_theme = hexo-config("highlight_theme")
 
 if $highlight_theme == "normal"
-  $highlight-deletion     = #fdd
-  $highlight-addition     = #dfd
-else
-  $highlight-deletion     = #008000
-  $highlight-addition     = #800000
-
-if $highlight_theme == "normal"
   $highlight-background   = #f7f7f7
   $highlight-current-line = #efefef
   $highlight-selection    = #d6d6d6
@@ -100,25 +93,24 @@ if $highlight_theme == "night bright"
 $code-block
   overflow: auto
   margin: 20px 0
+  line-height: 1.6
   color: $highlight-foreground
   background: $highlight-background
-  line-height: 1.6
 
 .highlight
   position relative
   @extend $code-block
+  pre, code
+    font-family: font-mono
   pre
     @extend $code-block
-    border: none
     margin: 0
-    padding: 10px
-    font-family: font-mono
+    padding: 10px 0
+    border: none
   code
     padding: 0
-    color: $highlight-foreground
     background: none
     text-shadow: none
-    word-wrap: break-word
   table
     margin: 0
     width: auto
@@ -127,33 +119,64 @@ $code-block
     padding: 0
   figcaption
     clearfix()
-    font-size: 1em
-    color: $highlight-foreground
-    line-height: 1em
     margin-bottom: 1em
+    line-height: 1em
+    font-size: .875em
+    color: $highlight-comment
     a
       float: right
   .gutter pre
+    padding-left 10px
+    padding-right 10px
+    text-align: right
     color: $highlight-gutter.color
     background-color: $highlight-gutter.bg-color
-    text-align: right
-  .code pre
-    width: 100%
-    background-color: $highlight-background
   .line
-    height: 20px
-  .gutter
-    user-select: none
-  .gist table
-    width: auto
-    td
+    height: 1.8
+  .line.marked
+    background: $highlight-selection
+
+  .gist
+    border-style: solid
+    border-color: color-border
+    border-width: 1px 0
+    background: $highlight-background
+    padding: 15px
+    .gist-file
       border: none
+      font-family: font-mono
+      margin: 0
+      .gist-data
+        background: none
+        border: none
+        .line-numbers
+          background: none
+          border: none
+          padding: 0 20px 0 0
+        .line-data
+          padding: 0 !important
+      .highlight
+        margin: 0
+        padding: 0
+        border: none
+      .gist-meta
+        background: $highlight-background
+        color: $highlight-comment
+        font: 0.85em font-sans
+        text-shadow: 0 0
+        padding: 0
+        a
+          color: #343434
+          font-weight: normal
+          &:hover
+            text-decoration: underline
 
   .code:before
     position: absolute
-    top: 0
-    right: 0
-    padding: 5px 10px
+    top: 4px
+    right: 4px
+    line-height: 1.2
+    font-size .875em
     color: $highlight-foreground
     font-family: font-mono
     text-align: right
@@ -187,13 +210,6 @@ $code-block
 .highlight.scss .code:before
   content: "SCSS"
 
-pre .deletion
-  background: $highlight-deletion
-pre .addition
-  background: $highlight-addition
-pre .meta
-  color: $highlight-purple
-
 pre
   .comment
   .title
@@ -219,6 +235,7 @@ pre
   .constant
   .command
     color: $highlight-orange
+  .class
   .ruby .class .title
   .css .rules .attribute
   .string
@@ -245,50 +262,3 @@ pre
   .keyword
   .javascript .function
     color: $highlight-purple
-
-
-if $highlight_theme == "default" {
-    pre {
-      color: #525252
-    }
-
-    pre .function .keyword,pre .constant {
-      color: #0092db
-    }
-
-    pre .keyword,pre .attribute {
-      color: #e96900
-    }
-
-    pre .number,pre .literal {
-      color: #ae81ff
-    }
-
-    pre .tag,pre .tag .title,pre .change,pre .winutils,pre .flow,pre .lisp .title,pre .clojure .built_in,pre .nginx .title,pre .tex .special {
-      color: #2973b7
-    }
-
-    pre .symbol,pre .symbol .string,pre .value,pre .regexp {
-      color: #42b983
-    }
-
-    pre .title {
-      color: #83B917
-    }
-
-    pre .tag .value,pre .string,pre .subst,pre .haskell .type,pre .preprocessor,pre .ruby .class .parent,pre .built_in,pre .sql .aggregate,pre .django .template_tag,pre .django .variable,pre .smalltalk .class,pre .javadoc,pre .django .filter .argument,pre .smalltalk .localvars,pre .smalltalk .array,pre .attr_selector,pre .pseudo,pre .addition,pre .stream,pre .envvar,pre .apache .tag,pre .apache .cbracket,pre .tex .command,pre .prompt {
-      color: #42b983
-    }
-
-    pre .comment,pre .java .annotation,pre .python .decorator,pre .template_comment,pre .pi,pre .doctype,pre .shebang,pre .apache .sqbracket,pre .tex .formula {
-      color: #b3b3b3
-    }
-
-    pre .deletion {
-      color: #BA4545
-    }
-
-    pre .coffeescript .javascript,pre .javascript .xml,pre .tex .formula,pre .xml .javascript,pre .xml .vbscript,pre .xml .css,pre .xml .cdata {
-      opacity: 0.5
-    }
-}

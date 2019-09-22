@@ -7,7 +7,7 @@ nav:
 
 # Widget
 widgets:
-  - meta
+  - profile
   - category
 
 # Since
@@ -32,12 +32,10 @@ date_format: ''
 # Code highlight theme
 # Available value:
 #    normal | night | night eighties | night blue | night bright
-highlight_theme: night
+highlight_theme: normal
 
 # Webmaster tools verification setting
 google_site_verification: W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4
 baidu_site_verification: BM2Q3xLpPJ
 qihu_site_verification: 573211edf2de02c99d7b255b2c56513c
 
-# Miscellaneous
-google_analytics:

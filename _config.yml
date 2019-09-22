@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Levan Notes
+title: Notes
 subtitle: Note and Share
 description: 记录与分享
 keywords:
@@ -44,7 +44,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: '  '
+  tab_replace:
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -52,7 +52,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 8
+  per_page: 6
   order_by: -date
 
 # Category & Tag
@@ -69,13 +69,13 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 8
+per_page: 6
 pagination_dir: page
 
 ## Archive Pagination
 archive_generator:
   enabled: true
-  per_page: 16
+  per_page: 18
   yearly: true
   monthly: false
   daily: false
@@ -83,19 +83,40 @@ archive_generator:
 
 ## Category Pagination
 category_generator:
-  per_page: 16
+  per_page: 6
 
 ## Tag Pagination
 tag_generator:
-  per_page: 16
+  per_page: 6
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 
-## Dir Category
-auto_dir_categorize:
-	enable: true
-	force: false  # overwrite article front-matter categories
+## Themes: https://hexo.io/themes/
+theme: swallow
+
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+  anchors:
+    level: 2
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: 'headerlink'
+    permalinkSymbol: ''
 
 ## Image Lazyload
 lazyload:
@@ -112,13 +133,6 @@ nofollow:
 ## Excerpt
 excerpt_length: 100
 
-## BrowserSync
-browsersync:
-  logLevel: "warn"
-  ghostMode:
-    scroll: true
-  instanceName: "uniqueString"
-
 # Image Caption
 image_caption:
   enable: true
@@ -134,11 +148,6 @@ search:
 ## Sitemap
 sitemap:
   path: sitemap.xml
-
-## Themes: https://hexo.io/themes/
-theme: swallow
-
-
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

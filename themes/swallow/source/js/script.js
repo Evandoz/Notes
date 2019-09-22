@@ -30,7 +30,6 @@
   if ($toc.length) {
     var tocPosTop = $toc.offset().top;
     $viewport.scroll(function (event) {
-      event.preventDefault();
       var scrollTop = $viewport.scrollTop();
       if (scrollTop > tocPosTop) {
         $toc.addClass("sticky");
@@ -46,6 +45,7 @@
           mPosTop = $mParent.offset().top;
 
         if (scrollTop + $viewport.height() >= $("#wrapper").height() * 0.999) {
+
           var curLink = $toc.find(".active");
           curLink.removeClass("active");
           curId = $($headerlinks[$headerlinks.length - 1]).attr("href");
@@ -55,8 +55,8 @@
           if (parentList.length) {
             parentList.addClass("active");
           }
-        }
-        else if (scrollTop >= mPosTop - mHeight / 2) {
+        } else if (scrollTop >= mPosTop - mHeight / 2) {
+
           var curLink = $toc.find(".active");
           if (curId && curLink.attr("href") != curId) {
             curLink.removeClass("active");

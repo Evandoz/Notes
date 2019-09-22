@@ -1,7 +1,7 @@
 /* ========== article card =========== */
 .article-item
   position relative
-  margin 0 0 30px 0
+  margin 0 0 20px 0
   padding 30px
   font-size 0
 
@@ -88,7 +88,7 @@
 .article
   position relative
   max-width 960px
-  margin 40px auto 20px
+  margin 20px auto
 
   .post-title
     font-size 1.75rem
@@ -186,10 +186,10 @@
     overflow-x auto
   hr
     width 100%
-    height 1px
+    height 2px
     border none
     margin 20px 0
-    background color-border
+    background #999
     background-image repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px)
   strong
     font-weight bold
@@ -228,6 +228,10 @@
         &:before
           content "—"
           padding 0 0.5em
+  .footnotes-sep
+    position relative
+    &:before
+      content ''
   .pullquote
     text-align left
     width 45%
@@ -290,7 +294,7 @@
 
 .article-comment
   max-width 960px
-  margin 20px auto 50px
+  margin 20px auto
   .gt-container
     .gt-meta
       z-index 1
