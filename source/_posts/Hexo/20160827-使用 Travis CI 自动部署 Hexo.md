@@ -72,6 +72,7 @@ Travis CI 已获得仓库权限，现在可以给它相关操作指令了。
 
 ### 配置 .travis.yml
 
+```yaml
 *.travis.yml* 内容如下：
 
 	language: node_js  #设置语言
@@ -100,6 +101,7 @@ Travis CI 已获得仓库权限，现在可以给它相关操作指令了。
 	env:
 	 global:
 	   - GH_REF: github.com/yourname/yourname.github.io.git  #设置GH_REF，注意更改yourname
+```
 
 当然，为了个人隐私方面的考虑，*.travis.yml* 文件中的用户名、邮箱之类的变量也可以像 GH_TOKEN 一样定义在 Environment Variables 中。
 
