@@ -72,35 +72,35 @@ Travis CI 已获得仓库权限，现在可以给它相关操作指令了。
 
 ### 配置 .travis.yml
 
-```yaml
 *.travis.yml* 内容如下：
 
-	language: node_js  #设置语言
+```yaml
+language: node_js  #设置语言
 
-	node_js: stable  #设置相应的版本
+node_js: stable  #设置相应的版本
 
-	install:
-	  - npm install  #安装hexo及插件
+install:
+	- npm install  #安装hexo及插件
 
-	script:
-	  - hexo cl  #清除
-	  - hexo g  #生成
+script:
+	- hexo cl  #清除
+	- hexo g  #生成
 
-	after_script:
-	  - cd ./public
-	  - git init
-	  - git config user.name "yourname"  #修改name
-	  - git config user.email "your email"  #修改email
-	  - git add .
-	  - git commit -m "update"
-	  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #GH_TOKEN是在Travis中配置token的名称
+after_script:
+	- cd ./public
+	- git init
+	- git config user.name "yourname"  #修改name
+	- git config user.email "youremail"  #修改email
+	- git add .
+	- git commit -m "update"
+	- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #GH_TOKEN是在Travis中配置token的名称
 
-	branches:
-	  only:
-	    - hexo  #只监测hexo分支，hexo是我的分支的名称，可根据自己情况设置
-	env:
-	 global:
-	   - GH_REF: github.com/yourname/yourname.github.io.git  #设置GH_REF，注意更改yourname
+branches:
+	only:
+		- hexo  #只监测hexo分支，hexo是我的分支的名称，可根据自己情况设置
+env:
+	global:
+		- GH_REF: github.com/yourname/yourname.github.io.git  #设置GH_REF，注意更改yourname
 ```
 
 当然，为了个人隐私方面的考虑，*.travis.yml* 文件中的用户名、邮箱之类的变量也可以像 GH_TOKEN 一样定义在 Environment Variables 中。
