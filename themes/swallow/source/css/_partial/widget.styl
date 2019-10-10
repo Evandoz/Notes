@@ -7,6 +7,9 @@
   + .widget
     margin-top 20px
 
+  @media mq-mobile
+    margin 0 auto
+
 .widget-title
   position relative
   padding 0 0 10px
@@ -59,13 +62,15 @@
 
 .toc
   width inherit
-  margin 20px 0
   padding 40px 0
   transition top .2s ease-in-out
 
+  @media mq-mobile
+    display none
+
 .sticky
   position fixed
-  top -20px
+  top 0
 
 .toc-title
   padding 0 5px 10px 5px

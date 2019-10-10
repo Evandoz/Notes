@@ -17,21 +17,25 @@ a, a:hover, a:focus
 .outer
   display flex
   justify-content space-between
+  flex-wrap wrap
   max-width 1040px
   margin 0 auto
-  padding 0 15px
+  padding 0 20px
 
-  @media mq-normal
-    .main
-      width calc(100% - 280px)
+  .main
+    width calc(100% - 280px)
 
-    .aside
-      width 260px
+  .aside
+    width 260px
+
+  @media mq-mobile
+    .main, .aside
+      width 100%
 
 .inner
   max-width 840px
   margin 0 auto
-  padding 0 15px
+  padding 0 20px
 
   .main
     width 100%
@@ -42,6 +46,9 @@ a, a:hover, a:focus
   border-radius 2px
   background color-white-background
   box-shadow 0 0 10px rgba(0, 0, 0, 0.02)
+
+  @media mq-mobile
+    padding 20px!important
 
 .content
   min-height calc(100vh - 60px)
