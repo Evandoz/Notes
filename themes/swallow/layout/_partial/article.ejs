@@ -54,7 +54,7 @@
         <% if (toc(post.content) != ""){ %>
           <%- toc(post.content, { class: "toc-content", list_number: false }) %>
         <% } else { %>
-        <ol class="toc-content"><%= __('none') %></ol>
+        <ol class="toc-content"><li class="toc-content-item none"><%= __('none') %></li></ol>
         <% } %>
       </div>
     </aside>
