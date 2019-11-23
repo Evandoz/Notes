@@ -4,29 +4,29 @@
 .archive
   position relative
   max-width 960px
-  margin: -80px auto 20px
+  margin -80px auto 20px
   z-index 9
 
 .archive-year
   position relative
-  display: block
-  height: 30px
-  padding: 15px 30px
+  display block
+  height 30px
+  padding 15px 30px
   line-height @height
-  font-size: 1.8rem
+  font-size 1.8rem
   font-weight bold
-  color: color-grey
-  letter-spacing: 1px
+  color color-grey
+  letter-spacing 1px
 
   &:before
     content ""
     position absolute
     top 20px
     left 0
-    display: block
+    display block
     height 20px
     width 20px
-    box-sizing: border-box
+    box-sizing border-box
     background color-white-background
     border 5px solid #333
     border-radius 50%
@@ -37,7 +37,7 @@
     top 0
     left 9px
     bottom 0
-    display: block
+    display block
     width 2px
     background #333
     z-index -1
@@ -51,7 +51,7 @@
     left 9px
     bottom 0
     bottom 0
-    display: block
+    display block
     width 2px
     background #333
     z-index -1
@@ -61,29 +61,29 @@
   padding 10px 30px
   .post-date,
   .post-link
-    display: inline-block
-    height: 24px
-    line-height: @height
+    display inline-block
+    height 24px
+    line-height @height
     margin 0
     padding 5px 10px
-    font-size: 1.1rem
+    font-size 1.1rem
     font-weight 500
   .post-link
-    color: color-font
+    color color-font
     text-shadow 4px 4px 2px rgba(0, 0, 0, .02)
     transition all .2s ease-in-out
   .post-date
-    color: color-grey
+    color color-grey
 
   &:before
     content ""
     position absolute
     top 20px
     left 3px
-    display: block
+    display block
     height 14px
     width 14px
-    box-sizing: border-box
+    box-sizing border-box
     background color-white-background
     border 3px solid #333
     border-radius 50%
@@ -91,7 +91,7 @@
 
   &:hover
     .post-link
-      font-size: 1.12rem
+      font-size 1.12rem
       transform translate3d(5px, 0, 0)
     &:before
       border-color #fff
@@ -103,23 +103,23 @@
       width calc(100% + 20px)
 
     .article-item
-      display: inline-block
-      width: 300px
-      height: 400px
-      margin: 0 20px 20px 0
-      padding: 20px
-      box-sizing: border-box
+      display inline-block
+      width 300px
+      height 400px
+      margin 0 20px 20px 0
+      padding 20px
+      box-sizing border-box
       &:last-child
-        margin-bottom: 0
+        margin-bottom 0
       .post-date,
       .post-link
-        display: block
-        line-height: 1.6
-        font-size: 1rem
+        display block
+        line-height 1.6
+        font-size 1rem
       .post-link
-        color: color-font
+        color color-font
       .post-date
-        color: color-grey
+        color color-grey
 
 /* ========= category ======== */
 .category
@@ -155,7 +155,7 @@
   padding 10px 15px
   line-height 1.6
   font-size 1rem
-  border-radius: 4px
+  border-radius 4px
   background color-grey-background
   transition all .2s ease-in-out
   &:hover
@@ -168,30 +168,30 @@
 
 .paginator
   position relative
-  display: flex
-  justify-content: center
-  align-items: center
+  display flex
+  justify-content center
+  align-items center
   max-width 960px
-  margin: 20px auto
+  margin 20px auto
   padding 0!important
   .page-number, .extend, .space
-    height: 20px
-    width: 20px
-    padding: 10px
-    line-height: @height
-    text-align: center
+    height 20px
+    width 20px
+    padding 10px
+    line-height @height
+    text-align center
     transition all .2s ease-in-out
     &:hover
-      color: #fff
+      color #fff
       background #000
       li
         background #fff
   .current
-    color: #fff
+    color #fff
     background #000
   .extend
     position absolute
-    color: color-black
+    color color-black
   .prev
     left 0
     border-radius 4px 0 0 4px
@@ -201,34 +201,43 @@
 
   ul.prev-icon,
   ul.next-icon
-    position: relative
-    width: 20px
-    height: 20px
+    position relative
+    width 20px
+    height 20px
     li
-      position: absolute
-      top: 9px
-      width: 100%
-      height: 2px
-      background: color-dark
+      position absolute
+      top 9px
+      width 100%
+      height 2px
+      background color-dark
       transition all .2s ease-in-out
       &:first-child,
       &:last-child
-        width: 45%
+        width 45%
+        height 1.4px
 
   ul.prev-icon li
-    left: 0
+    left 0
     &:first-child
-      transform-origin: 0 50%
-      transform: rotate(-45deg)
+      top 8.8px
+      left 0.6px
+      transform-origin 0 50%
+      transform rotate(-45deg)
     &:last-child
-      transform-origin: 0 50%
-      transform: rotate(45deg)
+      top 9.8px
+      left 0.6px
+      transform-origin 0 50%
+      transform rotate(45deg)
 
   ul.next-icon li
-    right: 0
+    right 0
     &:first-child
-      transform-origin: 100% 50%
-      transform: rotate(45deg)
+      top 8.8px
+      right 0.6px
+      transform-origin 100% 50%
+      transform rotate(45deg)
     &:last-child
-      transform-origin: 100% 50%
-      transform: rotate(-45deg)
+      top 9.8px
+      right 0.6px
+      transform-origin 100% 50%
+      transform rotate(-45deg)

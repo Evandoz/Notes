@@ -5,10 +5,24 @@
       margin-top -110px
       margin-bottom 50px
       z-index 4
+
+    .nav
+      @media mq-mobile
+        margin 0 auto
+
   &.is-page
     background #212121
     box-shadow 0 0 10px rgba(0, 0, 0, 0.02)
-    .nav li.nav-item
+
+    ul.nav-menu
+      @media mq-mobile
+        display none
+
+    ul.nav-icon
+      @media mq-mobile
+        display block
+
+    li.nav-item
       &:hover
         background #010101
 
@@ -64,9 +78,6 @@
   background transparent
   z-index 4
 
-  @media mq-mobile
-    margin 0 auto
-
   ul.nav-menu
     font-size 0
     li.nav-item
@@ -82,44 +93,42 @@
       letter-spacing 2px
       &:hover
         color rgba(255, 255, 255, 1)
+
   ul.nav-icon
     display none
-    @media mq-mobile
-      display none /* 备用 */
-      position relative
-      width 30px
-      height 30px
-      margin 0 5px
-      padding 0
-      cursor pointer
-      list-style none
+    position relative
+    width 30px
+    height 30px
+    margin 15px 0
+    cursor pointer
+    list-style none
+    li
+      position absolute
+      left 0
+      top 14px
+      width 100%
+      height 1px
+      background color-white
+      transition all .3s ease 0s
+      &:first-child
+        top 5px
+        width 80%
+      &:last-child
+        top 23px
+        width 70%
+    &.on
       li
-        position absolute
-        left 0
-        top 14px
-        width 100%
-        height 1px
-        background color-dark
-        transition all .3s ease 0s
+        transform-origin center center
+        transform rotate(-45deg)
+        top 15px
         &:first-child
-          top 5px
-          width 80%
-        &:last-child
-          top 23px
-          width 70%
-      &.on
-        li
+          opacity 1
+          filter opacity(100)
           transform-origin center center
-          transform rotate(-45deg)
+          transform rotate(45deg)
           top 15px
-          &:first-child
-            opacity 1
-            filter opacity(100)
-            transform-origin center center
-            transform rotate(45deg)
-            top 15px
-            width 100%
-          &:last-child
-            opacity:0
-            filter opacity(0)
-            transition all 0s ease 0s
+          width 100%
+        &:last-child
+          opacity:0
+          filter opacity(0)
+          transition all 0s ease 0s
