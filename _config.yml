@@ -155,4 +155,4 @@ deploy:
   type: git
   repo:
     github: git@github.com:Evandoz/Evandoz.git
-  branch: master
+  branch: gh-pages
