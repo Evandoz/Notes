@@ -3,7 +3,7 @@
 <%- partial('_partial/head') %>
 <body>
   <div id="overflow" class="overflow">
-    <div class="hiddenbar">
+    <div id="hiddenbar" class="hiddenbar">
       <div id="wrapper" class="wrapper">
         <%- partial('_partial/header') %>
         <div id="content" class="content"><%- body %></div>
@@ -11,7 +11,6 @@
       </div>
     </div>
   </div>
-  <!-- <%- partial('_partial/scrollbar') %> -->
   <%- partial('_partial/anchor') %>
   <%- partial('_partial/mobile') %>
   <%- partial('_partial/script') %>
