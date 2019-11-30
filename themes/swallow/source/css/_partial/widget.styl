@@ -1,6 +1,5 @@
 .widget
   margin -80px auto 0
-  padding 30px
   font-size .875rem
   z-index 9
 
@@ -9,6 +8,17 @@
 
   @media mq-mobile
     margin 0 auto
+
+  &.more
+    padding 0
+    box-shadow none
+    background transparent
+
+    .more-list
+      color #909090
+      text-align center
+      li
+        margin-bottom 5px
 
 .widget-title
   position relative
@@ -60,9 +70,12 @@
     content ")"
     right 0
 
+.aside.post .widget
+  margin-top 0
+
 .toc
   width inherit
-  padding 40px 0
+  padding 20px 0
   transition top .2s ease-in-out
 
   @media mq-mobile
@@ -74,9 +87,6 @@
 
 .toc-title
   padding 0 5px 10px 5px
-
-.toc-content-item.none
-  padding 5px
 
 .toc-content-level-2
   > .toc-content-link

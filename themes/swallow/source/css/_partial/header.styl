@@ -10,9 +10,13 @@
       @media mq-mobile
         margin 0 auto
 
-  &.is-page
-    background #212121
+  &.is-post
+    background #ffffff
     box-shadow 0 0 10px rgba(0, 0, 0, 0.02)
+
+    .logo,
+    .nav
+      color #212121
 
     ul.nav-menu
       @media mq-mobile
@@ -21,10 +25,6 @@
     ul.nav-icon
       @media mq-mobile
         display block
-
-    li.nav-item
-      &:hover
-        background #010101
 
 .cover
   position relative
@@ -52,8 +52,7 @@
     position relative
     margin 0
     color rgba(255, 255, 255, 1)
-    font-size 2.2rem
-    font-weight bolder
+    font-size 2rem
   .desc
     position relative
     padding 5px 0
@@ -62,13 +61,13 @@
 
 .logo
   height 60px
+  color rgba(255, 255, 255, .85)
   z-index 4
   .title
     display block
     padding 0 10px
     line-height 60px
     font-size 1.8rem
-    color rgba(255, 255, 255, .85)
     text-align center
 
 .nav
@@ -78,23 +77,22 @@
   background transparent
   z-index 4
 
-  ul.nav-menu
+  .nav-menu
     font-size 0
     li.nav-item
       display inline-block
-    li.nav-item a
-      display block
-      height 60px
-      padding 0 10px
-      line-height @height
-      font-size 1rem
-      font-weight 520
-      text-align center
-      letter-spacing 2px
-      &:hover
-        color rgba(255, 255, 255, 1)
 
-  ul.nav-icon
+  .nav-item a
+    display block
+    height 60px
+    padding 0 10px
+    line-height @height
+    font-size 1rem
+    font-weight 520
+    text-align center
+    letter-spacing 2px
+
+  .nav-icon
     display none
     position relative
     width 30px
@@ -108,7 +106,7 @@
       top 14px
       width 100%
       height 1px
-      background color-white
+      background #333
       transition all .3s ease 0s
       &:first-child
         top 5px

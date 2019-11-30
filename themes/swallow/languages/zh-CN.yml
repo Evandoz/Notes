@@ -8,8 +8,9 @@ category: 分类
 tag: 标签
 about: 关于
 
-postcount: 文章数
-categories: 分类
+categories: 分类数
+posts: 文章数
+tags: 标签数
 
 contents: 目录
 

@@ -1,7 +1,8 @@
 <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
 <% if (is_archive()) { %>
   <% if(!is_year()) { %>
-      <h1 class="title"><%= __('archive') %></h1>
+      <h2 class="title"><%= __('archive') %></h2>
+      <p class="desc"><%= __('posts') %>：<%= site.posts.length %></p>
     </div>
     <div class="inner">
       <div class="archive card">
@@ -17,7 +18,8 @@
       <% last = year; %>
 
       <% if (is_year()) { %>
-          <h1 class="title"><%= year %></h1>
+          <h2 class="title"><%= __('archive') %> <%= year %></h2>
+          <p class="desc"><%= __('posts') %>：<%= page.posts.length %></p>
         </div>
         <div class="inner">
           <div class="archive">
@@ -48,7 +50,8 @@
   <% } %>
 
 <% } else { %>
-    <h1 class="title"><%= title %></h1>
+    <h2 class="title"><% if (is_category()) { %><%= __('category') %><% } else { %><%= __('tag') %><% } %> <%= title %></h2>
+    <p class="desc"><%= __('posts') %>：<%= page.posts.length %></p>
   </div> <!-- cover -->
   <div class="inner">
     <div class="archive">

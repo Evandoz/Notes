@@ -1,5 +1,6 @@
 <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
-  <h1 class="title"><%= __('tag') %></h1>
+  <h2 class="title"><%= __('tag') %></h2>
+  <p class="desc"><%= __('tags') %>：<%= site.tags.length %></p>
 </div>
 <div class="inner">
   <div class="archive tag card">

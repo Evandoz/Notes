@@ -9,6 +9,7 @@ nav:
 widgets:
   - profile
   - category
+  - footer
 
 # Since
 since: 2015

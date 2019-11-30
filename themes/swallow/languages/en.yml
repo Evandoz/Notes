@@ -8,8 +8,9 @@ category: Category
 tag: Tag
 about: About
 
-postcount: Total Posts
 categories: Categories
+posts: Posts
+tags: Tags
 
 contents: Contents
 
@@ -19,7 +20,7 @@ totalcount: Total Count
 visitors: times
 comments:  comments
 
-none: None
+none: No
 
 newer: Newer
 older: Older

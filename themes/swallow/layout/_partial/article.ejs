@@ -44,17 +44,18 @@
         </div>
       <% } %>
       <!-- Comment -->
-      <% if (post.comments) { %>
+      <!-- <% if (post.comments) { %>
         <%- partial('comment') %>
-      <% } %>
+      <% } %> -->
     </main>
-    <aside class="aside">
+    <aside class="aside post">
+      <%- partial('_widget/profile') %>
       <div id="toc" class="toc">
-        <h3 class="toc-title"><%= __('contents') %></h3>
         <% if (toc(post.content) != ""){ %>
+          <h3 class="toc-title"><%= __('contents') %></h3>
           <%- toc(post.content, { class: "toc-content", list_number: false }) %>
         <% } else { %>
-        <ol class="toc-content"><li class="toc-content-item none"><%= __('none') %></li></ol>
+          <h3 class="toc-title" style="text-align: center;"><%= __('none') %><%= __('contents') %></h3>
         <% } %>
       </div>
     </aside>

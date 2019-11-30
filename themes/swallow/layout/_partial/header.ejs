@@ -6,12 +6,13 @@
     </div>
     <div class="outer">
 <% } else { %>
-  <header id="header" class="header is-page">
-    <div class="outer">
-      <div class="logo">
-        <a class="title" href="<%- url_for() %>"><%= config.title %></a>
-      </div>
+<header id="header" class="header <% if (is_post()) { %>is-post<% } else { %>is-page<% } %>">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="<%- url_for() %>"><%= config.title %></a>
+    </div>
 <% } %>
+
 
     <div class="nav">
       <ul id="nav-icon" class="nav-icon">
