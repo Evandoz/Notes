@@ -1,5 +1,5 @@
 .content .cover
-  padding 18vh 0
+  padding 14vh 0
 
 .archive
   position relative
@@ -15,8 +15,12 @@
   line-height @height
   font-size 1.8rem
   font-weight bold
-  color color-grey
+  color #999
   letter-spacing 1px
+  transition color .4s ease-in-out
+
+  &:hover
+    color #333
 
   &:before
     content ""
@@ -27,8 +31,8 @@
     height 20px
     width 20px
     box-sizing border-box
-    background color-white-background
-    border 5px solid #333
+    background #fff
+    border 5px solid #666
     border-radius 50%
 
   &:after
@@ -39,7 +43,7 @@
     bottom 0
     display block
     width 2px
-    background #333
+    background #999
     z-index -1
 
 .archive-content
@@ -53,7 +57,7 @@
     bottom 0
     display block
     width 2px
-    background #333
+    background #aaa
     z-index -1
 
 .archive-item
@@ -70,10 +74,11 @@
     font-weight 500
   .post-link
     color color-font
+    text-align left
     text-shadow 4px 4px 2px rgba(0, 0, 0, .02)
     transition all .2s ease-in-out
   .post-date
-    color color-grey
+    color #999
 
   &:before
     content ""
@@ -84,8 +89,8 @@
     height 14px
     width 14px
     box-sizing border-box
-    background color-white-background
-    border 3px solid #333
+    background #fff
+    border 3px solid #999
     border-radius 50%
     transition all .2s ease-in-out
 
@@ -94,7 +99,7 @@
       font-size 1.12rem
       transform translate3d(5px, 0, 0)
     &:before
-      border-color #fff
+      border-color #333
 
   &.page
     .archive-article
@@ -119,7 +124,7 @@
       .post-link
         color color-font
       .post-date
-        color color-grey
+        color #999
 
 /* ========= category ======== */
 .category
@@ -134,7 +139,7 @@
     padding 15px
     font-size 1.1rem
     border-radius 2px
-    background color-grey-background
+    background #f8f8f8
 
   .category-list-child
     width 100%
@@ -156,7 +161,7 @@
   line-height 1.6
   font-size 1rem
   border-radius 4px
-  background color-grey-background
+  background #fff
   transition all .2s ease-in-out
   &:hover
     transform scale(1.08)
@@ -191,7 +196,7 @@
     background #000
   .extend
     position absolute
-    color color-black
+    color #333
   .prev
     left 0
     border-radius 4px 0 0 4px
@@ -209,35 +214,35 @@
       top 9px
       width 100%
       height 2px
-      background color-dark
+      background #333
       transition all .2s ease-in-out
       &:first-child,
       &:last-child
         width 45%
-        height 1.4px
+        height 2px
 
   ul.prev-icon li
     left 0
     &:first-child
-      top 8.8px
-      left 0.6px
+      top 8.7px
+      left 0.7px
       transform-origin 0 50%
       transform rotate(-45deg)
     &:last-child
-      top 9.8px
-      left 0.6px
+      top 9.3px
+      left 0.7px
       transform-origin 0 50%
       transform rotate(45deg)
 
   ul.next-icon li
     right 0
     &:first-child
-      top 8.8px
-      right 0.6px
+      top 8.7px
+      right 0.7px
       transform-origin 100% 50%
       transform rotate(45deg)
     &:last-child
-      top 9.8px
-      right 0.6px
+      top 9.3px
+      right 0.7px
       transform-origin 100% 50%
       transform rotate(-45deg)

@@ -10,21 +10,29 @@
       @media mq-mobile
         margin 0 auto
 
-  &.is-post
-    background #ffffff
-    box-shadow 0 0 10px rgba(0, 0, 0, 0.02)
-
-    .logo,
-    .nav
-      color #212121
-
-    ul.nav-menu
+  &.is-post,
+  &.is-page
+    .nav-menu
       @media mq-mobile
         display none
 
-    ul.nav-icon
+    .nav-icon
       @media mq-mobile
         display block
+
+  &.is-post
+    background #ffffff
+    box-shadow 0 5px 10px rgba(0, 0, 0, 0.035)
+
+    .logo,
+    .nav
+      color #222
+    .nav-icon li
+      background #333
+
+  &.is-page
+    .nav-icon li
+        background rgba(255,255,255,0.85)
 
 .cover
   position relative
@@ -35,7 +43,7 @@
   max-height 420px
   min-height 240px
   margin-top -60px
-  padding calc(18vh + 60px) 0
+  padding calc(14vh + 60px) 0
   box-sizing border-box
   z-index -1
   background 50%/cover no-repeat rgba(0, 0, 0, 0.96)
@@ -106,7 +114,6 @@
       top 14px
       width 100%
       height 1px
-      background #333
       transition all .3s ease 0s
       &:first-child
         top 5px
