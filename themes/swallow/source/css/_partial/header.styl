@@ -1,9 +1,8 @@
 .header
-  position relative
   &.is-home
     .outer
-      margin-top -110px
-      margin-bottom 50px
+      position relative
+      top calc(34vh - 100px)
       z-index 4
 
     .nav
@@ -32,40 +31,7 @@
 
   &.is-page
     .nav-icon li
-        background rgba(255,255,255,0.85)
-
-.cover
-  position relative
-  display flex
-  flex-direction column
-  justify-content center
-  align-items center
-  max-height 420px
-  min-height 240px
-  margin-top -60px
-  padding calc(14vh + 60px) 0
-  box-sizing border-box
-  z-index -1
-  background 50%/cover no-repeat rgba(0, 0, 0, 0.96)
-  &:before
-    content ""
-    position absolute
-    top 0
-    right 0
-    bottom 0
-    left 0
-    display block
-    background rgba(0, 0, 0, 0.24)
-  .title
-    position relative
-    margin 0
-    color rgba(255, 255, 255, 1)
-    font-size 2rem
-  .desc
-    position relative
-    padding 5px 0
-    color rgba(255, 255, 255, .75)
-    font-size 1.2rem
+      background rgba(255, 255, 255, 0.85)
 
 .logo
   height 60px

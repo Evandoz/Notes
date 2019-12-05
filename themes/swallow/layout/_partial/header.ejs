@@ -1,18 +1,10 @@
-<% if (is_home()) { %>
-  <header id="header" class="header is-home">
-    <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
-      <h1 class="title"><%= config.title %></h1>
-      <p class="desc"><%= config.description %></p>
-    </div>
-    <div class="outer">
-<% } else { %>
-<header id="header" class="header <% if (is_post()) { %>is-post<% } else { %>is-page<% } %>">
+<header id="header" class="header <% if (is_home()) { %>is-home<% } else if (is_post()) { %>is-post<% } else { %>is-page<% } %>">
   <div class="outer">
-    <div class="logo">
-      <a class="title" href="<%- url_for() %>"><%= config.title %></a>
-    </div>
-<% } %>
-
+    <% if (!is_home()) { %>
+      <div class="logo">
+        <a class="title" href="<%- url_for() %>"><%= config.title %></a>
+      </div>
+    <% } %>
 
     <div class="nav">
       <ul id="nav-icon" class="nav-icon">

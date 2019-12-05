@@ -1,57 +1,60 @@
 <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
 <% if (is_archive()) { %>
-  <% if(!is_year()) { %>
-      <h2 class="title"><%= __('archive') %></h2>
-      <p class="desc"><%= __('posts') %>：<%= site.posts.length %></p>
-    </div>
-    <div class="inner">
-      <div class="archive card">
+  <% if(is_year()) { %>
+    <%
+      var count = 0;
+      site.posts.sort('-date').each(function(post) {
+        if (post.date.year() === page.year) ++count;
+      })
+    %>
+    <h1 class="title"><%= __('archive') %> <%= page.year %></h1>
+    <p class="desc"><%= __('posts') %>：<%= count %></p>
+  <% } else { %>
+    <h1 class="title"><%= __('archive') %></h1>
+    <p class="desc"><%= __('posts') %>：<%= site.posts.length %></p>
   <% } %>
+</div>
+<div class="inner">
+  <div class="archive card">
+
   <% var last, year; %>
   <% page.posts.each(function(post){ %>
 
     <% year = post.date.year(); %>
     <% if (last != year){ %>
       <% if (last != null){ %>
-        </div> <!-- archive / archive-content -->
+        </div> <!-- archive-content -->
       <% } %>
       <% last = year; %>
 
-      <% if (is_year()) { %>
-          <h2 class="title"><%= __('archive') %> <%= year %></h2>
-          <p class="desc"><%= __('posts') %>：<%= page.posts.length %></p>
-        </div>
-        <div class="inner">
-          <div class="archive">
-      <% } else { %>
+      <% if (!is_year()) { %>
         <a class="archive-year" href="<%- url_for(config.archive_dir + '/' + year) %>"><%= year %></a>
-        <div class="archive-content">
       <% } %>
-
+      <div class="archive-content">
     <% } %>
 
-    <% if (is_year()) { %>
-      <%- partial('_partial/article', {post: post, index: true}) %>
-    <% } else { %>
-      <div class="archive-item">
-        <%- partial('post/date', {post, post, timeago: false, date_format: 'YYYY-MM-DD'}) %>
-        <%- partial('post/title', {post, post}) %>
-      </div>
-    <% } %>
+    <div class="archive-item">
+      <%- partial('post/date', {post, post, timeago: false, date_format: 'YYYY-MM-DD'}) %>
+      <%- partial('post/title', {post, post}) %>
+    </div>
 
   <% }) %>
 
   <% if (page.posts.length){ %>
-    </div> <!-- archive / archive-content -->
+    </div> <!-- archive-content -->
   <% } %>
-
-  <% if(!is_year()) { %>
-    </div>
-  <% } %>
+  </div>
 
 <% } else { %>
-    <h2 class="title"><% if (is_category()) { %><%= __('category') %><% } else { %><%= __('tag') %><% } %> <%= title %></h2>
-    <p class="desc"><%= __('posts') %>：<%= page.posts.length %></p>
+    <% if (is_category()) { %>
+      <h1 class="title"><%= __('category') %> <%= title %></h1>
+      <p class="desc"><%= __('posts') %>：<% site.categories.each(function(cate) { %><% if (cate.name === page.category) { %><%= cate.length %><% } %><% }) %>
+      </p>
+    <% } else { %>
+      <h1 class="title"><%= __('tag') %> <%= title %></h1>
+      <p class="desc"><%= __('posts') %>：<% site.tags.each(function(tag) { %><% if (tag.name === page.tag) { %><%= tag.length %><% } %><% }) %>
+      </p>
+    <% } %>
   </div> <!-- cover -->
   <div class="inner">
     <div class="archive">
