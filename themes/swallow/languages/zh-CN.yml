@@ -8,14 +8,14 @@ category: 分类
 tag: 标签
 about: 关于
 
-categories: 分类数
-posts: 文章数
-tags: 标签数
+categories: 分类
+posts: 文章
+tags: 标签
 
 contents: 目录
 
 readminute: 时长 %s 分钟
-totalcount: 总字数
+totalcount: 字数
 
 visitors: 次阅读
 comments: 条评论

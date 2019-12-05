@@ -7,10 +7,10 @@
         if (post.date.year() === page.year) ++count;
       })
     %>
-    <h1 class="title"><%= __('archive') %> <%= page.year %></h1>
+    <h2 class="title"><%= __('archive') %> <%= page.year %></h2>
     <p class="desc"><%= __('posts') %>：<%= count %></p>
   <% } else { %>
-    <h1 class="title"><%= __('archive') %></h1>
+    <h2 class="title"><%= __('archive') %></h2>
     <p class="desc"><%= __('posts') %>：<%= site.posts.length %></p>
   <% } %>
 </div>
@@ -47,11 +47,11 @@
 
 <% } else { %>
     <% if (is_category()) { %>
-      <h1 class="title"><%= __('category') %> <%= title %></h1>
+      <h2 class="title"><%= __('category') %> <%= title %></h2>
       <p class="desc"><%= __('posts') %>：<% site.categories.each(function(cate) { %><% if (cate.name === page.category) { %><%= cate.length %><% } %><% }) %>
       </p>
     <% } else { %>
-      <h1 class="title"><%= __('tag') %> <%= title %></h1>
+      <h2 class="title"><%= __('tag') %> <%= title %></h2>
       <p class="desc"><%= __('posts') %>：<% site.tags.each(function(tag) { %><% if (tag.name === page.tag) { %><%= tag.length %><% } %><% }) %>
       </p>
     <% } %>

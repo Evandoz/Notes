@@ -1,6 +1,30 @@
-<div class="widget card">
+<div class="widget profile card">
+  <div class="widget-cover" style="background-image: url('<%- url_for(theme.background) %>')">
+    <div class="avatar">
+      <img width="100%" height="100%" src="<%- url_for(theme.logo) %>" />
+    </div>
+  </div>
   <div class="widget-content">
-    <span><%= __('posts') %>: <%= site.posts.length %></span>
-    <span><%= __('totalcount') %>: <%- totalcount(site) %></span>
+    <div class="author">
+      <%= config.author %>
+    </div>
+    <div class="meta">
+      <a class="col" href="<%- url_for(config.archive_dir) %>">
+        <span class="amount"><%= site.posts.length %></span>
+        <span class="text"><%= __('posts') %></span>
+      </a>
+      <a class="col" href="<%- url_for(config.category_dir) %>">
+        <span class="amount"><%= site.categories.length %></span>
+        <span class="text"><%= __('categories') %></span>
+      </a>
+      <a class="col" href="<%- url_for(config.tag_dir) %>">
+        <span class="amount"><%= site.tags.length %></span>
+        <span class="text"><%= __('tags') %></span>
+      </a>
+      <a class="col" href="<%- url_for(config.archive_dir) %>">
+        <span class="amount"><%- totalcount(site) %></span>
+        <span class="text"><%= __('totalcount') %></span>
+      </a>
+    </div>
   </div>
 </div>

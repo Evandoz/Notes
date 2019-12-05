@@ -3,6 +3,7 @@ body
   -webkit-text-size-adjust: 100%
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  background #fdfbfb
 
 *
   color: inherit
@@ -16,7 +17,7 @@ a, a:hover, a:focus
   position relative
   display flex
   flex-direction column
-  justify-content space-between
+  justify-content space-around
   align-items center
   height 70px
   margin-top -60px
@@ -36,34 +37,34 @@ a, a:hover, a:focus
     position relative
     margin 0
     color rgba(255, 255, 255, 1)
-    font-size 2rem
+    font-size 1.65rem
   .desc
     position relative
     color rgba(255, 255, 255, .75)
-    font-size 1.2rem
+    font-size 1.15rem
 
 .outer
   display flex
   justify-content space-between
   flex-wrap wrap
-  max-width 1040px
+  max-width 1080px
   margin 0 auto
-  padding 0 20px
+  padding 0 15px
 
   .main
-    width calc(100% - 280px)
+    width calc(100% - 320px)
 
   .aside
-    width 260px
+    width 300px
 
   @media mq-mobile
     .main, .aside
       width 100%
 
 .inner
-  max-width 840px
+  max-width 860px
   margin 0 auto
-  padding 0 20px
+  padding 0 15px
 
   .main
     width 100%
@@ -73,7 +74,7 @@ a, a:hover, a:focus
   box-sizing border-box
   border-radius 2px
   background #fff
-  box-shadow 0 0 15px 5px rgba(0, 0, 0, 0.035)
+  box-shadow 0 0 45px -5px rgba(158, 158, 158, .22)
 
   @media mq-mobile
     padding 20px!important
@@ -83,7 +84,7 @@ a, a:hover, a:focus
   padding-bottom 80px
 
   .outer, .inner
-    padding-top 30px
+    padding-top 20px
     padding-bottom 50px
 
 .overflow

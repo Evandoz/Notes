@@ -3,10 +3,8 @@ title: About
 layout: "about"
 comments: true
 featured_image:
-thumbnail:
+photos:
 ---
-
-## 关于本站
 
 Hexo Notes
 
