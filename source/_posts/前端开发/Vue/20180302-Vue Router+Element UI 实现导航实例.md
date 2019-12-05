@@ -5,7 +5,7 @@ keywords:
   - Element UI
 tags:
   - Vue
-featured_image:
+photos:
 ---
 
 Element UI是饿了么团队打造的一个前端UI库，其中实现了很多常用的组件，导航栏或者叫菜单栏就属于一种。

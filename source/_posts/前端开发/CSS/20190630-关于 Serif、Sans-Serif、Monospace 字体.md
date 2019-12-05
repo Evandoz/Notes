@@ -7,7 +7,7 @@ keywords:
   - Monospace
 tags:
   - 字体
-featured_image:
+photos:
 ---
 
 ## 五类（个）字体

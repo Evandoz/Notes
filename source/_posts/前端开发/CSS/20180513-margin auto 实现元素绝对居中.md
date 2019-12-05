@@ -7,7 +7,7 @@ keywords:
 tags:
   - CSS
   - 元素居中
-featured_image:
+photos:
 ---
 
 在 CodePen 发现了一种不太常见元素绝对居中（水平和垂直）方法，大致思路是使用 margin 和 position 属性。**但它并非是将 margin 置为负，而是直接置为 auto，需要说明的是元素需要声明宽/高**。

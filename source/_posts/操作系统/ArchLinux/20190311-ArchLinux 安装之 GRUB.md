@@ -6,7 +6,7 @@ keywords:
 tags:
   - ArchLinux
   - GRUB
-featured_image:
+photos:
 ---
 
 ## 关于 GRUB 配置文件

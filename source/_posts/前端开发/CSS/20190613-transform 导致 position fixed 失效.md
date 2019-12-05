@@ -5,7 +5,7 @@ keywords:
   - position fixed 失效
 tags:
   - CSS
-featured_image:
+photos:
 ---
 
 ``position: fixed``表示相对于窗口定位，可以让元素不跟随浏览器的滚动条滚动，但是今天却碰到了失效的情况。

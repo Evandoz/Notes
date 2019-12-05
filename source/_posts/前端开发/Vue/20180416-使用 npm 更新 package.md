@@ -6,7 +6,8 @@ keywords:
 tags:
   - npm
   - node
-featured_image: 'https://raw.githubusercontent.com/Evandoz/blob/master/NPM/node.jpg'
+photos:
+  - https://raw.githubusercontent.com/Evandoz/blob/master/NPM/node.jpg
 ---
 
 现实需求：使用vue-cli等脚手架工具创建工程后，当工程中的模块有更新时，如何将工程中的模块都更新到最新？

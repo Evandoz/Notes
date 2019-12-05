@@ -6,7 +6,7 @@ keywords:
   - Sogou
 tags:
   - ArchLinux
-featured_image:
+photos:
 ---
 
 Archlinux 安装好搜狗输入法，重启之后出现消息提示：

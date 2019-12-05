@@ -7,7 +7,7 @@ keywords:
 tags:
   - ArchLinux
   - DDE
-featured_image:
+photos:
 ---
 
 安装 Deepin 桌面环境

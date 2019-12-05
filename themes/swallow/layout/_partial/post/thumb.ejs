@@ -1,5 +1,5 @@
-<% if (post.featured_image){ %>
+<% if (post.photos.length){ %>
   <div class="article-thumb">
-    <a href="<%- url_for(post.path) %>" class="image" style="background-image: url('<%- post.featured_image %>');">IMG</a>
+    <a href="<%- url_for(post.path) %>" class="image" style="background-image: url('<%- post.photos[0] %>');">IMG</a>
   </div>
 <% } %>

@@ -7,7 +7,7 @@ keywords:
 tags:
   - Hexo
   - gitment
-featured_image:
+photos:
 ---
 
 尝试使用gitment评论系统过程中，配置完成后初始化评论出现验证失败问题(Error: Validation Failed)。

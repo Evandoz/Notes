@@ -6,7 +6,7 @@ keywords:
   - 双系统
 tags:
   - ArchLinux
-featured_image:
+photos:
 ---
 
 参考官方 Wiki：[Installation guide](https://wiki.archlinux.org/index.php/Installation_guide)

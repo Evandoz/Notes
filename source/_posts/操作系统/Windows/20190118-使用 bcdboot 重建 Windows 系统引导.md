@@ -7,7 +7,7 @@ keywords:
 tags:
   - bcdboot
   - Windows
-featured_image:
+photos:
 ---
 
 Windows 上自带的 bcdboot 应用程序一种用于快速设置系统分区或修复系统分区上的启动环境的工具，它通过从已安装的 Windows 系统文件夹中复制一小部分启动环境文件来设置/修复系统，此外，它还能够在系统分区上创建引导配置 BCD 文件，该文件存储了启动引导项，用于选择引导已安装的 Windows。

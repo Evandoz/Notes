@@ -7,7 +7,7 @@ keywords:
 tags:
   - ArchLinux
   - Secure Boot
-featured_image:
+photos:
 ---
 
 在预装了 Winodws 10 的笔记本上装上了 Archlinux (GPT + UEFI)，由于数字签名信任的问题，无法使用 Secure Boot，不过可以使用可信任的数字签名来解决问题。

@@ -7,7 +7,7 @@ keywords:
 tags:
   - Windows
   - DiskPart
-featured_image:
+photos:
 ---
 
 使用优启安装 Windows 时，创建系统引导分区一般有两种方法：

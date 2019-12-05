@@ -5,7 +5,7 @@ keywords:
   - :focus-visible
 tags:
   - 伪类
-featured_image:
+photos:
 ---
 
 [CSS :focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)

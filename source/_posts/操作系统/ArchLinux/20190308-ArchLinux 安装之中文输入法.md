@@ -7,7 +7,7 @@ keywords:
   - Sogou
 tags:
   - ArchLinux
-featured_image:
+photos:
 ---
 
 ## 1.安装fcitx输入法引擎

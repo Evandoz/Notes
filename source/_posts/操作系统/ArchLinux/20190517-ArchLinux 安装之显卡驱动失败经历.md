@@ -6,7 +6,7 @@ keywords:
   - NVIDIA
 tags:
   - ArchLinux
-featured_image:
+photos:
 ---
 
 直接从Nvidia官网下载驱动程序包 .run 运行出错：

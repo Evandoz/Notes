@@ -7,7 +7,7 @@ keywords:
 tags:
   - Node
   - Yarn
-featured_image:
+photos:
 ---
 
 ## 方案一

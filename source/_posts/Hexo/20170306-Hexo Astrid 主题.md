@@ -7,7 +7,7 @@ keywords:
 tags:
   - Hexo
   - Astrid
-featured_image:
+photos:
 ---
 
 从``WordPress``上移植的一款主题，托管于 [GitHub](https://github.com/Evandoz/hexo-theme-astrid) ，访问 [Astrid](https://evandoz.github.io/hexo-theme-astrid/) 可进行预览。

@@ -5,7 +5,7 @@ keywords:
   - 用户管理
 tags:
   - ArchLinux
-featured_image:
+photos:
 ---
 
 ## 1.添加普通用户

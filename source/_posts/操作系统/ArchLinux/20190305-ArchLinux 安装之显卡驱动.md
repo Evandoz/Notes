@@ -6,7 +6,7 @@ keywords:
   - NVIDIA
 tags:
   - ArchLinux
-featured_image:
+photos:
 ---
 
 ## 1.获取显卡情况

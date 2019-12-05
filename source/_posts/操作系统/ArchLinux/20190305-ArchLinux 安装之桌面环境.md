@@ -9,7 +9,7 @@ tags:
   - ArchLinux
   - Xorg
   - KDE
-featured_image:
+photos:
 ---
 
 ## 1.安装 Xorg

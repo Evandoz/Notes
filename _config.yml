@@ -118,12 +118,6 @@ markdown:
     permalinkClass: 'headerlink'
     permalinkSymbol: ''
 
-## Image Lazyload
-lazyload:
-  enable: true
-  onlypost: false
-  loadingImg: # eg ./images/loading.gif
-
 ## Nofollow
 nofollow:
   enable: true

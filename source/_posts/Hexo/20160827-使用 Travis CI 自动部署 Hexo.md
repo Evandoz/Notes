@@ -7,7 +7,7 @@ keywords:
 tags:
   - Travis CI
   - Hexo
-featured_image:
+photos:
 ---
 
 由于``Hexo``系统本身的特性，每次都需要手动更新部署网站，于是拟利用软件开发中的持续集成工具``Travis CI``来帮助完成这一繁杂过程。

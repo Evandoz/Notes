@@ -5,7 +5,7 @@ keywords:
   - Sublime设置
 tags:
   - Sublime
-featured_image:
+photos:
 ---
 
 Sublime Text 由程序员 Jon Skinner 于2008年1月份开发出来的一款文本编辑器，本文将展示Preference.sublime-settings文件中各项设置的中文释义，所用Sublime Txet 3版本为Build 3143。

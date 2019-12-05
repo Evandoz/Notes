@@ -6,7 +6,7 @@ keywords:
 tags:
   - ArchLinux
   - AUR
-featured_image:
+photos:
 ---
 
 AUR 全称 Arch User Repository，是为用户而建、由用户主导的 Arch 软件仓库，相当于Debian/Ubuntu 下的 PPA。为了简化的AUR软件包的安装流程，随之诞生了AUR工具，称之为AUR Helper。

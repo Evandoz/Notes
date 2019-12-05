@@ -7,7 +7,7 @@ keywords:
   - Webpack
 tags:
   - Vue
-featured_image:
+photos:
 ---
 
 现实问题：更行后的 vue webpack 模板中没有了 dev-server.js 文件，那么在新版本中如何配置相关文件来完成本地后台模拟数据的访问？
