@@ -173,6 +173,10 @@ search:
 sitemap:
   path: sitemap.xml
 
+## HTML Minifier
+html_minifier:
+  exclude: ['jquery.js', 'plugins.js', 'velocity.js']
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

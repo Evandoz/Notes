@@ -9,7 +9,7 @@
     "deploy": "hexo deploy"
   },
   "hexo": {
-    "version": "3.9.0"
+    "version": "4.1.0"
   },
   "dependencies": {
     "hexo": "^4.1.0",
@@ -24,6 +24,7 @@
     "hexo-generator-seo-friendly-sitemap": "^0.0.25",
     "hexo-generator-tag": "^1.0.0",
     "hexo-hrefmd": "^1.0.1",
+    "hexo-html-minifier": "^1.0.0",
     "hexo-image-caption": "^0.1.1",
     "hexo-inject": "^1.0.0",
     "hexo-math": "^3.0.4",
