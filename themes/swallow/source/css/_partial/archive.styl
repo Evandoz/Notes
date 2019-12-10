@@ -127,20 +127,29 @@
 .category
   .category-list-item
     flex-wrap wrap
+    padding 0
     border none
 
-    + .category-list-item
-      margin-top 15px
+  .category-list-link,
+  .category-list-count
+    line-height 2.4
+    padding 0 15px
+
+  .category-list-count
+    color #777
+    background #f4f4f4
+    border-radius 0 2px 2px 0
 
   .category-list > .category-list-item
-    padding 15px
     font-size 1.1rem
     border-radius 2px
     background #f8f8f8
 
+    + .category-list-item
+      margin-top 15px
+
   .category-list-child
     width 100%
-    margin-top 15px
     padding-left 36px
 
 /* =========== tag =========== */
@@ -154,17 +163,25 @@
 .tag-item
   display inline-block
   margin 10px
-  padding 10px 15px
-  line-height 1.6
-  font-size 1rem
-  border-radius 4px
-  background #f8f8f8
+  line-height 2.2
+  font-size 0
   transition all .2s ease-in-out
   &:hover
     transform scale(1.08)
 
+.tag-title, .tag-count
+  display inline-flex
+  padding 0 10px
+  font-size 1rem
+
 .tag-title
-  display inline
+  border-radius 4px 0 0 4px
+  background #f8f8f8
+
+.tag-count
+  color #aaa
+  border-radius 0 4px 4px 0
+  background #f4f4f4
 
 /* ======== paginator ======== */
 
@@ -176,30 +193,35 @@
   max-width 960px
   margin 20px auto
   padding 0!important
-  .page-number, .extend, .space
+  .page-number, .space, .extend
     height 20px
     width 20px
     padding 10px
     line-height @height
     text-align center
     transition all .2s ease-in-out
+  .page-number, .extend
+    background #fff
+    border-radius 4px
+    box-shadow 0 4px 10px rgba(0, 0, 0, .1)
     &:hover
       color #fff
       background #000
-      li
-        background #fff
+  .page-number
+    margin 0 5px
   .current
     color #fff
     background #000
   .extend
     position absolute
     color #333
+    &:hover
+      li
+        background #fff
   .prev
     left 0
-    border-radius 4px 0 0 4px
   .next
     right 0
-    border-radius 0 4px 4px 0
 
   ul.prev-icon,
   ul.next-icon

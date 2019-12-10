@@ -7,7 +7,7 @@
     <% site.tags.each(function(tag) { %>
       <a class="tag-item" data-slug="<%= tag.slug %>" href="<%- url_for(tag.path) %>">
         <span class="tag-title"><%= tag.name %></span>
-        <span class="tag-count">(<%= tag.length %>)</span>
+        <span class="tag-count"><%= tag.length %></span>
       </a>
     <% }) %>
   </div>
