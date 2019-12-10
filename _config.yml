@@ -162,20 +162,9 @@ image_caption:
   enable: true
   class_name: caption
 
-## Local Search
-search:
-  path: search.json
-  zipPath: search.zip
-  versionPath: searchVersion.txt
-  field: post
-
 ## Sitemap
 sitemap:
   path: sitemap.xml
-
-## HTML Minifier
-html_minifier:
-  exclude: ['jquery.js', 'plugins.js', 'velocity.js']
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
