@@ -91,29 +91,30 @@ if $highlight_theme == "night bright"
   }
 
 $code-block
-  overflow: auto
-  margin: 20px 0
-  line-height: 1.6
-  color: $highlight-foreground
-  background: $highlight-background
+  overflow auto
+  margin 20px 0
+  line-height 1.6
+  color $highlight-foreground
+  background $highlight-background
 
 .highlight
   position relative
+  padding-top 20px
   @extend $code-block
   pre, code
-    font-family: font-mono
+    font-family font-mono
   pre
+    display block
     @extend $code-block
-    margin: 0
-    padding: 10px 0
-    border: none
+    margin 0
+    border none
   code
     padding: 0
-    background: none
-    text-shadow: none
+    background none
+    text-shadow none
   table
     margin: 0
-    width: auto
+    width: inherit
   td
     border: none
     padding: 0
@@ -124,7 +125,7 @@ $code-block
     font-size: .875em
     color: $highlight-comment
     a
-      float: right
+      float right
   .gutter pre
     padding-left 10px
     padding-right 10px
@@ -171,43 +172,54 @@ $code-block
           &:hover
             text-decoration: underline
 
-  .code:before
-    position: absolute
-    top: 4px
-    right: 4px
-    line-height: 1.2
-    font-size .875em
-    color: $highlight-foreground
-    font-family: font-mono
-    text-align: right
+.highlight:before
+  position: absolute
+  top: 0
+  right: 0
+  padding 0 5px
+  line-height: 20px
+  font-size .875em
+  color: $highlight-foreground
+  font-family: font-mono
+  text-align: center
+  z-index 9
 
-.highlight.xml .code:before
+.highlight:after
+  content ''
+  position: absolute
+  top: 0
+  right: 0
+  height 20px
+  width 100%
+  background $highlight-gutter.bg-color
+
+.highlight.xml:before
   content: "XML"
-.highlight.html .code:before
+.highlight.html:before
   content: "HTML"
-.highlight.css .code:before
+.highlight.css:before
   content: "CSS"
-.highlight.javascript .code:before
+.highlight.javascript:before
   content: "Javascript"
-.highlight.ruby .code:before
+.highlight.ruby:before
   content: "Ruby"
-.highlight.python .code:before
+.highlight.python:before
   content: "Python"
-.highlight.perl .code:before
+.highlight.perl:before
   content: "Perl"
-.highlight.tex .code:before
+.highlight.tex:before
   content: "Tex"
-.highlight.c .code:before
+.highlight.c:before
   content: "C"
-.highlight.java .code:before
+.highlight.java:before
   content: "Java"
-.highlight.vue .code:before
+.highlight.vue:before
   content: "Vue"
-.highlight.stylus .code:before
+.highlight.stylus:before
   content: "stylus"
-.highlight.less .code:before
+.highlight.less:before
   content: "less"
-.highlight.scss .code:before
+.highlight.scss:before
   content: "SCSS"
 
 pre
