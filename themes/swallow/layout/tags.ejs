@@ -1,4 +1,8 @@
-<div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
+<% if (page.photos && page.photos != ''){ %>
+  <div class="cover" style="background-image: url('<%- url_for(page.photos[0]) %>')">
+<% } else { %>
+  <div class="cover" style="background-image: url('<%- url_for(theme.banner) %>')">
+<% } %>
   <h2 class="title"><%= __('tag') %></h2>
   <p class="desc"><%= __('tags') %>：<%= site.tags.length %></p>
 </div>

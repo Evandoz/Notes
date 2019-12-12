@@ -1,10 +1,10 @@
-<% if (page.featured_image){ %>
-  <div class="cover" style="background-image: url('<%- url_for(page.featured_image) %>')">
+<% if (page.photos && page.photos != ''){ %>
+  <div class="cover" style="background-image: url('<%- url_for(page.photos[0]) %>')">
 <% } else { %>
-  <div class="cover" style="background-image: url('<%- url_for(theme.background) %>')">
+  <div class="cover" style="background-image: url('<%- url_for(theme.banner) %>')">
 <% } %>
   <h1 class="title"><%= __('about') %></h1>
-  <p class="desc"><%= __('about') %></p>
+  <p class="desc"><%= __('Exponential') %></p>
 </div>
 <div class="inner">
   <article id="<%= page.slug %>" class="article about card">

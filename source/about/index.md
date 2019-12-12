@@ -2,7 +2,6 @@
 title: About
 layout: "about"
 comments: true
-featured_image:
 photos:
 ---
 

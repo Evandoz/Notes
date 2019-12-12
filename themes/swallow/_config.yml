@@ -21,6 +21,8 @@ keywords: ""
 # (E.g. `http://abc.com/favicon.ico` or `css/images/favicon.ico`)
 favicon: css/images/favicon.ico
 logo: css/images/logo.png
+banner: css/images/banner2.jpg
+avatar: css/images/avatar.png
 background: css/images/background.jpg
 
 # Links
