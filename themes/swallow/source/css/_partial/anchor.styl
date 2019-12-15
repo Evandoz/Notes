@@ -1,48 +1,49 @@
 .top-anchor
-  display: none
-  @media mq-normal
-    display: block
-    position: fixed
-    right: 80px
-    bottom: 80px
-    width: 40px
-    height: 40px
-    padding: 14px 11px
-    color: #111
-    box-sizing: border-box
-    border-radius: 50%
-    box-shadow 0 4px 20px rgba(0, 0, 0, .1)
-    background #fff
-    cursor: pointer
-    z-index: 9
-    opacity: 0
-    transition:all .4s ease-in-out 0s
+  display: block
+  position: fixed
+  right: 80px
+  bottom: 80px
+  width: 40px
+  height: 40px
+  padding: 13px 11px 15px
+  color: #111
+  box-sizing: border-box
+  border-radius: 50%
+  box-shadow 0 5px 30px -5px rgba(0, 0, 0, .2)
+  background #fff
+  cursor: pointer
+  z-index: 9
+  opacity: 0
+  transition:all .4s ease-in-out 0s
+  @media mq-mobile
+    right 50%
+    transform translate3d(20px, 0, 0)
 
-    &.on
-      opacity: 1
-      &:hover
-      &:focus
-        opacity: .9
-    ul
-      position: relative
-      height: 12px
-      width: 18px
-      margin: 0
-      padding: 0
+  &.on
+    opacity: 1
+    &:hover
+    &:focus
+      opacity: .9
+  ul
+    position: relative
+    height: 12px
+    width: 18px
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+      position: absolute
+      width: 14px
+      height: 1.5px
       list-style: none
-      li
-        position: absolute
-        width: 14px
-        height: 1.5px
-        list-style: none
-        background: #111
-        &:first-child
-          left: 0
-          bottom: 0
-          transform-origin: 0 100%
-          transform: rotate(-45deg)
-        &:last-child
-          right: 0
-          bottom: 0
-          transform-origin: 100% 100%
-          transform: rotate(45deg)
+      background: #111
+      &:first-child
+        left: 0
+        bottom: 0
+        transform-origin: 0 100%
+        transform: rotate(-45deg)
+      &:last-child
+        right: 0
+        bottom: 0
+        transform-origin: 100% 100%
+        transform: rotate(45deg)
