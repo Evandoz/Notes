@@ -11,7 +11,7 @@
     </div>
     <%- partial('_partial/paginator') %>
   </main>
-  <aside class="aside">
+  <aside id="side" class="aside">
     <% theme.widgets.forEach(function(widget){ %>
       <%- partial('_widget/' + widget) %>
     <% }) %>

@@ -117,8 +117,16 @@
     content ")"
     right 0
 
-.aside.post .widget
-  margin-top 0
+.aside
+  &.sticky
+    @media mq-moblet
+      position fixed
+      top 0
+      .widget:first-child
+        margin-top 0
+  &.post
+    .widget:first-child
+      margin-top 0
 
 .toc
   width inherit
@@ -127,10 +135,6 @@
 
   @media mq-mobile
     display none
-
-.sticky
-  position fixed
-  top 0
 
 .toc-title
   padding 0 5px 10px 5px
