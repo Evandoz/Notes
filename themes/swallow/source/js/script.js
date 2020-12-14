@@ -21,8 +21,8 @@
     $("html, body").animate({ scrollTop: 0 }, 0);
   });
   if ($side.length > 0) {
-    var sidePosTop = $side.offset().top,
-      sidePosLeft = $side.offset().left;
+    var sidePosTop = $toc.offset().top,
+      sidePosLeft = $toc.offset().left;
   }
   $viewport.scroll(function (event) {
     var scrollTop = $viewport.scrollTop(), $marginTop = 0;
@@ -35,9 +35,9 @@
     }
     if (sidePosTop > 80) $marginTop = 70;
     if (scrollTop > sidePosTop - $marginTop) {
-      $side.addClass("sticky").css("left", sidePosLeft);
+      $toc.addClass("sticky").css("left", sidePosLeft);
     } else {
-      $side.removeClass("sticky").css("left", null);
+      $toc.removeClass("sticky").css("left", null);
     }
 
     if ($toc.length) {

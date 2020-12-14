@@ -1,11 +1,8 @@
 <header id="header" class="header <% if (is_home()) { %>is-home<% } else if (is_post()) { %>is-post<% } else { %>is-page<% } %>">
   <div class="outer">
-    <% if (!is_home()) { %>
-      <div class="logo">
-        <a class="title" href="<%- url_for() %>"><%= config.title %></a>
-      </div>
-    <% } %>
-
+    <div class="logo">
+      <a class="title" href="<%- url_for() %>"><%= config.title %></a>
+    </div>
     <div class="nav">
       <ul id="nav-icon" class="nav-icon">
         <li></li><li></li><li></li>
@@ -21,5 +18,3 @@
 
   </div>
 </header>
-
-<div id="header-placeholder" class="header-placeholder"></div>

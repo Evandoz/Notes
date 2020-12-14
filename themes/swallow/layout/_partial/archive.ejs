@@ -1,4 +1,4 @@
-<div class="cover" style="background-image: url('<%- url_for(theme.banner) %>')">
+<div class="cover">
 <% if (is_archive()) { %>
   <% if(is_year()) { %>
     <%
@@ -15,7 +15,7 @@
   <% } %>
 </div>
 <div class="inner">
-  <div class="archive card">
+  <div class="archive">
 
   <% var last, year; %>
   <% page.posts.each(function(post){ %>
