@@ -1,5 +1,5 @@
 <% if (index) { %>
-  <div class="article-item card">
+  <div class="article-item">
     <%- partial('post/thumb') %>
     <div class="article-content">
       <%- partial('post/title') %>
@@ -7,7 +7,7 @@
         <% if (post.excerpt) { %>
           <%- post.excerpt %>
         <% } else { %>
-          <%- truncate(strip_html(post.content), {length: 90, omission: '...'}) %>
+          <%- truncate(strip_html(post.content), {length: 90, separator: ' '}) %>
         <% }%>
       </div>
       <div class="post-meta">
@@ -17,47 +17,50 @@
     </div>
   </div>
 <% } else { %>
-  <div class="outer">
-    <main class="main">
-      <article id="<%= post.slug %>" class="article card">
-        <%- partial('post/title') %>
-        <div class="post-meta">
-          <%- partial('post/date', {timeago: false, date_format: 'YYYY-MM-DD'}) %>
-          <%- partial('post/category') %>
-        </div>
-        <div id="post-content" class="post-content">
-          <%- post.content %>
-        </div>
-        <div class="post-footer">
-          <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
-        </div>
-      </article>
-      <!-- Pagination -->
-      <% if (post.prev || post.next){ %>
-        <div class="nagination card">
-          <% if (post.prev){ %>
-            <a href="<%- url_for(post.prev.path) %>" class="nagination-link"><%= __('newer') %>: <%= post.prev.title %></a>
-          <% } %>
-          <% if (post.next){ %>
-            <a href="<%- url_for(post.next.path) %>" class="nagination-link"><%= __('older') %>: <%= post.next.title %></a>
-          <% } %>
-        </div>
-      <% } %>
-      <!-- Comment -->
-      <!-- <% if (post.comments) { %>
-        <%- partial('comment') %>
-      <% } %> -->
-    </main>
-    <aside id="side" class="aside post">
-      <%- partial('_widget/profile') %>
+    <section class="article-header inner">
+      <img src="<%- url_for(theme.banner) %>" alt="banner">
+      <%- partial('post/thumb') %>
+      <%- partial('post/title') %>
+      <div class="post-meta">
+        <%- partial('post/date', {timeago: false, date_format: 'YYYY-MM-DD'}) %>
+        <%- partial('post/category') %>
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="<%= post.slug %>" class="article">
+          <div id="post-content" class="post-content">
+            <%- post.content %>
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        <% if (post.prev || post.next){ %>
+          <div class="nagination card">
+            <% if (post.prev){ %>
+              <a href="<%- url_for(post.prev.path) %>" class="nagination-link"><%= __('newer') %>: <%= post.prev.title %></a>
+            <% } %>
+            <% if (post.next){ %>
+              <a href="<%- url_for(post.next.path) %>" class="nagination-link"><%= __('older') %>: <%= post.next.title %></a>
+            <% } %>
+          </div>
+        <% } %>
+        <!-- Comment -->
+        <!-- <% if (post.comments) { %>
+          <%- partial('comment') %>
+        <% } %> -->
+      </div>
       <div id="toc" class="toc">
         <% if (toc(post.content) != ""){ %>
-          <h3 class="toc-title"><%= __('contents') %></h3>
           <%- toc(post.content, { class: "toc-content", list_number: false }) %>
         <% } else { %>
-          <h3 class="toc-title" style="text-align: center;"><%= __('none') %><%= __('contents') %></h3>
+          <li class="toc-title" style="text-align: center;"></li>
         <% } %>
       </div>
-    </aside>
-  </div>
+    </section>
 <% } %>

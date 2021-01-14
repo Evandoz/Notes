@@ -1,13 +1,13 @@
 <% if (page.photos && page.photos != ''){ %>
-  <div class="cover" style="background-image: url('<%- url_for(page.photos[0]) %>')">
+  <div class="cover">
 <% } else { %>
-  <div class="cover" style="background-image: url('<%- url_for(theme.banner) %>')">
+  <div class="cover">
 <% } %>
   <h2 class="title"><%= __('tag') %></h2>
   <p class="desc"><%= __('tags') %>：<%= site.tags.length %></p>
 </div>
 <div class="inner">
-  <div class="archive tag card">
+  <div class="archive tag">
     <% site.tags.each(function(tag) { %>
       <a class="tag-item" data-slug="<%= tag.slug %>" href="<%- url_for(tag.path) %>">
         <span class="tag-title"><%= tag.name %></span>

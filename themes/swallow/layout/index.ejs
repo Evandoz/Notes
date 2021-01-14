@@ -1,19 +1,13 @@
-<div class="cover" style="background-image: url('<%- url_for(theme.banner) %>')">
-  <h1 class="title" style="font-size: 2rem;font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;"><%= config.title %></h1>
-  <p class="desc"><%= config.description %></p>
+<div class="cover">
+
 </div>
 <div class="outer">
   <main class="main">
-    <div class="archive">
+    <div class="archive card">
       <% page.posts.forEach(function(post){ %>
         <%- partial('_partial/article', {post: post, index: true}) %>
       <% }) %>
     </div>
     <%- partial('_partial/paginator') %>
   </main>
-  <aside id="side" class="aside">
-    <% theme.widgets.forEach(function(widget){ %>
-      <%- partial('_widget/' + widget) %>
-    <% }) %>
-  </aside>
 </div>
