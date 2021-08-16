@@ -596,15 +596,15 @@ command-exists@^1.2.8:
   resolved "https://registry.npm.taobao.org/command-exists/download/command-exists-1.2.8.tgz#715acefdd1223b9c9b37110a149c6392c2852291"
   integrity sha1-cVrO/dEiO5ybNxEKFJxjksKFIpE=
 
+commander@^2.19.0:
+  version "2.20.3"
+  resolved "https://registry.npm.taobao.org/commander/download/commander-2.20.3.tgz?cache=0&sync_timestamp=1607933602027&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
+
 commander@^5.1.0:
   version "5.1.0"
   resolved "https://registry.npm.taobao.org/commander/download/commander-5.1.0.tgz?cache=0&sync_timestamp=1595168214577&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
   integrity sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=
-
-commander@~2.20.3:
-  version "2.20.3"
-  resolved "https://registry.npm.taobao.org/commander/download/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
-  integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
 
 commitizen@^4.0.3:
   version "4.0.3"
@@ -627,22 +627,22 @@ commitizen@^4.0.3:
     strip-bom "4.0.0"
     strip-json-comments "3.0.1"
 
-commitizen@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.npm.taobao.org/commitizen/download/commitizen-4.1.2.tgz#6095eb825fd3f0d3611df88e6803c69b23307e9a"
-  integrity sha1-YJXrgl/T8NNhHfiOaAPGmyMwfpo=
+commitizen@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/commitizen/download/commitizen-4.2.2.tgz?cache=0&sync_timestamp=1603222922415&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommitizen%2Fdownload%2Fcommitizen-4.2.2.tgz#1a93dd07208521ea1ebbf832593542dac714cc79"
+  integrity sha1-GpPdByCFIeoeu/gyWTVC2scUzHk=
   dependencies:
     cachedir "2.2.0"
-    cz-conventional-changelog "3.2.0"
+    cz-conventional-changelog "3.3.0"
     dedent "0.7.0"
     detect-indent "6.0.0"
     find-node-modules "2.0.0"
     find-root "1.1.0"
     fs-extra "8.1.0"
     glob "7.1.4"
-    inquirer "6.5.0"
+    inquirer "6.5.2"
     is-utf8 "^0.2.1"
-    lodash "4.17.15"
+    lodash "^4.17.20"
     minimist "1.2.5"
     strip-bom "4.0.0"
     strip-json-comments "3.0.1"
@@ -797,10 +797,10 @@ cz-conventional-changelog@3.0.1:
   optionalDependencies:
     "@commitlint/load" ">6.1.1"
 
-cz-conventional-changelog@3.2.0, cz-conventional-changelog@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.npm.taobao.org/cz-conventional-changelog/download/cz-conventional-changelog-3.2.0.tgz#6aef1f892d64113343d7e455529089ac9f20e477"
-  integrity sha1-au8fiS1kETND1+RVUpCJrJ8g5Hc=
+cz-conventional-changelog@3.3.0, cz-conventional-changelog@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npm.taobao.org/cz-conventional-changelog/download/cz-conventional-changelog-3.3.0.tgz#9246947c90404149b3fe2cf7ee91acad3b7d22d2"
+  integrity sha1-kkaUfJBAQUmz/iz37pGsrTt9ItI=
   dependencies:
     chalk "^2.4.1"
     commitizen "^4.0.3"
@@ -1379,10 +1379,10 @@ hexo-deployer-git@^2.1.0:
     moment "^2.18.0"
     swig-templates "^2.0.2"
 
-hexo-enhancer@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.npm.taobao.org/hexo-enhancer/download/hexo-enhancer-1.0.9.tgz#c4ab8ee76ca40b1b0663b7028eb461156a356302"
-  integrity sha1-xKuO52ykCxsGY7cCjrRhFWo1YwI=
+hexo-enhancer@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npm.taobao.org/hexo-enhancer/download/hexo-enhancer-1.0.10.tgz#397b788af1292c7f0ef9663a96fe220b11901421"
+  integrity sha1-OXt4ivEpLH8O+WY6lv4iCxGQFCE=
   dependencies:
     base-x "^3.0.5"
     buffer-crc32 "^0.2.13"
@@ -1447,14 +1447,14 @@ hexo-generator-index@^2.0.0:
     hexo-pagination "1.0.0"
     timsort "^0.3.0"
 
-hexo-generator-seo-friendly-sitemap@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.npm.taobao.org/hexo-generator-seo-friendly-sitemap/download/hexo-generator-seo-friendly-sitemap-0.0.25.tgz#73a02197bc65a38738a0d3927128e2e48ceb29ce"
-  integrity sha1-c6Ahl7xlo4c4oNOScSji5IzrKc4=
+hexo-generator-seo-friendly-sitemap@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npm.taobao.org/hexo-generator-seo-friendly-sitemap/download/hexo-generator-seo-friendly-sitemap-0.2.1.tgz#996a0c10ced51575d0d1aad59f65aad233946e87"
+  integrity sha1-mWoMEM7VFXXQ0arVn2Wq0jOUboc=
   dependencies:
     bluebird "3.5.4"
     ejs "2.6.1"
-    lodash "4.17.11"
+    lodash "4.17.12"
     moment "2.24.0"
     pretty-data "0.40.0"
     url-join "4.0.0"
@@ -1496,14 +1496,14 @@ hexo-log@^2.0.0:
   dependencies:
     chalk "^4.0.0"
 
-hexo-math@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npm.taobao.org/hexo-math/download/hexo-math-3.0.4.tgz#7965439f27ad54168c02536c817e62f1c2615fa5"
-  integrity sha1-eWVDnyetVBaMAlNsgX5i8cJhX6U=
+hexo-math@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npm.taobao.org/hexo-math/download/hexo-math-4.0.0.tgz#329a56a122466a55720536078f4d84da0e50238a"
+  integrity sha1-MppWoSJGalVyBTYHj02E2g5QI4o=
   dependencies:
-    html-entities "^1.1.3"
-    katex "^0.6.0"
-    underscore "^1.8.3"
+    hexo-util "^2.2.0"
+    katex "^0.12.0"
+    mathjax "^3.0.5"
 
 hexo-pagination@1.0.0:
   version "1.0.0"
@@ -1517,16 +1517,16 @@ hexo-renderer-ejs@^1.0.0:
   dependencies:
     ejs "^2.6.1"
 
-hexo-renderer-markdown-it@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npm.taobao.org/hexo-renderer-markdown-it/download/hexo-renderer-markdown-it-4.1.0.tgz#bfac6ad38afb2f21364699089515a33fd6f10c48"
-  integrity sha1-v6xq04r7LyE2RpkIlRWjP9bxDEg=
+hexo-renderer-markdown-it@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npm.taobao.org/hexo-renderer-markdown-it/download/hexo-renderer-markdown-it-5.0.0.tgz#bbc270a3154ed8b7c464573617ca35f35b4ff966"
+  integrity sha1-u8JwoxVO2LfEZFc2F8o181tP+WY=
   dependencies:
-    hexo-util "^1.7.0"
-    markdown-it "^10.0.0"
+    hexo-util "^2.1.0"
+    markdown-it "^11.0.0"
     markdown-it-abbr "^1.0.4"
     markdown-it-cjk-breaks "^1.1.2"
-    markdown-it-container "^2.0.0"
+    markdown-it-container "^3.0.0"
     markdown-it-deflist "^2.0.3"
     markdown-it-emoji "^1.4.0"
     markdown-it-footnote "^3.0.1"
@@ -1535,10 +1535,10 @@ hexo-renderer-markdown-it@^4.1.0:
     markdown-it-sub "^1.0.0"
     markdown-it-sup "^1.0.0"
 
-hexo-renderer-stylus@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/hexo-renderer-stylus/download/hexo-renderer-stylus-2.0.0.tgz#fbc89a06d33f5eecd5b120759d4af247fde0315d"
-  integrity sha1-+8iaBtM/XuzVsSB1nUryR/3gMV0=
+hexo-renderer-stylus@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/hexo-renderer-stylus/download/hexo-renderer-stylus-2.0.1.tgz#c65566e97e9058a52e46c82b0c45cf561f4b94cb"
+  integrity sha1-xlVm6X6QWKUuRsgrDEXPVh9LlMs=
   dependencies:
     nib "^1.1.2"
     stylus "^0.54.8"
@@ -1557,7 +1557,7 @@ hexo-server@^2.0.0:
     open "^7.0.0"
     serve-static "^1.14.1"
 
-hexo-util@^1.0.0, hexo-util@^1.7.0:
+hexo-util@^1.0.0:
   version "1.7.0"
   resolved "https://registry.npm.taobao.org/hexo-util/download/hexo-util-1.7.0.tgz#286940413399bba749f40d469760cfa9f8544d44"
   integrity sha1-KGlAQTOZu6dJ9A1Gl2DPqfhUTUQ=
@@ -1585,15 +1585,30 @@ hexo-util@^2.0.0, hexo-util@^2.2.0:
     strip-indent "^3.0.0"
     striptags "^3.1.1"
 
+hexo-util@^2.1.0, hexo-util@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npm.taobao.org/hexo-util/download/hexo-util-2.4.0.tgz#f5c0099a0a1718b3ad27061e5e4d1fb9eb7f2b41"
+  integrity sha1-9cAJmgoXGLOtJwYeXk0fuet/K0E=
+  dependencies:
+    bluebird "^3.5.2"
+    camel-case "^4.0.0"
+    cross-spawn "^7.0.0"
+    deepmerge "^4.2.2"
+    highlight.js "^10.0.0"
+    htmlparser2 "^4.0.0"
+    prismjs "^1.17.1"
+    strip-indent "^3.0.0"
+    striptags "^3.1.1"
+
 hexo-wordcount@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npm.taobao.org/hexo-wordcount/download/hexo-wordcount-6.0.1.tgz#5a60efc9d3c8e421956f2fd6683ca94a8a795264"
   integrity sha1-WmDvydPI5CGVby/WaDypSop5UmQ=
 
-hexo@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.npm.taobao.org/hexo/download/hexo-5.0.2.tgz?cache=0&sync_timestamp=1597044798724&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhexo%2Fdownload%2Fhexo-5.0.2.tgz#b7c593b26044ce2b7e0265a706218a7aba0b0070"
-  integrity sha1-t8WTsmBEzit+AmWnBiGKeroLAHA=
+hexo@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.npm.taobao.org/hexo/download/hexo-5.3.0.tgz#477362f13b676d7d79ecb353418ff830eb27761c"
+  integrity sha1-R3Ni8TtnbX157LNTQY/4MOsndhw=
   dependencies:
     abbrev "^1.1.1"
     archy "^1.0.0"
@@ -1604,7 +1619,7 @@ hexo@^5.0.2:
     hexo-fs "^3.1.0"
     hexo-i18n "^1.0.0"
     hexo-log "^2.0.0"
-    hexo-util "^2.2.0"
+    hexo-util "^2.4.0"
     js-yaml "^3.12.0"
     micromatch "^4.0.2"
     moment "^2.22.2"
@@ -1634,11 +1649,6 @@ homedir-polyfill@^1.0.1:
   integrity sha1-dDKYzvTlrz4ZQWH7rcwhUdOgWOg=
   dependencies:
     parse-passwd "^1.0.0"
-
-html-entities@^1.1.3:
-  version "1.2.1"
-  resolved "https://registry.npm.taobao.org/html-entities/download/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
-  integrity sha1-DfKTUfByEWNRXfueVUPl9u7VFi8=
 
 htmlparser2@^4.0.0:
   version "4.1.0"
@@ -1717,6 +1727,25 @@ inquirer@6.5.0:
   version "6.5.0"
   resolved "https://registry.npm.taobao.org/inquirer/download/inquirer-6.5.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Finquirer%2Fdownload%2Finquirer-6.5.0.tgz#2303317efc9a4ea7ec2e2df6f86569b734accf42"
   integrity sha1-IwMxfvyaTqfsLi32+GVptzSsz0I=
+  dependencies:
+    ansi-escapes "^3.2.0"
+    chalk "^2.4.2"
+    cli-cursor "^2.1.0"
+    cli-width "^2.0.0"
+    external-editor "^3.0.3"
+    figures "^2.0.0"
+    lodash "^4.17.12"
+    mute-stream "0.0.7"
+    run-async "^2.2.0"
+    rxjs "^6.4.0"
+    string-width "^2.1.0"
+    strip-ansi "^5.1.0"
+    through "^2.3.6"
+
+inquirer@6.5.2:
+  version "6.5.2"
+  resolved "https://registry.npm.taobao.org/inquirer/download/inquirer-6.5.2.tgz?cache=0&sync_timestamp=1595471629455&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Finquirer%2Fdownload%2Finquirer-6.5.2.tgz#ad50942375d036d327ff528c08bd5fab089928ca"
+  integrity sha1-rVCUI3XQNtMn/1KMCL1fqwiZKMo=
   dependencies:
     ansi-escapes "^3.2.0"
     chalk "^2.4.2"
@@ -1961,12 +1990,12 @@ jsonparse@^1.2.0:
   resolved "https://registry.npm.taobao.org/jsonparse/download/jsonparse-1.3.1.tgz#3f4dae4a91fac315f71062f8521cc239f1366280"
   integrity sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=
 
-katex@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.npm.taobao.org/katex/download/katex-0.6.0.tgz#12418e09121c05c92041b6b3b9fb6bab213cb6f3"
-  integrity sha1-EkGOCRIcBckgQbazuftrqyE8tvM=
+katex@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.npm.taobao.org/katex/download/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
+  integrity sha1-L7HGZdvSsEPtz4ofXFVfRr6qDLk=
   dependencies:
-    match-at "^0.1.0"
+    commander "^2.19.0"
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
@@ -1997,10 +2026,10 @@ lazy-cache@^1.0.3:
   resolved "https://registry.npm.taobao.org/lazy-cache/download/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
   integrity sha1-odePw6UEdMuAhF07O24dpJpEbo4=
 
-linkify-it@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.npm.taobao.org/linkify-it/download/linkify-it-2.2.0.tgz#e3b54697e78bf915c70a38acd78fd09e0058b1cf"
-  integrity sha1-47VGl+eL+RXHCjis14/QngBYsc8=
+linkify-it@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.npm.taobao.org/linkify-it/download/linkify-it-3.0.2.tgz#f55eeb8bc1d3ae754049e124ab3bb56d97797fb8"
+  integrity sha1-9V7ri8HTrnVASeEkqzu1bZd5f7g=
   dependencies:
     uc.micro "^1.0.1"
 
@@ -2009,10 +2038,10 @@ lodash.map@^4.5.1:
   resolved "https://registry.npm.taobao.org/lodash.map/download/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
   integrity sha1-dx7Hg540c9nEzeKLGTlMNWL09tM=
 
-lodash@4.17.11:
-  version "4.17.11"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-  integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
+lodash@4.17.12:
+  version "4.17.12"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.12.tgz?cache=0&sync_timestamp=1602337231142&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.12.tgz#a712c74fdc31f7ecb20fe44f157d802d208097ef"
+  integrity sha1-pxLHT9wx9+yyD+RPFX2ALSCAl+8=
 
 lodash@4.17.14:
   version "4.17.14"
@@ -2028,6 +2057,11 @@ lodash@^3.2.0:
   version "3.10.1"
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
+
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz?cache=0&sync_timestamp=1602337231142&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
 
 longest@^1.0.1:
   version "1.0.1"
@@ -2077,10 +2111,10 @@ markdown-it-cjk-breaks@^1.1.2:
   dependencies:
     eastasianwidth "~0.2.0"
 
-markdown-it-container@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/markdown-it-container/download/markdown-it-container-2.0.0.tgz#0019b43fd02eefece2f1960a2895fba81a404695"
-  integrity sha1-ABm0P9Au7+zi8ZYKKJX7qBpARpU=
+markdown-it-container@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/markdown-it-container/download/markdown-it-container-3.0.0.tgz#1d19b06040a020f9a827577bb7dbf67aa5de9a5b"
+  integrity sha1-HRmwYECgIPmoJ1d7t9v2eqXemls=
 
 markdown-it-deflist@^2.0.3:
   version "2.0.3"
@@ -2117,21 +2151,21 @@ markdown-it-sup@^1.0.0:
   resolved "https://registry.npm.taobao.org/markdown-it-sup/download/markdown-it-sup-1.0.0.tgz#cb9c9ff91a5255ac08f3fd3d63286e15df0a1fc3"
   integrity sha1-y5yf+RpSVawI8/09YyhuFd8KH8M=
 
-markdown-it@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-10.0.0.tgz#abfc64f141b1722d663402044e43927f1f50a8dc"
-  integrity sha1-q/xk8UGxci1mNAIETkOSfx9QqNw=
+markdown-it@^11.0.0:
+  version "11.0.1"
+  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-11.0.1.tgz#b54f15ec2a2193efa66dda1eb4173baea08993d6"
+  integrity sha1-tU8V7Cohk++mbdoetBc7rqCJk9Y=
   dependencies:
     argparse "^1.0.7"
     entities "~2.0.0"
-    linkify-it "^2.0.0"
+    linkify-it "^3.0.1"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-match-at@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.npm.taobao.org/match-at/download/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
-  integrity sha1-JdBA0pF3dwTV5lVru3kjDsLeBUA=
+mathjax@^3.0.5:
+  version "3.1.2"
+  resolved "https://registry.npm.taobao.org/mathjax/download/mathjax-3.1.2.tgz#95c0d45ce2330ef7b6a815cebe7d61ecc26bbabd"
+  integrity sha1-lcDUXOIzDve2qBXOvn1h7MJrur0=
 
 md5@^2.2.1:
   version "2.2.1"
