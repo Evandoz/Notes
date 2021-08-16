@@ -7,7 +7,6 @@
     "serve": "hexo serve",
     "build": "hexo generate",
     "deploy": "hexo deploy",
-    "commit": "git-cz"
   },
   "hexo": {
     "version": "5.3.0"
@@ -33,7 +32,6 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.3.0"
   },
   "config": {
