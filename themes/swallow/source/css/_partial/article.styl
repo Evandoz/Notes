@@ -1,22 +1,10 @@
 /* ========== article card =========== */
 .article-item
   position relative
-  margin 0 0 20px 0
+  margin 0 0 60px 0
   font-size 0
 
-  &:nth-child(2n+1)
-    .article-thumb
-      & + .article-content
-        margin-left calc(40% + 10px)
-  &:nth-child(2n)
-    .article-thumb
-      right 30px
-
 .article-thumb
-  position absolute
-  top 30px
-  bottom 30px
-  display inline-block
   width calc(40% - 40px)
   box-sizing border-box
   overflow hidden
@@ -58,6 +46,13 @@
 
       &:before
         background rgba(0, 0, 0, .4)
+
+.article-header img
+  width 100%
+  height auto
+
+.article-body
+  position relative
 
 .article-content
   position relative
@@ -274,13 +269,81 @@
       margin-top 0
 
 .post-footer
-  margin-top 40px
+  margin-top 50px
 
 .post-copyright
   line-height 1.8
   font-size .875rem
   color color-font
   text-align center
+
+.toc
+  position absolute
+  top 0
+  left 920px
+  max-width calc(50vw - 560px)
+  padding 20px 0
+  transition top .2s ease-in-out
+
+  @media mq-mobile
+    display none
+
+  &.sticky
+    @media mq-moblet
+      position fixed
+      top 0
+      .widget:first-child
+        margin-top 0
+  &.post
+    .widget:first-child
+      margin-top 0
+
+.toc-title
+  padding 0 5px 10px 5px
+
+.toc-content-level-2
+  > .toc-content-link
+    font-weight 600
+
+.toc-content-link
+  position relative
+  display block
+  padding 5px 20px
+  color #999
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+  transition all .2s ease-in-out
+
+  &:before
+    content ""
+    position absolute
+    top calc(50% - 2px)
+    left 0
+    height 4px
+    width 12px
+    border-radius 2px
+    background #999
+  .toc-content-text
+    opacity 0
+  &.active
+    color #000
+    .toc-content-text
+      opacity 1
+
+.toc-content-item
+  .toc-content-child
+    height 0
+    overflow hidden
+    transition all .2s ease-in-out
+    &.active
+      height 100%
+  > .toc-content-child
+      .toc-content-link
+        padding-left 40px
+
+        &:before
+          left 28px
 
 /* =========== nagination =============== */
 
