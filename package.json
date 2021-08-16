@@ -6,7 +6,7 @@
     "clean": "hexo clean",
     "serve": "hexo serve",
     "build": "hexo generate",
-    "deploy": "hexo deploy",
+    "deploy": "hexo deploy"
   },
   "hexo": {
     "version": "5.3.0"
@@ -32,7 +32,7 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "3.3.0"
   },
   "config": {
     "commitizen": {
