@@ -178,5 +178,5 @@ sitemap:
 deploy:
   type: git
   repo:
-    github: git@github.com:Evandoz/Evandoz.git
+    github: git@github.com:Evandoz/Notes.git
   branch: gh-pages
