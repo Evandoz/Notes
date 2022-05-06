@@ -10,8 +10,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Build and Deploy
-      uses: renzhaosy/hexo-deploy-action@master
+    - name: Hexo Deploy Action
+      uses: renzhaosy/hexo-deploy-action@0.0.1
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_REPOSITORY: Evandoz/Notes # The repository the action should deploy to.
