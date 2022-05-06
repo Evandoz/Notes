@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>ArchLinux 安装之 AUR | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="ArchLinux,AUR">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/e28553598739.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">ArchLinux 安装之 AUR</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2019-03-06T16:00:00.000Z">2019-03-07</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a> · <a class="category-link" href="/Notes/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ArchLinux/">ArchLinux</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="操作系统/ArchLinux/20190307-ArchLinux 安装之 AUR" class="article">
+          <div id="post-content" class="post-content">
+            <p>AUR 全称 Arch User Repository，是为用户而建、由用户主导的 Arch 软件仓库，相当于Debian/Ubuntu 下的 PPA。为了简化的AUR软件包的安装流程，随之诞生了AUR工具，称之为AUR Helper。</p>
+<p>在使用 Arch 用户软件仓库时，AUR 工具可以自动完成某些任务。大多数工具可以自动下载包的 PKGBUILD 并构建软件包。大多数情况下，pacman 不会为 AUR 软件包检查更新，所以一些工具也可以自动从 AUR 检查更新并再次构建新版本的软件包。</p>
+<p>注意，即使软件包自身并没有更新，但由于某些库文件的更新，您可能仍需重新构建某些软件包。由于AUR工具并不被官方支持，所以它们不在官方软件仓库中提供。</p>
+<p>Archlinux 官方文档中列举了相应的 AUR 工具：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://wiki.archlinux.org/index.php/AUR_helpers">https://wiki.archlinux.org/index.php/AUR_helpers</a></p>
+<p>另外，来自 Linux 中国的推荐与介绍：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://linux.cn/article-9925-1.html">Yaourt 已死！在 Arch 上使用这些替代品</a></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/c666d8622e35" class="nagination-link">上篇: ArchLinux 安装之中文输入法</a>
+            
+            
+              <a href="/Notes/archives/b75bd9eb5fbd" class="nagination-link">下篇: ArchLinux 安装之桌面环境</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <li class="toc-title" style="text-align: center;"></li>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

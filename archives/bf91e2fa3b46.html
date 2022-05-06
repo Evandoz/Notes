@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>图的邻接表存储和遍历 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="数据结构,邻接表">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/bf91e2fa3b46.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">图的邻接表存储和遍历</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-08-06T16:00:00.000Z">2016-08-07</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> · <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="数据结构/图/20160807-图的邻接表存储和遍历" class="article">
+          <div id="post-content" class="post-content">
+            <p>图是一种经典的数据结构，在实际的生产过程中有广泛的应用，本文将结合代码简单介绍有关图的相关基础知识点。</p>
+<a id="more"></a>
+<h2 id="基本概念"><a class="headerlink" href="#基本概念"></a>基本概念</h2>
+<p><strong>图</strong>(Graph)是一种较线性表和树更为复杂的结构。图有两个重要元素构成，顶点和弧边，弧边是相关顶点之间的连线，具有方向性，根据方向性的有无，图可以分为有向图和无向图。</p>
+<p>(1) 无向图。在一个图中，如果任意两个顶点构成的偶对（vi, vj）∈E 是无序的，即顶点之间的连线是没有方向的，则称该图为无向图。如下图就是一个无向图。<br>
+(2) 有向图。在一个图中，如果任意两个顶点构成的偶对（vi, vj）∈E 是有序的，即顶点之间的连线是有方向的，则称该图为有向图。</p>
+<p><img src="https://raw.githubusercontent.com/Evandoz/blob/master/Graph/Graph.jpg" alt="无向图"><span class="caption">无向图</span></p>
+<h2 id="抽象数据类型定义"><a class="headerlink" href="#抽象数据类型定义"></a>抽象数据类型定义</h2>
+<blockquote>
+<p>ADT  Graph{<br>
+数据对象：n=n是具有相同特征的数据元素集合，称为顶点集。<br>
+数据关系：DR={&lt;v,w&gt;|v,w∈n且&lt;v,w&gt;表示从v指向w的弧<br>
+}</p>
+</blockquote>
+<h2 id="邻接表存储"><a class="headerlink" href="#邻接表存储"></a>邻接表存储</h2>
+<p>邻接表是图的一种主要存储结构，它由表头结点和表结点两部分组成，其中每个顶点均对应一个存储在数组中的表头结点。简言之，对图的每个顶点建立一个容器（n个顶点建立n个容器），第i个容器中的结点包含顶点Vi的所有邻接顶点。<br>
+在有向图中，描述每个点向别的节点连的边（点a-&gt;点b这种情况）；在无向图中，描述每个点所有的边(点a-点b这种情况)。</p>
+<p>相比于邻接矩阵存储，邻接表更适用于 <strong>边稀疏</strong> 的情况，能节省很多空间。</p>
+<p><img src="https://raw.githubusercontent.com/Evandoz/blob/master/Graph/AdjacencyList.png" alt="邻接表"><span class="caption">邻接表</span></p>
+<h2 id="代码实现"><a class="headerlink" href="#代码实现"></a>代码实现</h2>
+<h3 id="顶点和弧边的定义"><a class="headerlink" href="#顶点和弧边的定义"></a>顶点和弧边的定义</h3>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MAX_VERTEX_NUM</span> <span class="token expression"><span class="token number">20</span></span></span>
+
+<span class="token comment">// 有向图，有向网，无向图，无向网</span>
+<span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">&#123;</span> DG<span class="token punctuation">,</span> DN<span class="token punctuation">,</span> UDG<span class="token punctuation">,</span> UDN <span class="token punctuation">&#125;</span> GraphKind<span class="token punctuation">;</span>
+
+<span class="token comment">// 顶点类型</span>
+<span class="token keyword">typedef</span> <span class="token keyword">char</span> VertexType<span class="token punctuation">;</span>
+
+<span class="token comment">// 边表节点</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">ArcNode</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> adjvex<span class="token punctuation">;</span> <span class="token comment">// 该边所指节点位置</span>
+    <span class="token keyword">struct</span> <span class="token class-name">ArcNode</span> <span class="token operator">*</span>nextarc<span class="token punctuation">;</span> <span class="token comment">//下一个邻接点（下一条弧）</span>
+    <span class="token comment">//InfoType *info;</span>
+    <span class="token comment">// 该边相关信息的指针，通常指带权图的权值，</span>
+    <span class="token comment">// 此处做一些简化，直接定义为权值</span>
+    <span class="token keyword">int</span> weight<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> ArcNode<span class="token punctuation">,</span> <span class="token operator">*</span>Arc<span class="token punctuation">;</span>
+
+<span class="token comment">// 顶点表节点</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">VexNode</span>
+<span class="token punctuation">&#123;</span>
+    VertexType data<span class="token punctuation">;</span> <span class="token comment">// 节点</span>
+    ArcNode <span class="token operator">*</span>firstarc<span class="token punctuation">;</span> <span class="token comment">// 边表头节点指针</span>
+<span class="token punctuation">&#125;</span> VexNode<span class="token punctuation">,</span> AdjList<span class="token punctuation">[</span>MAX_VERTEX_NUM<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 邻接表存储图</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span>
+<span class="token punctuation">&#123;</span>
+    AdjList vertices<span class="token punctuation">;</span> <span class="token comment">// 顶点数组</span>
+    <span class="token keyword">int</span> vexnum<span class="token punctuation">,</span> arcnum<span class="token punctuation">;</span> <span class="token comment">// 顶点数、边数</span>
+    GraphKind kind<span class="token punctuation">;</span> <span class="token comment">//图的种类标志</span>
+<span class="token punctuation">&#125;</span> ALGraph<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="图的创建之节点插入"><a class="headerlink" href="#图的创建之节点插入"></a>图的创建之节点插入</h3>
+<p>使用头插法添加节点</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 邻接表头插，(i,j)为弧的两个顶点，带权图增加一个w，记录权值</span>
+Status <span class="token function">HeadInsertArc</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">,</span> <span class="token keyword">int</span> weight<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    ArcNode <span class="token operator">*</span>e<span class="token punctuation">;</span>
+    e <span class="token operator">=</span> <span class="token punctuation">(</span>ArcNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>ArcNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    e<span class="token operator">-></span>adjvex <span class="token operator">=</span> j<span class="token punctuation">;</span>
+    e<span class="token operator">-></span>weight <span class="token operator">=</span> weight<span class="token punctuation">;</span> <span class="token comment">// 对于带权图增加一个w，记录权值</span>
+    e<span class="token operator">-></span>nextarc <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+    G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc <span class="token operator">=</span> e<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="深度优先遍历"><a class="headerlink" href="#深度优先遍历"></a>深度优先遍历</h3>
+<p>在G中任选一顶点v为初始出发点(源点)，则深度优先遍历可定义如下：首先访问出发点v，并将其标记为已访问过；然后依次从v出发搜索v的每个邻接点w。若w未曾访问过，则以w为新的出发点继续进行深度优先遍历，直至图中所有和源点v有路径相通的顶点(亦称为从源点可达的顶点)均已被访问为止。若此时图中仍有未访问的顶点，则另选一个尚未访问的顶点作为新的源点重复上述过程，直至图中所有顶点均已被访问为止。</p>
+<p>非递归深度搜索 DFS：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//深度搜索DFS--非递归（需要将之前访问过的邻接点存入栈）</span>
+<span class="token keyword">void</span> <span class="token function">DFS_Non_Recursion</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>visited<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    SqStack S<span class="token punctuation">;</span> <span class="token function">InitStack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArcNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"(%d)%c "</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">PushStack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>S<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 栈顶为当前层的前驱</span>
+            p <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span><span class="token function">GetTop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 当前层该节点未访问，没有走到头则访问</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token punctuation">&#123;</span>
+                    visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"(%d)%c "</span><span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">,</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">PushStack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>S<span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment">// 继续到下一层</span>
+                    p <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token comment">// 当前层该节点已访问，已经走到头，则访问该节点相同前驱的下一个节点</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">&#123;</span>
+                    p <span class="token operator">=</span> p<span class="token operator">-></span>nextarc<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">// 当前层没有节点了或者当前层节点全部已访问</span>
+            <span class="token comment">// 栈顶未当前层的前驱（上一层），弹出栈顶，回到上一层</span>
+            <span class="token function">PopStack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>S<span class="token punctuation">,</span> <span class="token operator">&amp;</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>递归深度搜索 DFS：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 深度优先搜索DFS--递归</span>
+<span class="token keyword">void</span> <span class="token function">DFS_Recursion</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>visited<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    ArcNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"(%d)%c "</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token function">DFS_Recursion</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>nextarc<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="广度优先遍历"><a class="headerlink" href="#广度优先遍历"></a>广度优先遍历</h3>
+<p>从图中某个顶点V0出发，并访问此顶点；然后访问V0的各个未曾访问的邻接点W1，W2，…,Wk;然后,依次从W1,W2,…,Wk出发访问各自未被访问的邻接点；重复步骤第二个步骤，直到全部顶点都被访问为止。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 广度优先搜索BFS</span>
+<span class="token keyword">void</span> <span class="token function">BFS</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>visited<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    SqQueue Q<span class="token punctuation">;</span> <span class="token function">InitQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ArcNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"(%d)%c "</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">EnQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 记录顶点位置即可</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">QueueEmpty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token function">DeQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> <span class="token operator">&amp;</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 复用i</span>
+            p <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token punctuation">&#123;</span>
+                    visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"(%d)%c "</span><span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">,</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">EnQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                p <span class="token operator">=</span> p<span class="token operator">-></span>nextarc<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完整代码可参见：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Evandoz/Data-Structures/tree/master/Graph/ALGraph.h">GitHub</a></p>
+<p><strong>DONE！</strong></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/6b0c0645e316" class="nagination-link">上篇: 无向图的连通分量和生成树</a>
+            
+            
+              <a href="/Notes/archives/dbf56086efb9" class="nagination-link">下篇: 图的邻接矩阵存储和遍历</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-content-text">基本概念</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-content-text">抽象数据类型定义</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8%E5%AD%98%E5%82%A8"><span class="toc-content-text">邻接表存储</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-content-text">代码实现</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E9%A1%B6%E7%82%B9%E5%92%8C%E5%BC%A7%E8%BE%B9%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-content-text">顶点和弧边的定义</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%9B%BE%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B9%8B%E8%8A%82%E7%82%B9%E6%8F%92%E5%85%A5"><span class="toc-content-text">图的创建之节点插入</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86"><span class="toc-content-text">深度优先遍历</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86"><span class="toc-content-text">广度优先遍历</span></a></li></ol></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

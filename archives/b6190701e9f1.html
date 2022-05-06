@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Node-gyp 使用 VS 2019 构建工具 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="vue-cli3,nodejs,node-gyp,vue,vs2019">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/b6190701e9f1.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">Node-gyp 使用 VS 2019 构建工具</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2019-02-26T16:00:00.000Z">2019-02-27</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a> · <a class="category-link" href="/Notes/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Vue/">Vue</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="前端开发/Vue/20190227-Node-gyp 使用 VS 2019 构建工具" class="article">
+          <div id="post-content" class="post-content">
+            <p>使用 Vue-cli 3 创建 Vue 工程后，安装依赖包报错，报错提示是 MSVC 编译器的问题:</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/nodejs/node-gyp/issues/119">NPM fails on msbuild.exe with exit code 1 · Issue #119 · nodejs/node-gyp</a></p>
+<p>根据 Github 上 node-gyp 库的 README 提示，该依赖包需要 Python 环境以及 C++ 编译器，其中 Python 推荐 Version 2.7，对于 Python 3.x 是不支持的，而 C++ 编译器因平台而异，Unix/Linux 平台就是 GCC，MAC 平台就是 Xcode，而 Windows 平台就是 MSVC 了。然而问题来了，当前 node-gyp 只更新到使用 VS 2017，对于最新的 VS 2019并未支持。</p>
+<p>node-gyp 源码显示，node-gyp 是通过 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/nodejs/node-gyp/blob/master/lib/configure.js#L147-L158">configure.js</a> 来读取，根据</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/nodejs/node-gyp/issues/1663">node-gyp is unable to find msbuild if VS2019 is installed · Issue #1663 · nodejs/node-gyp</a><br>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/nodejs/node-gyp/issues/1688">node-gyp failed to build with msbuild 15 · Issue #1688 · nodejs/node-gyp</a></p>
+<p>对原文件进行修改</p>
+<pre class="line-numbers language-none"><code class="language-none">if (vsSetup) &#123;
+  gyp.opts.msvs_version &#x3D; &#39;2015&#39;
+  process.env[&#39;GYP_MSVS_VERSION&#39;] &#x3D; 2015
+  process.env[&#39;GYP_MSVS_OVERRIDE_PATH&#39;] &#x3D; vsSetup.path
+  &#x2F;* defaults[&#39;msbuild_toolset&#39;] &#x3D; &#39;v141&#39; *&#x2F;
+  defaults[&#39;msbuild_toolset&#39;] &#x3D; &#39;v142&#39;
+  defaults[&#39;msvs_windows_target_platform_version&#39;] &#x3D; vsSetup.sdk
+  &#x2F;* variables[&#39;msbuild_path&#39;] &#x3D; path.join(vsSetup.path, &#39;MSBuild&#39;, &#39;15.0&#39;,
+                                           &#39;Bin&#39;, &#39;MSBuild.exe&#39;) *&#x2F;
+  variables[&#39;msbuild_path&#39;] &#x3D; path.join(vsSetup.path, &#39;MSBuild&#39;, &#39;Current&#39;,
+                                           &#39;Bin&#39;, &#39;MSBuild.exe&#39;)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>需要修改的就是 MSB 构建工具的版本以及路径，<br>
+需要注意的是:</p>
+<ol>
+<li>构建工具的版本号取决于安装 VS 2019 时的具体选择（最新为 v142）</li>
+<li>VS 2019 的安装路径与之前有所不同，由原来的内部版本号（如：14.0) 变更为 Current</li>
+<li>做好文件备份</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Evandoz/blob/master/NPM/node-gyp.png" alt="VS 2019"><span class="caption">VS 2019</span></p>
+<p>该文件在计算机上的具体位置为：</p>
+<pre class="line-numbers language-none"><code class="language-none">X:\nodejs\node_modules\npm\node_modules\node-gyp\lib\configure.js L152-L163 (nodejs 安装目录下)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>另外：</p>
+<ol>
+<li>如果未使用 VS 2019，譬如 VS 2015、VS 2017 等，无需修改任何东西或者根据官方说明进行设置即可</li>
+<li>node-gyp 还依赖于 Python 环境（推荐 v2.7，不支持 v3.x），node-gyp 的 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/nodejs/node-gyp/blob/master/README.md">README</a> 有说明</li>
+</ol>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/1ae44fbeb9d4" class="nagination-link">上篇: ArchLinux 安装之 GPT+UEFI+Windows10 双系统</a>
+            
+            
+              <a href="/Notes/archives/ce60bce7903b" class="nagination-link">下篇: 使用 bcdboot 重建 Windows 系统引导</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <li class="toc-title" style="text-align: center;"></li>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

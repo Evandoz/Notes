@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>B+ 树 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="数据结构,B+ 树">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/cd0525b39a81.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">B+ 树</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-07-24T16:00:00.000Z">2016-07-25</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> · <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE%E8%A1%A8/">查找表</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="数据结构/查找表/20160725-B+ 树" class="article">
+          <div id="post-content" class="post-content">
+            <h2 id="B-树"><a class="headerlink" href="#B-树"></a>B+ 树</h2>
+<p>B+ 树是应数据库所需出现的一种 B 树的变形树，严格来讲，它已经不是标准定义的树了。<br>
+一棵 m 阶的 B+ 树与 B 树的<strong>区别</strong>在于：<br>
+(1) 节点中关键字的数量和子树的数量相等，即有 \(n\) 棵子树的节点同样有 \(n\) 个关键字 (\(⌈\frac{m}{2}⌉≤n≤m\)) ；<br>
+(2) 所有叶子节点包含全部关键字和指向相应记录的指针，并且叶子节点本身按照关键字大小自小到大顺序链接；<br>
+(3) 所有非终端节点可以视为索引部分，节点中仅包含其子树中的最大关键字及相应的子树指针。</p>
+<p>根据 B+ 树的定义可以发现，它其实类似于<code>分块查找</code>，也称作<code>索引顺序查找</code>。</p>
+<h2 id="B-树的查找"><a class="headerlink" href="#B-树的查找"></a>B+ 树的查找</h2>
+<p>B+ 树上通常有两个头指针，一个指向根节点，另一个指向关键字最小的叶子节点。因此，B+ 树可以进行两种查找运算：一种是从最小关键字开始的顺序查找，另一种是从根节点开始的多路查找。</p>
+<p>从根开始的多路查找与 B 树不同的地方是：如果非终端节点上的关键字等于给定值，并不终止，而是继续向下知道叶子节点，因为非终端节点只是索引，所有关键字都在叶子上。<br>
+因此，在 B+ 树上查找，无论成功与否，每次查找都走了一条从根到叶子的路径。</p>
+<h2 id="B-树的插入"><a class="headerlink" href="#B-树的插入"></a>B+ 树的插入</h2>
+<p>B+ 树的插入仅在叶子节点进行，关键字数量大于 \(m\) ，分裂操作与 B+ 树相同</p>
+<h2 id="B-树的删除"><a class="headerlink" href="#B-树的删除"></a>B+ 树的删除</h2>
+<p>B+ 树的删除也仅在叶子节点进行，关键字数量小于 \(⌈\frac{m}{2}⌉\) ，合并操作与 B 树相同</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zhuanlan.zhihu.com/p/50112182">POLARDB · B+树并发控制机制的前世今生</a></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/dbf56086efb9" class="nagination-link">上篇: 图的邻接矩阵存储和遍历</a>
+            
+            
+              <a href="/Notes/archives/fe6b244a48c6" class="nagination-link">下篇: B 树</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#B-%E6%A0%91"><span class="toc-content-text">B+ 树</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#B-%E6%A0%91%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-content-text">B+ 树的查找</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#B-%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5"><span class="toc-content-text">B+ 树的插入</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#B-%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-content-text">B+ 树的删除</span></a></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

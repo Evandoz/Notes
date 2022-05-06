@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>长整数相加 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="线性表的应用">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/7bc32dd9cc9e.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">长整数相加</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-04-12T16:00:00.000Z">2016-04-13</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> · <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="数据结构/线性表/20160413-长整数相加" class="article">
+          <div id="post-content" class="post-content">
+            <h2 id="问题描述"><a class="headerlink" href="#问题描述"></a>问题描述</h2>
+<p>整型长度限制导致无法进行超过限制的长整数相加。</p>
+<h2 id="解决方案"><a class="headerlink" href="#解决方案"></a>解决方案</h2>
+<p>链表存储</p>
+<h2 id="实现"><a class="headerlink" href="#实现"></a>实现</h2>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">node</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">char</span> data<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">node</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>LNode<span class="token punctuation">;</span>
+<span class="token comment">// 创建链表，带头结点</span>
+LNode <span class="token operator">*</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    LNode <span class="token operator">*</span>head<span class="token punctuation">;</span>
+    head <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    head<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 头插法，先插的元素排在后面</span>
+LNode <span class="token operator">*</span><span class="token function">insert</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span>head<span class="token punctuation">,</span> <span class="token keyword">char</span> value<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    LNode <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token operator">*</span>t<span class="token punctuation">;</span>
+    t <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    p <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p<span class="token operator">-></span>data <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> t<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    t<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 打印链表</span>
+LNode <span class="token operator">*</span><span class="token function">print</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span>head<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    LNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    p <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token punctuation">)</span>  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span>p<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 相加，低位到高位</span>
+LNode<span class="token operator">*</span> <span class="token function">add</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span>head1<span class="token punctuation">,</span> LNode <span class="token operator">*</span>head2<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    LNode <span class="token operator">*</span>p1<span class="token punctuation">,</span> <span class="token operator">*</span>p2<span class="token punctuation">,</span> <span class="token operator">*</span>head<span class="token punctuation">;</span>
+    head <span class="token operator">=</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p1 <span class="token operator">=</span> head1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    p2 <span class="token operator">=</span> head2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> tmp<span class="token punctuation">,</span> carry <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 两个数对应位相加产生的进位，初始化为 0</span>
+    <span class="token keyword">char</span> data<span class="token punctuation">;</span>
+    <span class="token comment">// 对应位没加完</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p1 <span class="token operator">&amp;&amp;</span> p2<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>   <span class="token comment">// 从低位开始运算，字符'0'~'9'的ASCII值为 48~57</span>
+        tmp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p1<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">48</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p2<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">48</span> <span class="token operator">+</span> carry<span class="token punctuation">;</span>
+        data <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>tmp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carry <span class="token operator">=</span> tmp <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// 进位</span>
+        <span class="token function">insert</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p1 <span class="token operator">=</span> p1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        p2 <span class="token operator">=</span> p2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 对应位加完了，且第一个数大</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        tmp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p1<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">48</span> <span class="token operator">+</span> carry<span class="token punctuation">;</span>
+        data <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>tmp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carry <span class="token operator">=</span> tmp <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token function">insert</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p1 <span class="token operator">=</span> p1<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 对应位加完了，且第二个数大</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        tmp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p2<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">48</span> <span class="token operator">+</span> carry<span class="token punctuation">;</span>
+        data <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>tmp <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carry <span class="token operator">=</span> tmp <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token function">insert</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p2 <span class="token operator">=</span> p2<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 最后的进位</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>carry<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">insert</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">(</span>carry<span class="token operator">+</span><span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    LNode <span class="token operator">*</span>head1<span class="token punctuation">,</span> <span class="token operator">*</span>head2<span class="token punctuation">,</span> <span class="token operator">*</span>head3<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+    head1 <span class="token operator">=</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">EOF</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>c<span class="token operator">==</span><span class="token char">' '</span> <span class="token operator">||</span> c<span class="token operator">==</span><span class="token char">'\n'</span><span class="token punctuation">)</span>  <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token function">insert</span><span class="token punctuation">(</span>head1<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    head2 <span class="token operator">=</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">EOF</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>c<span class="token operator">==</span><span class="token char">' '</span> <span class="token operator">||</span> c<span class="token operator">==</span><span class="token char">'\n'</span><span class="token punctuation">)</span>  <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token function">insert</span><span class="token punctuation">(</span>head2<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    head3 <span class="token operator">=</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    head3 <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>head1<span class="token punctuation">,</span> head2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>head3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>DONE！</strong></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/a95b3ae9cbac" class="nagination-link">上篇: 表达式求值</a>
+            
+            
+              <a href="/Notes/archives/7139fb123066" class="nagination-link">下篇: 顺序栈与链栈的实现</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-content-text">问题描述</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-content-text">解决方案</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-content-text">实现</span></a></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

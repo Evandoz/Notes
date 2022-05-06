@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>无向图的连通分量和生成树 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="数据结构,无向图,连通分量,生成树">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/6b0c0645e316.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">无向图的连通分量和生成树</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-08-08T16:00:00.000Z">2016-08-09</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> · <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/">图</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="数据结构/图/20160809-无向图的连通分量和生成树" class="article">
+          <div id="post-content" class="post-content">
+            <h2 id="基本概念"><a class="headerlink" href="#基本概念"></a>基本概念</h2>
+<p>无向图进行遍历时，对于连通图，仅需从图中任一顶点出发，进行深度优先搜索或广度优先搜索，就能够访问图中所有顶点；<br>
+对于非连通图，则需要从多个顶点出发进行搜索，而每一次<strong>从一个新的起始点出发</strong>进行搜索过程中得到的<strong>顶点访问序列</strong>恰为其各连通分量中的顶点集。</p>
+<p>设 E(G) 是连通图 G 中所有边的集合，则从图中任一顶点出发遍历时，必定将 E(G) 分成两个集合 T(G) 和 B(G)，其中 T(G) 是遍历图过程中经历的边的集合；B(G) 为剩余边的集合。<br>
+显然，T(G) 和图 G 中国所有顶点一起构成连通图 G 的极小连通子图，由深度优先搜索得到的称为深度优先生成树，由广度优先搜索得到的称为广度优先生成树。</p>
+<p>对于非连通图，每个非连通分量中的顶点集，和遍历时走过的边一起构成若干棵生成树，这些连通分量的生成树组成了非连通图的<code>生成森林</code>。</p>
+<h2 id="代码实现"><a class="headerlink" href="#代码实现"></a>代码实现</h2>
+<h3 id="深度优先生成树"><a class="headerlink" href="#深度优先生成树"></a>深度优先生成树</h3>
+<p>使用（首）孩子兄弟表示法来存储生成树（森林），将新节点加入到生成树时需要<strong>区分首孩子和其他孩子节点</strong>。</p>
+<p>容易看出，一棵生成树（一个连通分量）只有左孩子，没有右孩子。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 深度优先生成树</span>
+<span class="token comment">// 从第 i 个顶点出发构建以 pre 为根的生成树</span>
+<span class="token comment">// 复用 pre 指向当前子树树根</span>
+<span class="token keyword">void</span> <span class="token function">DFSTree</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>visited<span class="token punctuation">,</span> CSTNode <span class="token operator">*</span>pre<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">// 以T为根的生成树，只有左子树，没有右子树</span>
+    <span class="token keyword">int</span> first <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 用一个标志来标识第一个孩子节点</span>
+    CSTNode <span class="token operator">*</span>e<span class="token punctuation">;</span>
+    ArcNode <span class="token operator">*</span>p <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token comment">// 分配新节点</span>
+            e <span class="token operator">=</span> <span class="token punctuation">(</span>CSTNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>CSTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            e<span class="token operator">-></span>data <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+            e<span class="token operator">-></span>firstchild <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            e<span class="token operator">-></span>nextsibling <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            <span class="token comment">// 添加到树中</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>first<span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                pre<span class="token operator">-></span>firstchild <span class="token operator">=</span> e<span class="token punctuation">;</span>
+                first <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">&#123;</span>
+                pre<span class="token operator">-></span>nextsibling <span class="token operator">=</span> e<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">// 记录上一个访问的节点，它是后一节点的兄弟或下一层的根</span>
+            pre <span class="token operator">=</span> e<span class="token punctuation">;</span>
+            <span class="token function">DFSTree</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">,</span> visited<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        p <span class="token operator">=</span> p<span class="token operator">-></span>nextarc<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="深度优先生成森林"><a class="headerlink" href="#深度优先生成森林"></a>深度优先生成森林</h3>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 深度优先生成森林</span>
+<span class="token keyword">void</span> <span class="token function">DFSForest</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> CSTree <span class="token operator">*</span>T<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> visited<span class="token punctuation">[</span>MAX_VERTEX_NUM<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token comment">// pre 记录上一棵生成树的根</span>
+    <span class="token comment">// e 生成树节点</span>
+    CSTNode <span class="token operator">*</span>pre<span class="token punctuation">,</span> <span class="token operator">*</span>e<span class="token punctuation">;</span>
+    <span class="token comment">// 遍历</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> G<span class="token operator">-></span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token comment">// 生成树根节点</span>
+            e <span class="token operator">=</span> <span class="token punctuation">(</span>CSTNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>CSTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            e<span class="token operator">-></span>data <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+            e<span class="token operator">-></span>firstchild <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            e<span class="token operator">-></span>nextsibling <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            <span class="token comment">// 添加到树中</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>T<span class="token punctuation">)</span>
+                pre<span class="token operator">-></span>nextsibling <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token comment">// 当前生成树的根为上一生成树根的兄弟</span>
+            <span class="token keyword">else</span>
+                <span class="token punctuation">(</span><span class="token operator">*</span>T<span class="token punctuation">)</span> <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token comment">// 第一棵生成树的根</span>
+            pre <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token comment">// 记下当前根，用于后续的生成树</span>
+            <span class="token function">DFSTree</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span> i<span class="token punctuation">,</span> visited<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="广度优先生成树"><a class="headerlink" href="#广度优先生成树"></a>广度优先生成树</h3>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 广度优先生成树</span>
+<span class="token comment">// 从第 i 个顶点出发构建以 pre 为根的生成树i</span>
+<span class="token comment">// 复用 pre 指向当前子树树根</span>
+<span class="token keyword">void</span> <span class="token function">BFSTree</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>visited<span class="token punctuation">,</span> CSTNode <span class="token operator">*</span>pre<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">// 以T为根的生成树，只有左子树，没有右子树</span>
+    SqQueue Q<span class="token punctuation">;</span> <span class="token function">InitQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> first<span class="token punctuation">;</span> <span class="token comment">// 用一个标志来标识第一个孩子节</span>
+    CSTNode <span class="token operator">*</span>e<span class="token punctuation">;</span>
+    ArcNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token function">EnQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">QueueEmpty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">DeQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> <span class="token operator">&amp;</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>firstarc<span class="token punctuation">;</span>
+        first <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 用一个标志来标识第一个孩子节</span>
+        <span class="token comment">// 生成节点 i 的子树，第一个邻接点（用first来标识）存入firstchild，之后的邻接点存入 firstchild 的 nextsibling</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#123;</span>
+                visited<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token comment">// 分配新节点</span>
+                e <span class="token operator">=</span> <span class="token punctuation">(</span>CSTNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>CSTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                e<span class="token operator">-></span>data <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>p<span class="token operator">-></span>adjvex<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+                e<span class="token operator">-></span>firstchild <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+                e<span class="token operator">-></span>nextsibling <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+                <span class="token comment">// 添加到树中</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>first<span class="token punctuation">)</span>
+                <span class="token punctuation">&#123;</span>
+                    pre<span class="token operator">-></span>firstchild <span class="token operator">=</span> e<span class="token punctuation">;</span>
+                    first <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">else</span>
+                <span class="token punctuation">&#123;</span>
+                    pre<span class="token operator">-></span>nextsibling <span class="token operator">=</span> e<span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token comment">// 记录上一个访问的节点，它是后一节点的兄弟或下一层的根</span>
+                pre <span class="token operator">=</span> e<span class="token punctuation">;</span>
+                <span class="token comment">// 将已生成的树节点入队，以便于之后构建它的子树</span>
+                <span class="token function">EnQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token punctuation">,</span> p<span class="token operator">-></span>adjvex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            p <span class="token operator">=</span> p<span class="token operator">-></span>nextarc<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="广度优先生成森林"><a class="headerlink" href="#广度优先生成森林"></a>广度优先生成森林</h3>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 广度优先生成森林</span>
+<span class="token keyword">void</span>  <span class="token function">BFSForest</span><span class="token punctuation">(</span>ALGraph <span class="token operator">*</span>G<span class="token punctuation">,</span> CSTree <span class="token operator">*</span>T<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> visited<span class="token punctuation">[</span>MAX_VERTEX_NUM<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token comment">// pre 记录上一棵生成树的根</span>
+    <span class="token comment">// e 生成树节点</span>
+    CSTNode <span class="token operator">*</span>pre<span class="token punctuation">,</span> <span class="token operator">*</span>e<span class="token punctuation">;</span>
+    <span class="token comment">// 遍历</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> G<span class="token operator">-></span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">==</span> visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            e <span class="token operator">=</span> <span class="token punctuation">(</span>CSTNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>CSTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 生成树根节点</span>
+            e<span class="token operator">-></span>data <span class="token operator">=</span> G<span class="token operator">-></span>vertices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+            e<span class="token operator">-></span>firstchild <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            e<span class="token operator">-></span>nextsibling <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+            <span class="token comment">// 添加到树中</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>T<span class="token punctuation">)</span>
+                pre<span class="token operator">-></span>nextsibling <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token comment">// 当前生成树的根为上一生成树根的兄弟</span>
+            <span class="token keyword">else</span>
+                <span class="token punctuation">(</span><span class="token operator">*</span>T<span class="token punctuation">)</span> <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token comment">// 第一棵生成树的根</span>
+            pre <span class="token operator">=</span> e<span class="token punctuation">;</span> <span class="token comment">// 记下当前根，用于后续的生成树</span>
+            <span class="token function">BFSTree</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span> i<span class="token punctuation">,</span> visited<span class="token punctuation">,</span> pre<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完整代码可参见：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Evandoz/Data-Structures/tree/master/Graph/ALGraph.h">GitHub</a></p>
+<p><strong>DONE！</strong></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/e6c839ee0f6b" class="nagination-link">上篇: 有向图的强连通分量</a>
+            
+            
+              <a href="/Notes/archives/bf91e2fa3b46" class="nagination-link">下篇: 图的邻接表存储和遍历</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-content-text">基本概念</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-content-text">代码实现</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-content-text">深度优先生成树</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%94%9F%E6%88%90%E6%A3%AE%E6%9E%97"><span class="toc-content-text">深度优先生成森林</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-content-text">广度优先生成树</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%94%9F%E6%88%90%E6%A3%AE%E6%9E%97"><span class="toc-content-text">广度优先生成森林</span></a></li></ol></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

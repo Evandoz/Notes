@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>顺序栈与链栈的实现 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="数据结构,栈">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/7139fb123066.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">顺序栈与链栈的实现</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-04-09T16:00:00.000Z">2016-04-10</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> · <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="数据结构/栈与队列/20160410-顺序栈与链栈的实现" class="article">
+          <div id="post-content" class="post-content">
+            <p>栈是一种经常使用的数据结构，软硬件学习过程中都有它的身影，是一种必须掌握的数据结构，本文将结合代码简单两种栈的实行方式。</p>
+<a id="more"></a>
+<h2 id="栈的定义"><a class="headerlink" href="#栈的定义"></a>栈的定义</h2>
+<p>栈(Stack)是限定仅在表尾进行插入与删除操作的线性表。于是栈也有两种实现方式，顺序栈和链栈。</p>
+<h2 id="代码实现"><a class="headerlink" href="#代码实现"></a>代码实现</h2>
+<h3 id="顺序栈-SqStack"><a class="headerlink" href="#顺序栈-SqStack"></a>顺序栈(SqStack)</h3>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">STACK_INIT_SIZE</span> <span class="token expression"><span class="token number">100</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">STACKINCREMENT</span> <span class="token expression"><span class="token number">10</span></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">OK</span> <span class="token expression"><span class="token number">1</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ERROR</span> <span class="token expression"><span class="token number">0</span></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> SElemType<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> Status<span class="token punctuation">;</span>
+
+<span class="token comment">//顺序栈定义</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span>
+<span class="token punctuation">&#123;</span>
+  SElemType <span class="token operator">*</span>top<span class="token punctuation">;</span> <span class="token comment">//栈顶指针</span>
+  SElemType <span class="token operator">*</span>base<span class="token punctuation">;</span> <span class="token comment">//在栈构造之前和销毁之后为NULL</span>
+  <span class="token keyword">int</span> stacksize<span class="token punctuation">;</span> <span class="token comment">//当前已分配大小</span>
+<span class="token punctuation">&#125;</span>SqStack<span class="token punctuation">;</span>
+
+<span class="token comment">//初始化</span>
+Status <span class="token function">InitStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  S<span class="token operator">-></span>base <span class="token operator">=</span> <span class="token punctuation">(</span>SElemType <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>STACK_INIT_SIZE<span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SElemType<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token operator">-></span>base<span class="token punctuation">)</span> <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+  S<span class="token operator">-></span>top <span class="token operator">=</span> S<span class="token operator">-></span>base<span class="token punctuation">;</span>
+  S<span class="token operator">-></span>stacksize <span class="token operator">=</span> STACK_INIT_SIZE<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//判空</span>
+Status <span class="token function">StackEmpty</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>S<span class="token operator">-></span>top <span class="token operator">==</span> S<span class="token operator">-></span>base<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//栈满</span>
+Status <span class="token function">StackFull</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>S<span class="token operator">-></span>top <span class="token operator">-</span> S<span class="token operator">-></span>base <span class="token operator">>=</span> S<span class="token operator">-></span>stacksize<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//栈顶</span>
+Status <span class="token function">GetTop</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">,</span> SElemType<span class="token operator">*</span> e<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+  <span class="token punctuation">(</span><span class="token operator">*</span>e<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>S<span class="token operator">-></span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//压栈</span>
+Status <span class="token function">PushStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">,</span> SElemType e<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">StackFull</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#123;</span>
+    S<span class="token operator">-></span>base <span class="token operator">=</span> <span class="token punctuation">(</span>SElemType <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>S<span class="token operator">-></span>base<span class="token punctuation">,</span>
+      <span class="token punctuation">(</span>S<span class="token operator">-></span>stacksize <span class="token operator">+</span> STACKINCREMENT<span class="token punctuation">)</span><span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SElemType<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token operator">-></span>base<span class="token punctuation">)</span> <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+    S<span class="token operator">-></span>top <span class="token operator">=</span> S<span class="token operator">-></span>base <span class="token operator">+</span> S<span class="token operator">-></span>stacksize<span class="token punctuation">;</span>
+    S<span class="token operator">-></span>stacksize <span class="token operator">+=</span> STACKINCREMENT<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token operator">*</span><span class="token punctuation">(</span>S<span class="token operator">-></span>top<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//弹栈</span>
+Status <span class="token function">PopStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">,</span> SElemType<span class="token operator">*</span> e<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+  <span class="token punctuation">(</span><span class="token operator">*</span>e<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">--</span>S<span class="token operator">-></span>top<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//清空</span>
+Status <span class="token function">ClearStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  S<span class="token operator">-></span>top <span class="token operator">=</span> S<span class="token operator">-></span>base<span class="token punctuation">;</span>
+  S<span class="token operator">-></span>stacksize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//销毁</span>
+Status <span class="token function">DestroyStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token function">free</span><span class="token punctuation">(</span>S<span class="token operator">-></span>base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  S<span class="token operator">-></span>top <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+  S<span class="token operator">-></span>base <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+  S<span class="token operator">-></span>stacksize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//长度</span>
+<span class="token keyword">int</span> <span class="token function">Length</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> S<span class="token operator">-></span>top <span class="token operator">-</span> S<span class="token operator">-></span>base<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//遍历栈</span>
+Status <span class="token function">Traverse</span><span class="token punctuation">(</span>SqStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  SElemType <span class="token operator">*</span>p<span class="token punctuation">;</span>
+  p <span class="token operator">=</span> S<span class="token operator">-></span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">>=</span> S<span class="token operator">-></span>base<span class="token punctuation">)</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p<span class="token operator">--</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完整代码可参见：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Evandoz/Data-Structure/blob/master/SqStack.c">GitHub</a></p>
+<h3 id="链栈-LinkStack"><a class="headerlink" href="#链栈-LinkStack"></a>链栈(LinkStack)</h3>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">OK</span> <span class="token expression"><span class="token number">1</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ERROR</span> <span class="token expression"><span class="token number">0</span></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> SElemType<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> Status<span class="token punctuation">;</span>
+
+<span class="token comment">//栈节点定义</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">SNode</span>
+<span class="token punctuation">&#123;</span>
+  SElemType data<span class="token punctuation">;</span>
+  <span class="token keyword">struct</span> <span class="token class-name">SNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>SNode<span class="token punctuation">,</span> <span class="token operator">*</span>LinkStack<span class="token punctuation">;</span>
+
+<span class="token comment">//初始化</span>
+Status <span class="token function">InitStack</span><span class="token punctuation">(</span>LinkStack <span class="token operator">*</span>S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token operator">*</span>S <span class="token operator">=</span> <span class="token punctuation">(</span>SNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token operator">*</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+  <span class="token punctuation">(</span><span class="token operator">*</span>S<span class="token punctuation">)</span><span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//栈空</span>
+Status <span class="token function">StackEmpty</span><span class="token punctuation">(</span>LinkStack S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token operator">-></span>next<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//压栈</span>
+Status <span class="token function">PushStack</span><span class="token punctuation">(</span>LinkStack S<span class="token punctuation">,</span> SElemType e<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  SNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+  p <span class="token operator">=</span> <span class="token punctuation">(</span>SNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token punctuation">)</span> <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+  p<span class="token operator">-></span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+  p<span class="token operator">-></span>next <span class="token operator">=</span> S<span class="token operator">-></span>next<span class="token punctuation">;</span>
+  S<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//弹栈</span>
+Status <span class="token function">PopStack</span><span class="token punctuation">(</span>LinkStack S<span class="token punctuation">,</span> SElemType <span class="token operator">*</span>e<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  SNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> ERROR<span class="token punctuation">;</span>
+  p <span class="token operator">=</span> S<span class="token operator">-></span>next<span class="token punctuation">;</span>
+  S<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">(</span><span class="token operator">*</span>e<span class="token punctuation">)</span> <span class="token operator">=</span> p<span class="token operator">-></span>data<span class="token punctuation">;</span>
+  <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//遍历栈</span>
+Status <span class="token function">Traverse</span><span class="token punctuation">(</span>LinkStack S<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  SNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+  p <span class="token operator">=</span> S<span class="token operator">-></span>next<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> p<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p<span class="token operator">=</span>p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> OK<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>完整代码可参见：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Evandoz/Data-Structure/blob/master/LinkStack.c">GitHub</a></p>
+<p><strong>DONE！</strong></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/7bc32dd9cc9e" class="nagination-link">上篇: 长整数相加</a>
+            
+            
+              <a href="/Notes/archives/9ec01a96dedf" class="nagination-link">下篇: 狐狸逮兔子问题</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-content-text">栈的定义</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-content-text">代码实现</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E9%A1%BA%E5%BA%8F%E6%A0%88-SqStack"><span class="toc-content-text">顺序栈(SqStack)</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E9%93%BE%E6%A0%88-LinkStack"><span class="toc-content-text">链栈(LinkStack)</span></a></li></ol></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

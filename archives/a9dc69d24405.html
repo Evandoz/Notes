@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>赫夫曼树及应用 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="数据结构,赫夫曼树,哈夫曼树,赫夫曼编码,哈夫曼编码">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/a9dc69d24405.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">赫夫曼树及应用</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-06-18T16:00:00.000Z">2016-06-19</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a> · <a class="category-link" href="/Notes/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">树与二叉树</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="数据结构/树与二叉树/20160619赫夫曼树及应用" class="article">
+          <div id="post-content" class="post-content">
+            <h2 id="最优二叉树（赫夫曼树）"><a class="headerlink" href="#最优二叉树（赫夫曼树）"></a>最优二叉树（赫夫曼树）</h2>
+<p>路径</p>
+<p>路径长度 树的路径长度 节点的带权路径长度 树的带权路径长度</p>
+<p>带权路径长度 WPL 最小的二叉树称为<code>最优二叉树</code>或<code>赫夫曼树</code>(Huffman Tree)。</p>
+<h2 id="赫夫曼算法"><a class="headerlink" href="#赫夫曼算法"></a>赫夫曼算法</h2>
+<p>赫夫曼最早给出了构建赫夫曼树的一个带有一般规律的算法，俗称赫夫曼算法，其过程如下：</p>
+<p>(1) 根据给定的 n 个权值 { w<sub>1</sub>,w<sub>2</sub>,…,w<sub>n</sub> } 构成 n 棵二叉树的集合 F = { T<sub>1</sub>,T<sub>2</sub>,…,T<sub>n</sub> }，其中每棵二叉树 T<sub>i</sub> 中只有一个带权为 w<sub>i</sub> 的根节点；<br>
+(2) 在 F 中选取两棵根节点的权值最小的树作为左右子树构造一棵新的二叉树，且将新的二叉树根节点的权值设置为其左、右子树上根节点的权值之和。<br>
+(3) 在 F 中删除这两棵树，同时将新得到的二叉树加入 F 中；<br>
+(4) 重复 (2) 和 (3)，直到 F 只含一棵树为止。<br>
+这棵树便是赫夫曼树(Huffman Tree)。</p>
+<p>根据这一过程可以发现，最终形成的赫夫曼树总共右 2n-1 个节点，其中 n 个叶子节点，n-1 个非终端节点，这 n-1 个节点的度均为 1，也就是说赫夫曼树中没有度为 1 的节点，这种树又称为<code>严格的（正则的）二叉树</code>，这种规范的结构便于赫夫曼树的存储，可以直接使用紧凑的顺序存储。</p>
+<h2 id="赫夫曼编码"><a class="headerlink" href="#赫夫曼编码"></a>赫夫曼编码</h2>
+<p>编码长度尽可能短</p>
+<p>不定长编码</p>
+<p>前缀编码</p>
+<p>二进制前缀编码</p>
+<p>设计最短的二进制前缀编码可等效为以 n 种字符出现的频率作权，设计一棵赫夫曼树的问题，由此得到的二进制前缀编码即称为赫夫曼编码。</p>
+<h2 id="编码实现"><a class="headerlink" href="#编码实现"></a>编码实现</h2>
+<p>因为赫夫曼树中是严格的二叉树，共有 2n-1 个节点，于是可以将其存储在大小为 2n-1 的一维数组中。<br>
+至于树节点的结构，由于在构成赫夫曼树之后，需要从叶子出发从叶子到根逆向求解编码；而进行译码时又需要从跟出发从根到叶子进行搜索，因此每个树节点既需要知道双亲信息，又需要知道孩子节点的信息。于是，赫夫曼树节点的存储结构为：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 定义 Huffman 树节点</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> weight<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> parent<span class="token punctuation">,</span> lchild<span class="token punctuation">,</span> rchild<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>HTNode<span class="token punctuation">,</span> <span class="token operator">*</span>HuffmanTree<span class="token punctuation">;</span> <span class="token comment">// 动态分配数组存储 Huffman 树</span>
+
+<span class="token comment">// 动态分配数组存储 Huffman 编码，不定长编码，指针数组</span>
+<span class="token keyword">typedef</span> <span class="token keyword">char</span> <span class="token operator">*</span> <span class="token operator">*</span>HuffmanCode<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>求解赫夫曼编码的代码实现如下：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 从叶子到根，求解 Huffman 编码</span>
+<span class="token comment">// w 存放 n 个字符的权值(>0)，从叶子到根构建 Huffman 树并求得 Huffman 编码</span>
+<span class="token comment">// 也可以从根到叶子向下搜索来求编码</span>
+<span class="token keyword">void</span> <span class="token function">HuffmanCoding</span><span class="token punctuation">(</span>HuffmanTree <span class="token operator">*</span>HT<span class="token punctuation">,</span> HuffmanCode <span class="token operator">*</span>HC<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>w<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token comment">// 根据字符数量 n 分配 2n 个树节点空间（一维数组，0号未使用）</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> m <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> n <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>HTNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>HTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 定义一个 (*HT) 树的游标指针</span>
+    HTNode <span class="token operator">*</span>p<span class="token punctuation">;</span>
+    <span class="token comment">// 初始化 n 个叶子节点，0 号空间未使用，p = (*HT)+1 开始，[1~n]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">,</span> <span class="token operator">++</span>w<span class="token punctuation">,</span> <span class="token operator">++</span>p<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> <span class="token operator">*</span>w<span class="token punctuation">;</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>parent <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>lchild <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>rchild <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 初始化剩下 n-1 个非终端节点，[n+1~2n-1]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">,</span> <span class="token operator">++</span>p<span class="token punctuation">)</span> <span class="token comment">// i = n+1</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>parent <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>lchild <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">.</span>rchild <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 每次选取两个最小节点，从叶子到根建立 Huffman 树</span>
+    <span class="token keyword">int</span> min<span class="token punctuation">,</span> sec<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">Select</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>min<span class="token punctuation">,</span> <span class="token operator">&amp;</span>sec<span class="token punctuation">,</span> i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 两个当前最小</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">.</span>parent <span class="token operator">=</span> i<span class="token punctuation">;</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>sec<span class="token punctuation">]</span><span class="token punctuation">.</span>parent <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token comment">// 更新根节点</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>lchild <span class="token operator">=</span> min<span class="token punctuation">;</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>rchild <span class="token operator">=</span> sec<span class="token punctuation">;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">.</span>weight <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>sec<span class="token punctuation">]</span><span class="token punctuation">.</span>weight<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 从叶子到根，逆向求每个字符的 Huffman 编码（也可以正向遍历求解）</span>
+    <span class="token comment">// n 个指针向量，不定长编码（一维数组）</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>HC<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>HuffmanCode<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 每个字符的编码的工作空间，不是编码最终存储位置</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>cd <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>n <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cd<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span> <span class="token comment">// 编码（字符串）结束符</span>
+    <span class="token comment">// n 个字符逆向求编码</span>
+    <span class="token keyword">int</span> start <span class="token operator">=</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> j<span class="token punctuation">,</span> pa<span class="token punctuation">;</span> <span class="token comment">// 当前和 parent</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        start <span class="token operator">=</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 从叶子向根逆向求编码，j 指向当前节点，p 指向双亲；逆向搜索，所以逆着存</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> i<span class="token punctuation">,</span> pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>parent<span class="token punctuation">;</span> pa <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">=</span> pa<span class="token punctuation">,</span> pa <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>pa<span class="token punctuation">]</span><span class="token punctuation">.</span>parent<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>HT<span class="token punctuation">)</span><span class="token punctuation">[</span>pa<span class="token punctuation">]</span><span class="token punctuation">.</span>lchild <span class="token operator">==</span> j<span class="token punctuation">)</span> cd<span class="token punctuation">[</span><span class="token operator">--</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'0'</span><span class="token punctuation">;</span> <span class="token comment">// 左 0</span>
+            <span class="token keyword">else</span> cd<span class="token punctuation">[</span><span class="token operator">--</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'1'</span><span class="token punctuation">;</span> <span class="token comment">// 右 1</span>
+        <span class="token comment">// 不定长编码，动态分配空间</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>HC<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n<span class="token operator">-</span>start<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>HC<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span><span class="token punctuation">(</span>cd<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/b1d00a9d5fae" class="nagination-link">上篇: 回溯法与树的遍历</a>
+            
+            
+              <a href="/Notes/archives/539c4fcaa63a" class="nagination-link">下篇: 树的应用--并查集</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%EF%BC%89"><span class="toc-content-text">最优二叉树（赫夫曼树）</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%AE%97%E6%B3%95"><span class="toc-content-text">赫夫曼算法</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81"><span class="toc-content-text">赫夫曼编码</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E7%BC%96%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-content-text">编码实现</span></a></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

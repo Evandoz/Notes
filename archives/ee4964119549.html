@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>在 ArchLinux 中使用 Secure Boot | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="ArchLinux,Secure Boot,安全启动,双系统">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/ee4964119549.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">在 ArchLinux 中使用 Secure Boot</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2018-06-29T16:00:00.000Z">2018-06-30</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a> · <a class="category-link" href="/Notes/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ArchLinux/">ArchLinux</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="操作系统/ArchLinux/20180630-ArchLinux 安装之 Secure Boot" class="article">
+          <div id="post-content" class="post-content">
+            <p>双系统下使用 Archlinux，由于数字签名信任的问题，无法使用 Secure Boot，不过可以使用可信任的数字签名来解决问题。</p>
+<h2 id="安全启动-Secure-Boot"><a class="headerlink" href="#安全启动-Secure-Boot"></a>安全启动(Secure Boot)</h2>
+<p>Secure Boot 是 UEFI (Unified Extensible Firmware Interface) 的一个 feature，用于应对 <code>boot sector viruses</code>，这种病毒在开机时执行，难于防范。 Secure Boot 主要原理是使用加密签名，开机时固件会检查其执行的 UEFI 程序是否有加密签名，若签名与 NVRAM 中保存的签名不一致或是被列入 NVRAM 黑名单，那么该 UEFI 程序将被禁止运行，操作系统没有获得计算机控制权自然就无法启动，理论上就阻止了病毒的传播。</p>
+<h2 id="安全启动状态检查"><a class="headerlink" href="#安全启动状态检查"></a>安全启动状态检查</h2>
+<p>检查 Secure Boot 是否启用有两种途径。</p>
+<h3 id="启动前检查"><a class="headerlink" href="#启动前检查"></a>启动前检查</h3>
+<p>通过在引导启动时按一个特殊的键来访问固件配置，这个特殊键取决于设备厂商的固件设置，一般是 Esc，F2，Del 或者其他 Fn 键。大部分设备在启动开始时，会有按某个按键进入固件配置的提示。一般地，在机器启动后需要一直间断不停地按下这个键，甚至在屏幕实际有显示之前要一直按。进入固件设置后，通常在设置屏幕的底部有按键功能导航说明，根据说明可以找到 Secure Boot 设置状态。</p>
+<h3 id="启动后检查"><a class="headerlink" href="#启动后检查"></a>启动后检查</h3>
+<p>系统启动后可以使用如下命令检查计算机是否已使用安全引导引导</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ od --address-radix&#x3D;n --format&#x3D;u1 &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars&#x2F;SecureBoot-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>–format=u1 参数后面的<strong>是数字 1，不是字母 l</strong>，XXXX 表示的字符因机器而异，可以使用 Tab 自动补全。</p>
+<p>如果该命令返回的 5 个整数列表中的最后一个整数是 1，表示启用了安全引导，否则未启用。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">6  0  0  0  1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果要检查详细状态，还可以执行如下命令：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">$ bootctl status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="使用签名引导程序"><a class="headerlink" href="#使用签名引导程序"></a>使用签名引导程序</h2>
+<p>两种已知的带签名的引导加载程序 PreLoader 和 Shim，它们的目的是链式加载其他 EFI 二进制文件（通常是引导加载程序）。PreLoader 和 Shim 使用称为 Machine Owner Key list(MokList) 的白名单机制，即 如果二进制文件（预加载程序和填充程序）或密钥的SHA256哈希值（用shim）签名的二进制文件位于 MokList 中，则执行该代码，否则，它们将启动密钥管理实用程序，该实用程序允许注册哈希值或密钥。</p>
+<h3 id="PreLoader"><a class="headerlink" href="#PreLoader"></a>PreLoader</h3>
+<p>1.运行原理</p>
+<p>PreLoader 运行时尝试启动 loader.efi，如果 loader.efi 的哈希值不在 MokList 中，PreLoader 将启动 HashTool.efi。在 HashTool 中，需要注册将要启动的 EFI 二进制文件的哈希值，即 loader.efi 和 Kernel 的哈希值。</p>
+<blockquote>
+<p>注意：每次更新二进制文件(引导加载程序或内核)时，都需要重新注册它们的新的哈希值。</p>
+</blockquote>
+<p>2.安装配置</p>
+<p>efitools 软件包中的 PreLoader.efi 和 HashTool.efi 未签名，因此使用会受到限制，因此可以从 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://aur.archlinux.org/packages/preloader-signed/">preloader-signed[AUR]</a> 获得签名的 PreLoader.efi 和 HashTool.efi 或者 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.hansenpartnership.com/linux-foundation-secure-boot-system-released/">手动下载</a>。</p>
+<p>安装 preloader-signed[AUR] 并将 PreLoader.efi 和 HashTool.efi 复制到引导加载程序目录，供 systemd-boot 使用；</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># cp &#x2F;usr&#x2F;share&#x2F;preloader-signed&#x2F;&#123;PreLoader,HashTool&#125;.efi esp&#x2F;EFI&#x2F;systemd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后复制引导加载程序二进制文件，并将其重命名为 loader.efi，供 systemd-boot 使用；</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># cp esp&#x2F;EFI&#x2F;systemd&#x2F;systemd-bootx64.efi esp&#x2F;EFI&#x2F;systemd&#x2F;loader.efi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>最后，创建一个新的 NVRAM 条目来启动 PreLoader.efi。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh"># efibootmgr --verbose --disk &#x2F;dev&#x2F;sdX --part Y --create --label &quot;PreLoader&quot; --loader &#x2F;EFI&#x2F;systemd&#x2F;PreLoader.efi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其中 X，Y 分别是<code>EFI系统分区</code>所在的驱动器号和分区号，具体的与安装系统时的分区设置有关。</p>
+<p>此项应作为第一个引导项添加到列表中，可以使用 efibootmgr 命令检查并在必要时调整引导顺序。</p>
+<h3 id="Shim"><a class="headerlink" href="#Shim"></a>Shim</h3>
+<p>参考</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.rodsbooks.com/efi-bootloaders/secureboot.html">Managing EFI Boot Loaders for Linux: Dealing with Secure Boot</a><br>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://wiki.archlinux.org/index.php/Secure_Boot">Secure Boot in Arch Linux</a></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/c1803dc071b8" class="nagination-link">上篇: 使用 DiskPart 自定义 Windows 分区类型及大小</a>
+            
+            
+              <a href="/Notes/archives/b79ffc45989f" class="nagination-link">下篇: margin:auto 实现元素绝对居中</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8-Secure-Boot"><span class="toc-content-text">安全启动(Secure Boot)</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5"><span class="toc-content-text">安全启动状态检查</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%90%AF%E5%8A%A8%E5%89%8D%E6%A3%80%E6%9F%A5"><span class="toc-content-text">启动前检查</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%90%AF%E5%8A%A8%E5%90%8E%E6%A3%80%E6%9F%A5"><span class="toc-content-text">启动后检查</span></a></li></ol></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E4%BD%BF%E7%94%A8%E7%AD%BE%E5%90%8D%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="toc-content-text">使用签名引导程序</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#PreLoader"><span class="toc-content-text">PreLoader</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#Shim"><span class="toc-content-text">Shim</span></a></li></ol></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

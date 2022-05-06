@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>CSS 引入方式与选择器 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="CSS 选择器">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/70b5a7d0c967.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">CSS 引入方式与选择器</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2016-08-31T16:00:00.000Z">2016-09-01</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a> · <a class="category-link" href="/Notes/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/CSS/">CSS</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="前端开发/CSS/20160901-CSS 引入方式与选择器" class="article">
+          <div id="post-content" class="post-content">
+            <p>CSS 作为前端三件套中的装饰部件有着重要地位，本文在结合<a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.w3school.com.cn">W3School</a>及<a target="_blank" rel="external nofollow noopener noreferrer" href="http://study.163.com">网易云课堂</a>相关课程基础上梳理一下<code>CSS</code>样式表引入方式及选择器相关的知识点。</p>
+<h2 id="CSS-三种引入方式"><a class="headerlink" href="#CSS-三种引入方式"></a>CSS 三种引入方式</h2>
+<h3 id="行间样式"><a class="headerlink" href="#行间样式"></a>行间样式</h3>
+<ul>
+<li>写法：在标签中添加<code>style</code>属性，例如：</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;div style&#x3D;&quot;width:100px;&quot;&gt;&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>优点：优先级最高；</li>
+<li>缺点：影响范围小，代码重用率低，不利于维护，不推荐使用；</li>
+</ul>
+<h3 id="内部样式"><a class="headerlink" href="#内部样式"></a>内部样式</h3>
+<ul>
+<li>写法：在<code>head</code>标签中，内嵌<code>style</code>标签，在标签中通过<code>选择器</code>来控制样式</li>
+<li>优点：加载速度快，不需要请求服务器；</li>
+<li>缺点：不利于代码重用</li>
+</ul>
+<h3 id="外部样式"><a class="headerlink" href="#外部样式"></a>外部样式</h3>
+<ul>
+<li>
+<p>写法：</p>
+<p>1.链接式：在<code>head</code>标签中内嵌<code>link</code>标签，用来关联一个<code>CSS</code>文件，在CSS文件中，通过<code>选择器</code>在控制样式；链接式使用的是HTML的规则，在网页文件主体装载前装载CSS文件，因此显示出来的网页从一开始就是带样式的效果的。</p>
+  <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;xxx&#x2F;example.css&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>2.导入式：在<code>head</code>标签中内嵌<code>style</code>标签，用来关联一个<code>CSS</code>文件，在CSS文件中，通过<code>选择器</code>在控制样式，这与链接式导入法相同；导入式使用的是CSS的规则，在整个网页装载完后再装载CSS文件，如果网页比较大的话则会出现先显示无样式的页面，闪烁之后，才出现网页的样式。故不推荐使用</p>
+  <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;
+  @import&quot;mystyle.css&quot;;
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>优点：利于代码重用；</p>
+</li>
+<li>
+<p>缺点：需要加载服务器；</p>
+</li>
+</ul>
+<hr>
+<h2 id="CSS-元素选择器"><a class="headerlink" href="#CSS-元素选择器"></a>CSS 元素选择器</h2>
+<h3 id="标签选择器"><a class="headerlink" href="#标签选择器"></a>标签选择器</h3>
+<p>最常见的选择器，直接将文档元素作为选择器，实现方法为：<br>
+<strong>标签名  { 属性:属性值;    //CSS样式，同样注意分号“<code>;</code>” }</strong></p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">h1 &#123; font-size: 20px; &#125;
+p &#123; color: red; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="id-选择器"><a class="headerlink" href="#id-选择器"></a>id 选择器</h3>
+<p>首先在相应的标签中添加一个名为<code>id</code>的属性，例如：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;p id&#x3D;&quot;name&quot;&gt;His name is Ray.&lt;&#x2F;p&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后使用<code>#</code>添加选择器：<br>
+<strong>#id名  { 属性:属性值;    //CSS样式，同样注意分号“<code>;</code>” }</strong></p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">#name &#123; color:red; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>注意</strong>：<br>
+1、id名要以英文字幕开头；<br>
+2、id名是唯一的，不可重复；<br>
+3、id选择器不能结合使用，因为id属性不允许有以空格分隔的词列表。<br>
+4、id选择器可能区分大小写，这取决于文档的语言。</p>
+<h3 id="类选择器"><a class="headerlink" href="#类选择器"></a>类选择器</h3>
+<p>首先在相应的标签中添加一个名为<code>class</code>的属性，例如：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;p class&#x3D;&quot;name&quot;&gt;
+  His name is Ray.
+&lt;&#x2F;p&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>然后使用<code>.</code>添加选择器：<br>
+<strong>.类名  { 属性:属性值;    //CSS样式，同样注意分号“<code>;</code>” }</strong></p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">.name &#123;color:red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>注意</strong>：<br>
+1、class名要以英文字母开头；<br>
+2、class名可以重复，因此它可以同时控制多个标签的样式；<br>
+3、可以结合标签选择器使用。例如：</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">p.name &#123;color:red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此时选择器会匹配<code>class</code>属性包含<code>name</code>的所有<code>p</code>元素，而其他任何类型的元素都不匹配，不论其是否有此<code>class</code>属性。即选择器<code>p.name</code>解释为：“其<code>class</code>属性值为<code>name</code>的所有段落”。<br>
+4、可以使用<code>class词列表</code>。在 HTML 中，一个<code>class</code>值中可能包含一个词列表，各个词之间用空格分隔。那么这时可以这样处理，将两个类选择器链接在一起，仅可以选择同时包含这些类名的元素（类名的顺序不限）。如果一个多类选择器包含类名列表中没有的一个类名，匹配就会失败。例如：</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">.name.sex &#123;background-color: red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此时该选择器会去匹配<code>class</code>属性值同时包含<code>name</code>和<code>sex</code>的标签，若没有则该样式无法实现。</p>
+<h3 id="属性选择器"><a class="headerlink" href="#属性选择器"></a>属性选择器</h3>
+<p>如果希望选择有某个属性的元素，而不论属性值是什么，可以使用简单属性选择器，而不仅限于<code>class</code>和<code>id</code>属性。实现方法为：</p>
+<p>首先在相应的标签中添加一个属性，例如：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;a href&#x3D;&quot;www.floretten.com&quot; title&#x3D;&quot;nextNote&quot; target&#x3D;&quot;_blink&quot;&gt;Ray&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后使用<code>[]</code>添加选择器：<br>
+<strong>[属性]  { 属性:属性值;    //CSS样式，同样注意分号“<code>;</code>” }</strong></p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">a[href] &#123;color:red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此时，选择器只匹配<code>a</code>元素中的<code>href</code>元素，除此之外，还可以根据多个属性进行选择，只需将属性选择器链接在一起。</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">a[href][title] &#123;color:red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>注意</strong>：<br>
+1、属性选择器并不限于这一种形式，如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选择器</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">[attribute]</td>
+<td style="text-align:center">用于选取带有指定属性的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">[attribute=value]</td>
+<td style="text-align:center">用于选取带有指定属性和值的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">[attribute`=value ]</td>
+<td style="text-align:center">用于选取属性值中包含指定词汇的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">[attribute|=value ]</td>
+<td style="text-align:center">用于选取带有以指定值开头的属性值的元素，该值必须是整个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">[attribute^=value ]</td>
+<td style="text-align:center">匹配属性值以指定值开头的每个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">[attribute$=value ]</td>
+<td style="text-align:center">匹配属性值以指定值结尾的每个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">[attribute*=value ]</td>
+<td style="text-align:center">匹配属性值中包含指定值的每个元素</td>
+</tr>
+</tbody>
+</table>
+<p>2、在使用<code>属性=属性值</code>选择器时，要求属性值必须<strong>完全</strong>适配，如果属性值包含用空格分隔的值列表，匹配就会出问题。</p>
+<h3 id="后代选择器"><a class="headerlink" href="#后代选择器"></a>后代选择器</h3>
+<p>后代选择器可以让样式只在文档某些结构中起作用，而在其他部分不起作用。例如：</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">div p &#123;color:red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此时样式只会对<code>div</code>元素中的<code>p</code>元素及其所有后代及起作用，而对<code>div</code>中其他部分不起作用。</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;div&gt;
+  &lt;h2&gt;His &lt;strong&gt;name&lt;&#x2F;strong&gt; is &lt;strong&gt;Ray&lt;&#x2F;strong&gt;&lt;&#x2F;h2&gt;
+  &lt;p&gt;His &lt;strong&gt;name&lt;&#x2F;strong&gt; is &lt;strong&gt;Ray&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>在后代选择器中，规则左边的选择器一端包括两个或多个用空格分隔的选择器。选择器之间的空格是一种结合符（combinator）。每个空格结合符可以解释为“… 在 … 找到”、“… 作为 … 的一部分”、“… 作为 … 的后代”，但是要求必须从右向左读选择器。</p>
+</blockquote>
+<p>因此，<code>div p</code>选择器可以解释为“作为<code>div</code>元素后代的任何<code>p</code>元素”。如果要从左向右读选择器，可以换成以下说法：“包含<code>p</code>的所有<code>div</code>会把以下样式应用到该<code>p</code>”。</p>
+<h3 id="子元素选择器"><a class="headerlink" href="#子元素选择器"></a>子元素选择器</h3>
+<p>相比于后代选择器，子元素选择器影响范围更小，它只能选择作为某元素子元素的元素,即两者必须是直接的父子关系。</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">div &gt; p &#123;color:red;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这句代码中只会对含有<code>div</code>的子元素<code>p</code>标签及其后代起作用，如果改成div &gt; strong，该样式则无效。</p>
+<p><strong>后代选择器和子选择器结合使用</strong></p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">div.name p &gt; strong<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上面的选择器会选择作为<code>p</code>元素子元素的所有<code>strong</code>元素，这个<code>p</code>元素本身从<code>div</code>元素继承，该<code>div</code>元素有一个包含<code>name</code>的<code>class</code>属性。</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;div class&#x3D;&quot;name&quot;&gt;
+&lt;p&gt;
+His &lt;strong&gt;name&lt;&#x2F;strong&gt; is &lt;strong&gt;Ray.&lt;&#x2F;strong&gt;
+&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="伪类"><a class="headerlink" href="#伪类"></a>伪类</h3>
+<p>语法：</p>
+<pre class="line-numbers language-none"><code class="language-none">selector : pseudo-class &#123;property: value&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>伪类可与 CSS 类搭配使用</p>
+<pre class="line-numbers language-none"><code class="language-none">selector.class : pseudo-class &#123;property: value&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>比较常见的是<code>锚伪类</code></p>
+<p>在支持 CSS 的浏览器中，链接的不同状态都可以不同的方式显示，这些状态包括：活动状态，已被访问状态，未被访问状态，和鼠标悬停状态。</p>
+<pre class="line-numbers language-none"><code class="language-none">a:link &#123;color: #FF0000&#125;		&#x2F;* 未访问的链接 *&#x2F;
+a:visited &#123;color: #00FF00&#125;	&#x2F;* 已访问的链接 *&#x2F;
+a:hover &#123;color: #FF00FF&#125;	&#x2F;* 鼠标移动到链接上 *&#x2F;
+a:active &#123;color: #0000FF&#125;	&#x2F;* 选定的链接 *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="选择器分组"><a class="headerlink" href="#选择器分组"></a>选择器分组</h3>
+<p>如果希望多个元素具有相同的样式，可以将多个选择器用逗号<code>,</code>分组在一起，例如：</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">h2,body,p,td,th,pre,.name,.sex &#123;color:green;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在选择其中，逗号告诉浏览器规则中包含多个选择器，样式对它们都起作用。</p>
+<p><strong>有关 CSS 更多内容可以访问</strong>：<a target="_blank" rel="external nofollow noopener noreferrer" href="http://www.w3school.com.cn">W3School</a></p>
+
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/33c96e729c04" class="nagination-link">上篇: 内部排序</a>
+            
+            
+              <a href="/Notes/archives/720679b031c2" class="nagination-link">下篇: 使用 Travis CI 自动部署 Hexo</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#CSS-%E4%B8%89%E7%A7%8D%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="toc-content-text">CSS 三种引入方式</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E8%A1%8C%E9%97%B4%E6%A0%B7%E5%BC%8F"><span class="toc-content-text">行间样式</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%86%85%E9%83%A8%E6%A0%B7%E5%BC%8F"><span class="toc-content-text">内部样式</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%A4%96%E9%83%A8%E6%A0%B7%E5%BC%8F"><span class="toc-content-text">外部样式</span></a></li></ol></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#CSS-%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">CSS 元素选择器</span></a><ol class="toc-content-child"><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">标签选择器</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#id-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">id 选择器</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">类选择器</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">属性选择器</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">后代选择器</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E5%AD%90%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-content-text">子元素选择器</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E4%BC%AA%E7%B1%BB"><span class="toc-content-text">伪类</span></a></li><li class="toc-content-item toc-content-level-3"><a class="toc-content-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E5%88%86%E7%BB%84"><span class="toc-content-text">选择器分组</span></a></li></ol></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>

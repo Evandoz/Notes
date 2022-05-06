@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Vue+Django 前后分离构建 Web 应用 | EXP Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="author" content="Levan">
+  
+  
+    <meta name="description" content="日常记录与分享">
+  
+  
+    <meta name="keywords" content="Vue.js,Django,Web">
+  
+  
+    <meta name="google-site-verification" content="W2AVg5n_ALo21rl9n3ZwS8AuEanZfJkirzrRGLLYvn4">
+  
+  
+    <meta name="baidu-site-verification" content="BM2Q3xLpPJ">
+  
+  
+    <meta name="360-site-verification" content="573211edf2de02c99d7b255b2c56513c">
+  
+  
+    <link rel="short icon" type="image/x-icon" href="/Notes/css/images/favicon.ico">
+  
+  <link rel="canonical" href="https://evandoz.github.io/Notes/archives/24a1aa43188f.html">
+  
+<link rel="stylesheet" href="/Notes/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="overflow" class="overflow">
+    <div id="hiddenbar" class="hiddenbar">
+      <div id="wrapper" class="wrapper">
+        <header id="header" class="header is-post">
+  <div class="outer">
+    <div class="logo">
+      <a class="title" href="/Notes/">EXP Notes</a>
+    </div>
+    <div class="nav">
+      <ul id="nav-icon" class="nav-icon">
+        <li></li><li></li><li></li>
+      </ul>
+      <ul class="nav-menu">
+        
+          <li class="nav-item">
+            <a href="/Notes/archives">归档</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/categories">分类</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/tags">标签</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/Notes/about">关于</a>
+          </li>
+        
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+        <div id="content" class="content">
+    <section class="article-header inner">
+      <img src="/Notes/css/images/banner2.jpg" alt="banner">
+      
+
+      
+  
+  	<h1 class="post-title">Vue+Django 前后分离构建 Web 应用</h1>
+  
+
+
+      <div class="post-meta">
+        <span class="post-date">
+  <time datetime="2018-03-08T16:00:00.000Z">2018-03-09</time>
+</span>
+
+        
+  <span class="post-category">
+    <a class="category-link" href="/Notes/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a> · <a class="category-link" href="/Notes/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Vue/">Vue</a>
+  </span>
+
+
+      </div>
+    </section>
+    <section class="article-body inner">
+      <div id="side" class="aside post left">
+
+      </div>
+      <div class="main">
+        <article id="前端开发/Vue/20180309-Vue+Django 前后分离构建 Web 应用" class="article">
+          <div id="post-content" class="post-content">
+            <p>Vue.js是一套用于构建用户界面的渐进式框架，特点是数据驱动，区别传统DOM操作，核心库只关注视图层，易与第三方库或既有项目整合，。而Django由Python的一种经典Web应用框架，采用了MTV模式。两者结合或许能使Web的开发更加高效快捷。</p>
+<h2 id="背景说明"><a class="headerlink" href="#背景说明"></a>背景说明</h2>
+<p>本文将采用Vue.js快速搭建前端页面，使用Django提供服务后端的数据接口，从而实现前后端的分离，快速构建Web应用。</p>
+<h2 id="环境搭建"><a class="headerlink" href="#环境搭建"></a>环境搭建</h2>
+<ol>
+<li>
+<p>Django环境<br>
+Python 2.7 + Django 1.9 + MySQL 5.7 + Python-MySQL连接件<br>
+<strong>说明</strong>：关于Python与MySQL的连接件可以直接使用pip包管理器安装(Linux上推荐)，也可以直接<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pypi.python.org/pypi/MySQL-python/1.2.5">下载安装包</a>(Windows上推荐)</p>
+</li>
+<li>
+<p>Vue.js环境<br>
+Node.js 6.1 + Vue.js 2.0<br>
+<strong>说明</strong>：关于Node.js的版本去官方中文网站下载安装包即可，推荐使用稳定版本，Vue.js的安装可以访问<a target="_blank" rel="external nofollow noopener noreferrer" href="https://cn.vuejs.org/v2/guide/installation.html">官网</a>查看安装说明。</p>
+</li>
+</ol>
+<h2 id="构建Django工程"><a class="headerlink" href="#构建Django工程"></a>构建Django工程</h2>
+<ol>
+<li>构建一个工程，使用命令行和PyCarm集成开发环境均可。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">django-admin startproject Blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="2">
+<li>进入目录创建一个应用。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">python manage.py startapp Article<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="3">
+<li>将该应用加入到settings的INSTALLED_APPS列表。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">INSTALLED_APPS &#x3D; [
+    &#39;...&#39;,
+    &#39;Article&#39;,
+]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li>修改数据库配置，将默认sqlite3数据库更改为MySQL</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">DATABASES &#x3D; &#123;
+    &#39;default&#39;: &#123;
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;Blog&#39;,
+        &#39;USER&#39;: &#39;root&#39;,
+        &#39;PASSWORD&#39;: &#39;1234&#39;,
+        &#39;HOST&#39;: &#39;localhost&#39;,
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          </div>
+          <div class="post-footer">
+            <div class="post-copyright">&copy; 除特殊声明外，文章著作权归作者所有，转载请注明作者及出处</div>
+          </div>
+        </article>
+        <!-- Pagination -->
+        
+          <div class="nagination card">
+            
+              <a href="/Notes/archives/efabc5442959" class="nagination-link">上篇: Vue 本地数据请求配置向 webpack-dev-conf.js 迁移</a>
+            
+            
+              <a href="/Notes/archives/05a81d5d6e2f" class="nagination-link">下篇: Javascript 插件收集</a>
+            
+          </div>
+        
+        <!-- Comment -->
+        <!-- 
+          <div id="article-comment" class="article-comment card"></div>
+
+         -->
+      </div>
+      <div id="toc" class="toc">
+        
+          <ol class="toc-content"><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E8%83%8C%E6%99%AF%E8%AF%B4%E6%98%8E"><span class="toc-content-text">背景说明</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-content-text">环境搭建</span></a></li><li class="toc-content-item toc-content-level-2"><a class="toc-content-link" href="#%E6%9E%84%E5%BB%BADjango%E5%B7%A5%E7%A8%8B"><span class="toc-content-text">构建Django工程</span></a></li></ol>
+        
+      </div>
+    </section>
+
+
+</div>
+        <footer id="footer" class="footer">
+  <div class="outer">
+    <div class="copyright">
+      <p><span>EXP Notes</span> &copy; 2015 - 2022</p>
+    </div>
+    <div class="navigation">
+      <a href="https://evandoz.github.io">Hexo · Levan</a>
+    </div>
+  </div>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  
+  <div id="mobile-nav" class="mobile-nav">
+  
+    <a class="menu-item" href="/Notes/archives">归档</a>
+  
+    <a class="menu-item" href="/Notes/categories">分类</a>
+  
+    <a class="menu-item" href="/Notes/tags">标签</a>
+  
+    <a class="menu-item" href="/Notes/about">关于</a>
+  
+</div>
+
+<div id="over-layer" class="over-layer"></div>
+
+  
+<script src="/Notes/js/jquery.js"></script>
+
+
+<script src="/Notes/js/velocity.js"></script>
+
+
+<script src="/Notes/js/plugins.js"></script>
+
+
+<script src="/Notes/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</body>
+</html>
